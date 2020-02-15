@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/hexoblog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/hexoblog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/hexoblog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/hexoblog/images/logo.svg" color="#222">
 
-  
-  <title>剑指offer刷题 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/hexoblog/css/main.css">
+
+
+<link rel="stylesheet" href="/hexoblog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"braincao.gitee.io","root":"/hexoblog/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
   <meta name="description" content="1234567title: 剑指offer刷题date: 2018-09-21 17:32:47categories: 算法刷题tags:    - 剑指offer刷题source: mac mdupdate: 2020-02-15 13:15:50  此文档包含剑指offer书上所有题目，部分简单的题目没有总结。其中涉及leetcode相关题目也进行对比记录，尽量都留存了最优解。同时牛客网上有剑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="剑指offer刷题">
@@ -18,75 +31,157 @@
 <meta property="article:modified_time" content="2020-02-15T05:15:53.345Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/hexoblog/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/hexoblog/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<link rel="canonical" href="https://braincao.gitee.io/hexoblog/2020/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98/">
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/hexoblog/" id="logo">Hexo</a>
-      </h1>
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>剑指offer刷题 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/hexoblog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/hexoblog/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/hexoblog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/hexoblog/">Home</a>
-        
-          <a class="main-nav-link" href="/hexoblog/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/hexoblog/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://braincao.gitee.io/hexoblog"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-剑指offer刷题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hexoblog/2020/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98/" class="article-date">
-  <time datetime="2020-02-15T03:37:32.203Z" itemprop="datePublished">2020-02-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      剑指offer刷题
-    </h1>
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://braincao.gitee.io/hexoblog/2020/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexoblog/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          剑指offer刷题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-15 11:37:32 / Modified: 13:15:53" itemprop="dateCreated datePublished" datetime="2020-02-15T11:37:32+08:00">2020-02-15</time>
+            </span>
+
+          
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 剑指offer刷题</span><br><span class="line">date: 2018-09-21 17:32:47</span><br><span class="line">categories: 算法刷题</span><br><span class="line">tags:</span><br><span class="line">    - 剑指offer刷题</span><br><span class="line">source: mac md</span><br><span class="line">update: 2020-02-15 13:15:50</span><br></pre></td></tr></table></figure>
 
@@ -1501,117 +1596,185 @@ return res;</code></pre><p>}</p>
 
 
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="https://braincao.gitee.io/hexoblog/2020/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98/" data-id="ck6nmgv820002z30q0w17efds" class="article-share-link">Share</a>
-      
-      
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/hexoblog/2020/02/15/%E5%B7%A6%E7%A5%9E%E5%88%B7%E9%A2%98/" rel="next" title="左神刷题">
+      左神刷题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、题目总览"><span class="nav-number">1.</span> <span class="nav-text">一、题目总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、题目及解答"><span class="nav-number">2.</span> <span class="nav-text">二、题目及解答</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-找出数组中重复的数字"><span class="nav-number">2.1.</span> <span class="nav-text">1.找出数组中重复的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-《剑指offer》p39、leetcode-287"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.《剑指offer》p39、leetcode 287</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-LeetCode-217：Contains-Duplicate"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.LeetCode 217：Contains Duplicate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-LeetCode-219：Contains-Duplicate-II"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.LeetCode 219：Contains Duplicate II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-LeetCode-220：Contains-Duplicate-III"><span class="nav-number">2.1.4.</span> <span class="nav-text">4.LeetCode 220：Contains Duplicate III</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-不修改数组找出重复的数字"><span class="nav-number">2.2.</span> <span class="nav-text">2.不修改数组找出重复的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-0-n-1中缺失的数字-2道"><span class="nav-number">2.3.</span> <span class="nav-text">3.0~n-1中缺失的数字(2道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-0-n-1中缺失的数字-数组有序"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.0~n-1中缺失的数字(数组有序)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-n-1中缺失的数字-数组无序"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.0~n-1中缺失的数字(数组无序)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数组中数字出现的次数-3道"><span class="nav-number">2.4.</span> <span class="nav-text">4.数组中数字出现的次数(3道)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数组中出现次数超过一半的数字"><span class="nav-number">2.5.</span> <span class="nav-text">5.数组中出现次数超过一半的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-数组中出现次数超过1-3的数字"><span class="nav-number">2.6.</span> <span class="nav-text">6.数组中出现次数超过1&#x2F;3的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-统计指定数字在排序数组中出现的次数"><span class="nav-number">2.7.</span> <span class="nav-text">7.统计指定数字在排序数组中出现的次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-二维数组中的查找"><span class="nav-number">2.8.</span> <span class="nav-text">8.二维数组中的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-替换空格"><span class="nav-number">2.9.</span> <span class="nav-text">9.替换空格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-Replace-Words–字典树"><span class="nav-number">2.10.</span> <span class="nav-text">10.Replace Words–字典树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-Find-And-Replace-in-String"><span class="nav-number">2.11.</span> <span class="nav-text">11.Find And Replace in String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-从尾到头打印链表"><span class="nav-number">2.12.</span> <span class="nav-text">12.从尾到头打印链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-反转链表-三道"><span class="nav-number">2.13.</span> <span class="nav-text">13.反转链表(三道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-反转全部链表"><span class="nav-number">2.13.1.</span> <span class="nav-text">1.反转全部链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-反转部分链表"><span class="nav-number">2.13.2.</span> <span class="nav-text">2.反转部分链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-分组翻转链表"><span class="nav-number">2.13.3.</span> <span class="nav-text">3.分组翻转链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-根据前序-中序遍历数组来重建二叉树"><span class="nav-number">2.14.</span> <span class="nav-text">14.根据前序+中序遍历数组来重建二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-二叉树的下一个节点"><span class="nav-number">2.15.</span> <span class="nav-text">15.二叉树的下一个节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-Populating-Next-Right-Pointers-in-Each-Node"><span class="nav-number">2.16.</span> <span class="nav-text">16.Populating Next Right Pointers in Each Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-Populating-Next-Right-Pointers-in-Each-Node-II"><span class="nav-number">2.17.</span> <span class="nav-text">17.Populating Next Right Pointers in Each Node II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-两个栈实现队列"><span class="nav-number">2.18.</span> <span class="nav-text">18.两个栈实现队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-两个队列实现栈"><span class="nav-number">2.19.</span> <span class="nav-text">19.两个队列实现栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-斐波那契数列-三道"><span class="nav-number">2.20.</span> <span class="nav-text">20.斐波那契数列(三道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-斐波那契数列"><span class="nav-number">2.20.1.</span> <span class="nav-text">1.斐波那契数列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-青蛙跳台阶"><span class="nav-number">2.20.2.</span> <span class="nav-text">2.青蛙跳台阶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-变态跳台阶"><span class="nav-number">2.20.3.</span> <span class="nav-text">3.变态跳台阶</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#21-斐波那契数列变种-两道"><span class="nav-number">2.21.</span> <span class="nav-text">21.斐波那契数列变种(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Length-of-Longest-Fibonacci-Subsequence"><span class="nav-number">2.21.1.</span> <span class="nav-text">1.Length of Longest Fibonacci Subsequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Split-Array-into-Fibonacci-Sequence"><span class="nav-number">2.21.2.</span> <span class="nav-text">2.Split Array into Fibonacci Sequence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-Additive-Number"><span class="nav-number">2.22.</span> <span class="nav-text">22.Additive Number</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-旋转数组的最小数字-三道"><span class="nav-number">2.23.</span> <span class="nav-text">23.旋转数组的最小数字(三道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-旋转数组的最小数字"><span class="nav-number">2.23.1.</span> <span class="nav-text">1.旋转数组的最小数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Find-Minimum-in-Rotated-Sorted-Array-2"><span class="nav-number">2.23.2.</span> <span class="nav-text">2.Find Minimum in Rotated Sorted Array 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-矩阵中的路径"><span class="nav-number">2.24.</span> <span class="nav-text">24.矩阵中的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-机器人的运动范围"><span class="nav-number">2.25.</span> <span class="nav-text">25.机器人的运动范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-Unique-Paths-两道"><span class="nav-number">2.26.</span> <span class="nav-text">26.Unique Paths(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Unique-Paths"><span class="nav-number">2.26.1.</span> <span class="nav-text">1.Unique Paths</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Unique-Paths-2"><span class="nav-number">2.26.2.</span> <span class="nav-text">2.Unique Paths 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-剪绳子"><span class="nav-number">2.27.</span> <span class="nav-text">27.剪绳子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-不用加减乘除做加法"><span class="nav-number">2.28.</span> <span class="nav-text">28.不用加减乘除做加法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29-Two-Sum"><span class="nav-number">2.29.</span> <span class="nav-text">29.Two Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#30-二进制中1的个数"><span class="nav-number">2.30.</span> <span class="nav-text">30.二进制中1的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#31-数值的整数次方"><span class="nav-number">2.31.</span> <span class="nav-text">31.数值的整数次方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-打印从1到最大的n位数"><span class="nav-number">2.32.</span> <span class="nav-text">32.打印从1到最大的n位数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-删除链表中重复的节点-两道"><span class="nav-number">2.33.</span> <span class="nav-text">33.删除链表中重复的节点(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Remove-Duplicates-from-Sorted-List"><span class="nav-number">2.33.1.</span> <span class="nav-text">1.Remove Duplicates from Sorted List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Remove-Duplicates-from-Sorted-List-II"><span class="nav-number">2.33.2.</span> <span class="nav-text">2.Remove Duplicates from Sorted List II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#34-正则表达式匹配"><span class="nav-number">2.34.</span> <span class="nav-text">34.正则表达式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35-表示数值的字符串"><span class="nav-number">2.35.</span> <span class="nav-text">35.表示数值的字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#36-调整数组顺序使奇数位于偶数前面-3道"><span class="nav-number">2.36.</span> <span class="nav-text">36.调整数组顺序使奇数位于偶数前面(3道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#《剑指offer》p129-需要保持顺序不变"><span class="nav-number">2.36.1.</span> <span class="nav-text">《剑指offer》p129(需要保持顺序不变)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sort-Array-By-Parity"><span class="nav-number">2.36.2.</span> <span class="nav-text">Sort Array By Parity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Odd-Even-Linked-List"><span class="nav-number">2.36.3.</span> <span class="nav-text">Odd Even Linked List</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#37-链表中倒数第k个结点-两道"><span class="nav-number">2.37.</span> <span class="nav-text">37.链表中倒数第k个结点(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-返回倒数第k个结点"><span class="nav-number">2.37.1.</span> <span class="nav-text">1.返回倒数第k个结点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-删除倒数第k个节点"><span class="nav-number">2.37.2.</span> <span class="nav-text">2.删除倒数第k个节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#38-判断链表是否有环-两道"><span class="nav-number">2.38.</span> <span class="nav-text">38.判断链表是否有环(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-判断链表是否有环"><span class="nav-number">2.38.1.</span> <span class="nav-text">1.判断链表是否有环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-判断链表是否有环，有则返回环的入口结点"><span class="nav-number">2.38.2.</span> <span class="nav-text">2.判断链表是否有环，有则返回环的入口结点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#39-两个单链表相交的第一个公共节点-2道"><span class="nav-number">2.39.</span> <span class="nav-text">39.两个单链表相交的第一个公共节点(2道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-两个链表的第一个公共节点-无环"><span class="nav-number">2.39.1.</span> <span class="nav-text">1.两个链表的第一个公共节点(无环)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-两个链表的第一个公共节点-可能有环，需自己判断"><span class="nav-number">2.39.2.</span> <span class="nav-text">2.两个链表的第一个公共节点(可能有环，需自己判断)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#40-合并两个排序的链表"><span class="nav-number">2.40.</span> <span class="nav-text">40.合并两个排序的链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#41-树的子结构"><span class="nav-number">2.41.</span> <span class="nav-text">41.树的子结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-二叉树的翻转-镜像-与对称-2道"><span class="nav-number">2.42.</span> <span class="nav-text">42.二叉树的翻转(镜像)与对称(2道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-二叉树的翻转-镜像"><span class="nav-number">2.42.1.</span> <span class="nav-text">1.二叉树的翻转(镜像)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对称的二叉树"><span class="nav-number">2.42.2.</span> <span class="nav-text">2.对称的二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#43-顺时针打印矩阵"><span class="nav-number">2.43.</span> <span class="nav-text">43.顺时针打印矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#44-包含min函数的栈"><span class="nav-number">2.44.</span> <span class="nav-text">44.包含min函数的栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#45-栈的压入、弹出序列"><span class="nav-number">2.45.</span> <span class="nav-text">45.栈的压入、弹出序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#46-二叉树的层序遍历-3道"><span class="nav-number">2.46.</span> <span class="nav-text">46.二叉树的层序遍历(3道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-二叉树的层序遍历"><span class="nav-number">2.46.1.</span> <span class="nav-text">1.二叉树的层序遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-二叉树的层序遍历，按行打印"><span class="nav-number">2.46.2.</span> <span class="nav-text">2.二叉树的层序遍历，按行打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-二叉树的层序遍历，之字形按行打印"><span class="nav-number">2.46.3.</span> <span class="nav-text">3.二叉树的层序遍历，之字形按行打印</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#47-递归与非递归实现二叉树前序、中序、后序遍历"><span class="nav-number">2.47.</span> <span class="nav-text">47.递归与非递归实现二叉树前序、中序、后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前序："><span class="nav-number">2.47.1.</span> <span class="nav-text">1.前序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-中序"><span class="nav-number">2.47.2.</span> <span class="nav-text">2.中序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-后序"><span class="nav-number">2.47.3.</span> <span class="nav-text">3.后序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#48-判断数组是否为二叉搜索树的后续遍历序列"><span class="nav-number">2.48.</span> <span class="nav-text">48.判断数组是否为二叉搜索树的后续遍历序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#49-二叉树中和为指定值的路径-2道"><span class="nav-number">2.49.</span> <span class="nav-text">49.二叉树中和为指定值的路径(2道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Path-Sum"><span class="nav-number">2.49.1.</span> <span class="nav-text">1.Path Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Path-Sum-2"><span class="nav-number">2.49.2.</span> <span class="nav-text">2.Path Sum 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#50-复杂链表的复制"><span class="nav-number">2.50.</span> <span class="nav-text">50.复杂链表的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#51-二叉搜索树与双向链表-两道"><span class="nav-number">2.51.</span> <span class="nav-text">51.二叉搜索树与双向链表(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-二叉搜索树转双向链表"><span class="nav-number">2.51.1.</span> <span class="nav-text">1.二叉搜索树转双向链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-有序数组转平衡二叉树"><span class="nav-number">2.51.2.</span> <span class="nav-text">2.有序数组转平衡二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52-序列化二叉树"><span class="nav-number">2.52.</span> <span class="nav-text">52.序列化二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#53-全排列-组合问题-五道"><span class="nav-number">2.53.</span> <span class="nav-text">53.全排列&#x2F;组合问题(五道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-字符串的全排列"><span class="nav-number">2.53.1.</span> <span class="nav-text">1.字符串的全排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-无重复数字的全排列"><span class="nav-number">2.53.2.</span> <span class="nav-text">2.无重复数字的全排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-有重复数字的全排列"><span class="nav-number">2.53.3.</span> <span class="nav-text">3.有重复数字的全排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-八皇后问题"><span class="nav-number">2.53.4.</span> <span class="nav-text">4.八皇后问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-字符串s1的全排列是否在s2字符串中"><span class="nav-number">2.53.5.</span> <span class="nav-text">5.字符串s1的全排列是否在s2字符串中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#54-打印出给定字符串中字符的所有组合"><span class="nav-number">2.54.</span> <span class="nav-text">54.打印出给定字符串中字符的所有组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#55-大-小根堆–优先队列实现-两道"><span class="nav-number">2.55.</span> <span class="nav-text">55.大&#x2F;小根堆–优先队列实现(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-找出数组中最小的k个数-优先队列大根堆"><span class="nav-number">2.55.1.</span> <span class="nav-text">1.找出数组中最小的k个数(优先队列大根堆)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-找出数组中第k大的数-优先队列小根堆"><span class="nav-number">2.55.2.</span> <span class="nav-text">2.找出数组中第k大的数(优先队列小根堆)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#56-数据流中的中位数"><span class="nav-number">2.56.</span> <span class="nav-text">56.数据流中的中位数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#57-数组中最大连续子序列的和"><span class="nav-number">2.57.</span> <span class="nav-text">57.数组中最大连续子序列的和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#58-1到n整数中1出现的次数"><span class="nav-number">2.58.</span> <span class="nav-text">58.1到n整数中1出现的次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#60-把数组排成最小的数"><span class="nav-number">2.59.</span> <span class="nav-text">60.把数组排成最小的数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#61-求把一个数字翻译成不同字符串的个数-DP"><span class="nav-number">2.60.</span> <span class="nav-text">61.求把一个数字翻译成不同字符串的个数(DP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#62-礼物的最大价值"><span class="nav-number">2.61.</span> <span class="nav-text">62.礼物的最大价值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63-最长不含重复字符的子字符串长度"><span class="nav-number">2.62.</span> <span class="nav-text">63.最长不含重复字符的子字符串长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#64-丑数-两道"><span class="nav-number">2.63.</span> <span class="nav-text">64.丑数(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-判断一个数是否为丑数"><span class="nav-number">2.63.1.</span> <span class="nav-text">1.判断一个数是否为丑数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-求第N个丑数是几"><span class="nav-number">2.63.2.</span> <span class="nav-text">2.求第N个丑数是几</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#65-第一个只出现一次的字符"><span class="nav-number">2.64.</span> <span class="nav-text">65.第一个只出现一次的字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#66-归并排序相关-3道"><span class="nav-number">2.65.</span> <span class="nav-text">66.归并排序相关(3道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数组的归并排序"><span class="nav-number">2.65.1.</span> <span class="nav-text">1.数组的归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数组中的逆序对-2道"><span class="nav-number">2.65.2.</span> <span class="nav-text">2.数组中的逆序对(2道)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-求出数组中逆序对的个数"><span class="nav-number">2.65.2.1.</span> <span class="nav-text">2.1 求出数组中逆序对的个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Reverse-Pairs"><span class="nav-number">2.65.2.2.</span> <span class="nav-text">2.2 Reverse Pairs</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-单链表的归并排序"><span class="nav-number">2.65.3.</span> <span class="nav-text">3.单链表的归并排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#67-二叉搜索树的第k小节点-中序遍历"><span class="nav-number">2.66.</span> <span class="nav-text">67.二叉搜索树的第k小节点(中序遍历)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#68-二叉树的深度-两道"><span class="nav-number">2.67.</span> <span class="nav-text">68.二叉树的深度(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-求二叉树的深度"><span class="nav-number">2.67.1.</span> <span class="nav-text">1.求二叉树的深度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-判断是否为平衡二叉树"><span class="nav-number">2.67.2.</span> <span class="nav-text">2.判断是否为平衡二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#69-数组中和为s的数字-四道"><span class="nav-number">2.68.</span> <span class="nav-text">69.数组中和为s的数字(四道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-数组中和为s的两个数字-有序数组"><span class="nav-number">2.68.1.</span> <span class="nav-text">1.数组中和为s的两个数字(有序数组)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数组中和为s的两个数字-无序数组"><span class="nav-number">2.68.2.</span> <span class="nav-text">2.数组中和为s的两个数字(无序数组)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-打印出和为s的所有连续正数序列"><span class="nav-number">2.68.3.</span> <span class="nav-text">3.打印出和为s的所有连续正数序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-求和为s的所有连续正数序列的总数-转化为找因子的思想"><span class="nav-number">2.68.4.</span> <span class="nav-text">4.求和为s的所有连续正数序列的总数(转化为找因子的思想)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#70-翻转字符串-两道"><span class="nav-number">2.69.</span> <span class="nav-text">70.翻转字符串(两道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-翻转一句话的单词顺序-单词不变"><span class="nav-number">2.69.1.</span> <span class="nav-text">1.翻转一句话的单词顺序(单词不变)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-左旋转字符串"><span class="nav-number">2.69.2.</span> <span class="nav-text">2.左旋转字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#71-滑动窗口最大值-双端队列"><span class="nav-number">2.70.</span> <span class="nav-text">71.滑动窗口最大值(双端队列)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#72-打印n个骰子所有可能的点数和及概率"><span class="nav-number">2.71.</span> <span class="nav-text">72.打印n个骰子所有可能的点数和及概率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#73-扑克牌中的顺子-2道"><span class="nav-number">2.72.</span> <span class="nav-text">73.扑克牌中的顺子(2道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-整个数组是否为一个顺子-同时有大小王"><span class="nav-number">2.72.1.</span> <span class="nav-text">1.整个数组是否为一个顺子(同时有大小王)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-整个数组分组后每组都要为顺子"><span class="nav-number">2.72.2.</span> <span class="nav-text">2.整个数组分组后每组都要为顺子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#74-圆圈中剩下的数-约瑟夫环问题"><span class="nav-number">2.73.</span> <span class="nav-text">74.圆圈中剩下的数(约瑟夫环问题)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#75-股票的最大利润问题-四道"><span class="nav-number">2.74.</span> <span class="nav-text">75.股票的最大利润问题(四道)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-只允许买卖一次股票，求最大收益"><span class="nav-number">2.74.1.</span> <span class="nav-text">1.只允许买卖一次股票，求最大收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-允许多次买卖，求最大收益"><span class="nav-number">2.74.2.</span> <span class="nav-text">2.允许多次买卖，求最大收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-只允许买卖两次股票，求最大收益"><span class="nav-number">2.74.3.</span> <span class="nav-text">3.只允许买卖两次股票，求最大收益</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-只允许买卖k次股票，求最大收益"><span class="nav-number">2.74.4.</span> <span class="nav-text">4.只允许买卖k次股票，求最大收益</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#76-求1-2-3-…-n"><span class="nav-number">2.75.</span> <span class="nav-text">76.求1+2+3+…+n</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#77-构建乘积数组"><span class="nav-number">2.76.</span> <span class="nav-text">77.构建乘积数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#78-普通二叉树中两个节点的最低公共祖先"><span class="nav-number">2.77.</span> <span class="nav-text">78.普通二叉树中两个节点的最低公共祖先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#79-把字符串转换成整数"><span class="nav-number">2.78.</span> <span class="nav-text">79.把字符串转换成整数</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/hexoblog/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/hexoblog/2020/02/15/%E5%B7%A6%E7%A5%9E%E5%88%B7%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          左神刷题
-        
-      </div>
-    </a>
-  
-  
-</nav>
 
   
-</article>
+  <script src="/hexoblog/lib/anime.min.js"></script>
+  <script src="/hexoblog/lib/velocity/velocity.min.js"></script>
+  <script src="/hexoblog/lib/velocity/velocity.ui.min.js"></script>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<script src="/hexoblog/js/utils.js"></script>
 
-  
-    
+<script src="/hexoblog/js/motion.js"></script>
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/hexoblog/archives/2020/02/">February 2020</a></li></ul>
-    </div>
-  </div>
+
+<script src="/hexoblog/js/schemes/pisces.js"></script>
+
+
+<script src="/hexoblog/js/next-boot.js"></script>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/hexoblog/2020/02/15/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/hexoblog/2020/02/15/%E5%B7%A6%E7%A5%9E%E5%88%B7%E9%A2%98/">左神刷题</a>
-          </li>
-        
-          <li>
-            <a href="/hexoblog/2020/02/15/%E5%89%91%E6%8C%87offer%E5%88%B7%E9%A2%98/">剑指offer刷题</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/hexoblog/" class="mobile-nav-link">Home</a>
-  
-    <a href="/hexoblog/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
 
 
   
-<link rel="stylesheet" href="/hexoblog/fancybox/jquery.fancybox.css">
 
   
-<script src="/hexoblog/fancybox/jquery.fancybox.pack.js"></script>
 
-
-
-
-<script src="/hexoblog/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
