@@ -42,6 +42,8 @@
 
 
 
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
 <script src="/hexoblog/js/iconfont.js?v=1.0.1" ></script>
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -453,21 +455,23 @@ img source: csdn——如果有图的话就在csdn上编辑，再同步至mac上
 
 
     <div id="comments"></div>
-<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
-<script src="/hexoblog/js/gitment.js"></script>
-
-<script>
-    var gitment = new Gitment({
-        id: 'https://braincao.gitee.io/hexoblog/hexoblog/2018/02/22/Hexo%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/', // 可选。默认为 location.href
-        owner: 'braincao',
-        repo: 'braincao.github.io/',
-        oauth: {
-            client_id: '89451ca2d48bd1778ecb',
-            client_secret: '7cbe9257a0d44707e3f922c96ce3f5cef1036ffc',
-        },
+<script type="text/javascript">
+    $.getScript('/hexoblog/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '89451ca2d48bd1778ecb',
+            clientSecret: '7cbe9257a0d44707e3f922c96ce3f5cef1036ffc',
+            repo: 'braincao.github.io',
+            owner: 'braincao',
+            admin: ['braincao'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
     })
-    gitment.render('comments')
 </script>
 
 
