@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>修改hosts-加速github访问速度</title>
+      <link href="/2020/02/20/github-host/"/>
+      <url>/2020/02/20/github-host/</url>
+      
+        <content type="html"><![CDATA[<p>通过修改hosts，解决github访问慢及加载不出头像问题</p><a id="more"></a><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>github访问慢及加载不出头像问题</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p>在<a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a>网站查下列域名对应的IP地址，如果同一个域名有好几个ip，那就ping一下选个速度最快的。</p><p>修改hosts，<code>sudo vi /etc/hosts</code>，添加下面域名解析，再刷新dns：<code>sudo killall -HUP mDNSResponder</code></p><pre><code>#解决git clone 速度慢的问题,这个不要动192.30.253.112 github.com151.101.185.194 github.global.ssl.fastly.net#下面的实时查192.30.253.119 gist.github.com199.232.28.133 assets-cdn.github.com199.232.28.133 raw.githubusercontent.com199.232.28.133 gist.githubusercontent.com199.232.28.133 cloud.githubusercontent.com199.232.28.133 camo.githubusercontent.com199.232.28.133 avatars0.githubusercontent.com199.232.28.133 avatars1.githubusercontent.com199.232.28.133 avatars2.githubusercontent.com199.232.28.133 avatars3.githubusercontent.com199.232.28.133 avatars4.githubusercontent.com199.232.28.133 avatars5.githubusercontent.com199.232.28.133 avatars6.githubusercontent.com199.232.28.133 avatars7.githubusercontent.com199.232.28.133 avatars8.githubusercontent.com#解决浏览器下载master-zip包的问题140.82.113.10 codeload.github.com</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 综合技术问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hosts </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客系统搭建过程</title>
       <link href="/2018/02/22/build-hexo/"/>
       <url>/2018/02/22/build-hexo/</url>
