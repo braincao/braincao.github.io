@@ -333,8 +333,7 @@ root: /
 deploy:
   type: git
   repo: git@gitee.com:username/repo.git
-  branch: master
-</code></pre><h2 id="发布博客到gitee"><a href="#发布博客到gitee" class="headerlink" title="发布博客到gitee"></a>发布博客到gitee</h2><p>安装Hexo必备插件：</p>
+  branch: master</code></pre><h2 id="发布博客到gitee"><a href="#发布博客到gitee" class="headerlink" title="发布博客到gitee"></a>发布博客到gitee</h2><p>安装Hexo必备插件：</p>
 <pre><code>npm install hexo-deployer-git --save #hexo通过git发布</code></pre><p>输入命令发布博客，首次发布需要在shell中输入账号和密码:</p>
 <pre><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></pre><p>github会发布后会自动更新博客页面，码云将此功能变为人民币玩家功能，因此发布后需要在码云仓库中手动update才能更新博客</p>
 <h2 id="附常用hexo命令"><a href="#附常用hexo命令" class="headerlink" title="附常用hexo命令"></a>附常用hexo命令</h2><pre><code>hexo clean #清除public静态页面缓存（如果有）
@@ -353,16 +352,15 @@ hexo n page &#39;about&#39; #建立导航栏菜单，如about关于页面</code>
 <p>下面仅以3-hexo为例，罗列下我的个性化配置。</p>
 <h2 id="主题下载"><a href="#主题下载" class="headerlink" title="主题下载"></a>主题下载</h2><p>Hexo系统有很多主题，较为主流的如Next主题，本文采用3-hexo主题。<br>    git clone <a href="https://github.com/yelog/hexo-theme-3-hexo.git" target="_blank" rel="noopener">https://github.com/yelog/hexo-theme-3-hexo.git</a> themes/3-hexo</p>
 <h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p>在根目录的站点配置文件配置主题即可</p>
-<pre><code>theme: 3-hexo</code></pre><p>这里注意3-hexo主题有个坑，配置时还需在主题配置文件中更改根目录：</p>
+<p><code>theme: 3-hexo</code></p>
+<p>这里注意3-hexo主题有个坑，配置时还需在主题配置文件中更改根目录：</p>
 <pre><code>#如果博客放置位置不是根目录，则可以通过配置此路径解决静态文件路径错误问题
 #比如访问地址为 yelog.org/blog 那就需要配置为 blog_path: /blog 才能正常访问
 
-blog_path: /hexoblog #记得改这里，初始是/
-</code></pre><h2 id="顺着主题-站点配置文件改"><a href="#顺着主题-站点配置文件改" class="headerlink" title="顺着主题/站点配置文件改"></a>顺着主题/站点配置文件改</h2><p>更改能看懂的先，如作者、头像、github/邮箱地址、评论、友情链接、打赏二维码、置顶、评论(gitalk)等，看不懂的先别改。</p>
+blog_path: /hexoblog #记得改这里，初始是/</code></pre><h2 id="顺着主题-站点配置文件改"><a href="#顺着主题-站点配置文件改" class="headerlink" title="顺着主题/站点配置文件改"></a>顺着主题/站点配置文件改</h2><p>更改能看懂的先，如作者、头像、github/邮箱地址、评论、友情链接、打赏二维码、置顶、评论(gitalk)等，看不懂的先别改。</p>
 <p>这里有个点，3-hexo有自己的语法高亮，因此需把hexo站点高亮关了</p>
 <pre><code>highlight:
-  enable: false  #true改成false
-</code></pre><h2 id="文章分类-amp-md头部"><a href="#文章分类-amp-md头部" class="headerlink" title="文章分类 &amp; md头部"></a>文章分类 &amp; md头部</h2><p>写md时直接分类即可，另外3-hexo原生支持多级分类（在主题配置文件中有详细介绍），具体的md头部如下：</p>
+  enable: false  #true改成false</code></pre><h2 id="文章分类-amp-md头部"><a href="#文章分类-amp-md头部" class="headerlink" title="文章分类 &amp; md头部"></a>文章分类 &amp; md头部</h2><p>写md时直接分类即可，另外3-hexo原生支持多级分类（在主题配置文件中有详细介绍），具体的md头部如下：</p>
 <pre><code>---
 
 title: 剑指offer刷题
@@ -378,14 +376,13 @@ originUrl: https://zhuanlan.zhihu.com/p/28987530
 source: mac md
 img source: csdn——如果有图的话就在csdn上编辑，再同步至mac md上，最后再从mac md源进行全网同步
 
----
-</code></pre><p>注意：有的主题首页只显示文章的简介(全文阅读)：在md文章中的合适位置添加 &lt; !–more–&gt; 标签即可，之前的文字都会写在首页文章名称下面的简介里</p>
+---</code></pre><p>注意：有的主题首页只显示文章的简介(全文阅读)：在md文章中的合适位置添加 &lt; !–more–&gt; 标签即可，之前的文字都会写在首页文章名称下面的简介里</p>
 <h2 id="关于、相册等导航栏菜单建立"><a href="#关于、相册等导航栏菜单建立" class="headerlink" title="关于、相册等导航栏菜单建立"></a>关于、相册等导航栏菜单建立</h2><p>Hexo里，默认的导航菜单只有Home和Archives两项，还需自行添加其他导航栏菜单</p>
-<pre><code>hexo n page &#39;about&#39;</code></pre><p>这样就建立了source/about文件夹，然后在主题配置文件中：</p>
+<p><code>hexo n page &#39;about&#39;</code></p>
+<p>这样就建立了source/about文件夹，然后在主题配置文件中：</p>
 <pre><code>menu:
   Home: /
-  About: /about  #注意3-hexo主题这里需要改成hexoblog/about
-</code></pre><p>在menu中加了一项设置About: /about，前面部分是显示名称，后面部分是访问路径，即source/about中的index.md，就是想要访问About时的页面。同理，还可添加别的菜单，如  <code>Archives: /archives</code>、<code>Photo: /photo</code>等</p>
+  About: /about  #注意3-hexo主题这里需要改成hexoblog/about</code></pre><p>在menu中加了一项设置About: /about，前面部分是显示名称，后面部分是访问路径，即source/about中的index.md，就是想要访问About时的页面。同理，还可添加别的菜单，如  <code>Archives: /archives</code>、<code>Photo: /photo</code>等</p>
 <h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>gitee pages 会自动生成hexo博客地址，可正常访问，如果有自定义域名需要则要进行如下操作。</p>
 <ol>
 <li><p>阿里云购买域名、购买云解析dns服务，再购买免费的DVssl安全证书</p>
