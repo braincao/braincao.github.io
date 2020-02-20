@@ -23,15 +23,15 @@
 
 <link rel="icon" href="/img/avatar.gif">
 
-<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+<link href="/hexoblog/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+<link href="/hexoblog/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
 
 <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+<script src="/hexoblog/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
 
 <script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script>
@@ -44,20 +44,20 @@
 
 <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/js/iconfont.js?v=1.0.1" ></script>
+<script src="/hexoblog/js/iconfont.js?v=1.0.1" ></script>
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="true">
-  <input class="theme_blog_path" value="">
+  <input class="theme_blog_path" value="/hexoblog">
 </div>
 
 <body>
 <aside class="nav">
     <div class="nav-left">
-        <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.gif" />
+        <a href="/hexoblog/" class="avatar_target">
+    <img class="avatar" src="/hexoblog/img/avatar.gif" />
 </a>
 <div class="author">
     <span>Brain Cao</span>
@@ -282,7 +282,7 @@
 <p>说道技术博客，最开始在csdn上记录技术学习笔记较多，坚持时间较长。后来也迁移副本至博客园，可能先入为主的原因，之后一直没再同步更新，今天直接把博客园删了。同样，先前也有自己搭建过一次博客，jekyll系统、Hexo系统都做过，后来因为考研的原因也都草草收场。博客虽搁置一边但笔记还要记啊，懒出天际的我直接markdown文档保存在电脑中，这些待嫁的深闺文章越积越多，毕业前的寒假闲来无事，突然想起这些烂摊子该理一理。</p>
 <p>除了csdn/cnblog/语雀这种商业博客，先后几次自己动手搭建个人博客，有从头写html/css/js的作坊博客，当然也有最后确定要用的hexo博客系统。</p>
 <p>hexo好处多多，不用自己架服务器，同时主题样式可选种类较多，开源且稳定，最开始用的时候用github管理，后来由于各种原因墙内访问越来越慢（你懂），因此就搭建个人博客来说选择gitee来做托管仓库，访问速度提升不少。</p>
-<p>先附上建好的hexo博客，欢迎交流：<a href="https://braincao.gitee.io/hexoblog/" target="_blank" rel="noopener">https://braincao.gitee.io/hexoblog/</a></p>
+<p>先附上建好的hexo博客，欢迎交流：<a href="https://braincao.cn/">https://braincao.cn/</a></p>
 <p>下面主要总结一下gitee+hexo的搭建过程以及遇到的坑，如果用github也是异曲同工，对号入座即可。</p>
 <h1 id="一、先搭建-建立博客系统"><a href="#一、先搭建-建立博客系统" class="headerlink" title="一、先搭建-建立博客系统"></a>一、先搭建-建立博客系统</h1><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p>到<a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a>官网下载node.js并安装</p>
 <h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>自行百度安装</p>
@@ -294,7 +294,7 @@ npm install</code></pre><h2 id="远程建立gitee上的hexo系统"><a href="#远
 <ol>
 <li><p>码云注册并建立名为hexoblog的仓库（使用readme初始化项目）</p>
 </li>
-<li><p>通过 <code>hexoblog项目-&gt;Service-&gt;Gitee Pages服务</code> 建立博客仓库，它会自动生成博客地址 <code>https://braincao.gitee.io/hexoblog</code></p>
+<li><p>通过 <code>hexoblog项目-&gt;Service-&gt;Gitee Pages服务</code> 建立博客仓库，它会自动生成博客地址，下文会介绍自定义域名绑定博客地址</p>
 </li>
 <li><p>添加ssh key：将本地的id_rsa.pub添加到gitee个人中心的ssh key中。为什么要添加ssh key？ 原因：后续想用git方式通过ssh与远程仓库连接，快捷一些，但为了安全起见，需要公密钥的方式来连接。本地设置gitglobal的user.name user.email，生成一个基于如user.email的ssh key，它是一对私钥和公钥，私钥自己保存别动它，把ssh key中的公钥添加到github官网自己账号中，这样就可以用自己设备很方便的连接至自己的github并享受其服务。如有多台设备，可以每台设备生成一对ssh key，并将多个公钥添加github账号中即可，这样就可以实现多台设备无缝连接，便于移动办公。</p>
 </li>
@@ -365,7 +365,7 @@ img source: csdn——如果有图的话就在csdn上编辑，再同步至mac md
 </li>
 <li><p>在本地hexo根目录的source文件夹中新建CNAME文件，里面写自定义的域名braincao.cn，然后hexo clean &amp; hexo g &amp; hexo d</p>
 </li>
-<li><p>在gitee的page service中添加自定义域名 braincao.cn，再把已买好的ssl证书上传，即可生成<a href="https://braincao.cn的博客地址" target="_blank" rel="noopener">https://braincao.cn的博客地址</a></p>
+<li><p>在gitee的page service中添加自定义域名 braincao.cn，再把已买好的ssl证书上传，即可生成<code>https://braincao.cn</code>的博客地址</p>
 </li>
 </ol>
 <p>这样就可以通过自定义域名访问博客地址了，自定义域名的好处可以不透漏gitee项目地址，通过阿里云有负载均衡等付费服务，访问延时更低</p>
@@ -432,8 +432,8 @@ img source: csdn——如果有图的话就在csdn上编辑，再同步至mac md
     </div>
     <div class="shang_payimg">
         <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+            <img src="/hexoblog/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/hexoblog/img/weixin.jpg" class="weixin" title="扫码支持">
         </div>
     </div>
     <div class="shang_payselect">
@@ -443,9 +443,9 @@ img source: csdn——如果有图的话就在csdn上编辑，再同步至mac md
 
 
 </body>
-<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+<script src="/hexoblog/js/jquery.pjax.js?v=1.0.1" ></script>
 
-<script src="/js/script.js?v=1.0.1" ></script>
+<script src="/hexoblog/js/script.js?v=1.0.1" ></script>
 <script>
     var img_resize = 'default';
     /*作者、标签的自动补全*/
