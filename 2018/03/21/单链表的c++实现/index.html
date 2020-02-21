@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Braincao&#39;s Blog | Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Braincao&#39;s Blog | Hexo">
+  <title>单链表的c++实现 | Hexo</title>
+  <meta name="keywords" content=" 链表 , 单链表 ">
+  <meta name="description" content="单链表的c++实现 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 阿里-蚂蚁金服，java技术栈 最近  搭建博客+精装修+自定义域名  整理、迁移博客  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
 <meta property="og:type" content="website">
@@ -256,30 +256,42 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-blog-index" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-单链表的c++实现" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Braincao&#39;s Blog</h1>
+        <h1 class="article-title">单链表的c++实现</h1>
     
     <div class="article-meta">
         
-        <span class="top"><a>置顶</a></span>
         
         
+        <span class="book">
+            
+                <a  data-rel="leetcode与算法">leetcode与算法</a>
+            
+        </span>
         
+        
+        <span class="tag">
+            
+            <a class="color3">链表</a>
+            
+            <a class="color4">单链表</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date">2020-02-21 01:37</time>
+        创建时间:<time class="date">2018-03-21 15:33</time>
         
         
-        更新时间:<time class="updated">2020-02-20 22:00</time>
+        更新时间:<time class="updated">2019-04-21 21:45</time>
         
 
     </div>
     <div class="article-meta">
         
-        <span>字数:378</span>
+        <span>字数:225</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -298,7 +310,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于博客"><span class="toc-text">关于博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实时统计"><span class="toc-text">实时统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要功能"><span class="toc-text">主要功能</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -314,69 +326,105 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p>本博客主要记录技术相关的学习笔记与总结，少量包含阶段性节点的成长轨迹与人生思索。它不像微信收藏那样碎片化，也不像商业博文太过公开，它是可自由控制且更为专业性的私人空间。</p>
-<p>所有博文中，绝大多数为原创或有自我沉淀部分，价值高低个人不做评判，因为分享的同时也在收获自己。</p>
-<p>由于第三方评论插件安全性不足，关闭了评论功能，如需联系我请走左下角。当然，本博主随时可接受金钱勾引，在每页最下方点击神奇按钮即可启动资本关怀，这是我最大的动力。</p>
-<h2 id="实时统计"><a href="#实时统计" class="headerlink" title="实时统计"></a>实时统计</h2><p>截至目前，本人已写 <code class="article_number"></code> 篇文章， 共 <code class="site_word_count"></code> 字，</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
-<li>搜索支持文章标题、标签(#标签)、全文搜索(in:)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局vim式快捷键，快捷键说明如下</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">key</th>
-<th align="center">Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">s/S</td>
-<td align="center">全屏/取消全屏</td>
-</tr>
-<tr>
-<td align="center">w/W</td>
-<td align="center">显示/关闭文章目录</td>
-</tr>
-<tr>
-<td align="center">gg/GG</td>
-<td align="center">到页顶</td>
-</tr>
-<tr>
-<td align="center">shift+G/g</td>
-<td align="center">到页尾</td>
-</tr>
-<tr>
-<td align="center">j/J</td>
-<td align="center">向下滑动</td>
-</tr>
-<tr>
-<td align="center">k/K</td>
-<td align="center">向上滑动</td>
-</tr>
-<tr>
-<td align="center">i/I</td>
-<td align="center">启动搜索</td>
-</tr>
-<tr>
-<td align="center">ESC</td>
-<td align="center">若搜索框有内容，清除内容； 若搜索框无内容，取消搜索</td>
-</tr>
-<tr>
-<td align="center">上</td>
-<td align="center">向上选择文章</td>
-</tr>
-<tr>
-<td align="center">下</td>
-<td align="center">向下选择文章</td>
-</tr>
-<tr>
-<td align="center">回车</td>
-<td align="center">打开当前选中的文章，默认打开第一个</td>
-</tr>
-</tbody></table>
+        <p>这个一篇单链表的c++实现小练习</p>
+<a id="more"></a>
 
+<pre><code class="c++">
+    #include&lt;iostream&gt;
+    using namespace std;
+    /**
+     * 单链表的c++实现
+     */
+
+    struct node
+    {
+        int val;
+        struct node* next;
+        node(int v): val(v), next(NULL) {}
+    };
+
+    class List
+    {
+    private:
+        node* head;
+    public:
+        List()
+        {
+            head = NULL;
+        }
+
+        ~List();
+
+        void insert(int val);
+
+        int getLen();
+
+        void print();
+    };
+
+    List::~List()
+    {
+        node* p;
+        while(head!=NULL)
+        {
+            p = head;
+            head = head-&gt;next;
+            delete(p);
+        }
+    }
+
+    void List::insert(int val) {
+        node* node_p = new node(val);
+        node* p = head;
+        if(p == NULL)
+        {
+            head = node_p;
+            return;
+        }
+
+        while(p-&gt;next != NULL)
+        {
+            p = p-&gt;next;
+        }
+        p-&gt;next = node_p;
+    }
+
+    int List::getLen() {
+        node* p = head;
+        int res = 0;
+        while(p != NULL)
+        {
+            res += 1;
+            p = p-&gt;next;
+        }
+        return res;
+    }
+
+    void List::print() {
+        node* p = head;
+        while(p != NULL)
+        {
+            cout&lt;&lt;p-&gt;val&lt;&lt;endl;
+            p = p-&gt;next;
+        }
+    }
+
+    int main()
+    {
+        List l;
+        cout&lt;&lt;l.getLen()&lt;&lt;endl;
+        l.insert(2);
+        cout&lt;&lt;l.getLen()&lt;&lt;endl;
+        l.insert(3);
+        cout&lt;&lt;l.getLen()&lt;&lt;endl;
+
+        l.print();
+
+        return 0;
+    }
+</code></pre>
+<p>版权声明：本文为原创文章，客官如需转载请注明，感谢支持</p>
+<pre><code>转载自：[Braincao&#39;s Blog的博客](https://braincao.github.io)</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
     </div>
@@ -389,12 +437,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Braincao&#39;s Blog</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">378</span></p>
+    <p><span class="copy-title">文章标题:</span>单链表的c++实现</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">225</span></p>
     <p><span class="copy-title">本文作者:</span>Brain Cao</p>
-    <p><span class="copy-title">发布时间:</span>2020-02-21, 01:37:19</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-20, 22:00:25</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/21/blog-index/" title="Braincao&#39;s Blog">https://braincao.cn/2020/02/21/blog-index/</a>
+    <p><span class="copy-title">发布时间:</span>2018-03-21, 15:33:14</p>
+    <p><span class="copy-title">最后更新:</span>2019-04-21, 21:45:18</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/03/21/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84c++%E5%AE%9E%E7%8E%B0/" title="单链表的c++实现">https://braincao.cn/2018/03/21/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84c++%E5%AE%9E%E7%8E%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
     </p>

@@ -44,6 +44,33 @@
     
     
     <entry>
+      <title>单链表的c++实现</title>
+      <link href="/2018/03/21/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84c++%E5%AE%9E%E7%8E%B0/"/>
+      <url>/2018/03/21/%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84c++%E5%AE%9E%E7%8E%B0/</url>
+      
+        <content type="html"><![CDATA[<p>这个一篇单链表的c++实现小练习</p><a id="more"></a><pre><code class="c++">    #include&lt;iostream&gt;    using namespace std;    /**     * 单链表的c++实现     */    struct node    {        int val;        struct node* next;        node(int v): val(v), next(NULL) {}    };    class List    {    private:        node* head;    public:        List()        {            head = NULL;        }        ~List();        void insert(int val);        int getLen();        void print();    };    List::~List()    {        node* p;        while(head!=NULL)        {            p = head;            head = head-&gt;next;            delete(p);        }    }    void List::insert(int val) {        node* node_p = new node(val);        node* p = head;        if(p == NULL)        {            head = node_p;            return;        }        while(p-&gt;next != NULL)        {            p = p-&gt;next;        }        p-&gt;next = node_p;    }    int List::getLen() {        node* p = head;        int res = 0;        while(p != NULL)        {            res += 1;            p = p-&gt;next;        }        return res;    }    void List::print() {        node* p = head;        while(p != NULL)        {            cout&lt;&lt;p-&gt;val&lt;&lt;endl;            p = p-&gt;next;        }    }    int main()    {        List l;        cout&lt;&lt;l.getLen()&lt;&lt;endl;        l.insert(2);        cout&lt;&lt;l.getLen()&lt;&lt;endl;        l.insert(3);        cout&lt;&lt;l.getLen()&lt;&lt;endl;        l.print();        return 0;    }</code></pre><p>版权声明：本文为原创文章，客官如需转载请注明，感谢支持</p><pre><code>转载自：[Braincao&#39;s Blog的博客](https://braincao.github.io)</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode与算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 链表 </tag>
+            
+            <tag> 单链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客系统搭建过程</title>
       <link href="/2018/02/22/build-hexo/"/>
       <url>/2018/02/22/build-hexo/</url>
