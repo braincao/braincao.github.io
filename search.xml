@@ -71,6 +71,33 @@
     
     
     <entry>
+      <title>动态规划</title>
+      <link href="/2018/03/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <url>/2018/03/21/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+      
+        <content type="html"><![CDATA[<p>这个一篇关于动态规划的学习笔记</p><a id="more"></a><h1 id="动态规划核心"><a href="#动态规划核心" class="headerlink" title="动态规划核心"></a>动态规划核心</h1><ul><li>动态规划里非常重要的两个概念：<strong>状态和状态转移方程</strong>。<strong>状态怎么找：根据子问题定义状态</strong>。找到子问题，状态也就浮出水面了</li></ul><h1 id="常见的动态规划算法题"><a href="#常见的动态规划算法题" class="headerlink" title="常见的动态规划算法题"></a>常见的动态规划算法题</h1><ul><li>LIS（最长上升子序列）：DP解法、nlogn解法、排序+LCS解法</li></ul><h1 id="dp问题解决思路"><a href="#dp问题解决思路" class="headerlink" title="dp问题解决思路"></a>dp问题解决思路</h1><ul><li>当阅读一个题目并且开始尝试解决它时，首先看一下它的限制。 如果要求在多项式时间内解决，那么该问题就很可能要用DP来解。遇到这种情况， 最重要的就是找到问题的“状态”和“状态转移方程”。(状态不是随便定义的， 一般定义完状态，你要找到当前状态是如何从前面的状态得到的， 即找到状态转移方程)如果看起来是个DP问题，但你却无法定义出状态， 那么试着将问题规约到一个已知的DP问题</li></ul><h1 id="贪心算法与动态规划区别"><a href="#贪心算法与动态规划区别" class="headerlink" title="贪心算法与动态规划区别"></a>贪心算法与动态规划区别</h1><p>贪心算法对每个子问题的解决方案都做出选择，不能回退；动态规划则会根据以前的选择结果对当前进行选择，有回退功能。动态规划主要运用于二维或三维问题，而贪心一般是一维问题</p><p>版权声明：本文为原创文章，客官如需转载请注明，感谢支持</p><pre><code>转载自：[Braincao&#39;s Blog的博客](https://braincao.github.io)</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode与算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动态规划 </tag>
+            
+            <tag> dp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo博客系统搭建过程</title>
       <link href="/2018/02/22/build-hexo/"/>
       <url>/2018/02/22/build-hexo/</url>
