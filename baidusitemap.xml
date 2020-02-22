@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://braincao.cn/sort-algorithm/</loc>
+    <loc>https://braincao.cn/2018/12/16/sort-algorithm/</loc>
     <lastmod>2020-02-22</lastmod>
   </url>  <url>
-    <loc>https://braincao.cn/leetcode-algorithm-part1/</loc>
+    <loc>https://braincao.cn/2018/09/21/leetcode-algorithm-part1/</loc>
     <lastmod>2020-02-22</lastmod>
   </url>  <url>
-    <loc>https://braincao.cn/dfs-template/</loc>
+    <loc>https://braincao.cn/2018/04/08/dfs-template/</loc>
     <lastmod>2020-02-22</lastmod>
   </url>  <url>
-    <loc>https://braincao.cn/leftgod-algorithm/</loc>
+    <loc>https://braincao.cn/2018/09/21/leftgod-algorithm/</loc>
     <lastmod>2020-02-22</lastmod>
   </url>  <url>
-    <loc>https://braincao.cn/sword-offer-algorithm/</loc>
+    <loc>https://braincao.cn/2018/09/21/sword-offer-algorithm/</loc>
     <lastmod>2020-02-22</lastmod>
   </url>  <url>
-    <loc>https://braincao.cn/github-hosts/</loc>
+    <loc>https://braincao.cn/2020/02/20/github-hosts/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>https://braincao.cn/blog-index/</loc>
+    <loc>https://braincao.cn/2020/02/21/blog-index/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>  <url>
-    <loc>https://braincao.cn/build-hexo/</loc>
+    <loc>https://braincao.cn/2018/02/22/build-hexo/</loc>
     <lastmod>2020-02-21</lastmod>
   </url>
 </urlset>
