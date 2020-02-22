@@ -203,15 +203,15 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color1">hosts</a>
     </li>
     
     <li class="article-tag-list-item">
         <a class="color2">github</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color4">leetcode</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -229,7 +229,7 @@
     <nav id="title-list-nav">
         
         <a id="top" class=""
-           href="/2020/02/21/blog-index/"
+           href="/blog-index/"
            data-tag="博客"
            data-author="" >
             <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
@@ -237,7 +237,7 @@
         </a>
         
         <a  class="综合技术 "
-           href="/2018/02/22/build-hexo/"
+           href="/build-hexo/"
            data-tag="博客,hexo,gitee"
            data-author="" >
             <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
@@ -245,15 +245,23 @@
         </a>
         
         <a  class="算法刷题 "
-           href="/2018/04/08/dfs-template/"
+           href="/dfs-template/"
            data-tag="算法刷题,DFS"
            data-author="" >
             <span class="post-title" title="DFS模板">DFS模板</span>
             <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
         </a>
         
+        <a  class="算法刷题 "
+           href="/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
         <a  class="综合技术 "
-           href="/2020/02/20/github-hosts/"
+           href="/github-hosts/"
            data-tag="hosts,github"
            data-author="" >
             <span class="post-title" title="加速github访问速度">加速github访问速度</span>
@@ -261,15 +269,7 @@
         </a>
         
         <a  class="算法刷题 "
-           href="/2018/09/21/leetcode-algorithm-part1/"
-           data-tag="算法刷题,leetcode"
-           data-author="" >
-            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
-            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
-        </a>
-        
-        <a  class="算法刷题 "
-           href="/2018/12/16/sort-algorithm/"
+           href="/sort-algorithm/"
            data-tag="算法刷题,排序算法"
            data-author="" >
             <span class="post-title" title="十大经典排序算法总结（未完结）">十大经典排序算法总结（未完结）</span>
@@ -277,7 +277,7 @@
         </a>
         
         <a  class="算法刷题 "
-           href="/2018/09/21/leftgod-algorithm/"
+           href="/leftgod-algorithm/"
            data-tag="算法刷题"
            data-author="" >
             <span class="post-title" title="左神刷题">左神刷题</span>
@@ -285,7 +285,7 @@
         </a>
         
         <a  class="算法刷题 "
-           href="/2018/09/21/sword-offer-algorithm/"
+           href="/sword-offer-algorithm/"
            data-tag="算法刷题"
            data-author="" >
             <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
@@ -524,7 +524,7 @@ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; g
     <p><span class="copy-title">本文作者:</span>Brain Cao</p>
     <p><span class="copy-title">发布时间:</span>2018-02-22, 19:29:01</p>
     <p><span class="copy-title">最后更新:</span>2020-02-21, 23:13:18</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/02/22/build-hexo/" title="hexo博客系统搭建过程">https://braincao.cn/2018/02/22/build-hexo/</a>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/build-hexo/" title="hexo博客系统搭建过程">https://braincao.cn/build-hexo/</a>
     <p>
         <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
     </p>
@@ -586,7 +586,7 @@ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d &amp;&amp; git add . &amp;&amp; g
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#博客','#hexo','#gitee','#算法刷题','#DFS','#hosts','#github','#leetcode','#排序算法',],
+            'data': ['#博客','#hexo','#gitee','#算法刷题','#DFS','#leetcode','#hosts','#github','#排序算法',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
