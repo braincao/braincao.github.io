@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>多线程编程例子 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" 多线程 ">
+  <meta name="description" content="多线程编程例子 | Braincao&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份、seo配置  迁移博客，每天6篇左右，还需一周  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://braincao.cn/about/index.html">
+<meta property="og:site_name" content="Braincao&#39;s blog">
+<meta property="og:description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份、seo配置  迁移博客，每天6篇左右，还需一周  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://braincao.cn/about/me.jpg">
+<meta property="article:published_time" content="2020-02-15T18:03:30.000Z">
+<meta property="article:modified_time" content="2020-02-22T12:37:46.727Z">
+<meta property="article:author" content="Brain Cao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://braincao.cn/about/me.jpg">
+
+
+<link rel="icon" href="/img/avatar.gif">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.gif" />
+</a>
+<div class="author">
+    <span>Brain Cao</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/braincao" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/pop_rain" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:491316377@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=491316377&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(14)</small></div></li>
+    
+        
+            
+            <li><div data-rel="算法刷题">算法刷题<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="综合技术">综合技术<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="技术之外"><i class="fold iconfont icon-right"></i>技术之外<small>(2)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="投资理财">投资理财<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="多线程">多线程<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="14">
+<input type="hidden" id="yelog_site_word_count" value="92.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            
+            <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            
+            <li><a target="_blank" href="https://www.csdn.net/">csdn</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">算法刷题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">投资理财</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">hosts</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">职业管理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">面经</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">排序算法</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2020/02/21/blog-index/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
+            <span class="post-date" title="2020-02-21 01:37:19">2020/02/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/04/08/dfs-template/"
+           data-tag="算法刷题,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS模板">DFS模板</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/build-hexo/"
+           data-tag="博客,hexo,gitee"
+           data-author="" >
+            <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2019/05/08/financial-tips/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="金融小知识">金融小知识</span>
+            <span class="post-date" title="2019-05-08 09:43:21">2019/05/08</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/git-orders/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git命令">git命令</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/20/github-hosts/"
+           data-tag="hosts,github"
+           data-author="" >
+            <span class="post-title" title="加速github访问速度">加速github访问速度</span>
+            <span class="post-date" title="2020-02-20 23:24:11">2020/02/20</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/23/master-seek-job/"
+           data-tag="职业管理"
+           data-author="" >
+            <span class="post-title" title="研二找工作过程总结">研二找工作过程总结</span>
+            <span class="post-date" title="2020-02-23 12:54:10">2020/02/23</span>
+        </a>
+        
+        <a  class="多线程 "
+           href="/2019/10/01/multithread-programming-demo/"
+           data-tag="多线程"
+           data-author="" >
+            <span class="post-title" title="多线程编程例子">多线程编程例子</span>
+            <span class="post-date" title="2019-10-01 19:00:08">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2020/02/27/normal-algorithms-summary/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="常用算法心得总结">常用算法心得总结</span>
+            <span class="post-date" title="2020-02-27 18:13:44">2020/02/27</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2019/10/01/postgraduate-interview-questions/"
+           data-tag="算法刷题,面经"
+           data-author="" >
+            <span class="post-title" title="研二面试题目">研二面试题目</span>
+            <span class="post-date" title="2019-10-01 12:03:55">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leftgod-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="左神刷题">左神刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/sword-offer-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-multithread-programming-demo" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">多线程编程例子</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="多线程">多线程</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color4">多线程</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date">2019-10-01 19:00</time>
+        
+        
+        更新时间:<time class="updated">2020-02-27 19:04</time>
+        
+
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2.4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-四个线程计算1到100的求和"><span class="toc-text">1.四个线程计算1到100的求和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-三个线程打印一个1-100的数组，要求P1-1，P2-2，P3-3，P1-4的形式"><span class="toc-text">2.三个线程打印一个1-100的数组，要求P1&#x3D;1，P2&#x3D;2，P3&#x3D;3，P1&#x3D;4的形式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-java多线程-2个线程-交替打印0-100的奇偶数"><span class="toc-text">3.java多线程(2个线程)交替打印0-100的奇偶数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-三个线程循环打印1-100，每个线程每次打印3个数"><span class="toc-text">4.三个线程循环打印1-100，每个线程每次打印3个数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-java实现生产者消费者模式"><span class="toc-text">5.java实现生产者消费者模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-猴子偷桃抢着进行"><span class="toc-text">6.猴子偷桃抢着进行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-猴子偷桃交替进行"><span class="toc-text">6.猴子偷桃交替进行</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本博文记录多线程编程的几个案例，包含了常见的几种多线程编程套路。</p>
+<a id="more"></a>
+
+<h1 id="1-四个线程计算1到100的求和"><a href="#1-四个线程计算1到100的求和" class="headerlink" title="1.四个线程计算1到100的求和"></a>1.四个线程计算1到100的求和</h1><p>1.依次调用thread.join()，主线程输出结果。注意：sum为共享变量，访问共享变量时，用synchronized同步</p>
+<pre><code class="java">public class ThreadTest {
+    private static Object LOCK = new Object();
+    private static int sum = 0;
+    public static void main(String[] args) throws InterruptedException {
+        ThreadTest threadTest = new ThreadTest();
+        Thread t1 = threadTest.new ThreadSum(1,25);
+        Thread t2 = threadTest.new ThreadSum(26,50);
+        Thread t3 = threadTest.new ThreadSum(51,75);
+        Thread t4 = threadTest.new ThreadSum(76,100);
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t1.join();
+        t2.join();
+        t3.join();
+        t4.join();
+        System.out.println(&quot;totalSum: &quot; + sum);
+    }
+    class ThreadSum extends Thread{
+        private int begin;
+        private int end;
+        public ThreadSum(int begin, int end){
+            this.begin = begin;
+            this.end = end;
+        }
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(100);//便于测试
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            synchronized (LOCK){
+                for(int i=begin; i&lt;=end; ++i){
+                    sum += i;
+                }
+                System.out.println(Thread.currentThread().getName() + &quot;: &quot; + sum);
+            }
+
+        }
+    }
+}
+out:Thread-1: 950
+Thread-0: 1275
+Thread-3: 3475
+Thread-2: 5050
+totalSum: 5050
+</code></pre>
+<p>2.子线程执行完调用countdownlatch.countdown()，主线程调用countdownlatc.await() 等待子线程执行完成，输出结果。 注意：sum为共享变量，访问共享变量时，用synchronized同步</p>
+<pre><code class="java">public class ThreadTest {
+    private static Object LOCK = new Object();
+    private static int sum = 0;
+    private static CountDownLatch countDownLatch = new CountDownLatch(4);
+    public static void main(String[] args) throws InterruptedException {
+        ThreadTest threadTest = new ThreadTest();
+        Thread t1 = threadTest.new ThreadSum(1,25);
+        Thread t2 = threadTest.new ThreadSum(26,50);
+        Thread t3 = threadTest.new ThreadSum(51,75);
+        Thread t4 = threadTest.new ThreadSum(76,100);
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        countDownLatch.await();
+
+        System.out.println(&quot;totalSum: &quot; + sum);
+    }
+    class ThreadSum extends Thread{
+        private int begin;
+        private int end;
+        public ThreadSum(int begin, int end){
+            this.begin = begin;
+            this.end = end;
+        }
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(100);//便于测试
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            synchronized (LOCK){
+                for(int i=begin; i&lt;=end; ++i){
+                    sum += i;
+                }
+                System.out.println(Thread.currentThread().getName() + &quot;: &quot; + sum);
+            }
+            countDownLatch.countDown();
+        }
+    }
+}
+</code></pre>
+<p>3.线程池</p>
+<pre><code class="java">public class ThreadTest {
+    private static Object LOCK = new Object();
+    private static int sum = 0;
+    private static CountDownLatch countDownLatch = new CountDownLatch(4);
+    public static void main(String[] args) throws InterruptedException {
+        ThreadTest threadTest = new ThreadTest();
+        ExecutorService pool = Executors.newFixedThreadPool(4);
+        for(int i=1; i&lt;=76; i+=25){
+            pool.execute(threadTest.new ThreadSum(i, i+24));
+        }
+        countDownLatch.await();
+        pool.shutdown();
+
+        System.out.println(&quot;totalSum: &quot; + sum);
+    }
+    class ThreadSum extends Thread{
+        private int begin;
+        private int end;
+        public ThreadSum(int begin, int end){
+            this.begin = begin;
+            this.end = end;
+        }
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(100);//便于测试
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            synchronized (LOCK){
+                for(int i=begin; i&lt;=end; ++i){
+                    sum += i;
+                }
+                System.out.println(Thread.currentThread().getName() + &quot;: &quot; + sum);
+            }
+            countDownLatch.countDown();
+        }
+    }
+}
+</code></pre>
+<p>4.使用ExecutorService、Callable、Future实现有返回结果的线程</p>
+<pre><code class="java">public class ThreadTest {
+    private static List&lt;Future&gt; futureList = new ArrayList&lt;&gt;();
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ThreadTest threadTest = new ThreadTest();
+        ExecutorService pool = Executors.newFixedThreadPool(4);
+        for(int i=1; i&lt;=76; i+=25){
+            ThreadCallSum threadCallSum = threadTest.new ThreadCallSum(i, i+24);
+            Future future = pool.submit(threadCallSum);
+            futureList.add(future);
+        }
+        pool.shutdown();
+        int sum = 0;
+        for(Future&lt;Integer&gt; future: futureList){
+            sum += future.get();
+        }
+
+        System.out.println(&quot;totalSum: &quot; + sum);
+    }
+    class ThreadCallSum implements Callable&lt;Integer&gt;{
+        private int begin;
+        private int end;
+        private int sum = 0;
+        public ThreadCallSum(int begin, int end){
+            this.begin = begin;
+            this.end = end;
+        }
+
+        @Override
+        public Integer call() throws InterruptedException {
+            Thread.sleep(100);
+            for(int i=begin; i&lt;=end; ++i){
+                sum += i;
+            }
+            System.out.println(Thread.currentThread().getName() + &quot;: &quot; + sum);
+            return sum;
+        }
+    }
+}
+out:
+pool-1-thread-2: 950
+pool-1-thread-4: 2200
+pool-1-thread-1: 325
+pool-1-thread-3: 1575
+totalSum: 5050
+</code></pre>
+<h1 id="2-三个线程打印一个1-100的数组，要求P1-1，P2-2，P3-3，P1-4的形式"><a href="#2-三个线程打印一个1-100的数组，要求P1-1，P2-2，P3-3，P1-4的形式" class="headerlink" title="2.三个线程打印一个1-100的数组，要求P1=1，P2=2，P3=3，P1=4的形式"></a>2.三个线程打印一个1-100的数组，要求P1=1，P2=2，P3=3，P1=4的形式</h1><pre><code class="java">public class ThreadTest {
+    private static volatile int count = 1;
+    private static Object object = new Object();
+
+    public static void main(String[] args) {
+        ThreadTest threadTest = new ThreadTest();
+        ExecutorService pool = Executors.newFixedThreadPool(3);
+        while (count &lt;= 100) {
+            pool.execute(threadTest.new ThreadCnt());
+        }
+        pool.shutdown();
+    }
+
+    class ThreadCnt extends Thread {
+        public void run() {
+            if(count&lt;=100) {
+                synchronized (object) {
+                    if (count % 3 == 1 &amp;&amp; Thread.currentThread().getName().contains(&quot;thread-1&quot;)) {
+                        System.out.println(Thread.currentThread().getName() + &quot;: &quot; + count);
+                        count++;
+                    } else if (count % 3 == 2 &amp;&amp; Thread.currentThread().getName().contains(&quot;thread-2&quot;)) {
+                        System.out.println(Thread.currentThread().getName() + &quot;: &quot; + count);
+                        count++;
+                    } else if (count % 3 == 0 &amp;&amp; Thread.currentThread().getName().contains(&quot;thread-3&quot;)) {
+                        System.out.println(Thread.currentThread().getName() + &quot;: &quot; + count);
+                        count++;
+                    }
+                }
+            }
+        }
+    }
+}
+out:
+pool-1-thread-1: 1
+pool-1-thread-2: 2
+pool-1-thread-3: 3
+pool-1-thread-1: 4
+pool-1-thread-2: 5
+</code></pre>
+<h1 id="3-java多线程-2个线程-交替打印0-100的奇偶数"><a href="#3-java多线程-2个线程-交替打印0-100的奇偶数" class="headerlink" title="3.java多线程(2个线程)交替打印0-100的奇偶数"></a>3.java多线程(2个线程)交替打印0-100的奇偶数</h1><p>用到了notify、wait机制</p>
+<pre><code class="java">public class ThreadTest extends Thread{
+    public static void main(String[] args) {
+        ThreadTest threadTest = new ThreadTest();
+        Thread t1 = threadTest.new ThreadOdd();
+        Thread t2 = threadTest.new ThreadEven();
+        t1.start();
+        t2.start();
+    }
+    private synchronized void print(String str ,int i){
+        notify();
+        System.out.println(str + &quot;: &quot; + i);
+        try {
+            if(i==100){//100次的时候要唤醒全部，否则循环结束不了
+                notifyAll();
+            }
+            else{
+                wait();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    class ThreadOdd extends Thread{
+        public void run(){
+            for(int i=1; i&lt;=100; i+=2){
+                print(Thread.currentThread().getName(), i);
+            }
+        }
+    }
+    class ThreadEven extends Thread{
+        public void run(){
+            for(int i=2; i&lt;=100; i+=2){
+                print(Thread.currentThread().getName(), i);
+            }
+        }
+    }
+}
+out:
+...
+t1: 97
+t2: 98
+t1: 99
+t2: 100
+</code></pre>
+<h1 id="4-三个线程循环打印1-100，每个线程每次打印3个数"><a href="#4-三个线程循环打印1-100，每个线程每次打印3个数" class="headerlink" title="4.三个线程循环打印1-100，每个线程每次打印3个数"></a>4.三个线程循环打印1-100，每个线程每次打印3个数</h1><p>1.用线程池</p>
+<pre><code class="java">import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class ThreadTest{
+    private static volatile int count = 1;
+    private static volatile int threadCnt = 1;
+    private static Object object = new Object();
+    public static void main(String[] args) {
+        ThreadTest threadTest = new ThreadTest();
+        ExecutorService pool = Executors.newFixedThreadPool(3);
+        while(count&lt;=100){
+            pool.execute(threadTest.new ThreadCnt());
+        }
+        pool.shutdown();
+    }
+    class ThreadCnt extends Thread{
+        public void print(){
+            System.out.print(Thread.currentThread().getName() + &quot;:&quot;);
+            int k = 3;
+            while(count&lt;=100 &amp;&amp; k!=0){
+                System.out.print(&quot; &quot; + count);
+                count++;
+                k--;
+            }
+            System.out.println();
+            threadCnt++;
+        }
+
+        public void run(){
+            if(count&lt;=100) {
+                synchronized (object) {
+                    if(count&lt;=100) {//double-check
+                        if (threadCnt % 3 == 1 &amp;&amp; Thread.currentThread().getName().contains(&quot;thread-1&quot;)) {
+                            print();
+                        } else if (threadCnt % 3 == 2 &amp;&amp; Thread.currentThread().getName().contains(&quot;thread-2&quot;)) {
+                            print();
+                        } else if (threadCnt % 3 == 0 &amp;&amp; Thread.currentThread().getName().contains(&quot;thread-3&quot;)) {
+                            print();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+</code></pre>
+<p>2.用notify、wait–&gt;这个注释的很好，强推看代码！！</p>
+<pre><code class="java">class ThreadTest{
+    private static volatile int count = 1;//打印的count
+    private static volatile int countC = 0;//线程计数:保证依次打印的顺序
+    private static Object object = new Object();
+    public static void main(String[] args) {
+        ThreadTest threadTest = new ThreadTest();
+        Thread t1 = threadTest.new ThreadCnt(0);//每个线程分配id号，便于依次打印时与countC比较
+        Thread t2 = threadTest.new ThreadCnt(1);
+        Thread t3 = threadTest.new ThreadCnt(2);
+
+        t1.setName(&quot;t1&quot;);
+        t2.setName(&quot;t2&quot;);
+        t3.setName(&quot;t3&quot;);
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+    class ThreadCnt extends Thread{//这里的ThreadCnt类前加不加static都可以，因为锁的是ThreadCnt.class！！
+        private int id;
+        public ThreadCnt(int id){
+            this.id = id;
+        }
+
+        public void run(){
+            while(count&lt;=100){
+                synchronized (object){//这里锁ThreadCnt.class、ThreadTest.class、object都可以！！
+                    if(count&lt;=100) {//double-check
+                        if (countC % 3 == id) {//通过id保证线程依次打印
+                            object.notifyAll();//这里的notifyAll()、wait()的object类对象必须与上面的synchronized里的对象保持一致！！
+                            System.out.print(Thread.currentThread().getName() + &quot;:&quot;);
+                            int k = 3;
+                            while (count &lt;= 100 &amp;&amp; k != 0) {
+                                System.out.print(&quot; &quot; + count);
+                                count++;
+                                k--;
+                            }
+                            System.out.println();
+                            countC++;
+                        }
+                        else{
+                            try {
+                                object.wait();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+</code></pre>
+<h1 id="5-java实现生产者消费者模式"><a href="#5-java实现生产者消费者模式" class="headerlink" title="5.java实现生产者消费者模式"></a>5.java实现生产者消费者模式</h1><p>1.notify/wait实现</p>
+<pre><code class="java">import java.util.LinkedList;
+import java.util.Queue;
+
+/**
+ * @FileName: ProAndCus
+ * @Author: braincao
+ * @Date: 2019/3/21 14:39
+ * @Description: java实现生产者消费者模式(notify/wait实现)
+ */
+
+public class ProAndCus {
+    private Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+    private int queMaxLen = 10;
+    private static Object object = new Object();
+    private static volatile int dataCnt = 0;//生产的物品，为了测试，这里规定生产者最多能生产10个(1-10)
+    public static void main(String[] args) {
+        ProAndCus proAndCus = new ProAndCus();
+        Thread p1 = proAndCus.new Pro();
+        Thread p2 = proAndCus.new Pro();
+        Thread p3 = proAndCus.new Pro();
+        Thread p4 = proAndCus.new Pro();
+        Thread c1 = proAndCus.new Cus();
+        Thread c2 = proAndCus.new Cus();
+        Thread c3 = proAndCus.new Cus();
+        Thread c4 = proAndCus.new Cus();
+        p1.setName(&quot;p1--&quot;);
+        p2.setName(&quot;p2--&quot;);
+        p3.setName(&quot;p3--&quot;);
+        p4.setName(&quot;p4--&quot;);
+        c1.setName(&quot;c1--&quot;);
+        c2.setName(&quot;c2--&quot;);
+        c3.setName(&quot;c3--&quot;);
+        c4.setName(&quot;c4--&quot;);
+        p1.start();
+        p2.start();
+        p3.start();
+        p4.start();
+        c1.start();
+        c2.start();
+        c3.start();
+        c4.start();
+    }
+    class Pro extends Thread{
+        public void run(){
+            try {
+                while (dataCnt&lt;10) {
+                    Thread.sleep(100);
+                    synchronized (object) {
+                        if (queue.size() &gt;= queMaxLen) {
+                            object.wait();
+                        }
+                        if(dataCnt&lt;10){
+                            dataCnt++;
+                            queue.offer(dataCnt);
+                            System.out.println(Thread.currentThread().getName() + &quot;生产：&quot; + dataCnt);
+                        }
+                        object.notifyAll();
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+    class Cus extends Thread{
+        public void run(){
+            try {
+                while (true) {
+                    Thread.sleep(100);
+                    synchronized (object) {
+                        if(queue.isEmpty()) {
+                            if(dataCnt&lt;10){
+                                object.wait();
+                            }
+                            else{
+                                break;
+                            }
+                        }
+                        else{
+                            System.out.println(Thread.currentThread().getName() + &quot;消费：&quot; + queue.poll());
+                        }
+                        object.notifyAll();
+                    }
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+<p>2.阻塞队列实现</p>
+<pre><code class="java">import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+//使用阻塞队列BlockingQueue解决生产者消费者
+public class BlockingQueueConsumerProducer {
+    private static volatile int dataCnt = 0;
+    private static BlockingQueue&lt;Integer&gt; blockingQueue = new LinkedBlockingQueue&lt;&gt;(10);
+    public static void main(String[] args) {
+        BlockingQueueConsumerProducer cp = new BlockingQueueConsumerProducer();
+        //生产者线程
+        Pro p1 = cp.new Pro();
+        Pro p2 = cp.new Pro();
+        p1.setName(&quot;p1&quot;);
+        p2.setName(&quot;p2&quot;);
+        //消费者线程
+        Cus c1 = cp.new Cus();
+        Cus c2 = cp.new Cus();
+        Cus c3 = cp.new Cus();
+        Cus c4 = cp.new Cus();
+        Cus c5 = cp.new Cus();
+        c1.setName(&quot;c1&quot;);
+        c2.setName(&quot;c2&quot;);
+        c3.setName(&quot;c3&quot;);
+        c4.setName(&quot;c4&quot;);
+        c5.setName(&quot;c5&quot;);
+        p1.start();
+        p2.start();
+        c1.start();
+        c2.start();
+        c3.start();
+        c4.start();
+        c5.start();
+    }
+    /**
+     * 消费者线程
+     * @author tangzhijing
+     *
+     */
+    class Cus extends Thread {
+        public void run() {
+            try {
+                while (true) {
+                    Thread.sleep((long) (1000 * Math.random()));
+                    if(!blockingQueue.isEmpty()){
+                        System.out.println(Thread.currentThread().getName() + &quot;消费了：&quot; + blockingQueue.poll());
+                    }
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 生产者线程
+     * @author tangzhijing
+     *
+     */
+    class Pro extends Thread{
+        public void run() {
+            try {
+                while (true) {
+                    Thread.sleep((long) (1000 * Math.random()));
+                    dataCnt++;
+                    blockingQueue.offer(dataCnt);
+                    System.out.println(Thread.currentThread().getName() + &quot;生产了：&quot; + dataCnt);
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+</code></pre>
+<h1 id="6-猴子偷桃抢着进行"><a href="#6-猴子偷桃抢着进行" class="headerlink" title="6.猴子偷桃抢着进行"></a>6.猴子偷桃抢着进行</h1><p>一个拿2个，一个拿3个，共有9个</p>
+<pre><code class="java">public class Apple {
+    public static volatile int clientTotal = 9;//共有9个苹果
+
+    //同时并发执行的线程数:两个猴子各一个线程
+    public static void main(String[] args){
+
+        Thread monkeyOne = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(clientTotal&gt;=2){
+                    synchronized (Apple.class) {
+                        if (clientTotal &gt;= 2) {//double-check
+                            clientTotal -= 2;
+                            System.out.println(&quot;A猴子拿了2个，还剩:&quot; + clientTotal + &quot;个&quot;);
+                        }
+                    }
+                    try {
+                        Thread.sleep(100);//为了测试期间，这里加个sleep
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        Thread monkeyTwo = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(clientTotal&gt;=3){
+                    synchronized (Apple.class) {
+                        if (clientTotal &gt;= 3) {
+                            clientTotal -= 3;
+                            System.out.println(&quot;B猴子拿了3个，还剩:&quot; + clientTotal + &quot;个&quot;);
+                        }
+                    }
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        monkeyOne.start();
+        monkeyTwo.start();
+
+    }
+}
+</code></pre>
+<h1 id="6-猴子偷桃交替进行"><a href="#6-猴子偷桃交替进行" class="headerlink" title="6.猴子偷桃交替进行"></a>6.猴子偷桃交替进行</h1><pre><code class="java">public class Apple {
+
+    public static volatile int clientTotal = 9;//共有9个苹果
+    public static Object object = new Object();
+
+    //同时并发执行的线程数:两个猴子各一个线程
+    public static void main(String[] args){
+        Apple apple = new Apple();
+        Thread t1 = apple.new ThreadMOne();
+        Thread t2 = apple.new ThreadMTwo();
+        t1.start();
+        t2.start();
+    }
+    class ThreadMOne extends Thread{
+        public void run(){
+            try {
+                while(clientTotal&gt;=2){
+                    Thread.sleep(100);
+                    synchronized (object) {
+                        object.notify();
+                        if(clientTotal&lt;2){
+                            break;
+                        }
+                        clientTotal -= 2;
+                        System.out.println(&quot;A猴子拿了2个，还剩:&quot; + clientTotal + &quot;个&quot;);
+                        if(clientTotal&lt;3){
+                            break;
+                        }
+                        object.wait();
+                    }
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    class ThreadMTwo extends Thread{
+        public void run(){
+            try {
+                while(clientTotal&gt;=3){
+                    Thread.sleep(100);
+                    synchronized (object) {
+                        object.notify();
+                        if(clientTotal&lt;3){
+                            break;
+                        }
+                        clientTotal -= 3;
+                        System.out.println(&quot;B猴子拿了3个，还剩:&quot; + clientTotal + &quot;个&quot;);
+                        if(clientTotal&lt;3){
+                            break;
+                        }
+                        object.wait();
+                    }
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+out:
+A猴子拿了2个，还剩:7个
+B猴子拿了3个，还剩:4个
+A猴子拿了2个，还剩:2个
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>多线程编程例子</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.4k</span></p>
+    <p><span class="copy-title">本文作者:</span>Brain Cao</p>
+    <p><span class="copy-title">发布时间:</span>2019-10-01, 19:00:08</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-27, 19:04:06</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/01/multithread-programming-demo/" title="多线程编程例子">https://braincao.cn/2019/10/01/multithread-programming-demo/</a>
+    <p>
+        <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2020 Braincao</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢请收藏,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#博客','#算法刷题','#DFS','#hexo','#gitee','#投资理财','#git','#leetcode','#hosts','#github','#职业管理','#多线程','#面经','#排序算法',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
