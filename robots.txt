@@ -1,0 +1,14 @@
+# welcome to : braincao.cn 
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /about/
+Allow: /tags/
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /img/
+
+Sitemap: https://braincao.cn/baidusitemap.xml
+Sitemap: https://braincao.cn/sitemap.xml
