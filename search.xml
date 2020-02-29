@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>使用阿里云oss做博客图床</title>
+      <link href="/2020/02/29/oss-img-bed/"/>
+      <url>/2020/02/29/oss-img-bed/</url>
+      
+        <content type="html"><![CDATA[<p>使用阿里云oss做博客图床，稳定且成本低，一劳永逸。</p><a id="more"></a><h2 id="什么是oss"><a href="#什么是oss" class="headerlink" title="什么是oss"></a>什么是oss</h2><p>oss(Object Storage Service)是可以储存任何文件的，并提供多节点数据分发的服务，当然也可以用作稳定且专业的图床。</p><p>阿里云oss特点：</p><ul><li><p>一个可以进行上传、下载文件资源等操作，并可文件资源可管理的云存储服务器。</p></li><li><p>拥有可针对第三方用户分配RAM(子账号)，针对临时用户的STS模式的权限管理</p></li><li><p>一个提供用户权限、文件操作、日志管理的多功能管理平台</p></li></ul><h2 id="为何要用阿里云oss做图床？"><a href="#为何要用阿里云oss做图床？" class="headerlink" title="为何要用阿里云oss做图床？"></a>为何要用阿里云oss做图床？</h2><ul><li><p>免费且专业的图床：SM.MS等，但不稳定</p></li><li><p>免费但不专业的图床：qq空间相册、CSDN、gitee等，但有限制外链的风险</p></li><li><p>收费且专业的图床：七牛云、Chevereto，必须要有备案域名，备案必须有主机—&gt;需要一台服务器，成本太高，不可行</p></li><li><p>收费但比较便宜，也专业的图床：阿里云oss，存储空间一年7元，计量收费每月5GB免费，稳定、便宜，一劳永逸</p></li></ul><h2 id="开通阿里云oss"><a href="#开通阿里云oss" class="headerlink" title="开通阿里云oss"></a>开通阿里云oss</h2><p>首先开通阿里云、购买存储空间，流量包不用买，计量收费就行</p><p>然后进行oss控制台创建存储空间（bucket)，读写权限公共读</p><p>然后创建专门管理oss的用户并设置权限，总账号有AccessKey ID、 Access Key Secret ID，但拥有全部权限，因此最好创建只有oss管理权限的用户：</p><pre><code>在RAM访问控制台新建用户(名字如oss-user)，并勾选控制台密码登录、编程访问对oss-user设置AliyunOSSFullAccess权限记录下oss-user用户的AccessKey ID、 Access Key Secret ID用于后续登录oss与管理</code></pre><p>对已经建好的bucket绑定用户域名（自己已经注册的域名），并在域名解析服务中建好解析。如<code>img.yourdomain -&gt; yourbucketname.oss-cn-hongkong.aliyuncs.com</code></p><p>在oss控制台下载ossbrowser上传工具，登录步骤如下：</p><pre><code>先对oss服务endpoint：cname，https://img.yourdomainAccessKeyId、AccessKeySecret：使用oss-user用户登录预设OSS路径：oss://bucketname</code></pre><p>除了阿里云官方的ossbrowser，还有一款比较好上传工具：<a href="https://github.com/gee1k/uPic/releases" target="_blank" rel="noopener">uPic</a></p><p>至此，可以通过ossbrowser进行oss云存储服务的上传下载文件了，但要需要下列细化操作。</p><h2 id="阿里云oss费用"><a href="#阿里云oss费用" class="headerlink" title="阿里云oss费用"></a>阿里云oss费用</h2><p>存储空间：买了40GB，一年，7.2元。</p><p>流量：没买包年，我的bucket区域在香港，香港计量每个月都有0-5GB免费，超过0.72元/GB。且上传文件没费，只针对浏览、下载数据的流量收费。</p><p>oss只用作图床的话存储空间绝对够用，只是流量5GB以内还是有点悬的，因此需要做图片时需要压缩，同时要做好防盗链。</p><h2 id="图片压缩"><a href="#图片压缩" class="headerlink" title="图片压缩"></a>图片压缩</h2><p><a href="https://tinyjpg.com/" target="_blank" rel="noopener">图片压缩网站</a></p><h2 id="防盗链"><a href="#防盗链" class="headerlink" title="防盗链"></a>防盗链</h2><p>由于OSS是按使用量收费的服务，为了减少存储于OSS的数据被其他人盗链而产生额外费用，因此需要防盗链。</p><p>通过控制台为bucket设置Referer字段的白名单、设置是否允许Referer字段为空的请求访问。</p><p>设置 OSS 白名单：这里设置为自己网站域名<a href="http://www.domain，即在header请求头中，Referer" target="_blank" rel="noopener">www.domain，即在header请求头中，Referer</a> 为<a href="http://www.domain的网站，才能允许访问，否则直接拒" target="_blank" rel="noopener">www.domain的网站，才能允许访问，否则直接拒</a></p><p>是否允许空Referer：不允许为空</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 综合技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>思考认知</title>
+      <link href="/2020/02/28/thinking-cognition/"/>
+      <url>/2020/02/28/thinking-cognition/</url>
+      
+        <content type="html"><![CDATA[<p>思考认知方面螺旋上升过程的进修笔记</p><a id="more"></a><h1 id="结构化思维"><a href="#结构化思维" class="headerlink" title="结构化思维"></a>结构化思维</h1><p>以下总结主要参考知乎的这篇:<a href="https://zhuanlan.zhihu.com/p/45492055" target="_blank" rel="noopener">金字塔原理的结构化思维</a></p><p>结构化思考的步骤:</p><p>第一步：明确目的，找到分解角度</p><p>第二步：按MECE原则，组成金字塔结构</p><p>方式 1：自上而下「使用演绎法」设计结构(金字塔顶层的分类比较重要)</p><p>方式 2：自下而上「使用归纳法」提炼结构(头脑风暴+归纳)</p><p>第三步：调整结构，给出方案</p><p><strong>结构化思维的进阶技巧–平面切割法</strong></p><p>1.法一：如果我们能找到一件事情中，既对立、又统一的两面，我们就可以在一张纸上一条线，将他们彼此分开，组合成一个对立统一体，而他们两者也一定是MECE的，如此可以在一张纸张分出多条线</p><p>2.法二：依赖于已有的轮子，更快速。如商业模式的商业模式画布、思维更缜密的5W2H结构等</p><h1 id="如何提高思考能力"><a href="#如何提高思考能力" class="headerlink" title="如何提高思考能力"></a>如何提高思考能力</h1><p>首先要搞清楚<strong>学习的真正目的</strong>是什么，目的不是为了学习完成(就像高考结束后扔书)，而是<strong>为了更高效的解决问题！</strong></p><p>如果学习的目标变成了解决问题，那么学习就变成了过程，知识就变成了解决问题的要素。那么知识是如何帮助你解决问题的？</p><p><code>学习知识--提高思考质量--解决问题的效率</code></p><p>因此，<strong>学习的真正目的，是为了提高思考质量</strong>！参考小时候学习的乘法口诀，现在遇到7*8我们不会用加法一个一个去数，而是直接得出答案。</p><p>好了，观念转变过来后，我们来看看<strong>对一件事的思考，具体经历了哪些步骤：</strong></p><p>1.<strong>连接相关背景知识</strong>。我们首先会根据问题，在自己的知识库中搜索相关的背景知识，可以是概念，方法论，或者别人的经验，或者自己的所见所闻的信息，也可以是其他行业的知识…</p><p>总之，在这个过程中，大脑中会冒出很多与问题相关的各种信息。</p><p>如果能连接到的背景信息很少，我们就无法有效的思考，甚至都不能理解题目的意思…</p><p>而你掌握的背景知识越多，可用于思考的要素就越多，最终给出的方案也会越全面。当别人还在理解问题的时候，你可能已经连接到一个方法论，并开始侃侃而谈了…</p><p>2.<strong>梳理这些背景知识</strong>。想到的这些背景知识可能会很零碎，你需要结合问题，把他们重新排列组合一下，梳理成一条完整的信息，形成最终的结论。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术之外 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术之外 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>常用算法心得总结</title>
       <link href="/2020/02/27/normal-algorithms-summary/"/>
       <url>/2020/02/27/normal-algorithms-summary/</url>
@@ -326,11 +376,11 @@
       
         <tags>
             
+            <tag> 博客 </tag>
+            
             <tag> hexo </tag>
             
             <tag> gitee </tag>
-            
-            <tag> 博客 </tag>
             
         </tags>
       
