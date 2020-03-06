@@ -508,6 +508,31 @@
     
     
     <entry>
+      <title>B树系列详解</title>
+      <link href="/2018/12/16/sql-btree/"/>
+      <url>/2018/12/16/sql-btree/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为B树系列的学习总结</p><a id="more"></a><h1 id="BST树、AVL树、RBT树；B树、B-树、B-树、B-树"><a href="#BST树、AVL树、RBT树；B树、B-树、B-树、B-树" class="headerlink" title="BST树、AVL树、RBT树；B树、B-树、B+树、B*树"></a>BST树、AVL树、RBT树；B树、B-树、B+树、B*树</h1><p>B树：二叉树，每个结点只存储一个关键字，等于则命中，小于走左结点，大于走右结点；</p><p>B-树：多路搜索树，每个结点存储M/2到M个关键字，非叶子结点存储指向关键字范围的子结点；</p><p>所有关键字在整颗树中出现，且只出现一次，非叶子结点可以命中；</p><p>B+树：在B-树基础上，为叶子结点增加链表指针，所有关键字都在叶子结点中出现，非叶子结点作为叶子结点的索引；B+树总是到叶子结点才命中；</p><p>B*树：在B+树基础上，为非叶子结点也增加链表指针，将结点的最低利用率从1/2提高到2/3；</p><h2 id="红黑树详解"><a href="#红黑树详解" class="headerlink" title="红黑树详解"></a>红黑树详解</h2><p><a href="https://blog.csdn.net/yangyutong0506/article/details/78204953" target="_blank" rel="noopener">吐血推荐_面试旧敌之红黑树(直白介绍深入理解)</a></p><p><a href="https://blog.csdn.net/qq_34173549/article/details/79636764" target="_blank" rel="noopener">java面试-彻底搞懂红黑树</a></p><p><a href="https://segmentfault.com/a/1190000014037447" target="_blank" rel="noopener">那些年，面试被虐过的红黑树</a></p><p><a href="https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&mid=2247485383&idx=1&sn=0e0ceaf484054850be559cefa86c5298&chksm=e9c5fe76deb27760f41928f683bdf63cbddeda3e4e6bfb7a55bb9a2f15598f9b41895027471a&scene=21#wechat_redirect" target="_blank" rel="noopener">为什么MySQL数据库索引选择使用B+树？</a></p><p><img src="https://img.braincao.cn/blogimg/1583508090.png" alt="1583508090"></p><p>红黑树的左旋操作</p><p>假设待左旋的结构中，P为父节点，S为孩子节点。左旋操作后，S节点代替P节点的位置，P节点成为S节点的左孩子，S节点的左孩子成为P节点的右孩子。</p><p>红黑树的右旋操作。</p><p>假设待右旋的结构中，P为父节点，S为孩子节点。右旋操作后，S节点代替P节点的位置，P节点成为S节点的右孩子，S节点的右孩子成为P节点的左孩子。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十大经典排序算法总结</title>
       <link href="/2018/12/16/sort-algorithm/"/>
       <url>/2018/12/16/sort-algorithm/</url>
@@ -527,31 +552,6 @@
             <tag> 算法刷题 </tag>
             
             <tag> 排序算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>B树系列详解</title>
-      <link href="/2018/12/16/sql-btree/"/>
-      <url>/2018/12/16/sql-btree/</url>
-      
-        <content type="html"><![CDATA[<p>此文档为B树系列的学习总结</p><a id="more"></a><h1 id="BST树、AVL树、RBT树；B树、B-树、B-树、B-树"><a href="#BST树、AVL树、RBT树；B树、B-树、B-树、B-树" class="headerlink" title="BST树、AVL树、RBT树；B树、B-树、B+树、B*树"></a>BST树、AVL树、RBT树；B树、B-树、B+树、B*树</h1><p>B树：二叉树，每个结点只存储一个关键字，等于则命中，小于走左结点，大于走右结点；</p><p>B-树：多路搜索树，每个结点存储M/2到M个关键字，非叶子结点存储指向关键字范围的子结点；</p><p>所有关键字在整颗树中出现，且只出现一次，非叶子结点可以命中；</p><p>B+树：在B-树基础上，为叶子结点增加链表指针，所有关键字都在叶子结点中出现，非叶子结点作为叶子结点的索引；B+树总是到叶子结点才命中；</p><p>B*树：在B+树基础上，为非叶子结点也增加链表指针，将结点的最低利用率从1/2提高到2/3；</p><h2 id="红黑树详解"><a href="#红黑树详解" class="headerlink" title="红黑树详解"></a>红黑树详解</h2><p><a href="https://blog.csdn.net/yangyutong0506/article/details/78204953" target="_blank" rel="noopener">吐血推荐_面试旧敌之红黑树(直白介绍深入理解)</a></p><p><a href="https://blog.csdn.net/qq_34173549/article/details/79636764" target="_blank" rel="noopener">java面试-彻底搞懂红黑树</a></p><p><a href="https://segmentfault.com/a/1190000014037447" target="_blank" rel="noopener">那些年，面试被虐过的红黑树</a></p><p><a href="https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&mid=2247485383&idx=1&sn=0e0ceaf484054850be559cefa86c5298&chksm=e9c5fe76deb27760f41928f683bdf63cbddeda3e4e6bfb7a55bb9a2f15598f9b41895027471a&scene=21#wechat_redirect" target="_blank" rel="noopener">为什么MySQL数据库索引选择使用B+树？</a></p><p><img src="https://img.braincao.cn/blogimg/1583508090.png" alt="1583508090"></p><p>红黑树的左旋操作</p><p>假设待左旋的结构中，P为父节点，S为孩子节点。左旋操作后，S节点代替P节点的位置，P节点成为S节点的左孩子，S节点的左孩子成为P节点的右孩子。</p><p>红黑树的右旋操作。</p><p>假设待右旋的结构中，P为父节点，S为孩子节点。右旋操作后，S节点代替P节点的位置，P节点成为S节点的右孩子，S节点的右孩子成为P节点的左孩子。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据库 </tag>
             
         </tags>
       
