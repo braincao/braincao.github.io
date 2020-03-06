@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>java并发 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" java ">
+  <meta name="description" content="java并发 | Braincao&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份、seo配置  迁移博客，每天6篇左右，还需一周  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://braincao.cn/about/index.html">
+<meta property="og:site_name" content="Braincao&#39;s blog">
+<meta property="og:description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份、seo配置  迁移博客，每天6篇左右，还需一周  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+<meta property="article:published_time" content="2020-02-15T18:03:30.000Z">
+<meta property="article:modified_time" content="2020-03-05T10:47:54.682Z">
+<meta property="article:author" content="Brain Cao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+
+
+<link rel="icon" href="/img/avatar.gif">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.gif" />
+</a>
+<div class="author">
+    <span>Brain Cao</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/braincao" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/pop_rain" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:491316377@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=491316377&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(28)</small></div></li>
+    
+        
+            
+            <li><div data-rel="综合技术">综合技术<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法刷题">算法刷题<small>(7)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="技术之外"><i class="fold iconfont icon-right"></i>技术之外<small>(5)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="投资理财">投资理财<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="java">java<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="多线程">多线程<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据库">数据库<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="28">
+<input type="hidden" id="yelog_site_word_count" value="134.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            
+            <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            
+            <li><a target="_blank" href="https://www.csdn.net/">csdn</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">算法刷题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">投资理财</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">hosts</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">职业管理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">排序算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">面经</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">技术之外</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2020/02/21/blog-index/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
+            <span class="post-date" title="2020-02-21 01:37:19">2020/02/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/build-hexo/"
+           data-tag="博客,hexo,gitee"
+           data-author="" >
+            <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/04/08/dfs-template/"
+           data-tag="算法刷题,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS模板">DFS模板</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2019/05/08/financial-tips/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="金融小知识">金融小知识</span>
+            <span class="post-date" title="2019-05-08 09:43:21">2019/05/08</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/03/05/fund-bank-screw/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="《指数基金投资指南》学习笔记">《指数基金投资指南》学习笔记</span>
+            <span class="post-date" title="2020-03-05 18:52:28">2020/03/05</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/01/20/fund-investment/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="基金定投">基金定投</span>
+            <span class="post-date" title="2020-01-20 10:30:31">2020/01/20</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/git-orders/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git命令">git命令</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/20/github-hosts/"
+           data-tag="hosts,github"
+           data-author="" >
+            <span class="post-title" title="加速github访问速度">加速github访问速度</span>
+            <span class="post-date" title="2020-02-20 23:24:11">2020/02/20</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-collection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java集合">java集合</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/01/16/java-concurrency/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java并发">java并发</span>
+            <span class="post-date" title="2019-01-16 22:08:05">2019/01/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-copy/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java深浅拷贝">java深浅拷贝</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-final/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="final关键字">final关键字</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-io/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java IO">java IO</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-lamada/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="lamada表达式">lamada表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-multi-thread/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java多线程">java多线程</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-reflection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java反射">java反射</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/23/master-seek-job/"
+           data-tag="职业管理"
+           data-author="" >
+            <span class="post-title" title="研二找工作过程总结">研二找工作过程总结</span>
+            <span class="post-date" title="2020-02-23 12:54:10">2020/02/23</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-regular/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java正则">java正则</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="多线程 "
+           href="/2019/10/01/multithread-programming-demo/"
+           data-tag="多线程"
+           data-author="" >
+            <span class="post-title" title="多线程编程例子">多线程编程例子</span>
+            <span class="post-date" title="2019-10-01 19:00:08">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2020/02/27/normal-algorithms-summary/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="常用算法心得总结">常用算法心得总结</span>
+            <span class="post-date" title="2020-02-27 18:13:44">2020/02/27</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/29/oss-img-bed/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="使用阿里云oss做博客图床">使用阿里云oss做博客图床</span>
+            <span class="post-date" title="2020-02-29 12:22:43">2020/02/29</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2019/10/01/postgraduate-interview-questions/"
+           data-tag="算法刷题,面经"
+           data-author="" >
+            <span class="post-title" title="研二面试题目">研二面试题目</span>
+            <span class="post-date" title="2019-10-01 12:03:55">2019/10/01</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/12/16/sql-btree/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="B树系列详解">B树系列详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/28/thinking-cognition/"
+           data-tag="技术之外"
+           data-author="" >
+            <span class="post-title" title="思考认知">思考认知</span>
+            <span class="post-date" title="2020-02-28 13:24:54">2020/02/28</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leftgod-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="左神刷题">左神刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/sword-offer-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-java-concurrency" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">java并发</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="java">java</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">java</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date">2019-01-16 22:08</time>
+        
+        
+        更新时间:<time class="updated">2020-03-06 22:48</time>
+        
+
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:10.8k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java并发总结图"><span class="toc-text">java并发总结图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#day1"><span class="toc-text">day1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#并发模拟–工具"><span class="toc-text">并发模拟–工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#并发模拟–代码"><span class="toc-text">并发模拟–代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全性的原子性"><span class="toc-text">线程安全性的原子性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-原子性–Atomic包实现线程安全"><span class="toc-text">1.原子性–Atomic包实现线程安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-原子性–锁实现线程安全"><span class="toc-text">2.原子性–锁实现线程安全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全性的可见性"><span class="toc-text">线程安全性的可见性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全性的有序性"><span class="toc-text">线程安全性的有序性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布对象"><span class="toc-text">发布对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式（四种常用方法）"><span class="toc-text">单例模式（四种常用方法）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对象逸出"><span class="toc-text">对象逸出</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Day2"><span class="toc-text">Day2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全策略–不可变对象"><span class="toc-text">线程安全策略–不可变对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全策略–线程封闭"><span class="toc-text">线程安全策略–线程封闭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全策略–非线程安全的类与方法"><span class="toc-text">线程安全策略–非线程安全的类与方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全–同步容器"><span class="toc-text">线程安全–同步容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fail-fast机制"><span class="toc-text">fail-fast机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全–并发容器J-U-C"><span class="toc-text">线程安全–并发容器J.U.C</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-重点，面试经常考"><span class="toc-text">3.(重点，面试经常考):</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全–并发容器J-U-C之AQS"><span class="toc-text">线程安全–并发容器J.U.C之AQS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AQS组件之CountdowLatch"><span class="toc-text">AQS组件之CountdowLatch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AQS组件之Semaphore"><span class="toc-text">AQS组件之Semaphore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AQS组件之CyclicBarrier"><span class="toc-text">AQS组件之CyclicBarrier</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AQS组件之ReentrantLock"><span class="toc-text">AQS组件之ReentrantLock</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java不可重入锁和可重入锁理解"><span class="toc-text">Java不可重入锁和可重入锁理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#乐观锁与悲观锁"><span class="toc-text">乐观锁与悲观锁</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Day-3"><span class="toc-text">Day.3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#J-U-C之FutureTask"><span class="toc-text">J.U.C之FutureTask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J-U-C之ForkJoin"><span class="toc-text">J.U.C之ForkJoin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J-U-C之BlockingQueue阻塞队列"><span class="toc-text">J.U.C之BlockingQueue阻塞队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J-U-C之线程池-重点"><span class="toc-text">J.U.C之线程池(重点)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程并发扩展–死锁"><span class="toc-text">多线程并发扩展–死锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程并发的最佳实践"><span class="toc-text">多线程并发的最佳实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发之扩容思路"><span class="toc-text">高并发之扩容思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发之缓存思路"><span class="toc-text">高并发之缓存思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jRedis的demo"><span class="toc-text">jRedis的demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试常考的一致性Hash算法"><span class="toc-text">面试常考的一致性Hash算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发之消息队列"><span class="toc-text">高并发之消息队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发之应用拆分"><span class="toc-text">高并发之应用拆分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高并发其他知识点"><span class="toc-text">高并发其他知识点</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此文档为java并发的学习总结</p>
+<a id="more"></a>
+
+<h1 id="java并发总结图"><a href="#java并发总结图" class="headerlink" title="java并发总结图"></a>java并发总结图</h1><p><img src="https://img.braincao.cn/blogimg/1583506462.jpg" alt="1583506462"></p>
+<h1 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h1><h2 id="并发模拟–工具"><a href="#并发模拟–工具" class="headerlink" title="并发模拟–工具"></a>并发模拟–工具</h2><p>postman–http请求模拟，也可以进行简单的并发测试</p>
+<p>AB(apacheBench)–并发测试(只有命令行，没有图形界面)</p>
+<p>jMeter–压力测试，并AB更强大，实际用的更多(有图形界面)</p>
+<h2 id="并发模拟–代码"><a href="#并发模拟–代码" class="headerlink" title="并发模拟–代码"></a>并发模拟–代码</h2><p>CountDownLatch–阻塞线程并保证线程在某种特定条件下继续执行</p>
+<p>Semaphore–阻塞线程并控制同一时间的并发量</p>
+<p>CountDownLatch+Semaphore通常与线程池一起使用</p>
+<pre><code class="java">package com.mmall.concurrency;
+
+import com.mmall.concurrency.annoations.NotThreadSafe;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+
+@Slf4j
+@NotThreadSafe
+public class ConcurrencyTest {
+
+    // 请求总数
+    public static int clientTotal = 5000;
+
+    // 同时并发执行的线程数
+    public static int threadTotal = 200;
+
+    public static int count = 0;
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool(); //线程池
+        final Semaphore semaphore = new Semaphore(threadTotal); //阻塞线程并控制同一时间的并发量
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);//阻塞线程并保证线程在某种特定条件下继续执行
+        for (int i = 0; i &lt; clientTotal ; i++) {
+            executorService.execute(() -&gt; {
+                try {
+                    semaphore.acquire();
+                    add();
+                    semaphore.release();
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        executorService.shutdown();
+        log.info(&quot;count:{}&quot;, count);
+    }
+
+    private static void add() {
+        count++;
+    }
+}
+</code></pre>
+<h2 id="线程安全性的原子性"><a href="#线程安全性的原子性" class="headerlink" title="线程安全性的原子性"></a>线程安全性的原子性</h2><p>线程安全性的几种原子性–对比：</p>
+<pre><code>1.Atomic: 竞争激烈时能维持常态，比Lock性能好; 只能同步一个值
+2.synchronized: 不可中断锁，适合竞争不激烈，可读性好
+3.Lock: 可中断锁，多样化同步，竞争激烈时维持常态
+</code></pre><h3 id="1-原子性–Atomic包实现线程安全"><a href="#1-原子性–Atomic包实现线程安全" class="headerlink" title="1.原子性–Atomic包实现线程安全"></a>1.原子性–Atomic包实现线程安全</h3><p>java中的atomic包实现原子性，atomic包内部是通过CAS来实现原子性的。CAS：CompareAndSwap</p>
+<p>1.AtomicXXX: CAS、Unsafe.compareAndSwapInt</p>
+<p>2.AtomicLong与LongAdder</p>
+<p>有了AtomicInteger，进一步有了AtomicLong，再进一步有了LongAdder，需要LongAdder的原因如下：</p>
+<p>CAS底层实现是一个死循环，直到主存和工作内存数据相同才修改，否则一直循环，这个在有时候可能修改失败的概率很大，影响性能，那么LongAdder的优点就是利用AtomicLong，JVM会把int拆分成多个cell，最后合并cell即可，将单点的atomic压力分散成多个cell的压力。</p>
+<p>3.AtomicReference、AtomicIntegerFieldUpdater</p>
+<p>AtomicReference中的compareAndSet()方法参数分别代表:expectedValue、updateValue，如果是expectedValue则更新为updateValue</p>
+<p>AtomicIntegerFieldUpdater中的字段必须使用volatile</p>
+<p>4.AtomicStampedReference：解决CAS的ABA问题</p>
+<p>CAS的ABA问题：其他线程将A改为B又改回A，当前线程读A没有影响，但是这不符合设计要求了，因此我们将每个线程的修改操作都附一个版本号Stamp，此A非彼A，这样解决了ABA问题</p>
+<h3 id="2-原子性–锁实现线程安全"><a href="#2-原子性–锁实现线程安全" class="headerlink" title="2.原子性–锁实现线程安全"></a>2.原子性–锁实现线程安全</h3><p>JDK中锁的实现有两种方法：</p>
+<pre><code>1.synchronized: 依赖JVM
+2.Lock: 依赖特殊的cpu指令，代码层面实现，J.U.C的AQS组件中的ReentrantLock
+</code></pre><p>synchronized实现线程安全(着重介绍)</p>
+<p>四种synchronized的修饰用法及作用范围，一定注意其作用范围</p>
+<pre><code>1.修饰一个代码块，被修饰的代码块称为同步语句块，其作用的范围是大括号{}括起来的代码，作用的对象是调用这个代码块的对象；
+2.修饰一个方法，被修饰的方法称为同步方法，其作用的范围是整个方法，作用的对象是调用这个方法的对象；
+3.修改一个静态的方法，其作用的范围是整个静态方法，作用的对象是这个类的所有对象；
+4.修改一个类，其作用的范围是synchronized后面括号括起来的部分，作用主的对象是这个类的所有对象
+</code></pre><p>示例：</p>
+<pre><code class="java">// 修饰一个代码块
+public void test1(int j) {
+    synchronized (this) {
+        for (int i = 0; i &lt; 10; i++) {
+            log.info(&quot;test1 {} - {}&quot;, j, i);
+        }
+    }
+}
+
+// 修饰一个方法
+public synchronized void test2(int j) {
+    for (int i = 0; i &lt; 10; i++) {
+        log.info(&quot;test2 {} - {}&quot;, j, i);
+    }
+}
+
+// 修饰一个类
+public static void test1(int j) {
+    synchronized (SynchronizedExample2.class) {
+        for (int i = 0; i &lt; 10; i++) {
+            log.info(&quot;test1 {} - {}&quot;, j, i);
+        }
+    }
+}
+
+// 修饰一个静态方法
+public static synchronized void test2(int j) {
+    for (int i = 0; i &lt; 10; i++) {
+        log.info(&quot;test2 {} - {}&quot;, j, i);
+    }
+}
+
+//测试
+public static void main(String[] args) {
+    SynchronizedExample1 example1 = new SynchronizedExample1();
+    SynchronizedExample1 example2 = new SynchronizedExample1();
+    ExecutorService executorService = Executors.newCachedThreadPool();//线程池
+    executorService.execute(() -&gt; {
+        example1.test2(1);
+    });
+    executorService.execute(() -&gt; {
+        example2.test2(2);
+    });
+}
+</code></pre>
+<p>使用synchronized保证线程安全的实例:</p>
+<pre><code class="java">package com.mmall.concurrency.example.count;
+
+import com.mmall.concurrency.annoations.ThreadSafe;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+
+@Slf4j
+@ThreadSafe
+public class CountExample3 {
+
+    // 请求总数
+    public static int clientTotal = 5000;
+
+    // 同时并发执行的线程数
+    public static int threadTotal = 200;
+
+    public static int count = 0;
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        final Semaphore semaphore = new Semaphore(threadTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        for (int i = 0; i &lt; clientTotal ; i++) {
+            executorService.execute(() -&gt; {
+                try {
+                    semaphore.acquire();
+                    add();
+                    semaphore.release();
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        executorService.shutdown();
+        log.info(&quot;count:{}&quot;, count);
+    }
+
+    //这里加了synchronized就线程安全了，使用简单容易
+    private synchronized static void add() {
+        count++;
+    }
+}
+</code></pre>
+<h2 id="线程安全性的可见性"><a href="#线程安全性的可见性" class="headerlink" title="线程安全性的可见性"></a>线程安全性的可见性</h2><p>什么是线程间的可见性？ </p>
+<p>一个线程对共享变量值的修改，能够及时的被其他线程看到。</p>
+<p>什么是共享变量？ </p>
+<p>如果一个变量在多个线程的工作内存中都存在副本，那么这个变量就是这几个线程的共享变量。</p>
+<p>导致共享变量在线程间不可见的原因：</p>
+<pre><code>1.线程的交叉执行 
+2.重排序结合线程交叉执行 
+3.共享变量更新后的值没有在工作内存与主内存间及时更新 
+</code></pre><p>java语言层面支持的可见性实现方式有两种：</p>
+<pre><code>1.synchronized 
+2.volatile
+</code></pre><p>1.synchronized的可见性：</p>
+<p>JMM关于synchronized的两条规定： 这样简单使用synchronized就可以实现线程安全了</p>
+<pre><code>1.线程解锁前（退出synchronized代码块之前），必须把共享变量的最新值刷新到主内存中，也就是说线程退出synchronized代码块值后，主内存中保存的共享变量的值已经是最新的了 
+2.线程加锁时（进入synchronized代码块之后），将清空工作内存中共享变量的值，从而使用共享变量时需要从主内存中重新读取最新的值（注意：加锁与解锁需要是同一把锁） 
+两者结合：线程解锁前对共享变量的修改在下次加锁时对其他线程可见 
+</code></pre><p>2.volatile的可见性：</p>
+<p>volatile能够保证volatile变量的可见性。</p>
+<p>volatile如何实现内存可见性？</p>
+<p>深入来说：通过加入<strong>内存屏障</strong>和<strong>禁止重排序优化</strong>来实现的。具体如下:</p>
+<pre><code>1.对volatile变量执行写操作时，会在写操作后加入一条store屏障指令 
+2.对volatile变量执行读操作时，会在读操作前加入一条load屏障指令 
+通俗的讲：volatile变量在每次被线程访问时，都强迫从主内存中重读该变量的值，而当该变量发生变化时，又会强迫线程将最新的值刷新到主内存。这样任何时刻，不同的线程总能看到该变量的最新值。
+
+线程写volatile变量的过程： 
+1.改变线程工作内存中volatile变量副本的值 
+2.将改变后的副本的值从工作内存刷新到主内存 
+线程读volatile变量的过程： 
+1.从主内存中读取volatile变量的最新值到线程的工作内存中 
+2.从工作内存中读取volatile变量的副本
+</code></pre><p>注意：<strong>volatile保证可见性，但是不保证原子性</strong>，实例如下(线程不安全)</p>
+<pre><code class="java">public class  CountExample4 {
+
+    // 请求总数
+    public static int clientTotal = 5000;
+
+    // 同时并发执行的线程数
+    public static int threadTotal = 200;
+
+    //加了volatile但是还是线程不安全
+    public static volatile int count = 0;
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        final Semaphore semaphore = new Semaphore(threadTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        for (int i = 0; i &lt; clientTotal ; i++) {
+            executorService.execute(() -&gt; {
+                try {
+                    semaphore.acquire();
+                    add();
+                    semaphore.release();
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        executorService.shutdown();
+        log.info(&quot;count:{}&quot;, count);
+    }
+
+    private static void add() {
+        count++;
+        // 1、可见性：count读是最新的
+        // 2、+1  但是这里两个线程都对count=5进行+1，再写，原子性不保证了
+        // 3、可见性：count写是最新的
+    }
+}
+</code></pre>
+<p>synchronized和volatile的比较 </p>
+<pre><code>1.volatile不需要加锁，比synchronized更轻量级，不会阻塞线程 
+2.从内存可见性角度讲，volatile读操作=进入synchronized代码块（加锁），volatile写操作=退出synchronized代码块（解锁） 
+3.synchronized既能保证可见性，又能保证原子性，而volatile只能保证可见性，不能保证原子性
+</code></pre><h2 id="线程安全性的有序性"><a href="#线程安全性的有序性" class="headerlink" title="线程安全性的有序性"></a>线程安全性的有序性</h2><p>有序性是指程序在执行的时候，程序的代码执行顺序和语句的顺序是一致的。</p>
+<p>为什么会出现不一致的情况呢？</p>
+<p>这是由于重排序的缘故。在Java内存模型中，允许编译器和处理器对<strong>指令进行重排序</strong>，但是重排序过程不会影响到单线程程序的执行，却会影响到多线程并发执行的正确性。</p>
+<p>解决方法：happens-before原则</p>
+<h2 id="发布对象"><a href="#发布对象" class="headerlink" title="发布对象"></a>发布对象</h2><p>有时，我们会发现线程可以通过public方法获取的成员变量的引用进行修改，这样发布对象的话就是线程不安全的，如下：</p>
+<pre><code class="java">public class UnsafePublish {
+
+    private String[] states = {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;};
+
+    public String[] getStates() {
+        return states;
+    }
+
+    public static void main(String[] args) {
+        UnsafePublish unsafePublish = new UnsafePublish();
+        log.info(&quot;{}&quot;, Arrays.toString(unsafePublish.getStates()));//out:[a,b,c]
+
+        //我们会发现线程可以通过public方法获取的成员变量的引用进行修改，这是不安全的
+        unsafePublish.getStates()[0] = &quot;d&quot;;
+        log.info(&quot;{}&quot;, Arrays.toString(unsafePublish.getStates()));//out:[d,b,c]
+    }
+}
+</code></pre>
+<h2 id="单例模式（四种常用方法）"><a href="#单例模式（四种常用方法）" class="headerlink" title="单例模式（四种常用方法）"></a>单例模式（四种常用方法）</h2><p>1.饿汉式</p>
+<pre><code class="java">/**
+ * 饿汉模式
+ * 单例实例在类装载时进行创建
+ */
+@ThreadSafe
+public class SingletonExample2 {
+
+    // 私有构造函数
+    private SingletonExample2() {
+    }
+
+    // 单例对象
+    private static SingletonExample2 instance = new SingletonExample2();
+
+    // 静态的工厂方法
+    public static SingletonExample2 getInstance() {
+        return instance;
+    }
+}
+</code></pre>
+<p>2.懒汉式(double-check)</p>
+<p>但是注意：double-check还是线程不安全（指令重排序的问题）–解决：volatile或者枚举</p>
+<pre><code class="java">/**
+ * 懒汉模式 -&gt; double-check单例模式
+ * 单例实例在第一次使用时进行创建
+ */
+@NotThreadSafe
+public class SingletonExample4 {
+
+    // 私有构造函数
+    private SingletonExample4() {
+
+    }
+
+    // 1、memory = allocate() 分配对象的内存空间
+    // 2、ctorInstance() 初始化对象
+    // 3、instance = memory 设置instance指向刚分配的内存
+
+    // JVM和cpu优化，发生了指令重排，因此不是线程安全
+
+    // 1、memory = allocate() 分配对象的内存空间
+    // 3、instance = memory 设置instance指向刚分配的内存
+    // 2、ctorInstance() 初始化对象
+
+    // 单例对象
+    private static SingletonExample4 instance = null;
+
+    // 静态的工厂方法
+    public static SingletonExample4 getInstance() {
+        if (instance == null) { // 双重检测机制        // B
+            synchronized (SingletonExample4.class) { // 同步锁
+                if (instance == null) {
+                    instance = new SingletonExample4(); // A - 3
+                }
+            }
+        }
+        return instance;
+    }
+}
+</code></pre>
+<p>3.枚举模式(最线程安全):</p>
+<pre><code class="java">/**
+ * 枚举模式：最安全
+ */
+@ThreadSafe
+@Recommend 推荐使用
+public class SingletonExample7 {
+
+    // 私有构造函数
+    private SingletonExample7() {
+
+    }
+
+    public static SingletonExample7 getInstance() {
+        return Singleton.INSTANCE.getInstance();
+    }
+
+    private enum Singleton {
+        INSTANCE;
+
+        private SingletonExample7 singleton;
+
+        // JVM保证这个方法绝对只调用一次
+        Singleton() {//在枚举的构造方法中创建对象
+            singleton = new SingletonExample7();
+        }
+
+        public SingletonExample7 getInstance() {
+            return singleton;
+        }
+    }
+}
+</code></pre>
+<h2 id="对象逸出"><a href="#对象逸出" class="headerlink" title="对象逸出"></a>对象逸出</h2><p>双重检测机制不能保证线程安全–原因：指令重排–解决：volatile</p>
+<h1 id="Day2"><a href="#Day2" class="headerlink" title="Day2"></a>Day2</h1><h2 id="线程安全策略–不可变对象"><a href="#线程安全策略–不可变对象" class="headerlink" title="线程安全策略–不可变对象"></a>线程安全策略–不可变对象</h2><p>1.final关键字实现不可变对象:</p>
+<p>final修饰类：不能被继承</p>
+<p>final修饰方法：锁定方法不被继承类修改</p>
+<p>final修饰变量：基本数据类型变量(不可修改)，引用类型变量(不能再指向新对象)</p>
+<pre><code class="java">public class ImmutableExample1 {
+
+    private final static Integer a = 1;
+    private final static String b = &quot;2&quot;;
+    private final static Map&lt;Integer, Integer&gt; map = Maps.newHashMap();
+
+    static {
+        map.put(1, 2);
+        map.put(3, 4);
+        map.put(5, 6);
+    }
+
+
+
+    public static void main(String[] args) {
+//        a = 2; //值不可变
+//        b = &quot;3&quot;;
+//        map = Maps.newHashMap();//引用类型不能指向别的对象
+        map.put(1, 3); //但是可以对引用的对象进行修改
+        log.info(&quot;{}&quot;, map.get(1));
+    }
+
+    private void test(final int a) {
+//        a = 1;//类型是final，也是不能修改
+    }
+}  
+</code></pre>
+<p>2.工具包实现不可变对象：</p>
+<p>这两个工具：连引用的对象都不能被修改了，比final更牛逼</p>
+<pre><code>1.Collections.unmodifiableXXX
+2.guava.immutable
+</code></pre><p>Collections.unmodifiableXXX</p>
+<pre><code class="java">public class ImmutableExample2 {
+
+    private static Map&lt;Integer, Integer&gt; map = Maps.newHashMap();
+
+    static {
+        map.put(1, 2);
+        map.put(3, 4);
+        map.put(5, 6);
+        map = Collections.unmodifiableMap(map);//这样map引用的对象都不能被修改
+    }
+
+    public static void main(String[] args) {
+        map.put(1, 3);//不能修改了，抛出异常
+        log.info(&quot;{}&quot;, map.get(1));//2
+    }
+
+}
+</code></pre>
+<p>guava.immutableXXX</p>
+<pre><code class="java">public class ImmutableExample3 {
+
+    private final static ImmutableList&lt;Integer&gt; list = ImmutableList.of(1, 2, 3);
+
+    private final static ImmutableSet set = ImmutableSet.copyOf(list);
+
+    private final static ImmutableMap&lt;Integer, Integer&gt; map = ImmutableMap.of(1, 2, 3, 4);
+
+    private final static ImmutableMap&lt;Integer, Integer&gt; map2 = ImmutableMap.&lt;Integer, Integer&gt;builder()
+            .put(1, 2).put(3, 4).put(5, 6).build();
+
+
+    public static void main(String[] args) {
+//        list.add(1);//抛出异常，不能被修改
+//        map.put(1,3);//抛出异常，不能被修改
+//        map2.put(1,3);//抛出异常，不能被修改
+        System.out.println(map2.get(3));//out: 4 取值没问题，可以取
+    }
+}
+</code></pre>
+<h2 id="线程安全策略–线程封闭"><a href="#线程安全策略–线程封闭" class="headerlink" title="线程安全策略–线程封闭"></a>线程安全策略–线程封闭</h2><p>实现好的并发是一件困难的事情，所以很多时候我们都想躲避并发。避免并发最简单的方法就是线程封闭。什么是线程封闭呢？</p>
+<p><strong>线程封闭就是把对象封装到一个线程里，只有这一个线程能看到此对象</strong>。那么这个对象就算不是线程安全的也不会出现任何安全问题。实现线程封闭有哪些方法呢？</p>
+<p>1：ad-hoc线程封闭: 程序控制实现，最糟糕，忽略</p>
+<p>2：<strong>栈封闭: 局部变量，无并发问题</strong></p>
+<p><strong>栈封闭是我们编程当中遇到的最多的线程封闭。</strong>什么是栈封闭呢？简单的说就是局部变量。多个线程访问一个方法，此方法中的局部变量都会被拷贝一分儿到线程栈中。所以局部变量是不被多个线程所共享的，也就不会出现并发问题。所以能用局部变量就别用全局的变量，全局变量容易引起并发问题。</p>
+<p>3.ThreadLocal封闭</p>
+<p>使用ThreadLocal是实现线程封闭的最好方法。<strong>ThreadLocal内部维护了一个Map，Map的key是每个线程的名称，而Map的值就是我们要封闭的对象。</strong>每个线程中的对象都对应着Map中一个值，也就是ThreadLocal利用Map实现了对象的线程封闭。</p>
+<h2 id="线程安全策略–非线程安全的类与方法"><a href="#线程安全策略–非线程安全的类与方法" class="headerlink" title="线程安全策略–非线程安全的类与方法"></a>线程安全策略–非线程安全的类与方法</h2><p>1.StringBuilder不安全 –&gt; 解决：StringBuffer安全(底层用了synchronized)</p>
+<p>2.simpleDateFormat不安全 –&gt; 解决1：将simpleDateFormat变量弄成局部变量，在线程中创建，栈封闭，安全;  解决2：第三方包JodaTime.DateTimeFormat</p>
+<p>3.Collection(ArrayList/HashSet/HashMap等)都不安全—&gt; 解决：同步容器，下面着重介绍</p>
+<p>4.先检查再执行：if(condition(a)){handle(a);}可能不安全 –&gt; 解决：加锁/atomic CAS算法等方法</p>
+<h2 id="线程安全–同步容器"><a href="#线程安全–同步容器" class="headerlink" title="线程安全–同步容器"></a>线程安全–同步容器</h2><p>同步容器：用来解决Collections(ArrayList/HashSet/HashMap等)线程不安全的问题</p>
+<pre><code>1.ArrayList不安全 --&gt; Vector, Stack
+2.HashMap不安全 --&gt; HashTable(key, value不能为null)
+3.Collections.synchronizedXXX(List,Set,Map)
+</code></pre><p>Vector在某些情况下还是线程不安全。</p>
+<p>Vector线程安全例子：</p>
+<pre><code class="java">public class VectorExample1 {
+
+    // 请求总数
+    public static int clientTotal = 5000;
+
+    // 同时并发执行的线程数
+    public static int threadTotal = 200;
+
+    private static List&lt;Integer&gt; list = new Vector&lt;&gt;();//在本例中线程安全
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        final Semaphore semaphore = new Semaphore(threadTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        for (int i = 0; i &lt; clientTotal; i++) {
+            final int count = i;
+            executorService.execute(() -&gt; {
+                try {
+                    semaphore.acquire();
+                    update(count);
+                    semaphore.release();
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        executorService.shutdown();
+        log.info(&quot;size:{}&quot;, list.size());
+    }
+
+    private static void update(int i) {
+
+        list.add(i);
+    }
+}
+</code></pre>
+<p>Vector线程不安全的例子：运行就报错，out of index</p>
+<pre><code class="java">public class VectorExample2 {
+
+    private static Vector&lt;Integer&gt; vector = new Vector&lt;&gt;();
+
+    public static void main(String[] args) {
+
+        while (true) {
+
+            for (int i = 0; i &lt; 10; i++) {
+                vector.add(i);
+            }
+
+            Thread thread1 = new Thread() {
+                public void run() {
+                    for (int i = 0; i &lt; vector.size(); i++) {
+                        vector.remove(i);//多个线程可能remove多了
+                    }
+                }
+            };
+
+            Thread thread2 = new Thread() {
+                public void run() {
+                    for (int i = 0; i &lt; vector.size(); i++) {
+                        vector.get(i);
+                    }
+                }
+            };
+            thread1.start();
+            thread2.start();
+        }
+    }
+}
+</code></pre>
+<p>Collections.synchronizedXXX(List,Set,Map)线程安全的，举个例子：</p>
+<pre><code>private static Map&lt;Integer, Integer&gt; map = Collections.synchronizedMap(new HashMap&lt;&gt;());
+</code></pre><p>demo：</p>
+<pre><code class="java">public class CollectionsExample1 {
+
+    // 请求总数
+    public static int clientTotal = 5000;
+
+    // 同时并发执行的线程数
+    public static int threadTotal = 200;
+
+    private static List&lt;Integer&gt; list = Collections.synchronizedList(Lists.newArrayList());
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        final Semaphore semaphore = new Semaphore(threadTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        for (int i = 0; i &lt; clientTotal; i++) {
+            final int count = i;
+            executorService.execute(() -&gt; {
+                try {
+                    semaphore.acquire();
+                    update(count);
+                    semaphore.release();
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        executorService.shutdown();
+        log.info(&quot;size:{}&quot;, list.size());
+    }
+
+    private static void update(int i){
+        list.add(i);
+    }
+}
+</code></pre>
+<h2 id="fail-fast机制"><a href="#fail-fast机制" class="headerlink" title="fail-fast机制"></a>fail-fast机制</h2><p><strong>在遍历集合时尽量不要在遍历同时进行remove等修改操作(原因：fail-fast机制)</strong>，</p>
+<p>fail-fast机制是java集合(Collection)中的一种错误机制。当多个线程对同一个集合的内容进行操作时，就可能会产生fail-fast事件。<br>例如：当某一个线程A通过iterator去遍历某集合的过程中，若该集合的内容被其他线程所改变</p>
+<p>解决方法：若在多线程环境下使用fail-fast机制的集合，<strong>建议使用“java.util.concurrent包下的类”去取代“java.util包下的类”</strong>； 或者先记下来，遍历完再remove等操作。</p>
+<p>例子如下：</p>
+<pre><code class="java">
+public class VectorExample3 {
+
+    // java.util.ConcurrentModificationException
+    private static void test1(Vector&lt;Integer&gt; v1) { // foreach
+        for(Integer i : v1) {
+            if (i.equals(3)) {
+                v1.remove(i);
+            }
+        }
+    }
+
+    // java.util.ConcurrentModificationException
+    private static void test2(Vector&lt;Integer&gt; v1) { // iterator
+        Iterator&lt;Integer&gt; iterator = v1.iterator();
+        while (iterator.hasNext()) {
+            Integer i = iterator.next();
+            if (i.equals(3)) {
+                v1.remove(i);
+            }
+        }
+    }
+
+    // success
+    private static void test3(Vector&lt;Integer&gt; v1) { // for
+        for (int i = 0; i &lt; v1.size(); i++) {
+            if (v1.get(i).equals(3)) {
+                v1.remove(i);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Vector&lt;Integer&gt; vector = new Vector&lt;&gt;();
+        vector.add(1);
+        vector.add(2);
+        vector.add(3);
+//        test1(vector);//异常
+//        test2(vector);//异常
+        test3(vector);
+    }
+}
+</code></pre>
+<h2 id="线程安全–并发容器J-U-C"><a href="#线程安全–并发容器J-U-C" class="headerlink" title="线程安全–并发容器J.U.C"></a>线程安全–并发容器J.U.C</h2><p>J.U.C–java.util.concurrent</p>
+<p><img src="https://img.braincao.cn/blogimg/1583506850.png" alt="1583506850"></p>
+<p><strong>图中没有AQS，AbstractQueuedSynchronizer(AQS)是锁机制实现的核心所在。是这五大部分很多东西实现的前提。</strong></p>
+<p>1.</p>
+<p>ArrayList –&gt; CopyOnWriteArrayList线程安全(读操作不加锁，写操作底层是锁；且先copy另外开辟空间，这样就线程安全了)</p>
+<pre><code>private static List&lt;Integer&gt; list = new CopyOnWriteArrayList&lt;&gt;();`
+</code></pre><p>2.</p>
+<p>HashSet –&gt; CopyOnWriteArraySet </p>
+<p>TreeSet –&gt; ConcurrentSkipListSet</p>
+<h5 id="3-重点，面试经常考"><a href="#3-重点，面试经常考" class="headerlink" title="3.(重点，面试经常考):"></a>3.(重点，面试经常考):</h5><pre><code>HashMap --&gt; ConcurrentHashMap
+
+TreeMap--&gt; ConcurrentSkipListMap
+</code></pre><p><strong>由于ConcurrentHashMap、ConcurrentSkipListMap经过优化后具有很高的并发性，因此面试中常考</strong></p>
+<p>一、Hashmap</p>
+<p>1.Hashmap的数据结构：</p>
+<p>HashMap的底层就是一个数组结构，而数组中的每一项又是一个链表结构；</p>
+<p>当我们新建一个HashMap的时候，就会初始化一个数组出来。</p>
+<p>HashMap有两个参数影响它的性能，一个是初始容量（默认是16），一个是加载因子（默认是0.75）。</p>
+<p>容量是哈希表中桶的数量。初始容量只是哈希表在创建时的容量；</p>
+<p>加载因子是哈希表在容量自动增加之前，可以达到多满的一个尺度。如果达到了加载因子的值 ，那么会调用resize方法进行扩容。将容量进行翻倍。</p>
+<p>这两个值在初始化时构造函数是可以自定义的。</p>
+<p>2.Hashmap的寻址方式：</p>
+<p>对于一个新插入的数据，或者我们需要读取的数据。Hashmap会对它的key按照一定的计算规则计算出的哈希值并对数组长度进行取模。结果作为它数组中的index。但是在计算机中取模的代价比较大，所以Hashmap要求数组的长度必须为2的N次方，此时呢它将key的哈希值对2的N-1次方进行与运算，结果与取模相同的。</p>
+<p>Hashmap并不要求用户在初始化的时候指定容量必须传入的N次方的整数，而是在初始化时根据传入的参数计算出一个满足的容量值。源码中的tableSizeFor方法即可看到。</p>
+<p>总所周知，<strong>Hashmap的线程不安全，其实主要体现在刚才的resize方法可能会出现死循环(出现循环链表)，以及使用迭代器会出现FastFail。</strong></p>
+<p>当Hashmap得size超过容量乘加载因子的时候，就会进行扩容。就是创建了一个新的长度为原容量2倍的数组。并将原数组全部重新插入到现数组中，这个方法我们成为rehash。这个方法不保证线程安全，并且在多线程环境下可能会出现死循环。</p>
+<p>二.HashMap–&gt;ConcurrentHashMap(key\value不允许空值)</p>
+<p>1.ConcurrentHashMap的数据结构：</p>
+<p><img src="https://img.braincao.cn/blogimg/1583506916.png" alt="1583506916"></p>
+<p>也是数组+链表结构，但是最外层不像HashMap直接是个大的数组，而是Segment数组，每个Segment里面是跟HashMap结构差不多的链表数组</p>
+<p><strong>Java7之前是分段锁。Java8之后在链表长度超过一定长度之后（默认是8），链表转化为了红黑树，提高并发性</strong></p>
+<p>三.ConcurrentSkipListMap</p>
+<p>ConcurrentSkipListMap的效率一般没有ConcurrentHashMap高，但是也有优点。</p>
+<pre><code>1.可以保证有序性
+2.并发数越大，越能体现优势
+</code></pre><p>一个demo，线程安全：</p>
+<pre><code class="java">public class ConcurrentSkipListMapExample {
+
+    // 请求总数
+    public static int clientTotal = 5000;
+
+    // 同时并发执行的线程数
+    public static int threadTotal = 200;
+
+    private static Map&lt;Integer, Integer&gt; map = new ConcurrentSkipListMap&lt;&gt;();
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        final Semaphore semaphore = new Semaphore(threadTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        for (int i = 0; i &lt; clientTotal; i++) {
+            final int count = i;
+            executorService.execute(() -&gt; {
+                try {
+                    semaphore.acquire();
+                    update(count);
+                    semaphore.release();
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        executorService.shutdown();
+        log.info(&quot;size:{}&quot;, map.size());
+    }
+
+    private static void update(int i) {
+        map.put(i, i);
+    }
+}
+</code></pre>
+<h2 id="线程安全–并发容器J-U-C之AQS"><a href="#线程安全–并发容器J-U-C之AQS" class="headerlink" title="线程安全–并发容器J.U.C之AQS"></a>线程安全–并发容器J.U.C之AQS</h2><p>详看：<a href="https://www.cnblogs.com/chengxiao/archive/2017/07/24/7141160.html" target="_blank" rel="noopener">Java并发包基石-AQS详解</a></p>
+<p><a href="https://blog.csdn.net/jesonjoke/article/details/80054133" target="_blank" rel="noopener">慕课网实战·高并发探索（十一）：并发容器J.U.C – AQS组件CountDownLatch、Semaphore、CyclicBarrier</a></p>
+<p>AQS: AbstractQueuedSynchronizer,它是一个Java提高的底层同步工具类。<strong>AQS使用一个int成员变量来表示同步状态，通过内置的FIFO队列(“CLH”队列)来完成获取资源线程的排队工作</strong>。用一个int类型的变量表示同步状态，并提供了一系列的CAS操作来管理这个同步状态。AQS的主要作用是为Java中的并发同步组件提供统一的底层支持，例如ReentrantLock，CountdowLatch就是基于AQS实现的，用法是通过继承AQS实现其模版方法，然后将子类作为同步组件的内部类。</p>
+<p>AQS设计思想：</p>
+<p>1.使用Node实现FIFO队列，可以用于构建锁或者其他同步装置的基础框架。<br>利用int类型标识状态。在AQS类中有一个叫做state的成员变量</p>
+<pre><code>/**
+ * The synchronization state.
+ */
+private volatile int state;
+</code></pre><p>2.基于AQS有一个同步组件，叫做ReentrantLock。在这个组件里，stste表示获取锁的线程数，假如state=0，表示还没有线程获取锁，1表示有线程获取了锁。大于1表示重入锁的数量。</p>
+<p>3.继承：子类通过继承并通过实现它的方法管理其状态（acquire和release方法操纵状态）。</p>
+<p>4.可以同时实现排它锁和共享锁模式（独占、共享），站在一个使用者的角度，AQS的功能主要分为两类：独占和共享。它的所有子类中，要么实现并使用了它的独占功能的api，要么使用了共享锁的功能，而不会同时使用两套api，即便是最有名的子类ReentrantReadWriteLock也是通过两个内部类读锁和写锁分别实现了两套api来实现的。</p>
+<p>AQS主要组件：</p>
+<pre><code>CountdowLatch 通过计数来保证线程是否需要阻塞
+Semaphore 表现剩余的许可数
+ReentrantLock 表现拥有它的线程已经请求了多少次锁
+</code></pre><p>AQS支持两种同步方式：</p>
+<ul>
+<li>独占式</li>
+<li>共享式</li>
+</ul>
+<h2 id="AQS组件之CountdowLatch"><a href="#AQS组件之CountdowLatch" class="headerlink" title="AQS组件之CountdowLatch"></a>AQS组件之CountdowLatch</h2><p>通过一个计数来保证线程是否需要被阻塞。实现一个或多个线程等待其他线程执行的场景。</p>
+<p>我们定义一个CountDownLatch，通过给定的计数器为其初始化，该计数器是原子性操作，保证同时只有一个线程去操作该计数器。调用该类await方法的线程会一直处于阻塞状态。只有其他线程调用countDown方法（每次使计数器-1），使计数器归零才能继续执行。</p>
+<pre><code class="java">final CountDownLatch countDownLatch = new CountDownLatch(threadCount);
+
+for (int i = 0; i &lt; threadCount; i++) {
+    final int threadNum = i;
+    exec.execute(() -&gt; {
+        try {
+            test(threadNum);  //需要被等待的线程执行的方法
+        } catch (Exception e) {
+            log.error(&quot;exception&quot;, e);
+        } finally {
+            countDownLatch.countDown();
+        }
+    });
+}
+countDownLatch.await();
+log.info(&quot;finish&quot;);//必须在countDownLatch减为0后才会执行await()后面的代码
+exec.shutdown();
+</code></pre>
+<p>可以看到，线程池必须在countDownLatch减为0后才会执行await()后面的代码</p>
+<h2 id="AQS组件之Semaphore"><a href="#AQS组件之Semaphore" class="headerlink" title="AQS组件之Semaphore"></a>AQS组件之Semaphore</h2><pre><code>用于保证同一时间并发访问线程的数目。
+信号量在操作系统中是很重要的概念，Java并发库里的Semaphore就可以很轻松的完成类似操作系统信号量的控制。Semaphore可以很容易控制系统中某个资源被同时访问的线程个数。
+在数据结构中我们学过链表，链表正常是可以保存无限个节点的，而Semaphore可以实现有限大小的列表。
+使用场景：仅能提供有限访问的资源。比如数据库连接。
+Semaphore使用acquire方法和release方法来实现控制：
+</code></pre><p>代码：</p>
+<pre><code class="java">public class SemaphoreExample1 {
+
+    private final static int threadCount = 20;
+
+    public static void main(String[] args) throws Exception {
+
+        ExecutorService exec = Executors.newCachedThreadPool();
+
+        final Semaphore semaphore = new Semaphore(3);//一个线程可访问的许可总数
+
+        for (int i = 0; i &lt; threadCount; i++) {
+            final int threadNum = i;
+            exec.execute(() -&gt; {
+                try {
+                    semaphore.acquire(); // 获取一个许可
+                    test(threadNum);
+                    semaphore.release(); // 释放一个许可
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+            });
+        }
+        exec.shutdown();
+    }
+
+    private static void test(int threadNum) throws Exception {
+        log.info(&quot;{}&quot;, threadNum);
+        Thread.sleep(1000);
+    }
+}
+</code></pre>
+<h2 id="AQS组件之CyclicBarrier"><a href="#AQS组件之CyclicBarrier" class="headerlink" title="AQS组件之CyclicBarrier"></a>AQS组件之CyclicBarrier</h2><p>也是一个同步辅助类，<strong>它允许一组线程相互等待，直到到达某个公共的屏障点（循环屏障）才一起执行</strong></p>
+<p>通过它可以完成多个线程之间相互等待，只有每个线程都准备就绪后才能继续往下执行后面的操作。</p>
+<p>每当有一个线程执行了await方法，计数器就会执行+1操作，待计数器达到预定的值，所有的线程再同时继续执行。由于计数器释放之后可以重用（reset方法），所以称之为循环屏障。</p>
+<p><strong>CyclicBarrier与CountDownLatch区别：</strong></p>
+<ul>
+<li>1、CyclicBarrier计数器可重复用 </li>
+<li>2、CyclicBarrier描述一个或多个线程等待其他线程的关系/多个线程相互等待</li>
+</ul>
+<p>代码：</p>
+<pre><code class="java">public class CyclicBarrierExample1 {
+
+    private static CyclicBarrier barrier = new CyclicBarrier(5);
+
+    public static void main(String[] args) throws Exception {
+
+        ExecutorService executor = Executors.newCachedThreadPool();
+
+        for (int i = 0; i &lt; 10; i++) {
+            final int threadNum = i;
+            Thread.sleep(1000);
+            executor.execute(() -&gt; {
+                try {
+                    race(threadNum);
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+            });
+        }
+        executor.shutdown();
+    }
+
+    private static void race(int threadNum) throws Exception {
+        Thread.sleep(1000);
+        log.info(&quot;{} is ready&quot;, threadNum);
+        barrier.await();//等待多个线程准备好一起执行
+        log.info(&quot;{} continue&quot;, threadNum);
+    }
+}
+
+out:
+0 is ready
+1 is ready
+2 is ready
+3 is ready
+4 is ready
+0 continue
+1 continue
+2 continue
+3 continue
+4 continue
+5 is ready...
+</code></pre>
+<h2 id="AQS组件之ReentrantLock"><a href="#AQS组件之ReentrantLock" class="headerlink" title="AQS组件之ReentrantLock"></a>AQS组件之ReentrantLock</h2><p>ReentrantLock<br>java中有两类锁，一类是Synchronized，而另一类就是J.U.C中提供的锁。ReentrantLock与Synchronized都是可重入锁，本质上都是lock与unlock的操作。接下来我们介绍三种J.U.C中的锁，其中 ReentrantLock使用synchronized与之比对介绍。</p>
+<p><strong>ReentrantLock与synchronized的区别</strong></p>
+<p>可重入性：两者的锁都是可重入的，差别不大，有线程进入锁，计数器自增1，等下降为0时才可以释放锁</p>
+<p>锁的实现：synchronized是基于JVM实现的（用户很难见到，无法了解其实现），ReentrantLock是JDK实现的。</p>
+<p>性能区别：在最初的时候，二者的性能差别差很多，当synchronized引入了偏向锁、轻量级锁（自选锁）后，二者的性能差别不大，官方推荐</p>
+<p>synchronized（写法更容易、在优化时其实是借用了ReentrantLock的CAS技术，试图在用户态就把问题解决，避免进入内核态造成线程阻塞）</p>
+<p>功能区别： </p>
+<ul>
+<li><p>1.便利性：synchronized更便利，它是由编译器保证加锁与释放。ReentrantLock是需要手动释放锁，所以为了避免忘记手工释放锁造成死锁，所以最好在finally中声明释放锁。</p>
+</li>
+<li><p>2.锁的细粒度和灵活度，ReentrantLock优于synchronized</p>
+</li>
+</ul>
+<pre><code class="java">public class LockExample2 {
+
+    // 请求总数
+    public static int clientTotal = 5000;
+
+    // 同时并发执行的线程数
+    public static int threadTotal = 200;
+
+    public static int count = 0;
+
+    private final static Lock lock = new ReentrantLock();
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        final Semaphore semaphore = new Semaphore(threadTotal);
+        final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
+        for (int i = 0; i &lt; clientTotal ; i++) {
+            executorService.execute(() -&gt; {
+                try {
+                    semaphore.acquire();
+                    add();
+                    semaphore.release();
+                } catch (Exception e) {
+                    log.error(&quot;exception&quot;, e);
+                }
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        executorService.shutdown();
+        log.info(&quot;count:{}&quot;, count);
+    }
+
+    private static void add() {
+        lock.lock();//上锁
+        try {
+            count++;
+        } finally {
+            lock.unlock();//解锁
+        }
+    }
+}
+</code></pre>
+<p>还有个ReadWriteLock读写锁</p>
+<h2 id="Java不可重入锁和可重入锁理解"><a href="#Java不可重入锁和可重入锁理解" class="headerlink" title="Java不可重入锁和可重入锁理解"></a>Java不可重入锁和可重入锁理解</h2><p><a href="https://blog.csdn.net/u012545728/article/details/80843595" target="_blank" rel="noopener">Java不可重入锁和可重入锁理解</a></p>
+<p>所谓不可重入锁（自旋锁），即若当前线程执行某个方法已经获取了该锁，那么在方法中尝试再次获取锁时，就会获取不到被阻塞。</p>
+<p>所谓可重入，意味着线程可以进入它已经拥有的锁的同步代码块儿。</p>
+<p>java中的synchronized、ReentrantLock都是可重入锁</p>
+<h2 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h2><p>悲观锁：总是假设最坏的情况，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻塞直到它拿到锁。传统的关系型数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。再比如Java里面的同步原语synchronized关键字的实现也是悲观锁。</p>
+<p>乐观锁：顾名思义，就是很乐观，每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在更新的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制(如stampedLock)。<strong>乐观锁适用于多读的应用类型，这样可以提高吞吐量</strong>，像数据库提供的类似于write_condition机制，其实都是提供的乐观锁。在Java中<strong>java.util.concurrent.atomic包下面的原子变量类就是使用了乐观锁的一种实现方式CAS实现的。</strong></p>
+<h1 id="Day-3"><a href="#Day-3" class="headerlink" title="Day.3"></a>Day.3</h1><h2 id="J-U-C之FutureTask"><a href="#J-U-C之FutureTask" class="headerlink" title="J.U.C之FutureTask"></a>J.U.C之FutureTask</h2><p><strong>当想获取线程返回结果时，应该实现callable接口，而FutureTask就是超级方便的东西，使用它就行。</strong>。FutureTask 表现任务的状态(尚未开始、运行、完成和取消)</p>
+<p>FutureTask是J.U.C中的类，是一个可删除的异步计算类。这个类提供了Future接口的的基本实现，使用相关方法启动和取消计算，查询计算是否完成，并检索计算结果。只有在计算完成时才能使用get方法检索结果;如果计算尚未完成，get方法将会阻塞。一旦计算完成，计算就不能重新启动或取消(除非使用runAndReset方法调用计算)。</p>
+<p>Runnable与Callable对比</p>
+<p>通常实现一个线程我们会使用继承Thread的方式或者实现Runnable接口，这两种方式有一个共同的缺陷就是在执行完任务之后无法获取执行结果。从Java1.5之后就提供了<strong>Callable与Future，这两个接口就可以实现获取任务执行结果</strong>。</p>
+<p>Future接口提供了一系列方法用于控制线程执行计算</p>
+<p>FutureTask</p>
+<p>Future实现了RunnableFuture接口，而RunnableFuture接口继承了Runnable与Future接口，所以它既可以作为Runnable被线程中执行，又可以作为callable获得返回值。</p>
+<p><strong>FutureTask支持两种参数类型，Callable和Runnable，在使用Runnable 时，还可以多指定一个返回结果类型。</strong></p>
+<p>当使用future接口：</p>
+<pre><code class="java">public class FutureExample {
+
+    static class MyCallable implements Callable&lt;String&gt; {
+
+        @Override
+        public String call() throws Exception {
+            log.info(&quot;do something in callable&quot;);
+            Thread.sleep(5000);
+            return &quot;Done&quot;;
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        Future&lt;String&gt; future = executorService.submit(new MyCallable());
+        log.info(&quot;do something in main&quot;);
+        Thread.sleep(1000);
+        String result = future.get();
+        log.info(&quot;result：{}&quot;, result);
+    }
+}
+
+out:
+do something in callable
+do something in main
+result：Done
+</code></pre>
+<p>使用FutureTask更方便(out是一样的)：</p>
+<pre><code class="java">public class FutureTaskExample {
+
+    public static void main(String[] args) throws Exception {
+        FutureTask&lt;String&gt; futureTask = new FutureTask&lt;String&gt;(new Callable&lt;String&gt;() {
+            @Override
+            public String call() throws Exception {
+                log.info(&quot;do something in callable&quot;);
+                Thread.sleep(5000);
+                return &quot;Done&quot;;
+            }
+        });
+
+        new Thread(futureTask).start();
+        log.info(&quot;do something in main&quot;);
+        Thread.sleep(1000);
+        String result = futureTask.get();
+        log.info(&quot;result：{}&quot;, result);
+    }
+}
+</code></pre>
+<h2 id="J-U-C之ForkJoin"><a href="#J-U-C之ForkJoin" class="headerlink" title="J.U.C之ForkJoin"></a>J.U.C之ForkJoin</h2><p>ForkJoin是Java7提供的一个并行执行任务的框架，<strong>是把大任务分割成若干个小任务，待小任务完成后将结果汇总成大任务结果的框架</strong>。主要采用的是工作窃取算法，工作窃取算法是指某个线程从其他队列里窃取任务来执行。 这个思想和MapReduce算法类似</p>
+<p><img src="https://img.braincao.cn/blogimg/1583506947.png" alt="1583506947"></p>
+<p>在窃取过程中两个线程会访问同一个队列，为了减少窃取任务线程和被窃取任务线程之间的竞争，通常我们会使用双端队列来实现工作窃取算法。被窃取任务的线程永远从队列的头部拿取任务，窃取任务的线程从队列尾部拿取任务。</p>
+<p>一个1~100和的任务示例:</p>
+<pre><code class="java">public class ForkJoinTaskExample extends RecursiveTask&lt;Integer&gt; {
+
+    public static final int threshold = 2;
+    private int start;
+    private int end;
+
+    public ForkJoinTaskExample(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    @Override
+    protected Integer compute() {
+        int sum = 0;
+
+        //如果任务足够小就计算任务
+        boolean canCompute = (end - start) &lt;= threshold;
+        if (canCompute) {
+            for (int i = start; i &lt;= end; i++) {
+                sum += i;
+            }
+        } else {
+            // 如果任务大于阈值，就分裂成两个子任务计算
+            int middle = (start + end) / 2;
+            ForkJoinTaskExample leftTask = new ForkJoinTaskExample(start, middle);
+            ForkJoinTaskExample rightTask = new ForkJoinTaskExample(middle + 1, end);
+
+            // 执行子任务
+            leftTask.fork();
+            rightTask.fork();
+
+            // 等待任务执行结束合并其结果
+            int leftResult = leftTask.join();
+            int rightResult = rightTask.join();
+
+            // 合并子任务
+            sum = leftResult + rightResult;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        ForkJoinPool forkjoinPool = new ForkJoinPool();
+
+        //生成一个计算任务，计算1+2+3+4
+        ForkJoinTaskExample task = new ForkJoinTaskExample(1, 100);
+
+        //执行一个任务
+        Future&lt;Integer&gt; result = forkjoinPool.submit(task);
+
+        try {
+            log.info(&quot;result:{}&quot;, result.get());
+        } catch (Exception e) {
+            log.error(&quot;exception&quot;, e);
+        }
+    }
+}
+</code></pre>
+<h2 id="J-U-C之BlockingQueue阻塞队列"><a href="#J-U-C之BlockingQueue阻塞队列" class="headerlink" title="J.U.C之BlockingQueue阻塞队列"></a>J.U.C之BlockingQueue阻塞队列</h2><p>阻塞情况：1、当队列满了进行入队操作; 2、当队列空了的时候进行出队列操作</p>
+<p>BlockingQueue阻塞队列主要应用场景：生产者消费者模型，是线程安全的</p>
+<p><img src="https://img.braincao.cn/blogimg/1583506978.png" alt="1583506978"></p>
+<p>想使用阻塞队列就使用它的实现类即可，如ArrayBlockingQueue、DelayQueue、DalayQueue、LinkedBlockingQueue、PriorityBlockingQueue、SynchronusQueue（这里不一一介绍了）</p>
+<h2 id="J-U-C之线程池-重点"><a href="#J-U-C之线程池-重点" class="headerlink" title="J.U.C之线程池(重点)"></a>J.U.C之线程池(重点)</h2><p><strong>new Thread的弊端</strong></p>
+<p>1.每次new Thread 新建对象，性能差</p>
+<p>2.线程缺乏统一管理，可能无限制的新建线程，相互竞争，可能占用过多的系统资源导致死机或者OOM（out of memory 内存溢出），这种问题的原因不是因为单纯的new一个Thread，而是可能因为程序的bug或者设计上的缺陷导致不断new Thread造成的。</p>
+<p>3.缺少更多功能，如更多执行、定期执行、线程中断。</p>
+<p><strong>线程池的好处</strong></p>
+<p>1.重用存在的线程，不需要每次都创建，减少对象创建、消亡的开销，性能好</p>
+<p>2.可有效控制最大并发线程数，提高系统资源利用率，同时可以避免过多资源竞争，避免阻塞。</p>
+<p>3.提供定时执行、定期执行、单线程、并发数控制等功能。</p>
+<p><strong>线程池核心类-ThreadPoolExecutor</strong></p>
+<p>参数说明：ThreadPoolExecutor一共有七个参数，这七个参数配合起来，构成了线程池强大的功能。</p>
+<pre><code>corePoolSize：核心线程数量
+maximumPoolSize：线程最大线程数
+workQueue：阻塞队列，存储等待执行的任务，很重要，会对线程池运行过程产生重大影响
+keepAliveTime：线程没有任务执行时最多保持多久时间终止（当线程中的线程数量大于corePoolSize的时候，如果这时没有新的任务提交核心线程外的线程不会立即销毁，而是等待，直到超过keepAliveTime）
+unit：keepAliveTime的时间单位
+threadFactory：线程工厂，用来创建线程，有一个默认的工场来创建线程，这样新创建出来的线程有相同的优先级，是非守护线程、设置好了名称）
+rejectHandler：当拒绝处理任务时(阻塞队列满)的策略（AbortPolicy默认策略直接抛出异常、CallerRunsPolicy用调用者所在的线程执行任务、DiscardOldestPolicy丢弃队列中最靠前的任务并执行当前任务、DiscardPolicy直接丢弃当前任务） 
+</code></pre><p><strong>线程池生命周期</strong></p>
+<p><img src="https://img.braincao.cn/blogimg/1583507011.png" alt="1583507011"></p>
+<pre><code>running：能接受新提交的任务，也能处理阻塞队列中的任务
+shutdown：不能处理新的任务，但是能继续处理阻塞队列中任务
+stop：不能接收新的任务，也不处理队列中的任务
+tidying：如果所有的任务都已经终止了，这时有效线程数为0
+terminated：最终状态
+</code></pre><p><strong>使用Executor创建线程池</strong></p>
+<p>使用Executor可以创建四种线程池：分别对应四种线程池初始化方法。</p>
+<p>1、Executors.newCachedThreadPool </p>
+<p>创建一个可缓存的线程池，如果线程池的长度超过了处理的需要，可以灵活回收空闲线程。如果没有可回收的就新建线程。</p>
+<p>2、newFixedThreadPool</p>
+<p>定长线程池，可以线程现成的最大并发数，超出在队列等待</p>
+<p>3、newSingleThreadExecutor</p>
+<p>单线程化的线程池，用唯一的一个共用线程执行任务，保证所有任务按指定顺序执行（FIFO、优先级…）</p>
+<p>4、newScheduledThreadPool </p>
+<p>定长线程池，支持定时和周期任务执行</p>
+<pre><code class="java">public class ThreadPoolExample1 {
+
+    public static void main(String[] args) {
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+
+        for (int i = 0; i &lt; 10; i++) {
+            final int index = i;
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    log.info(&quot;task:{}&quot;, index);
+                }
+            });
+        }
+        executorService.shutdown();
+    }
+}
+</code></pre>
+<h2 id="多线程并发扩展–死锁"><a href="#多线程并发扩展–死锁" class="headerlink" title="多线程并发扩展–死锁"></a>多线程并发扩展–死锁</h2><p>死锁产生的必要条件</p>
+<pre><code>互斥条件：进程对锁分配的资源进行排他性使用
+请求和保持条件：线程已经保持了一个资源，但是又提出了其他请求，而该资源已被其他线程占用
+不剥夺条件：在使用时不能被剥夺，只能自己用完释放
+环路等待条件：资源调用是一个环形的链
+</code></pre><p>死锁示例：</p>
+<pre><code class="java">public class DeadLock implements Runnable {
+    public int flag = 1;
+    //静态对象是类的所有对象共享的
+    private static Object o1 =  new Object(), o2 = new Object();
+
+    @Override
+    public void run() {
+        if (flag == 1) {
+            synchronized (o1) {
+                try {
+                    log.info(&quot;flag:{}&quot;, flag);
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                synchronized (o2) {
+                    log.info(&quot;1&quot;);
+                }
+            }
+        }
+        if (flag == 0) {
+            synchronized (o2) {
+                try {
+                    log.info(&quot;flag:{}&quot;, flag);
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                synchronized (o1) {
+                    log.info(&quot;0&quot;);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        DeadLock td1 = new DeadLock();
+        DeadLock td2 = new DeadLock();
+        td1.flag = 1;
+        td2.flag = 0;
+        //td1,td2都处于可执行状态，但JVM线程调度先执行哪个线程是不确定的。
+        //td2的run()可能在td1的run()之前运行
+        new Thread(td1).start();
+        new Thread(td2).start();
+    }
+}
+out：
+flag:0
+flag:1....
+</code></pre>
+<h2 id="多线程并发的最佳实践"><a href="#多线程并发的最佳实践" class="headerlink" title="多线程并发的最佳实践"></a>多线程并发的最佳实践</h2><p>1.使用本地变量</p>
+<p>2.使用不可变类</p>
+<p>3.使用线程池的Executor,而不是直接new Thread执行</p>
+<p>4.宁可使用同步(countdownLatch/semaphore)也不要使用线程的wait/notify</p>
+<p>5.使用blockingqueue实现生产-消费模式</p>
+<p>6.使用并发集合(CopyonWriteArrayList/concurrentHashMap)而不是加了锁的同步集合(synchronizedXXX)</p>
+<p>7.使用semaphore创建有界的访问</p>
+<p>8.宁可使用同步代码块，也不使用同步的方法</p>
+<p>9.避免使用静态变量(静态变量在并发情况下会出现很多问题，避免使用)</p>
+<h2 id="高并发之扩容思路"><a href="#高并发之扩容思路" class="headerlink" title="高并发之扩容思路"></a>高并发之扩容思路</h2><p>读操作扩展(如博客系统)：memcached、redis、CDN缓存</p>
+<p>写操作扩展(如订单系统)：Cassandra、Hbase等</p>
+<h2 id="高并发之缓存思路"><a href="#高并发之缓存思路" class="headerlink" title="高并发之缓存思路"></a>高并发之缓存思路</h2><p><strong>缓存分类</strong></p>
+<pre><code>本地缓存：编程实现(成员变量、局部变量、静态变量)、Guava Cache
+分布式缓存：Memcached、Redis(更常用)
+</code></pre><p><strong>缓存清空策略</strong>：FIFO、LFU、LRU、过期时间、随机</p>
+<p>FIFO：先进先出，优先保证最新数据的有效性</p>
+<p>LFU：最少使用策略，优先保证高频数据的有效性</p>
+<p>LRU：最近使用策略，优先保证热点数据的有效性</p>
+<p><strong>关于Memcached\Redis请左转详看</strong>：<a href="https://www.cnblogs.com/lina520/p/7919551.html" target="_blank" rel="noopener">吐血强推_Nosql简介 Redis,Memchche,MongoDb的区别</a></p>
+<h2 id="jRedis的demo"><a href="#jRedis的demo" class="headerlink" title="jRedis的demo"></a>jRedis的demo</h2><p>0.application.properties</p>
+<pre><code># redis
+jedis.host = 127.0.0.1
+jedis.port = 6379
+</code></pre><p>1.RedisConfig</p>
+<pre><code class="java">public class RedisConfig {
+
+    @Bean(name = &quot;redisPool&quot;)
+    public JedisPool jedisPool(@Value(&quot;${jedis.host}&quot;) String host,
+                               @Value(&quot;${jedis.port}&quot;) int port) {
+        return new JedisPool(host, port);
+    }
+}
+</code></pre>
+<p>2.RedisClient:指定jedisPool，自定义set和get方法，当然还可以写更多的方法功能</p>
+<pre><code class="java">public class RedisClient {
+
+    @Resource(name = &quot;redisPool&quot;)
+    private JedisPool jedisPool;
+
+    public void set(String key, String value) throws Exception {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.set(key, value);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+
+
+    public String get(String key) throws Exception {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            return jedis.get(key);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+    }
+}
+</code></pre>
+<p>3.CacheController:调用redis</p>
+<pre><code class="java">@Controller
+@RequestMapping(&quot;/cache&quot;)
+public class CacheController {
+
+    @Autowired
+    private RedisClient redisClient;
+
+    @RequestMapping(&quot;/set&quot;)
+    @ResponseBody
+    public String set(@RequestParam(&quot;k&quot;) String k, @RequestParam(&quot;v&quot;) String v)
+            throws Exception {
+        redisClient.set(k, v);
+        return &quot;SUCCESS&quot;;
+    }
+
+    @RequestMapping(&quot;/get&quot;)
+    @ResponseBody
+    public String get(@RequestParam(&quot;k&quot;) String k) throws Exception {
+        return redisClient.get(k);
+    }
+}
+</code></pre>
+<p>4.启动项目 + 启动redis-server，在postman中输入请求:</p>
+<p><code>http://localhost:8080/cache/set?k=test1&amp;v=1</code> – success</p>
+<p><code>http://localhost:8080/cache/get?k=test1</code> – 1</p>
+<h2 id="面试常考的一致性Hash算法"><a href="#面试常考的一致性Hash算法" class="headerlink" title="面试常考的一致性Hash算法"></a>面试常考的一致性Hash算法</h2><p><a href="https://blog.csdn.net/bntX2jSQfEHy7/article/details/79549368" target="_blank" rel="noopener">面试必备：什么是一致性Hash算法？</a></p>
+<p><img src="https://img.braincao.cn/blogimg/1583507035.jpg" alt="1583507035"></p>
+<p>一个hash环，顺时针找</p>
+<h2 id="高并发之消息队列"><a href="#高并发之消息队列" class="headerlink" title="高并发之消息队列"></a>高并发之消息队列</h2><p><strong>为什么要使用消息队列？</strong></p>
+<p>主要原因是由于在高并发环境下，由于来不及同步处理，请求往往会发生堵塞，比如说，大量的insert，update之类的请求同时到达MySQL，直接导致无数的行锁表锁，甚至最后请求会堆积过多，从而触发too many connections错误。通过<strong>使用消息队列，我们可以异步处理请求</strong>，从而缓解系统的压力。</p>
+<p><strong>消息队列特性</strong></p>
+<p>业务无关：只做消息分发(业务解耦)</p>
+<p>FIFO：先投递先到达</p>
+<p>容灾：节点的动态增删和消息的持久化</p>
+<p>性能：吞吐量提升，系统内部通信效率提高</p>
+<p>广播</p>
+<p>错峰与流控</p>
+<p><strong>Apache Kafka消息队列</strong></p>
+<p>消息持久化</p>
+<p>高吞吐</p>
+<p><strong>RabbitMQ消息队列</strong></p>
+<p>可视化界面</p>
+<h2 id="高并发之应用拆分"><a href="#高并发之应用拆分" class="headerlink" title="高并发之应用拆分"></a>高并发之应用拆分</h2><p><strong>拆分原则：</strong>业务优先、循序渐进、重构+分层、可靠测试</p>
+<p><strong>应用之间的通信：RPC(dubbo等)、消息队列</strong></p>
+<h2 id="高并发其他知识点"><a href="#高并发其他知识点" class="headerlink" title="高并发其他知识点"></a>高并发其他知识点</h2><p><strong>常见限流算法</strong>：计数器算法、漏斗桶算法、令牌桶算法</p>
+<p><strong>数据库切库</strong>： 主从库，主库实时，从库异步</p>
+<p><strong>数据库分表</strong>：mybatis分表插件shardbatis2.0</p>
+<p><strong>高可用的一些手段</strong>：</p>
+<p>1.任务调度系统分布式：elastic-job + zookeeper</p>
+<p>2.主备切换：apache curator + zookeeper分布式锁实现。两台服务器交替进行服务</p>
+<p>3.监控报警机制</p>
+<p><a href="https://www.cnblogs.com/heyonggang/p/9112731.html" target="_blank" rel="noopener">面试必备：HashMap、Hashtable、ConcurrentHashMap的原理与区别</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>java并发</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">10.8k</span></p>
+    <p><span class="copy-title">本文作者:</span>Brain Cao</p>
+    <p><span class="copy-title">发布时间:</span>2019-01-16, 22:08:05</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-06, 22:48:33</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/01/16/java-concurrency/" title="java并发">https://braincao.cn/2019/01/16/java-concurrency/</a>
+    <p>
+        <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2020 Braincao</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢请收藏,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#博客','#hexo','#gitee','#算法刷题','#DFS','#投资理财','#git','#hosts','#github','#java','#leetcode','#职业管理','#多线程','#排序算法','#面经','#数据库','#技术之外',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
