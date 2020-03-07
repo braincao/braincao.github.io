@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>sql语法 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" 数据库 ">
+  <meta name="description" content="sql语法 | Braincao&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://braincao.cn/about/index.html">
+<meta property="og:site_name" content="Braincao&#39;s blog">
+<meta property="og:description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+<meta property="article:published_time" content="2020-02-15T18:03:30.000Z">
+<meta property="article:modified_time" content="2020-03-06T15:55:50.345Z">
+<meta property="article:author" content="Brain Cao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+
+
+<link rel="icon" href="/img/avatar.gif">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.gif" />
+</a>
+<div class="author">
+    <span>Brain Cao</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/braincao" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/pop_rain" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:491316377@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=491316377&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(42)</small></div></li>
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="综合技术">综合技术<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法刷题">算法刷题<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="技术之外"><i class="fold iconfont icon-right"></i>技术之外<small>(5)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="投资理财">投资理财<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="java">java<small>(16)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="数据库">数据库<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="多线程">多线程<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="spring">spring<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="42">
+<input type="hidden" id="yelog_site_word_count" value="141.7k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            
+            <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            
+            <li><a target="_blank" href="https://www.csdn.net/">csdn</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">前端</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">算法刷题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">动态规划</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">投资理财</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">hosts</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">职业管理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">面经</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">排序算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">技术之外</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2020/02/21/blog-index/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
+            <span class="post-date" title="2020-02-21 01:37:19">2020/02/21</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/03/05/fund-bank-screw/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="《指数基金投资指南》学习笔记">《指数基金投资指南》学习笔记</span>
+            <span class="post-date" title="2020-03-05 18:52:28">2020/03/05</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/29/oss-img-bed/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="使用阿里云oss做博客图床">使用阿里云oss做博客图床</span>
+            <span class="post-date" title="2020-02-29 12:22:43">2020/02/29</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/28/thinking-cognition/"
+           data-tag="技术之外"
+           data-author="" >
+            <span class="post-title" title="思考认知">思考认知</span>
+            <span class="post-date" title="2020-02-28 13:24:54">2020/02/28</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2020/02/27/normal-algorithms-summary/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="常用算法心得总结">常用算法心得总结</span>
+            <span class="post-date" title="2020-02-27 18:13:44">2020/02/27</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/23/master-seek-job/"
+           data-tag="职业管理"
+           data-author="" >
+            <span class="post-title" title="研二找工作过程总结">研二找工作过程总结</span>
+            <span class="post-date" title="2020-02-23 12:54:10">2020/02/23</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/20/github-hosts/"
+           data-tag="hosts,github"
+           data-author="" >
+            <span class="post-title" title="加速github访问速度">加速github访问速度</span>
+            <span class="post-date" title="2020-02-20 23:24:11">2020/02/20</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/01/20/fund-investment/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="基金定投">基金定投</span>
+            <span class="post-date" title="2020-01-20 10:30:31">2020/01/20</span>
+        </a>
+        
+        <a  class="多线程 "
+           href="/2019/10/01/multithread-programming-demo/"
+           data-tag="多线程"
+           data-author="" >
+            <span class="post-title" title="多线程编程例子">多线程编程例子</span>
+            <span class="post-date" title="2019-10-01 19:00:08">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2019/10/01/postgraduate-interview-questions/"
+           data-tag="算法刷题,面经"
+           data-author="" >
+            <span class="post-title" title="研二面试题目">研二面试题目</span>
+            <span class="post-date" title="2019-10-01 12:03:55">2019/10/01</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2019/05/08/financial-tips/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="金融小知识">金融小知识</span>
+            <span class="post-date" title="2019-05-08 09:43:21">2019/05/08</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/01/16/java-concurrency/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java并发">java并发</span>
+            <span class="post-date" title="2019-01-16 22:08:05">2019/01/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-collection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java集合">java集合</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-constant-pool/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="方法区与常量池">方法区与常量池</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-enum/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java枚举">java枚举</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-jmm/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java内存模型JMM">java内存模型JMM</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-copy/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java深浅拷贝">java深浅拷贝</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-final/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="final关键字">final关键字</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-lamada/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="lamada表达式">lamada表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-parameter/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java参数...">java参数...</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-io/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java IO">java IO</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-multi-thread/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java多线程">java多线程</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-priority-queue/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java优先队列">java优先队列</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-throwable/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="Java异常和处理详解">Java异常和处理详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-regular/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java正则">java正则</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-reflection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java反射">java反射</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/12/16/spring-filter/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring拦截器与过滤器的区别">spring拦截器与过滤器的区别</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/12/16/sql-btree/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="B树系列详解">B树系列详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-md5-string/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="md5加密字符串">md5加密字符串</span>
+            <span class="post-date" title="2018-12-16 13:45:57">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leftgod-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="左神刷题">左神刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/sword-offer-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/04/08/dfs-template/"
+           data-tag="算法刷题,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS模板">DFS模板</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-key-index/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="数据库的主键外键索引">数据库的主键外键索引</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-key/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="mysql主键系列详解">mysql主键系列详解</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-transaction/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="MySQL事务">MySQL事务</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/sql-grammar/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="sql语法">sql语法</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2018/03/21/ajax/"
+           data-tag="前端"
+           data-author="" >
+            <span class="post-title" title="ajax学习笔记">ajax学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/03/21/dynamic-programming/"
+           data-tag="算法刷题,动态规划"
+           data-author="" >
+            <span class="post-title" title="动态规划">动态规划</span>
+            <span class="post-date" title="2018-03-21 08:54:35">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/build-hexo/"
+           data-tag="hexo,gitee,博客"
+           data-author="" >
+            <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/git-orders/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git命令">git命令</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-sql-grammar" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">sql语法</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="数据库">数据库</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color4">数据库</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date">2018-04-08 16:03</time>
+        
+        
+        更新时间:<time class="updated">2020-03-07 14:15</time>
+        
+
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2.3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sql语法表"><span class="toc-text">sql语法表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加列"><span class="toc-text">添加列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#limit"><span class="toc-text">limit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量删除多条记录–in"><span class="toc-text">批量删除多条记录–in</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计SQL语句查询出来的条数"><span class="toc-text">统计SQL语句查询出来的条数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#批量插入"><span class="toc-text">批量插入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sql语句顺序"><span class="toc-text">sql语句顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#union"><span class="toc-text">union</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序order-by"><span class="toc-text">排序order by</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GROUP-BY"><span class="toc-text">GROUP BY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#join–Mysql连接的使用"><span class="toc-text">join–Mysql连接的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL联合查询-主表与子表联合查询-–left-join-on"><span class="toc-text">SQL联合查询(主表与子表联合查询)–left join on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#inner-join-与-left-join-之间的区别"><span class="toc-text">inner join 与 left join 之间的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-NULL-值处理"><span class="toc-text">MySQL NULL 值处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#like-与-正则表达式"><span class="toc-text">like 与 正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ALTER命令"><span class="toc-text">ALTER命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-复制表"><span class="toc-text">MySQL 复制表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql获取元数据"><span class="toc-text">mysql获取元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AUTO-INCREMENT–MySQL-序列相关"><span class="toc-text">AUTO_INCREMENT–MySQL 序列相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL-处理重复数据"><span class="toc-text">MySQL 处理重复数据</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一篇sql语法的总结笔记</p>
+<a id="more"></a>
+
+<h2 id="sql语法表"><a href="#sql语法表" class="headerlink" title="sql语法表"></a>sql语法表</h2><table>
+<thead>
+<tr>
+<th><strong>语句</strong></th>
+<th><strong>语法</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AND / OR</td>
+<td>SELECT column_name(s)   FROM table_name   WHERE condition   AND|OR condition</td>
+</tr>
+<tr>
+<td>ALTER TABLE (add column)</td>
+<td>ALTER TABLE table_name    ADD column_name datatype</td>
+</tr>
+<tr>
+<td>ALTER TABLE (drop column)</td>
+<td>ALTER TABLE table_name    DROP COLUMN column_name</td>
+</tr>
+<tr>
+<td>AS (alias for column)</td>
+<td>SELECT column_name AS column_alias   FROM table_name</td>
+</tr>
+<tr>
+<td>AS (alias for table)</td>
+<td>SELECT column_name   FROM table_name AS table_alias</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>SELECT column_name(s)   FROM table_name   WHERE column_name   BETWEEN value1 AND value2</td>
+</tr>
+<tr>
+<td>CREATE DATABASE</td>
+<td>CREATE DATABASE database_name</td>
+</tr>
+<tr>
+<td>CREATE INDEX</td>
+<td>CREATE INDEX index_name   ON table_name (column_name)</td>
+</tr>
+<tr>
+<td>CREATE TABLE</td>
+<td>CREATE TABLE table_name   (   column_name1 data_type,   column_name2 data_type,   …….   )</td>
+</tr>
+<tr>
+<td>CREATE UNIQUE INDEX</td>
+<td>CREATE UNIQUE INDEX index_name   ON table_name (column_name)</td>
+</tr>
+<tr>
+<td>CREATE VIEW</td>
+<td>CREATE VIEW view_name AS   SELECT column_name(s)   FROM table_name   WHERE condition</td>
+</tr>
+<tr>
+<td>DELETE FROM</td>
+<td>DELETE FROM table_name    (<strong>Note:</strong> Deletes the entire table!!)  <em>or</em>  DELETE FROM  table_name   WHERE condition</td>
+</tr>
+<tr>
+<td>DROP DATABASE</td>
+<td>DROP DATABASE database_name</td>
+</tr>
+<tr>
+<td>DROP INDEX</td>
+<td>DROP INDEX table_name.index_name</td>
+</tr>
+<tr>
+<td>DROP TABLE</td>
+<td>DROP TABLE table_name</td>
+</tr>
+<tr>
+<td>GROUP BY</td>
+<td>SELECT column_name1,SUM(column_name2)   FROM table_name   GROUP BY column_name1</td>
+</tr>
+<tr>
+<td>HAVING  HAVING 是用来限制GROUP BY子句的结构的；<strong>HAVING作用于GROUP BY 之后的每一个group</strong>。</td>
+<td>SELECT column_name1,SUM(column_name2)   FROM table_name   GROUP BY column_name1   HAVING SUM(column_name2) condition value</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>SELECT column_name(s)   FROM table_name   WHERE column_name   IN (value1,value2,..)</td>
+</tr>
+<tr>
+<td>INSERT INTO</td>
+<td>INSERT INTO table_name   VALUES (value1, value2,….)  <em>or</em>  INSERT INTO  table_name   (column_name1, column_name2,…)   VALUES (value1, value2,….)</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>SELECT column_name(s)   FROM table_name   WHERE column_name   LIKE pattern (% _ [] [^])</td>
+</tr>
+<tr>
+<td>ORDER BY</td>
+<td>SELECT column_name(s)   FROM table_name   ORDER BY column_name [ASC|DESC]</td>
+</tr>
+<tr>
+<td>SELECT</td>
+<td>SELECT column_name(s)   FROM table_name</td>
+</tr>
+<tr>
+<td>SELECT *</td>
+<td>SELECT *   FROM table_name</td>
+</tr>
+<tr>
+<td>SELECT DISTINCT</td>
+<td>SELECT DISTINCT column_name(s)   FROM table_name</td>
+</tr>
+<tr>
+<td>SELECT INTO   (used to create backup copies of tables)</td>
+<td>SELECT *   INTO new_table_name   FROM original_table_name  <em>or</em>  SELECT  column_name(s)   INTO new_table_name   FROM original_table_name</td>
+</tr>
+<tr>
+<td>TRUNCATE TABLE   (deletes only the data inside the table)</td>
+<td>TRUNCATE TABLE table_name</td>
+</tr>
+<tr>
+<td>UPDATE</td>
+<td>UPDATE table_name   SET column_name=new_value   [, column_name=new_value]   WHERE column_name=some_value</td>
+</tr>
+<tr>
+<td>WHERE</td>
+<td>SELECT column_name(s)   FROM table_name   WHERE condition</td>
+</tr>
+</tbody></table>
+<h2 id="添加列"><a href="#添加列" class="headerlink" title="添加列"></a>添加列</h2><p>mysql添加列必须说明数据类型，删除列可以省略column</p>
+<pre><code>错误:
+alter table employee add memo
+alter table employee add column
+
+正确：
+alter table employee drop column age
+alter table employee drop age
+</code></pre><h2 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h2><p>select * from message limit 5,5; //从第5条开始取，取5条</p>
+<h2 id="批量删除多条记录–in"><a href="#批量删除多条记录–in" class="headerlink" title="批量删除多条记录–in"></a>批量删除多条记录–in</h2><p>DELETE FROM message WHERE commandid IN (640,634,633);</p>
+<h2 id="统计SQL语句查询出来的条数"><a href="#统计SQL语句查询出来的条数" class="headerlink" title="统计SQL语句查询出来的条数"></a>统计SQL语句查询出来的条数</h2><p>SELECT COUNT(*) FROM micro_message.COMMAND;</p>
+<h2 id="批量插入"><a href="#批量插入" class="headerlink" title="批量插入"></a>批量插入</h2><p>INSERT INTO COMMAND (COMMAND,DESCRIPTION) VALUES(‘HAHA’, ‘ASDASD’),(‘SAD’,’SADAS’)</p>
+<h2 id="sql语句顺序"><a href="#sql语句顺序" class="headerlink" title="sql语句顺序"></a>sql语句顺序</h2><p>select, from, where, group by, having, order by, limit</p>
+<p>where增加分组前的限定，having增加分组后的限定</p>
+<h2 id="union"><a href="#union" class="headerlink" title="union"></a>union</h2><p>UNION 语句：用于将不同表中相同列中查询的数据展示出来；（不包括重复数据）</p>
+<p>UNION ALL 语句：用于将不同表中相同列中查询的数据展示出来；（包括重复数据）</p>
+<pre><code>SELECT 列名称 FROM 表名称 UNION SELECT 列名称 FROM 表名称 ORDER BY 列名称；
+SELECT 列名称 FROM 表名称 UNION ALL SELECT 列名称 FROM 表名称 ORDER BY 列名称；</code></pre><h2 id="排序order-by"><a href="#排序order-by" class="headerlink" title="排序order by"></a>排序order by</h2><p>默认是asc</p>
+<p>如果字符集采用的是 gbk(汉字编码字符集)，直接在查询语句后边添加 ORDER BY：</p>
+<pre><code>SELECT * 
+FROM runoob_tbl
+ORDER BY runoob_title asc;</code></pre><p>如果字符集采用的是 utf8(万国码)，需要先对字段进行转码然后排序：</p>
+<pre><code>SELECT * 
+FROM runoob_tbl
+ORDER BY CONVERT(runoob_title using gbk) desc;</code></pre><h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><p>GROUP BY 语句根据一个或多个列对结果集进行分组。</p>
+<p>在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。</p>
+<p>1.group by 可以实现一个最简单的去重查询，假设想看下有哪些员工，除了用 distinct,还可以用：</p>
+<pre><code>SELECT name FROM employee_tbl GROUP BY name;</code></pre><p>2.分组后的条件使用 HAVING 来限定，WHERE 是对原始数据进行条件限制。几个关键字的使用顺序为 where 、group by 、having、order by ，例如：</p>
+<pre><code>SELECT coalesce(name, &#39;总数&#39;)as name1 ,sum(singin) as sum1 FROM employee_tbl GROUP BY name having sum1&gt;5 order by sum1 desc;</code></pre><p>其中coalesce(a,b,c)用来设置一个可以取代 NUll 的名称：如果a==null,则选择b；如果b==null,则选择c；如果a!=null,则选择a；如果a b c 都为null ，则返回为null（没意义）。</p>
+<h2 id="join–Mysql连接的使用"><a href="#join–Mysql连接的使用" class="headerlink" title="join–Mysql连接的使用"></a>join–Mysql连接的使用</h2><p>之前都是在一张表中读取数据，但是在真正的应用中经常需要从多个数据表中读取数据， JOIN就是在两个或多个表中查询数据。</p>
+<p>JOIN 按照功能大致分为如下三类：</p>
+<p>INNER JOIN（内连接,或等值连接）：获取两个表中字段匹配关系的记录。省略 INNER 使用 JOIN，效果一样</p>
+<p>LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录。</p>
+<p>RIGHT JOIN（右连接）： 与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。</p>
+<h3 id="SQL联合查询-主表与子表联合查询-–left-join-on"><a href="#SQL联合查询-主表与子表联合查询-–left-join-on" class="headerlink" title="SQL联合查询(主表与子表联合查询)–left join on"></a>SQL联合查询(主表与子表联合查询)–left join on</h3><pre><code>SELECT A.DESCRIPTION,B.CONTENT FROM COMMAND A LEFT JOIN COMMAND_CONTENT B ON A.COMMAND_ID=B.COMMAND_ID WHERE A.COMMAND_ID=&#39;查看&#39;;</code></pre><p>1、 on条件是在生成临时表时使用的条件，它不管on中的条件是否为真，都会返回左边表中的记录。</p>
+<p>2、where条件是在临时表生成好后，再对临时表进行过滤的条件。这时已经没有left join的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。</p>
+<p>这个问题请看这个<a href="https://blog.csdn.net/weixin_36174051/article/details/80377061" target="_blank" rel="noopener">LEFT JOIN 使用时的注意事项</a>、<a href="https://blog.csdn.net/xingfeng0501/article/details/7816703" target="_blank" rel="noopener">left join on and 与 left join on where的区别</a></p>
+<h3 id="inner-join-与-left-join-之间的区别"><a href="#inner-join-与-left-join-之间的区别" class="headerlink" title="inner join 与 left join 之间的区别"></a>inner join 与 left join 之间的区别</h3><p>来源: <a href="https://www.cnblogs.com/assasion/p/7768931.html" target="_blank" rel="noopener">inner join 与 left join 之间的区别</a></p>
+<p>left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录 </p>
+<p>right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录</p>
+<p>inner join(等值连接) 只返回两个表中联结字段相等的行</p>
+<p>下面的这条语句是：根据seckillId查询SuccessKilled实体(也携带Seckill秒杀商品对象实体)，即查询的同时也为SuccessKilled中属性为Seckill的实体对象赋值</p>
+<pre><code class="sql">&lt;!--mybatis把结果映射到SuccessKilled，同时映射属性seckill属性--&gt;
+SELECT
+  sk.seckillId,
+  sk.user_phone,
+  sk.state,
+  sk.create_time,
+  s.seckillId &quot;seckill.seckill_id&quot;,
+  s.name &quot;seckill.name&quot;,
+  s.number &quot;seckill.number&quot;,
+  s.start_time &quot;seckill.start_time&quot;,
+  s.end_time &quot;seckill.end_time&quot;,
+  s.create_time &quot;seckill.create_time&quot;
+FROM success_killed sk INNER JOIN seckill s
+ON sk.seckill_id = s.seckill_id
+WHERE sk.seckillId = #{seckillId}
+</code></pre>
+<h2 id="MySQL-NULL-值处理"><a href="#MySQL-NULL-值处理" class="headerlink" title="MySQL NULL 值处理"></a>MySQL NULL 值处理</h2><p>不能使用 = NULL 或 != NULL 在列中查找 NULL 值 。</p>
+<p>IS NULL: 当列的值是 NULL,此运算符返回 true。</p>
+<p><code>select a2 is null from aaa where a1=&#39;a&#39;;</code></p>
+<p><code>SELECT * FROM runoob_test_tbl WHERE runoob_count IS NULL;</code></p>
+<p>IS NOT NULL: 当列的值不为 NULL, 运算符返回 true。</p>
+<p>&lt;=&gt;: 比较操作符（不同于=运算符），当比较的的两个值为 NULL 时返回 true。</p>
+<h2 id="like-与-正则表达式"><a href="#like-与-正则表达式" class="headerlink" title="like 与 正则表达式"></a>like 与 正则表达式</h2><p>e.g.</p>
+<p><code>like &#39;%a$&#39;</code>、<code>like &#39;a_.{0,2}&#39;</code></p>
+<h2 id="ALTER命令"><a href="#ALTER命令" class="headerlink" title="ALTER命令"></a>ALTER命令</h2><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。</p>
+<p>1.修改表名:</p>
+<pre><code>ALTER TABLE testalter_tbl RENAME TO alter_tbl;</code></pre><p>2.删除，添加或修改表字段:</p>
+<pre><code>ALTER TABLE testalter_tbl ADD i INT;//添加列i到数据表字段的末尾。
+ALTER TABLE testalter_tbl DROP i;//删除表中名i的列
+ALTER TABLE testalter_tbl ADD i INT FIRST;//添加第一列名i
+ALTER TABLE testalter_tbl DROP i;//删除表中名i的列
+ALTER TABLE testalter_tbl ADD i INT AFTER c;//在列c后添加列名i</code></pre><p>使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。</p>
+<p>3.修改字段类型及名称</p>
+<pre><code>ALTER TABLE testalter_tbl CHANGE i j BIGINT;</code></pre><h2 id="MySQL-复制表"><a href="#MySQL-复制表" class="headerlink" title="MySQL 复制表"></a>MySQL 复制表</h2><p>完整的复制MySQL数据表，步骤如下：</p>
+<p>1.使用 SHOW CREATE TABLE 命令获取创建数据表(CREATE TABLE) 语句，该语句包含了原数据表的结构，索引等。</p>
+<pre><code>mysql&gt; SHOW CREATE TABLE runoob_tbl \G;
+*************************** 1. row ***************************
+       Table: runoob_tbl
+Create Table: CREATE TABLE `runoob_tbl` (
+  `runoob_id` int(11) NOT NULL auto_increment,
+  `runoob_title` varchar(100) NOT NULL default &#39;&#39;,
+  `runoob_author` varchar(40) NOT NULL default &#39;&#39;,
+  `submission_date` date default NULL,
+  PRIMARY KEY  (`runoob_id`),
+  UNIQUE KEY `AUTHOR_INDEX` (`runoob_author`)
+) ENGINE=InnoDB 
+1 row in set (0.00 sec)
+
+ERROR:
+No query specified</code></pre><p>2.复制以下命令显示的SQL语句，修改数据表名，并执行SQL语句，通过以上命令 将完全的复制数据表结构。</p>
+<pre><code>CREATE TABLE `clone_tbl` (
+  -&gt; `runoob_id` int(11) NOT NULL auto_increment,
+  -&gt; `runoob_title` varchar(100) NOT NULL default &#39;&#39;,
+  -&gt; `runoob_author` varchar(40) NOT NULL default &#39;&#39;,
+  -&gt; `submission_date` date default NULL,
+  -&gt; PRIMARY KEY  (`runoob_id`),
+  -&gt; UNIQUE KEY `AUTHOR_INDEX` (`runoob_author`)
+-&gt; ) ENGINE=InnoDB;
+Query OK, 0 rows affected (1.80 sec)</code></pre><p>3.如果你想复制表的内容，你就可以使用 INSERT INTO … SELECT 语句来实现。</p>
+<pre><code>INSERT INTO clone_tbl (runoob_id,
+-&gt;                     runoob_title,
+-&gt;                     runoob_author,
+-&gt;                     submission_date)
+    -&gt; SELECT runoob_id,runoob_title,
+    -&gt;        runoob_author,submission_date
+    -&gt; FROM runoob_tbl;
+Query OK, 3 rows affected (0.07 sec)
+Records: 3  Duplicates: 0  Warnings: 0</code></pre><h2 id="mysql获取元数据"><a href="#mysql获取元数据" class="headerlink" title="mysql获取元数据"></a>mysql获取元数据</h2><p>1.使用 SHOW TABLES 或 SHOW DATABASES 语句来获取数据库和数据表列表</p>
+<p>2.获取服务器元数据：</p>
+<pre><code>SELECT VERSION( )    服务器版本信息
+SELECT DATABASE( )    当前数据库名 (或者返回空)
+SELECT USER( )    当前用户名
+SHOW STATUS    服务器状态
+SHOW VARIABLES    服务器配置变量</code></pre><h2 id="AUTO-INCREMENT–MySQL-序列相关"><a href="#AUTO-INCREMENT–MySQL-序列相关" class="headerlink" title="AUTO_INCREMENT–MySQL 序列相关"></a>AUTO_INCREMENT–MySQL 序列相关</h2><p><a href="http://www.runoob.com/mysql/mysql-using-sequences.html" target="_blank" rel="noopener">MySQL 序列-菜鸟教程</a></p>
+<h2 id="MySQL-处理重复数据"><a href="#MySQL-处理重复数据" class="headerlink" title="MySQL 处理重复数据"></a>MySQL 处理重复数据</h2><p><a href="http://www.runoob.com/mysql/mysql-handling-duplicates.html" target="_blank" rel="noopener">MySQL 处理重复数据-菜鸟教程</a></p>
+<p>统计表中 first_name 和 last_name的重复记录数:</p>
+<pre><code>SELECT COUNT(*) as repetitions, last_name, first_name
+FROM person_tbl
+GROUP BY last_name, first_name
+HAVING repetitions &gt; 1;</code></pre><p>过滤重复数据:</p>
+<pre><code>SELECT DISTINCT last_name, first_name
+FROM person_tbl;
+
+也可以使用 GROUP BY 来读取数据表中不重复的数据：
+SELECT last_name, first_name
+FROM person_tbl
+GROUP BY (last_name, first_name);</code></pre><p>删除重复数据:</p>
+<p>1:</p>
+<pre><code>mysql&gt; CREATE TABLE tmp SELECT last_name, first_name, sex FROM person_tbl  GROUP BY (last_name, first_name, sex);
+mysql&gt; DROP TABLE person_tbl;
+mysql&gt; ALTER TABLE tmp RENAME TO person_tbl;</code></pre><p>2:也可以在数据表中添加 INDEX（索引） 和 PRIMAY KEY（主键）这种简单的方法来删除表中的重复记录</p>
+<pre><code>mysql&gt; ALTER IGNORE TABLE person_tbl
+-&gt; ADD PRIMARY KEY (last_name, first_name);</code></pre>
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>sql语法</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.3k</span></p>
+    <p><span class="copy-title">本文作者:</span>Brain Cao</p>
+    <p><span class="copy-title">发布时间:</span>2018-04-08, 16:03:01</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-07, 14:15:58</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/04/08/sql-grammar/" title="sql语法">https://braincao.cn/2018/04/08/sql-grammar/</a>
+    <p>
+        <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2020 Braincao</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢请收藏,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#前端','#hexo','#gitee','#博客','#算法刷题','#DFS','#动态规划','#投资理财','#hosts','#github','#git','#java','#leetcode','#数据库','#职业管理','#多线程','#spring','#面经','#排序算法','#技术之外',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -333,6 +333,81 @@
     
     
     <entry>
+      <title>方法区与常量池</title>
+      <link href="/2018/12/16/java-constant-pool/"/>
+      <url>/2018/12/16/java-constant-pool/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为java枚举的学习总结</p><a id="more"></a><h2 id="方法区与常量池"><a href="#方法区与常量池" class="headerlink" title="方法区与常量池"></a>方法区与常量池</h2><p>方法区里存储着class文件的信息和动态常量池,class文件的信息包括类信息和静态常量池。可以将类的信息是对class文件内容的一个框架，里面具体的内容通过常量池来存储。</p><p>动态常量池里的内容除了是静态常量池里的内容外，还将静态常量池里的符号引用转变为直接引用，而且动态常量池里的内容是能动态添加的。例如调用String的intern方法就能将string的值添加到String常量池中，这里String常量池是包含在动态常量池里的，但在jdk1.8后，将String常量池放到了堆中。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java枚举</title>
+      <link href="/2018/12/16/java-enum/"/>
+      <url>/2018/12/16/java-enum/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为java枚举的学习总结</p><a id="more"></a><h2 id="使用枚举表示常量数据"><a href="#使用枚举表示常量数据" class="headerlink" title="使用枚举表示常量数据"></a>使用枚举表示常量数据</h2><p>使用枚举表示常量数据，将多个参数一起打包作为常量</p><pre><code class="java">package com.braincao.enums;/** * @FileName: SeckillStateEnum * @Author: braincao * @Date: 2018/11/27 16:41 * @Description: 使用枚举表示seckill秒杀状态的常量数据。 */public enum SeckillStateEnum {    SUCCESS(1,&quot;秒杀成功&quot;),    END(0, &quot;秒杀结束&quot;),    REPEAT_KILL(-1, &quot;重复秒杀&quot;),    INNER_ERROR(-2, &quot;系统异常&quot;),    DATA_REWRITE(-3,&quot;数据篡改&quot;);    //状态    private int state;    //状态说明    private String stateInfo;    //构造方法赋值    SeckillStateEnum(int state, String stateInfo) {        this.state = state;        this.stateInfo = stateInfo;    }    public int getState() {        return state;    }    public String getStateInfo() {        return stateInfo;    }    public static SeckillStateEnum stateOf(int index){        for(SeckillStateEnum state: values()){            if(state.getState() == index){                return state;            }        }        return null;    }}</code></pre><p>定义枚举后使用：SeckillStateEnum.SUCCESS</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java内存模型JMM</title>
+      <link href="/2018/12/16/java-jmm/"/>
+      <url>/2018/12/16/java-jmm/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为java内存模型JMM的学习总结</p><a id="more"></a><h2 id="java内存模型JMM"><a href="#java内存模型JMM" class="headerlink" title="java内存模型JMM"></a>java内存模型JMM</h2><p><img src="https://img.braincao.cn/blogimg/1583508070.jpg" alt="1583508070"></p><p>程序运行的时候，内存主要由以下部分组成：</p><p>堆：所有线程共享一个堆；存放的都是new 出来的对象；由垃圾回收器回收；</p><p>方法区：所有线程共享一个方法区；里面存放的内容有点杂，可以认为是除堆和栈中的其它东西（如类信息，静态变量，常量，代码等）；Java虚拟机规范规定可以不对方法区进行垃圾回收，当并不是不回收，主要看具体虚拟机的实现，比如可以回收一些废弃常量和无用的类；</p><p>程序计数器：也叫PC,存放下一条指令所在单元的地址的地方;</p><p>JAVA栈：每个线程都有一个自己的JAVA栈;存放的一般是方法的局部变量，方法出口信息等；方法调用过程中，自动压栈出栈；ps：栈空间大小是有限制的；</p><p>本地方法栈：与JAVA栈类似，区别是使用的对象不一样，本地方法栈是给Native方法使用的，JAVA栈是给JAVA方式使用的；</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java深浅拷贝</title>
       <link href="/2018/12/16/java-copy/"/>
       <url>/2018/12/16/java-copy/</url>
@@ -408,6 +483,31 @@
     
     
     <entry>
+      <title>java参数...</title>
+      <link href="/2018/12/16/java-parameter/"/>
+      <url>/2018/12/16/java-parameter/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为java参数…的学习总结</p><a id="more"></a><h2 id="java中参数的…"><a href="#java中参数的…" class="headerlink" title="java中参数的…"></a>java中参数的…</h2><p>…表示的是可变长参数，相当于一个数组</p><pre><code>如果是是形参 里面出现，表示的是可变参数比如：//表示的传入的参数可以随意，你传多少个参数都被放到一个数组里面。public static void dealArray(int...intArray) {for(int i: intArray){System.out.print(i +&quot; &quot;);}System.out.println();}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java IO</title>
       <link href="/2018/12/16/java-io/"/>
       <url>/2018/12/16/java-io/</url>
@@ -458,11 +558,36 @@
     
     
     <entry>
-      <title>java反射</title>
-      <link href="/2018/12/16/java-reflection/"/>
-      <url>/2018/12/16/java-reflection/</url>
+      <title>java优先队列</title>
+      <link href="/2018/12/16/java-priority-queue/"/>
+      <url>/2018/12/16/java-priority-queue/</url>
       
-        <content type="html"><![CDATA[<p>此文档为java反射的学习总结</p><a id="more"></a><h2 id="动态代理详解"><a href="#动态代理详解" class="headerlink" title="动态代理详解"></a>动态代理详解</h2><p>详看这篇博客<a href="https://www.cnblogs.com/cenyu/p/6289209.html" target="_blank" rel="noopener">Java的三种代理模式</a></p><p>动态代理有以下特点:</p><ul><li>1.代理对象,不需要实现接口</li><li>2.代理对象的生成,是利用JDK的API,动态的在内存中构建代理对象(需要我们指定创建代理对象/目标对象实现的接口的类型)</li><li>3.动态代理也叫做:JDK代理,接口代理</li></ul><p>在Spring的AOP编程中:</p><p>如果加入容器的目标对象有实现接口,用JDK代理<br>如果目标对象没有实现接口,用Cglib代理</p><p>1.动态代理之jdk动态代理:</p><pre><code class="java">import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;//动态代理demo//接口interface UserManager{    public void call(String name);}//具体对象class UserManagerImpl implements UserManager {    @Override    public void call(String name) {        System.out.println(&quot;call..&quot; + name);    }}//代理类class ProxyT implements InvocationHandler{    private Object objectTarget;    public Object newProxyInstance(Object objectTarget){        this.objectTarget = objectTarget;        return Proxy.newProxyInstance(objectTarget.getClass().getClassLoader(), objectTarget.getClass().getInterfaces(), this);    }    @Override    /*InvocationHandler接口的方法，proxy表示代理，method表示原对象被调用的方法，args表示方法的参数*/    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {        System.out.println(&quot;startProxy...&quot;);        Object ret = null;        try{            System.out.println(&quot;日志记录start....&quot;);            ret = method.invoke(objectTarget, args);            System.out.println(&quot;日志记录end....&quot;);        }catch (Exception e){            e.printStackTrace();        }        return ret;    }}public class Test{    public static void main(String[] args) {        UserManager userManager = (UserManager)new ProxyT().newProxyInstance(new UserManagerImpl());        userManager.call(&quot;张三&quot;);    }}</code></pre><p>2.Cglib代理</p><p>上面的静态代理和动态代理模式都是要求目标对象是实现一个接口的目标对象,但是有时候目标对象只是一个单独的对象,并没有实现任何的接口,这个时候就可以使用以目标对象子类的方式类实现代理,这种方法就叫做:Cglib代理</p><p><strong>Cglib代理,也叫作子类代理,它是在内存中构建一个子类对象从而实现对目标对象功能的扩展.</strong></p><p>JDK的动态代理有一个限制,就是使用动态代理的对象必须实现一个或多个接口,如果想代理没有实现接口的类,就可以使用Cglib实现.<br>Cglib是一个强大的高性能的代码生成包,它可以在运行期扩展java类与实现java接口.它广泛的被许多AOP的框架使用,例如Spring AOP和synaop,为他们提供方法的interception(拦截)<br>Cglib包的底层是通过使用一个小而块的字节码处理框架ASM来转换字节码并生成新的类.不鼓励直接使用ASM,因为它要求你必须对JVM内部结构包括class文件的格式和指令集都很熟悉.</p><p>Cglib子类代理实现方法:</p><ul><li>1.需要引入cglib的jar文件,但是Spring的核心包中已经包括了Cglib功能,所以直接引入spring-core-3.2.5.jar即可.</li><li>2.引入功能包后,就可以在内存中动态构建子类</li><li>3.代理的类不能为final,否则报错</li><li>4.目标对象的方法如果为final/static,那么就不会被拦截,即不会执行目标对象额外的业务方法.</li></ul><pre><code class="java">import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;import org.springframework.cglib.proxy.Enhancer;import org.springframework.cglib.proxy.MethodInterceptor;import org.springframework.cglib.proxy.MethodProxy;/** * 动态代理之cglib动态代理 */class UserDao{    public void save(){        System.out.println(&quot;is saved.&quot;);    }}class ProxyFactory implements MethodInterceptor {    //维护一个目标对象    private Object target;    public ProxyFactory(Object target){        this.target = target;    }    //给目标对象生成代理对象    public Object getProxyInstance(){        //1.工具类        Enhancer en = new Enhancer();        //2.设置父类        en.setSuperclass(target.getClass());        //3.设置回调函数        en.setCallback(this);        //4.创建子类（代理对象）        return en.create();    }    @Override    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {        System.out.println(&quot;开始事务...&quot;);        //执行目标对象的方法        Object returnValue = method.invoke(target, objects);        System.out.println(&quot;提交事务...&quot;);        return returnValue;    }}public class Test{    public static void main(String args[]){        // 目标对象        UserDao target = new UserDao();        //原始类型        System.out.println(target.getClass());        // 给目标对象，创建代理对象        UserDao proxy = (UserDao) new ProxyFactory(target).getProxyInstance();        System.out.println(proxy.getClass());        // 执行方法   代理对象        proxy.save();    }    /**     * out:     *   class UserDao  //原始的类型 class cn.itcast.b_dynamic.UserDao         class $Proxy0  // class UserDao$$EnhancerByCGLIB$$90f08d08   内存中动态生成的代理对象         开始事务2         is saved.         提交事务2     */}</code></pre><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射机制并没有什么神奇之处，当通过反射与一个未知类型的对象打交道时，JVM只是简单地检查这个对象，看它属于哪个特定的类。因此，那个类的.class对于JVM来说必须是可获取的，要么在本地机器上，要么从网络获取。所以对于RTTI和反射之间的<strong>真正区别只在于</strong>：</p><p>RTTI，编译器在编译时打开和检查.class文件</p><p>反射，运行时打开和检查.class文件</p><p>反射调用对象的过程：获取反射的 Class 对象、通过反射创建类对象、通过反射获取类属性方法及构造器。</p><pre><code class="java">import java.lang.reflect.Constructor;import java.lang.reflect.Method;/** * 反射 */public class Test{    private int price;    public int getPrice(){        return price;    }    public void setPrice(int price){        this.price = price;    }    public static void main(String args[]) throws Exception{        //正射调用，代码在未运行时就已经确定了要运行的类（Test）        Test test = new Test();        test.setPrice(5);        System.out.println(test.getPrice());        //反射调用，在运行时才知道要操作的类是什么，并且可以在运行时获取类的完整构造，并调用对应的方法。        Class clazz = Class.forName(&quot;Test&quot;);        Method setMethod = clazz.getMethod(&quot;setPrice&quot;, int.class);        Constructor testConstructor = clazz.getConstructor();        Object testObj = testConstructor.newInstance();        setMethod.invoke(testObj, 5);        Method getMethod = clazz.getMethod(&quot;getPrice&quot;);        System.out.println(getMethod.invoke(testObj));        //out: 5 5    }}</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>此文档为java优先队列的学习总结</p><a id="more"></a><h2 id="java中优先队列和堆的详细使用"><a href="#java中优先队列和堆的详细使用" class="headerlink" title="java中优先队列和堆的详细使用"></a>java中优先队列和堆的详细使用</h2><p>来源:<a href="https://blog.csdn.net/cquzhengdayday/article/details/72514900" target="_blank" rel="noopener">java中优先队列和堆的详细使用</a></p><p><a href="https://www.cnblogs.com/lifegoesonitself/p/3391741.html" target="_blank" rel="noopener">优先队列实现 大小根堆 解决top k 问题</a></p><p><strong>我们知道优先队列其实内部实现就是一个堆的数据结构，java默认的是一个小跟堆，每次取出最小的元素，因为堆的性质他可以做到O(logn)级别的插入和删除操作。</strong></p><p>demo_小根堆：</p><pre><code class="java">Queue&lt;Integer&gt; queue = new PriorityQueue&lt;&gt;();//优先队列，内部实现就是一个小根堆queue.add(5);queue.add(3);queue.add(3);queue.add(56);while(!queue.isEmpty()){    System.out.println(queue.poll());///维护一个堆保证每次取出的都是最小的并出堆}out:3、3、5、56demo_大根堆:int initialCapacity = 5;//定义一个长度为5的优先队列(且是大根堆)PriorityQueue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;&gt;(initialCapacity, new Comparator&lt;Integer&gt;() {    @Override    public int compare(Integer o1, Integer o2) {        return o2 - o1;    }});</code></pre><p>我们知道堆的性质是有： </p><p>1.堆中某个结点的值总是不大于（或不小于）其父结点的值； </p><p>2.堆总是一棵完全二叉树。</p><p>将根结点最大的堆叫做大根堆，根结点最小的堆叫做小根堆。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java异常和处理详解</title>
+      <link href="/2018/12/16/java-throwable/"/>
+      <url>/2018/12/16/java-throwable/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为Java异常的学习总结</p><a id="more"></a><h2 id="Java异常和处理详解"><a href="#Java异常和处理详解" class="headerlink" title="Java异常和处理详解"></a>Java异常和处理详解</h2><p><img src="https://img.braincao.cn/blogimg/1583507974.jpg" alt="1583507974"></p>]]></content>
       
       
       <categories>
@@ -500,6 +625,56 @@
         <tags>
             
             <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java反射</title>
+      <link href="/2018/12/16/java-reflection/"/>
+      <url>/2018/12/16/java-reflection/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为java反射的学习总结</p><a id="more"></a><h2 id="动态代理详解"><a href="#动态代理详解" class="headerlink" title="动态代理详解"></a>动态代理详解</h2><p>详看这篇博客<a href="https://www.cnblogs.com/cenyu/p/6289209.html" target="_blank" rel="noopener">Java的三种代理模式</a></p><p>动态代理有以下特点:</p><ul><li>1.代理对象,不需要实现接口</li><li>2.代理对象的生成,是利用JDK的API,动态的在内存中构建代理对象(需要我们指定创建代理对象/目标对象实现的接口的类型)</li><li>3.动态代理也叫做:JDK代理,接口代理</li></ul><p>在Spring的AOP编程中:</p><p>如果加入容器的目标对象有实现接口,用JDK代理<br>如果目标对象没有实现接口,用Cglib代理</p><p>1.动态代理之jdk动态代理:</p><pre><code class="java">import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;//动态代理demo//接口interface UserManager{    public void call(String name);}//具体对象class UserManagerImpl implements UserManager {    @Override    public void call(String name) {        System.out.println(&quot;call..&quot; + name);    }}//代理类class ProxyT implements InvocationHandler{    private Object objectTarget;    public Object newProxyInstance(Object objectTarget){        this.objectTarget = objectTarget;        return Proxy.newProxyInstance(objectTarget.getClass().getClassLoader(), objectTarget.getClass().getInterfaces(), this);    }    @Override    /*InvocationHandler接口的方法，proxy表示代理，method表示原对象被调用的方法，args表示方法的参数*/    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {        System.out.println(&quot;startProxy...&quot;);        Object ret = null;        try{            System.out.println(&quot;日志记录start....&quot;);            ret = method.invoke(objectTarget, args);            System.out.println(&quot;日志记录end....&quot;);        }catch (Exception e){            e.printStackTrace();        }        return ret;    }}public class Test{    public static void main(String[] args) {        UserManager userManager = (UserManager)new ProxyT().newProxyInstance(new UserManagerImpl());        userManager.call(&quot;张三&quot;);    }}</code></pre><p>2.Cglib代理</p><p>上面的静态代理和动态代理模式都是要求目标对象是实现一个接口的目标对象,但是有时候目标对象只是一个单独的对象,并没有实现任何的接口,这个时候就可以使用以目标对象子类的方式类实现代理,这种方法就叫做:Cglib代理</p><p><strong>Cglib代理,也叫作子类代理,它是在内存中构建一个子类对象从而实现对目标对象功能的扩展.</strong></p><p>JDK的动态代理有一个限制,就是使用动态代理的对象必须实现一个或多个接口,如果想代理没有实现接口的类,就可以使用Cglib实现.<br>Cglib是一个强大的高性能的代码生成包,它可以在运行期扩展java类与实现java接口.它广泛的被许多AOP的框架使用,例如Spring AOP和synaop,为他们提供方法的interception(拦截)<br>Cglib包的底层是通过使用一个小而块的字节码处理框架ASM来转换字节码并生成新的类.不鼓励直接使用ASM,因为它要求你必须对JVM内部结构包括class文件的格式和指令集都很熟悉.</p><p>Cglib子类代理实现方法:</p><ul><li>1.需要引入cglib的jar文件,但是Spring的核心包中已经包括了Cglib功能,所以直接引入spring-core-3.2.5.jar即可.</li><li>2.引入功能包后,就可以在内存中动态构建子类</li><li>3.代理的类不能为final,否则报错</li><li>4.目标对象的方法如果为final/static,那么就不会被拦截,即不会执行目标对象额外的业务方法.</li></ul><pre><code class="java">import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;import org.springframework.cglib.proxy.Enhancer;import org.springframework.cglib.proxy.MethodInterceptor;import org.springframework.cglib.proxy.MethodProxy;/** * 动态代理之cglib动态代理 */class UserDao{    public void save(){        System.out.println(&quot;is saved.&quot;);    }}class ProxyFactory implements MethodInterceptor {    //维护一个目标对象    private Object target;    public ProxyFactory(Object target){        this.target = target;    }    //给目标对象生成代理对象    public Object getProxyInstance(){        //1.工具类        Enhancer en = new Enhancer();        //2.设置父类        en.setSuperclass(target.getClass());        //3.设置回调函数        en.setCallback(this);        //4.创建子类（代理对象）        return en.create();    }    @Override    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {        System.out.println(&quot;开始事务...&quot;);        //执行目标对象的方法        Object returnValue = method.invoke(target, objects);        System.out.println(&quot;提交事务...&quot;);        return returnValue;    }}public class Test{    public static void main(String args[]){        // 目标对象        UserDao target = new UserDao();        //原始类型        System.out.println(target.getClass());        // 给目标对象，创建代理对象        UserDao proxy = (UserDao) new ProxyFactory(target).getProxyInstance();        System.out.println(proxy.getClass());        // 执行方法   代理对象        proxy.save();    }    /**     * out:     *   class UserDao  //原始的类型 class cn.itcast.b_dynamic.UserDao         class $Proxy0  // class UserDao$$EnhancerByCGLIB$$90f08d08   内存中动态生成的代理对象         开始事务2         is saved.         提交事务2     */}</code></pre><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射机制并没有什么神奇之处，当通过反射与一个未知类型的对象打交道时，JVM只是简单地检查这个对象，看它属于哪个特定的类。因此，那个类的.class对于JVM来说必须是可获取的，要么在本地机器上，要么从网络获取。所以对于RTTI和反射之间的<strong>真正区别只在于</strong>：</p><p>RTTI，编译器在编译时打开和检查.class文件</p><p>反射，运行时打开和检查.class文件</p><p>反射调用对象的过程：获取反射的 Class 对象、通过反射创建类对象、通过反射获取类属性方法及构造器。</p><pre><code class="java">import java.lang.reflect.Constructor;import java.lang.reflect.Method;/** * 反射 */public class Test{    private int price;    public int getPrice(){        return price;    }    public void setPrice(int price){        this.price = price;    }    public static void main(String args[]) throws Exception{        //正射调用，代码在未运行时就已经确定了要运行的类（Test）        Test test = new Test();        test.setPrice(5);        System.out.println(test.getPrice());        //反射调用，在运行时才知道要操作的类是什么，并且可以在运行时获取类的完整构造，并调用对应的方法。        Class clazz = Class.forName(&quot;Test&quot;);        Method setMethod = clazz.getMethod(&quot;setPrice&quot;, int.class);        Constructor testConstructor = clazz.getConstructor();        Object testObj = testConstructor.newInstance();        setMethod.invoke(testObj, 5);        Method getMethod = clazz.getMethod(&quot;getPrice&quot;);        System.out.println(getMethod.invoke(testObj));        //out: 5 5    }}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>spring拦截器与过滤器的区别</title>
+      <link href="/2018/12/16/spring-filter/"/>
+      <url>/2018/12/16/spring-filter/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为spring拦截器与过滤器的学习总结</p><a id="more"></a><h2 id="spring拦截器与过滤器的区别"><a href="#spring拦截器与过滤器的区别" class="headerlink" title="spring拦截器与过滤器的区别"></a>spring拦截器与过滤器的区别</h2><pre><code>1.拦截器是基于java的反射机制的，而过滤器是基于函数回调。2.拦截器不依赖与servlet容器，过滤器依赖与servlet容器。3.拦截器只能对action请求起作用，而过滤器则可以对几乎所有的请求起作用。4.拦截器可以访问action上下文、值栈里的对象，而过滤器不能访问。5.在action的生命周期中，拦截器可以多次被调用，而过滤器只能在容器初始化时被调用一次</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring </tag>
             
         </tags>
       
@@ -552,6 +727,31 @@
         <tags>
             
             <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>md5加密字符串</title>
+      <link href="/2018/12/16/java-md5-string/"/>
+      <url>/2018/12/16/java-md5-string/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为md5加密字符串的学习总结</p><a id="more"></a><h2 id="md5加密字符串"><a href="#md5加密字符串" class="headerlink" title="md5加密字符串"></a>md5加密字符串</h2><p>md5:对任意长度字符串返回一个特定长度的加密编码，不可逆</p><pre><code class="java">//盐值字符串，用于混淆md5。越复杂越好，用户猜不到private final String slat = &quot;asdc#$!EFSD$#%$GWVDSQ#!$#%$#T~~@#$^GV&quot;;//对seckillId生成md5的过程private String getMD5(long seckillId){    String base = seckillId + &quot;/&quot; + slat;    String md5 = DigestUtils.md5DigestAsHex(base.getBytes());//用base二进制生成md5    return md5;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
             
         </tags>
       
@@ -664,6 +864,158 @@
     
     
     <entry>
+      <title>数据库的主键外键索引</title>
+      <link href="/2018/04/08/mysql-key-index/"/>
+      <url>/2018/04/08/mysql-key-index/</url>
+      
+        <content type="html"><![CDATA[<p>这是一篇数据库的主键、外键、索引的学习笔记</p><a id="more"></a><h2 id="数据库的主键外键索引"><a href="#数据库的主键外键索引" class="headerlink" title="数据库的主键外键索引"></a>数据库的主键外键索引</h2><h3 id="主键、外键和索引的区别？"><a href="#主键、外键和索引的区别？" class="headerlink" title="主键、外键和索引的区别？"></a>主键、外键和索引的区别？</h3><p>  |主键|外键|索引<br>—|—|—|—<br>定义|唯一标识一条记录，不能有重复的，不允许为空|表的外键是另一表的主键, 外键可以有重复的, 可以是空值|该字段没有重复值，但可以有一个空值<br>作用|用来保证数据完整性|用来和其他表建立联系用的|是提高查询排序的速度<br>个数|主键只能有一个|一个表可以有多个外键|一个表可以有多个惟一索引</p><h3 id="聚集索引和非聚集索引的区别？"><a href="#聚集索引和非聚集索引的区别？" class="headerlink" title="聚集索引和非聚集索引的区别？"></a>聚集索引和非聚集索引的区别？</h3><p>聚集索引一定是唯一索引。但唯一索引不一定是聚集索引。  </p><p>聚集索引，在索引页里直接存放数据，而非聚集索引在索引页里存放的是索引，这些索引指向专门的数据页的数据。</p><h2 id="mysql中key-、primary-key-、unique-key-与index区别"><a href="#mysql中key-、primary-key-、unique-key-与index区别" class="headerlink" title="mysql中key 、primary key 、unique key 与index区别"></a>mysql中key 、primary key 、unique key 与index区别</h2><p>来源：<a href="https://www.cnblogs.com/jpfss/p/8308656.html" target="_blank" rel="noopener">mysql中key 、primary key 、unique key 与index区别</a> + <a href="https://www.cnblogs.com/as3lib/p/6632749.html" target="_blank" rel="noopener">mysql中key 、primary key 、unique key 与index区别</a> + <a href="http://www.runoob.com/mysql/mysql-index.html" target="_blank" rel="noopener">MySQL 索引-菜鸟教程</a></p><ul><li><p>key的用途：主要是用来加快查询速度的。</p></li><li><p>unique Key是唯一键，而Primary key是主键<br>Primary key 与Unique Key都是唯一性约束。但二者有很大的区别：</p><p>  1、Primary key的1个或多个列 必须为NOT NULL，如果列为NULL，在增加PRIMARY KEY时，列自动更改为NOT NULL。而UNIQUE KEY 对列没有此要求。</p><p>  2、一个表只能有一个PRIMARY KEY，但可以有多个UNIQUE KEY。</p></li><li><p>MySQL 中Index 与Key 的区别:</p><p>  <strong>key</strong> 是数据库的物理结构，它包含两层意义，一是<strong>约束</strong>（偏重于约束和规范数据库的结构完整性），二是<strong>索引</strong>（辅助查询用的）</p><p>  index是数据库的物理结构，它只是辅助查询的，它创建时会在另外的表空间（mysql中的innodb表空间）以一个类似目录的结构存储。索引要分类的话，分为前缀索引、全文本索引等；<br>因此，<strong>索引只是索引，它不会去约束索引的字段的行为（那是key要做的事情）</strong>。如，create table t(id int, index inx_tx_id  (id));</p><p>  请详看<a href="https://www.cnblogs.com/jianmingyuan/p/6740090.html" target="_blank" rel="noopener">key和index区别</a></p><p>  Key即键值，是关系模型理论中的一部份，比如有主键（Primary Key)，外键（Foreign Key）等，用于数据完整性检否与唯一性约束等。</p><p>  而Index则处于实现层面，比如可以对表的任意列建立索引，那么当建立索引的列处于SQL语句中的Where条件中时，就可以得到快速的数据定位，从而快速检索。</p><p>  至于Unique Index，则只是属于Index中的一种而已，建立了Unique Index表示此列数据不可重复，猜想MySQL对Unique Index类型的索引可以做进一步特殊优化吧。 </p></li></ul><pre><code>于是乎，在设计表的时候，Key只是要处于模型层面的，而当需要进行查询优化，则对相关列建立索引即可。 另外，在MySQL中，对于一个Primary Key的列，MySQL已经自动对其建立了Unique Index，无需重复再在上面建立索引了。总结： (1).我们说索引分类，分为主键索引、唯一索引、普通索引(这才是纯粹的index)等，也是基于是不是把index看作了key。</code></pre><p>  比如 create table t(id int, unique index inx_tx_id  (id));  –index当作了key使用</p><pre><code>(2).最重要的也就是，不管如何描述，理解index是纯粹的index，还是被当作key，当作key时则会有两种意义或起两种作用。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>mysql主键系列详解</title>
+      <link href="/2018/04/08/mysql-key/"/>
+      <url>/2018/04/08/mysql-key/</url>
+      
+        <content type="html"><![CDATA[<p>这是一篇mysql主键系列的学习笔记</p><a id="more"></a><h2 id="mysql中key-、primary-key-、unique-key-与index区别"><a href="#mysql中key-、primary-key-、unique-key-与index区别" class="headerlink" title="mysql中key 、primary key 、unique key 与index区别"></a>mysql中key 、primary key 、unique key 与index区别</h2><p>来源：<a href="https://www.cnblogs.com/jpfss/p/8308656.html" target="_blank" rel="noopener">mysql中key 、primary key 、unique key 与index区别</a> + <a href="https://www.cnblogs.com/as3lib/p/6632749.html" target="_blank" rel="noopener">mysql中key 、primary key 、unique key 与index区别</a> + <a href="http://www.runoob.com/mysql/mysql-index.html" target="_blank" rel="noopener">MySQL 索引-菜鸟教程</a></p><ul><li><p>key的用途：主要是用来加快查询速度的。</p></li><li><p>unique Key是唯一键，而Primary key是主键<br>Primary key 与Unique Key都是唯一性约束。但二者有很大的区别：</p><p>  1、Primary key的1个或多个列 必须为NOT NULL，如果列为NULL，在增加PRIMARY KEY时，列自动更改为NOT NULL。而UNIQUE KEY 对列没有此要求。</p><p>  2、一个表只能有一个PRIMARY KEY，但可以有多个UNIQUE KEY。</p></li><li><p>MySQL 中Index 与Key 的区别:</p><p>  <strong>key</strong> 是数据库的物理结构，它包含两层意义，一是<strong>约束</strong>（偏重于约束和规范数据库的结构完整性），二是<strong>索引</strong>（辅助查询用的）</p><p>  index是数据库的物理结构，它只是辅助查询的，它创建时会在另外的表空间（mysql中的innodb表空间）以一个类似目录的结构存储。索引要分类的话，分为前缀索引、全文本索引等；<br>因此，<strong>索引只是索引，它不会去约束索引的字段的行为（那是key要做的事情）</strong>。如，create table t(id int, index inx_tx_id  (id));</p><p>  请详看<a href="https://www.cnblogs.com/jianmingyuan/p/6740090.html" target="_blank" rel="noopener">key和index区别</a></p><p>  Key即键值，是关系模型理论中的一部份，比如有主键（Primary Key)，外键（Foreign Key）等，用于数据完整性检否与唯一性约束等。</p><p>  而Index则处于实现层面，比如可以对表的任意列建立索引，那么当建立索引的列处于SQL语句中的Where条件中时，就可以得到快速的数据定位，从而快速检索。</p><p>  至于Unique Index，则只是属于Index中的一种而已，建立了Unique Index表示此列数据不可重复，猜想MySQL对Unique Index类型的索引可以做进一步特殊优化吧。 </p></li></ul><pre><code>于是乎，在设计表的时候，Key只是要处于模型层面的，而当需要进行查询优化，则对相关列建立索引即可。 另外，在MySQL中，对于一个Primary Key的列，MySQL已经自动对其建立了Unique Index，无需重复再在上面建立索引了。总结： (1).我们说索引分类，分为主键索引、唯一索引、普通索引(这才是纯粹的index)等，也是基于是不是把index看作了key。</code></pre><p>  比如 create table t(id int, unique index inx_tx_id  (id));  –index当作了key使用</p><pre><code>(2).最重要的也就是，不管如何描述，理解index是纯粹的index，还是被当作key，当作key时则会有两种意义或起两种作用。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>MySQL事务</title>
+      <link href="/2018/04/08/mysql-transaction/"/>
+      <url>/2018/04/08/mysql-transaction/</url>
+      
+        <content type="html"><![CDATA[<p>这是一篇MySQL事务的学习笔记</p><a id="more"></a><h2 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h2><p><a href="http://www.runoob.com/mysql/mysql-transaction.html" target="_blank" rel="noopener">2min看完强推_MySQL 事务-菜鸟教程</a></p><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p><ul><li><p>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</p></li><li><p>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。</p></li><li><p>事务用来管理 insert,update,delete 语句</p></li></ul><p>一般来说，事务是必须满足4个条件（ACID）：：原子性（Atomicity，或称不可分割性）、一致性（Consistency）、隔离性（Isolation，又称独立性）、持久性（Durability）。</p><p>在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行 COMMIT 操作。因此要显式地开启一个事务务须使用命令 BEGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。</p><p>MYSQL 事务处理主要有两种方法：</p><ul><li>1、用 BEGIN, ROLLBACK, COMMIT来实现</li></ul><pre><code>BEGIN 开始一个事务ROLLBACK 事务回滚COMMIT 事务确认</code></pre><ul><li>2、直接用 SET 来改变 MySQL 的自动提交模式:</li></ul><pre><code>SET AUTOCOMMIT=0 禁止自动提交SET AUTOCOMMIT=1 开启自动提交</code></pre><p>事务的两个例子：</p><p><img src="https://img.braincao.cn/blogimg/1583560979.jpg" alt="1583560979"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>sql语法</title>
+      <link href="/2018/04/08/sql-grammar/"/>
+      <url>/2018/04/08/sql-grammar/</url>
+      
+        <content type="html"><![CDATA[<p>这是一篇sql语法的总结笔记</p><a id="more"></a><h2 id="sql语法表"><a href="#sql语法表" class="headerlink" title="sql语法表"></a>sql语法表</h2><table><thead><tr><th><strong>语句</strong></th><th><strong>语法</strong></th></tr></thead><tbody><tr><td>AND / OR</td><td>SELECT column_name(s)   FROM table_name   WHERE condition   AND|OR condition</td></tr><tr><td>ALTER TABLE (add column)</td><td>ALTER TABLE table_name    ADD column_name datatype</td></tr><tr><td>ALTER TABLE (drop column)</td><td>ALTER TABLE table_name    DROP COLUMN column_name</td></tr><tr><td>AS (alias for column)</td><td>SELECT column_name AS column_alias   FROM table_name</td></tr><tr><td>AS (alias for table)</td><td>SELECT column_name   FROM table_name AS table_alias</td></tr><tr><td>BETWEEN</td><td>SELECT column_name(s)   FROM table_name   WHERE column_name   BETWEEN value1 AND value2</td></tr><tr><td>CREATE DATABASE</td><td>CREATE DATABASE database_name</td></tr><tr><td>CREATE INDEX</td><td>CREATE INDEX index_name   ON table_name (column_name)</td></tr><tr><td>CREATE TABLE</td><td>CREATE TABLE table_name   (   column_name1 data_type,   column_name2 data_type,   …….   )</td></tr><tr><td>CREATE UNIQUE INDEX</td><td>CREATE UNIQUE INDEX index_name   ON table_name (column_name)</td></tr><tr><td>CREATE VIEW</td><td>CREATE VIEW view_name AS   SELECT column_name(s)   FROM table_name   WHERE condition</td></tr><tr><td>DELETE FROM</td><td>DELETE FROM table_name    (<strong>Note:</strong> Deletes the entire table!!)  <em>or</em>  DELETE FROM  table_name   WHERE condition</td></tr><tr><td>DROP DATABASE</td><td>DROP DATABASE database_name</td></tr><tr><td>DROP INDEX</td><td>DROP INDEX table_name.index_name</td></tr><tr><td>DROP TABLE</td><td>DROP TABLE table_name</td></tr><tr><td>GROUP BY</td><td>SELECT column_name1,SUM(column_name2)   FROM table_name   GROUP BY column_name1</td></tr><tr><td>HAVING  HAVING 是用来限制GROUP BY子句的结构的；<strong>HAVING作用于GROUP BY 之后的每一个group</strong>。</td><td>SELECT column_name1,SUM(column_name2)   FROM table_name   GROUP BY column_name1   HAVING SUM(column_name2) condition value</td></tr><tr><td>IN</td><td>SELECT column_name(s)   FROM table_name   WHERE column_name   IN (value1,value2,..)</td></tr><tr><td>INSERT INTO</td><td>INSERT INTO table_name   VALUES (value1, value2,….)  <em>or</em>  INSERT INTO  table_name   (column_name1, column_name2,…)   VALUES (value1, value2,….)</td></tr><tr><td>LIKE</td><td>SELECT column_name(s)   FROM table_name   WHERE column_name   LIKE pattern (% _ [] [^])</td></tr><tr><td>ORDER BY</td><td>SELECT column_name(s)   FROM table_name   ORDER BY column_name [ASC|DESC]</td></tr><tr><td>SELECT</td><td>SELECT column_name(s)   FROM table_name</td></tr><tr><td>SELECT *</td><td>SELECT *   FROM table_name</td></tr><tr><td>SELECT DISTINCT</td><td>SELECT DISTINCT column_name(s)   FROM table_name</td></tr><tr><td>SELECT INTO   (used to create backup copies of tables)</td><td>SELECT *   INTO new_table_name   FROM original_table_name  <em>or</em>  SELECT  column_name(s)   INTO new_table_name   FROM original_table_name</td></tr><tr><td>TRUNCATE TABLE   (deletes only the data inside the table)</td><td>TRUNCATE TABLE table_name</td></tr><tr><td>UPDATE</td><td>UPDATE table_name   SET column_name=new_value   [, column_name=new_value]   WHERE column_name=some_value</td></tr><tr><td>WHERE</td><td>SELECT column_name(s)   FROM table_name   WHERE condition</td></tr></tbody></table><h2 id="添加列"><a href="#添加列" class="headerlink" title="添加列"></a>添加列</h2><p>mysql添加列必须说明数据类型，删除列可以省略column</p><pre><code>错误:alter table employee add memoalter table employee add column正确：alter table employee drop column agealter table employee drop age</code></pre><h2 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h2><p>select * from message limit 5,5; //从第5条开始取，取5条</p><h2 id="批量删除多条记录–in"><a href="#批量删除多条记录–in" class="headerlink" title="批量删除多条记录–in"></a>批量删除多条记录–in</h2><p>DELETE FROM message WHERE commandid IN (640,634,633);</p><h2 id="统计SQL语句查询出来的条数"><a href="#统计SQL语句查询出来的条数" class="headerlink" title="统计SQL语句查询出来的条数"></a>统计SQL语句查询出来的条数</h2><p>SELECT COUNT(*) FROM micro_message.COMMAND;</p><h2 id="批量插入"><a href="#批量插入" class="headerlink" title="批量插入"></a>批量插入</h2><p>INSERT INTO COMMAND (COMMAND,DESCRIPTION) VALUES(‘HAHA’, ‘ASDASD’),(‘SAD’,’SADAS’)</p><h2 id="sql语句顺序"><a href="#sql语句顺序" class="headerlink" title="sql语句顺序"></a>sql语句顺序</h2><p>select, from, where, group by, having, order by, limit</p><p>where增加分组前的限定，having增加分组后的限定</p><h2 id="union"><a href="#union" class="headerlink" title="union"></a>union</h2><p>UNION 语句：用于将不同表中相同列中查询的数据展示出来；（不包括重复数据）</p><p>UNION ALL 语句：用于将不同表中相同列中查询的数据展示出来；（包括重复数据）</p><pre><code>SELECT 列名称 FROM 表名称 UNION SELECT 列名称 FROM 表名称 ORDER BY 列名称；SELECT 列名称 FROM 表名称 UNION ALL SELECT 列名称 FROM 表名称 ORDER BY 列名称；</code></pre><h2 id="排序order-by"><a href="#排序order-by" class="headerlink" title="排序order by"></a>排序order by</h2><p>默认是asc</p><p>如果字符集采用的是 gbk(汉字编码字符集)，直接在查询语句后边添加 ORDER BY：</p><pre><code>SELECT * FROM runoob_tblORDER BY runoob_title asc;</code></pre><p>如果字符集采用的是 utf8(万国码)，需要先对字段进行转码然后排序：</p><pre><code>SELECT * FROM runoob_tblORDER BY CONVERT(runoob_title using gbk) desc;</code></pre><h2 id="GROUP-BY"><a href="#GROUP-BY" class="headerlink" title="GROUP BY"></a>GROUP BY</h2><p>GROUP BY 语句根据一个或多个列对结果集进行分组。</p><p>在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。</p><p>1.group by 可以实现一个最简单的去重查询，假设想看下有哪些员工，除了用 distinct,还可以用：</p><pre><code>SELECT name FROM employee_tbl GROUP BY name;</code></pre><p>2.分组后的条件使用 HAVING 来限定，WHERE 是对原始数据进行条件限制。几个关键字的使用顺序为 where 、group by 、having、order by ，例如：</p><pre><code>SELECT coalesce(name, &#39;总数&#39;)as name1 ,sum(singin) as sum1 FROM employee_tbl GROUP BY name having sum1&gt;5 order by sum1 desc;</code></pre><p>其中coalesce(a,b,c)用来设置一个可以取代 NUll 的名称：如果a==null,则选择b；如果b==null,则选择c；如果a!=null,则选择a；如果a b c 都为null ，则返回为null（没意义）。</p><h2 id="join–Mysql连接的使用"><a href="#join–Mysql连接的使用" class="headerlink" title="join–Mysql连接的使用"></a>join–Mysql连接的使用</h2><p>之前都是在一张表中读取数据，但是在真正的应用中经常需要从多个数据表中读取数据， JOIN就是在两个或多个表中查询数据。</p><p>JOIN 按照功能大致分为如下三类：</p><p>INNER JOIN（内连接,或等值连接）：获取两个表中字段匹配关系的记录。省略 INNER 使用 JOIN，效果一样</p><p>LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录。</p><p>RIGHT JOIN（右连接）： 与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。</p><h3 id="SQL联合查询-主表与子表联合查询-–left-join-on"><a href="#SQL联合查询-主表与子表联合查询-–left-join-on" class="headerlink" title="SQL联合查询(主表与子表联合查询)–left join on"></a>SQL联合查询(主表与子表联合查询)–left join on</h3><pre><code>SELECT A.DESCRIPTION,B.CONTENT FROM COMMAND A LEFT JOIN COMMAND_CONTENT B ON A.COMMAND_ID=B.COMMAND_ID WHERE A.COMMAND_ID=&#39;查看&#39;;</code></pre><p>1、 on条件是在生成临时表时使用的条件，它不管on中的条件是否为真，都会返回左边表中的记录。</p><p>2、where条件是在临时表生成好后，再对临时表进行过滤的条件。这时已经没有left join的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。</p><p>这个问题请看这个<a href="https://blog.csdn.net/weixin_36174051/article/details/80377061" target="_blank" rel="noopener">LEFT JOIN 使用时的注意事项</a>、<a href="https://blog.csdn.net/xingfeng0501/article/details/7816703" target="_blank" rel="noopener">left join on and 与 left join on where的区别</a></p><h3 id="inner-join-与-left-join-之间的区别"><a href="#inner-join-与-left-join-之间的区别" class="headerlink" title="inner join 与 left join 之间的区别"></a>inner join 与 left join 之间的区别</h3><p>来源: <a href="https://www.cnblogs.com/assasion/p/7768931.html" target="_blank" rel="noopener">inner join 与 left join 之间的区别</a></p><p>left join(左联接) 返回包括左表中的所有记录和右表中联结字段相等的记录 </p><p>right join(右联接) 返回包括右表中的所有记录和左表中联结字段相等的记录</p><p>inner join(等值连接) 只返回两个表中联结字段相等的行</p><p>下面的这条语句是：根据seckillId查询SuccessKilled实体(也携带Seckill秒杀商品对象实体)，即查询的同时也为SuccessKilled中属性为Seckill的实体对象赋值</p><pre><code class="sql">&lt;!--mybatis把结果映射到SuccessKilled，同时映射属性seckill属性--&gt;SELECT  sk.seckillId,  sk.user_phone,  sk.state,  sk.create_time,  s.seckillId &quot;seckill.seckill_id&quot;,  s.name &quot;seckill.name&quot;,  s.number &quot;seckill.number&quot;,  s.start_time &quot;seckill.start_time&quot;,  s.end_time &quot;seckill.end_time&quot;,  s.create_time &quot;seckill.create_time&quot;FROM success_killed sk INNER JOIN seckill sON sk.seckill_id = s.seckill_idWHERE sk.seckillId = #{seckillId}</code></pre><h2 id="MySQL-NULL-值处理"><a href="#MySQL-NULL-值处理" class="headerlink" title="MySQL NULL 值处理"></a>MySQL NULL 值处理</h2><p>不能使用 = NULL 或 != NULL 在列中查找 NULL 值 。</p><p>IS NULL: 当列的值是 NULL,此运算符返回 true。</p><p><code>select a2 is null from aaa where a1=&#39;a&#39;;</code></p><p><code>SELECT * FROM runoob_test_tbl WHERE runoob_count IS NULL;</code></p><p>IS NOT NULL: 当列的值不为 NULL, 运算符返回 true。</p><p>&lt;=&gt;: 比较操作符（不同于=运算符），当比较的的两个值为 NULL 时返回 true。</p><h2 id="like-与-正则表达式"><a href="#like-与-正则表达式" class="headerlink" title="like 与 正则表达式"></a>like 与 正则表达式</h2><p>e.g.</p><p><code>like &#39;%a$&#39;</code>、<code>like &#39;a_.{0,2}&#39;</code></p><h2 id="ALTER命令"><a href="#ALTER命令" class="headerlink" title="ALTER命令"></a>ALTER命令</h2><p>当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。</p><p>1.修改表名:</p><pre><code>ALTER TABLE testalter_tbl RENAME TO alter_tbl;</code></pre><p>2.删除，添加或修改表字段:</p><pre><code>ALTER TABLE testalter_tbl ADD i INT;//添加列i到数据表字段的末尾。ALTER TABLE testalter_tbl DROP i;//删除表中名i的列ALTER TABLE testalter_tbl ADD i INT FIRST;//添加第一列名iALTER TABLE testalter_tbl DROP i;//删除表中名i的列ALTER TABLE testalter_tbl ADD i INT AFTER c;//在列c后添加列名i</code></pre><p>使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。</p><p>3.修改字段类型及名称</p><pre><code>ALTER TABLE testalter_tbl CHANGE i j BIGINT;</code></pre><h2 id="MySQL-复制表"><a href="#MySQL-复制表" class="headerlink" title="MySQL 复制表"></a>MySQL 复制表</h2><p>完整的复制MySQL数据表，步骤如下：</p><p>1.使用 SHOW CREATE TABLE 命令获取创建数据表(CREATE TABLE) 语句，该语句包含了原数据表的结构，索引等。</p><pre><code>mysql&gt; SHOW CREATE TABLE runoob_tbl \G;*************************** 1. row ***************************       Table: runoob_tblCreate Table: CREATE TABLE `runoob_tbl` (  `runoob_id` int(11) NOT NULL auto_increment,  `runoob_title` varchar(100) NOT NULL default &#39;&#39;,  `runoob_author` varchar(40) NOT NULL default &#39;&#39;,  `submission_date` date default NULL,  PRIMARY KEY  (`runoob_id`),  UNIQUE KEY `AUTHOR_INDEX` (`runoob_author`)) ENGINE=InnoDB 1 row in set (0.00 sec)ERROR:No query specified</code></pre><p>2.复制以下命令显示的SQL语句，修改数据表名，并执行SQL语句，通过以上命令 将完全的复制数据表结构。</p><pre><code>CREATE TABLE `clone_tbl` (  -&gt; `runoob_id` int(11) NOT NULL auto_increment,  -&gt; `runoob_title` varchar(100) NOT NULL default &#39;&#39;,  -&gt; `runoob_author` varchar(40) NOT NULL default &#39;&#39;,  -&gt; `submission_date` date default NULL,  -&gt; PRIMARY KEY  (`runoob_id`),  -&gt; UNIQUE KEY `AUTHOR_INDEX` (`runoob_author`)-&gt; ) ENGINE=InnoDB;Query OK, 0 rows affected (1.80 sec)</code></pre><p>3.如果你想复制表的内容，你就可以使用 INSERT INTO … SELECT 语句来实现。</p><pre><code>INSERT INTO clone_tbl (runoob_id,-&gt;                     runoob_title,-&gt;                     runoob_author,-&gt;                     submission_date)    -&gt; SELECT runoob_id,runoob_title,    -&gt;        runoob_author,submission_date    -&gt; FROM runoob_tbl;Query OK, 3 rows affected (0.07 sec)Records: 3  Duplicates: 0  Warnings: 0</code></pre><h2 id="mysql获取元数据"><a href="#mysql获取元数据" class="headerlink" title="mysql获取元数据"></a>mysql获取元数据</h2><p>1.使用 SHOW TABLES 或 SHOW DATABASES 语句来获取数据库和数据表列表</p><p>2.获取服务器元数据：</p><pre><code>SELECT VERSION( )    服务器版本信息SELECT DATABASE( )    当前数据库名 (或者返回空)SELECT USER( )    当前用户名SHOW STATUS    服务器状态SHOW VARIABLES    服务器配置变量</code></pre><h2 id="AUTO-INCREMENT–MySQL-序列相关"><a href="#AUTO-INCREMENT–MySQL-序列相关" class="headerlink" title="AUTO_INCREMENT–MySQL 序列相关"></a>AUTO_INCREMENT–MySQL 序列相关</h2><p><a href="http://www.runoob.com/mysql/mysql-using-sequences.html" target="_blank" rel="noopener">MySQL 序列-菜鸟教程</a></p><h2 id="MySQL-处理重复数据"><a href="#MySQL-处理重复数据" class="headerlink" title="MySQL 处理重复数据"></a>MySQL 处理重复数据</h2><p><a href="http://www.runoob.com/mysql/mysql-handling-duplicates.html" target="_blank" rel="noopener">MySQL 处理重复数据-菜鸟教程</a></p><p>统计表中 first_name 和 last_name的重复记录数:</p><pre><code>SELECT COUNT(*) as repetitions, last_name, first_nameFROM person_tblGROUP BY last_name, first_nameHAVING repetitions &gt; 1;</code></pre><p>过滤重复数据:</p><pre><code>SELECT DISTINCT last_name, first_nameFROM person_tbl;也可以使用 GROUP BY 来读取数据表中不重复的数据：SELECT last_name, first_nameFROM person_tblGROUP BY (last_name, first_name);</code></pre><p>删除重复数据:</p><p>1:</p><pre><code>mysql&gt; CREATE TABLE tmp SELECT last_name, first_name, sex FROM person_tbl  GROUP BY (last_name, first_name, sex);mysql&gt; DROP TABLE person_tbl;mysql&gt; ALTER TABLE tmp RENAME TO person_tbl;</code></pre><p>2:也可以在数据表中添加 INDEX（索引） 和 PRIMAY KEY（主键）这种简单的方法来删除表中的重复记录</p><pre><code>mysql&gt; ALTER IGNORE TABLE person_tbl-&gt; ADD PRIMARY KEY (last_name, first_name);</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ajax学习笔记</title>
+      <link href="/2018/03/21/ajax/"/>
+      <url>/2018/03/21/ajax/</url>
+      
+        <content type="html"><![CDATA[<p>学习ajax是研二做项目所需</p><p>学习资料来源：<a href="https://www.imooc.com/learn/250" target="_blank" rel="noopener">慕课网的ajax全接触视频教程</a></p><a id="more"></a><h1 id="完整的http请求过程–7步"><a href="#完整的http请求过程–7步" class="headerlink" title="完整的http请求过程–7步"></a>完整的http请求过程–7步</h1><p>1.建立tcp连接</p><p>2.Web浏览器向Web服务器发送请求命令</p><p>3.Web浏览器发送请求头信息</p><p>4.Web服务器应答</p><p>5.Web服务器发送应答头信息</p><p>6.Web服务器向浏览器发送数据</p><p>7.Web服务器关闭tcp连接    </p><h1 id="一个http请求一般由四部分组成"><a href="#一个http请求一般由四部分组成" class="headerlink" title="一个http请求一般由四部分组成"></a>一个http请求一般由四部分组成</h1><p>1.http请求的方法：get请求还是post请求<br>2.正在请求的url，就是发起请求的地址</p><p>3.请求头，包含一些客户端环境信息，身份验证信息等</p><p>4.请求体，也就是请求正文，请求正文中可以包含客户提交的查询字符串信息，表单信息等</p><h1 id="一个http响应一般由三部分组成"><a href="#一个http响应一般由三部分组成" class="headerlink" title="一个http响应一般由三部分组成"></a>一个http响应一般由三部分组成</h1><p>1.一个数字和文字组成的状态码，用来显示请求成功还是失败</p><p>2.响应头，响应头也和请求头一样包含许多有用的信息，例如服务器类型、日期时间、内容类型和长度等</p><p>3.响应体，也就是响应正文</p><h1 id="get-与-post"><a href="#get-与-post" class="headerlink" title="get 与 post"></a>get 与 post</h1><ul><li><p>get：</p><p>  一般用于信息获取</p><p>  使用url传递参数（用get发送用户名密码是非常不安全的）</p><p>  对所发送信息的数量也有限制，一般在2000个字符</p></li><li><p>post：</p><p>  一般用于修改服务器上的资源</p><p>  对所发送信息的数量无限制</p></li></ul><h1 id="ajax大概流程"><a href="#ajax大概流程" class="headerlink" title="ajax大概流程"></a>ajax大概流程</h1><ul><li>运用html和css来实现页面，表达信息</li><li>运用<strong>XMLHttpRequest</strong>和web服务器进行数据的异步交换</li><li>运用JavaScript操作DOM，实现动态局部刷新</li></ul><h1 id="通过XMLHttpRequest对象发送请求"><a href="#通过XMLHttpRequest对象发送请求" class="headerlink" title="通过XMLHttpRequest对象发送请求"></a>通过XMLHttpRequest对象发送请求</h1><p>1.open(method, url, async)</p><pre><code>method：发送请求方法 get/posturl：请求方地址async：发送异步/同步请求，默认为true异步</code></pre><p>2.send(string)</p><p>向服务器发送请求，string是发送传递参数，get方法参数在url中可以string为空，而post方法则需要有string参数了</p><p>e.g. </p><pre><code>request.open(&quot;GET&quot;, &quot;get.php&quot;, true);request.setRequestHeader(&quot;Content-type&quot;, &quot;apllication/x-www-form-urlencoded&quot;);request.send(&quot;name=王二狗&amp;sex=男&quot;);</code></pre><h1 id="通过XMLHttpRequest对象取得相应"><a href="#通过XMLHttpRequest对象取得相应" class="headerlink" title="通过XMLHttpRequest对象取得相应"></a>通过XMLHttpRequest对象取得相应</h1><p>请看一个较完整的XMLHttpRequest发送请求加取得响应的过程</p><pre><code>var request = new XMLHttpRequest();request.open(&quot;GET&quot;, &quot;get.php&quot;, true);request.send();request.onreadystatechange = function(){    if(request.readyState===4 &amp;&amp; request.status===200) //服务器响应完成且请求成功    {        //做一些事情 request.responseText    }}</code></pre><h1 id="JSON解析、格式化和校验工具"><a href="#JSON解析、格式化和校验工具" class="headerlink" title="JSON解析、格式化和校验工具"></a>JSON解析、格式化和校验工具</h1><p>###JSON解析–JSON.parse</p><pre><code>var data = &#39;{&quot;staff&quot;: 123, &quot;asd&quot;:&quot;asd&quot;}&#39;;var jsonobj = JSON.parse(data); alert(obj.staff); </code></pre><p>###JSON格式化和校验工具–<a href="http://jsonlint.com" target="_blank" rel="noopener">JSONLint</a></p><h1 id="用jQuery实现Ajax"><a href="#用jQuery实现Ajax" class="headerlink" title="用jQuery实现Ajax"></a>用jQuery实现Ajax</h1><p>通常不会手写js实现原生的Ajax，使用第三方js库jQuery实现Ajax，以下是一个实现LDAP网关登录的ajax显示demo</p><pre><code class="html">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;&lt;%String path = request.getContextPath();String basePath = request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;;%&gt;&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;&lt;html&gt;&lt;head&gt;    &lt;base href=&quot;&lt;%=basePath%&gt;&quot;&gt;    &lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot;&gt;    &lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;&gt;    &lt;meta http-equiv=&quot;expires&quot; content=&quot;0&quot;&gt;    &lt;meta http-equiv=&quot;keywords&quot; content=&quot;keyword1,keyword2,keyword3&quot;&gt;    &lt;meta http-equiv=&quot;description&quot; content=&quot;This is my page&quot;&gt;    &lt;!--    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt;    --&gt;    &lt;!--meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;--&gt;    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;application/json; charset=utf-8&quot;&gt;    &lt;title&gt;Demo&lt;/title&gt;    &lt;style&gt;        body,h1,input,label,button,p {            font-size: 30px;            line-height: 2;        }    &lt;/style&gt;    &lt;script src=&quot;http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js&quot;&gt;&lt;/script&gt;    &lt;script&gt;        $(document).ready(function(){            $(&quot;#login&quot;).click(function(){                $.ajax({                    type: &quot;POST&quot;,                    url: &quot;http://localhost:8080/SecondClass/ldap/login&quot;,                    contentType : &quot;application/json;charset=UTF-8&quot;,                    dataType: &quot;json&quot;,                    data:                        JSON.stringify({                            &quot;userId&quot;: $(&quot;#schoolNumber&quot;).val(),                            &quot;password&quot;: $(&quot;#password&quot;).val()                        }),                    success: function(data) {                            $(&quot;#loginResult&quot;).html(data.msg);                    },                    error: function(jqXHR) {                        alert(&quot;发生错误：&quot; + jqXHR.status);                    }                });            });        });    &lt;/script&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;网关登录&lt;/h1&gt;&lt;label&gt;请输入学号: &lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;schoolNumber&quot;/&gt;&lt;br&gt;&lt;label&gt;请输入密码: &lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;password&quot;/&gt;&lt;br&gt;&lt;button id=&quot;login&quot;&gt;登录&lt;/button&gt;&lt;p id=&quot;loginResult&quot;&gt;sadasd&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>动态规划</title>
+      <link href="/2018/03/21/dynamic-programming/"/>
+      <url>/2018/03/21/dynamic-programming/</url>
+      
+        <content type="html"><![CDATA[<p>这个一篇关于动态规划的学习笔记</p><a id="more"></a><h1 id="动态规划核心"><a href="#动态规划核心" class="headerlink" title="动态规划核心"></a>动态规划核心</h1><ul><li>动态规划里非常重要的两个概念：<strong>状态和状态转移方程</strong>。<strong>状态怎么找：根据子问题定义状态</strong>。找到子问题，状态也就浮出水面了</li></ul><h1 id="常见的动态规划算法题"><a href="#常见的动态规划算法题" class="headerlink" title="常见的动态规划算法题"></a>常见的动态规划算法题</h1><ul><li>LIS（最长上升子序列）：DP解法、nlogn解法、排序+LCS解法</li></ul><h1 id="dp问题解决思路"><a href="#dp问题解决思路" class="headerlink" title="dp问题解决思路"></a>dp问题解决思路</h1><ul><li>当阅读一个题目并且开始尝试解决它时，首先看一下它的限制。 如果要求在多项式时间内解决，那么该问题就很可能要用DP来解。遇到这种情况， 最重要的就是找到问题的“状态”和“状态转移方程”。(状态不是随便定义的， 一般定义完状态，你要找到当前状态是如何从前面的状态得到的， 即找到状态转移方程)如果看起来是个DP问题，但你却无法定义出状态， 那么试着将问题规约到一个已知的DP问题</li></ul><h1 id="贪心算法与动态规划区别"><a href="#贪心算法与动态规划区别" class="headerlink" title="贪心算法与动态规划区别"></a>贪心算法与动态规划区别</h1><p>贪心算法对每个子问题的解决方案都做出选择，不能回退；动态规划则会根据以前的选择结果对当前进行选择，有回退功能。动态规划主要运用于二维或三维问题，而贪心一般是一维问题</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法刷题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法刷题 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo博客系统搭建过程</title>
       <link href="/2018/02/22/build-hexo/"/>
       <url>/2018/02/22/build-hexo/</url>
@@ -680,11 +1032,11 @@
       
         <tags>
             
-            <tag> 博客 </tag>
-            
             <tag> hexo </tag>
             
             <tag> gitee </tag>
+            
+            <tag> 博客 </tag>
             
         </tags>
       
