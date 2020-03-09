@@ -155,7 +155,7 @@
     
         
             
-            <li><div data-rel="计网">计网<small>(1)</small></div>
+            <li><div data-rel="java">java<small>(16)</small></div>
                 
             </li>
             
@@ -163,7 +163,7 @@
     
         
             
-            <li><div data-rel="java">java<small>(16)</small></div>
+            <li><div data-rel="计网">计网<small>(1)</small></div>
                 
             </li>
             
@@ -224,7 +224,7 @@
     <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="46">
-<input type="hidden" id="yelog_site_word_count" value="142.2k">
+<input type="hidden" id="yelog_site_word_count" value="142.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -271,15 +271,15 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">博客</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color5">hexo</a>
     </li>
     
     <li class="article-tag-list-item">
         <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -311,11 +311,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color3">计网</a>
+        <a class="color5">java</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color5">java</a>
+        <a class="color3">计网</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -722,7 +722,7 @@
         
         <a  class="综合技术 "
            href="/2018/02/22/build-hexo/"
-           data-tag="博客,hexo,gitee"
+           data-tag="hexo,gitee,博客"
            data-author="" >
             <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
             <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
@@ -781,7 +781,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:547</span>
+        <span>字数:1.1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -800,7 +800,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax简介"><span class="toc-text">Ajax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax大概流程"><span class="toc-text">ajax大概流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过XMLHttpRequest对象发送请求"><span class="toc-text">通过XMLHttpRequest对象发送请求</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax简介"><span class="toc-text">Ajax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax大概流程"><span class="toc-text">ajax大概流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过XMLHttpRequest对象发送请求"><span class="toc-text">通过XMLHttpRequest对象发送请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过XMLHttpRequest对象取得相应"><span class="toc-text">通过XMLHttpRequest对象取得相应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用jQuery实现Ajax"><span class="toc-text">用jQuery实现Ajax</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -841,7 +841,89 @@ async：发送异步/同步请求，默认为true异步
 <pre><code>request.open(&quot;GET&quot;, &quot;get.php&quot;, true);
 request.setRequestHeader(&quot;Content-type&quot;, &quot;apllication/x-www-form-urlencoded&quot;);
 request.send(&quot;name=王二狗&amp;sex=男&quot;);
+</code></pre><h2 id="通过XMLHttpRequest对象取得相应"><a href="#通过XMLHttpRequest对象取得相应" class="headerlink" title="通过XMLHttpRequest对象取得相应"></a>通过XMLHttpRequest对象取得相应</h2><p>请看一个较完整的XMLHttpRequest发送请求加取得响应的过程</p>
+<pre><code>var request = new XMLHttpRequest();
+request.open(&quot;GET&quot;, &quot;get.php&quot;, true);
+request.send();
+request.onreadystatechange = function()
+{
+    if(request.readyState===4 &amp;&amp; request.status===200) //服务器响应完成且请求成功
+    {
+        //做一些事情 request.responseText
+    }
+}
+</code></pre><h2 id="用jQuery实现Ajax"><a href="#用jQuery实现Ajax" class="headerlink" title="用jQuery实现Ajax"></a>用jQuery实现Ajax</h2><p>通常不会手写js实现原生的Ajax，使用第三方js库jQuery实现Ajax，以下是一个实现LDAP网关登录的ajax显示demo</p>
+<pre><code class="html">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%
+String path = request.getContextPath();
+String basePath = request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;;
+%&gt;
+
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;base href=&quot;&lt;%=basePath%&gt;&quot;&gt;
+    &lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot;&gt;
+    &lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;&gt;
+    &lt;meta http-equiv=&quot;expires&quot; content=&quot;0&quot;&gt;
+    &lt;meta http-equiv=&quot;keywords&quot; content=&quot;keyword1,keyword2,keyword3&quot;&gt;
+    &lt;meta http-equiv=&quot;description&quot; content=&quot;This is my page&quot;&gt;
+    &lt;!--
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt;
+    --&gt;
+
+    &lt;!--meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;--&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;application/json; charset=utf-8&quot;&gt;
+
+    &lt;title&gt;Demo&lt;/title&gt;
+    &lt;style&gt;
+        body,h1,input,label,button,p {
+            font-size: 30px;
+            line-height: 2;
+
+        }
+    &lt;/style&gt;
+
+    &lt;script src=&quot;http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function(){
+            $(&quot;#login&quot;).click(function(){
+                $.ajax({
+                    type: &quot;POST&quot;,
+                    url: &quot;http://localhost:8080/SecondClass/ldap/login&quot;,
+                    contentType : &quot;application/json;charset=UTF-8&quot;,
+                    dataType: &quot;json&quot;,
+                    data:
+                        JSON.stringify({
+                            &quot;userId&quot;: $(&quot;#schoolNumber&quot;).val(),
+                            &quot;password&quot;: $(&quot;#password&quot;).val()
+                        }),
+                    success: function(data) {
+                            $(&quot;#loginResult&quot;).html(data.msg);
+
+                    },
+                    error: function(jqXHR) {
+                        alert(&quot;发生错误：&quot; + jqXHR.status);
+                    }
+                });
+            });
+        });
+    &lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h1&gt;网关登录&lt;/h1&gt;
+&lt;label&gt;请输入学号: &lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;schoolNumber&quot;/&gt;&lt;br&gt;
+&lt;label&gt;请输入密码: &lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;password&quot;/&gt;&lt;br&gt;
+&lt;button id=&quot;login&quot;&gt;登录&lt;/button&gt;
+&lt;p id=&quot;loginResult&quot;&gt;sadasd&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
     </div>
@@ -855,7 +937,7 @@ request.send(&quot;name=王二狗&amp;sex=男&quot;);
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>ajax学习笔记</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">547</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.1k</span></p>
     <p><span class="copy-title">本文作者:</span>Brain Cao</p>
     <p><span class="copy-title">发布时间:</span>2018-03-21, 16:49:52</p>
     <p><span class="copy-title">最后更新:</span>2020-03-09, 15:30:22</p>
@@ -935,7 +1017,7 @@ request.send(&quot;name=王二狗&amp;sex=男&quot;);
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#前端','#博客','#hexo','#gitee','#算法刷题','#DFS','#动态规划','#投资理财','#git','#hosts','#github','#计网','#java','#leetcode','#linux','#职业管理','#多线程','#数据库','#面经','#python','#排序算法','#spring','#技术之外',],
+            'data': ['#前端','#hexo','#gitee','#博客','#算法刷题','#DFS','#动态规划','#投资理财','#git','#hosts','#github','#java','#计网','#leetcode','#linux','#职业管理','#多线程','#数据库','#面经','#python','#排序算法','#spring','#技术之外',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
