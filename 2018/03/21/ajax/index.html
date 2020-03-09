@@ -224,7 +224,7 @@
     <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="46">
-<input type="hidden" id="yelog_site_word_count" value="142.1k">
+<input type="hidden" id="yelog_site_word_count" value="142.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -481,18 +481,18 @@
         </a>
         
         <a  class="java "
-           href="/2018/12/16/java-enum/"
-           data-tag="java"
-           data-author="" >
-            <span class="post-title" title="java枚举">java枚举</span>
-            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
-        </a>
-        
-        <a  class="java "
            href="/2018/12/16/java-copy/"
            data-tag="java"
            data-author="" >
             <span class="post-title" title="java深浅拷贝">java深浅拷贝</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-enum/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java枚举">java枚举</span>
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
@@ -529,18 +529,18 @@
         </a>
         
         <a  class="java "
-           href="/2018/12/16/java-parameter/"
-           data-tag="java"
-           data-author="" >
-            <span class="post-title" title="java参数...">java参数...</span>
-            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
-        </a>
-        
-        <a  class="java "
            href="/2018/12/16/java-multi-thread/"
            data-tag="java"
            data-author="" >
             <span class="post-title" title="java多线程">java多线程</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-parameter/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java参数...">java参数...</span>
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
@@ -584,19 +584,19 @@
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
-        <a  class="数据库 "
-           href="/2018/12/16/sql-btree/"
-           data-tag="数据库"
-           data-author="" >
-            <span class="post-title" title="B树系列详解">B树系列详解</span>
-            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
-        </a>
-        
         <a  class="spring "
            href="/2018/12/16/spring-filter/"
            data-tag="spring"
            data-author="" >
             <span class="post-title" title="spring拦截器与过滤器的区别">spring拦截器与过滤器的区别</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/12/16/sql-btree/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="B树系列详解">B树系列详解</span>
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
@@ -781,7 +781,7 @@
     </div>
     <div class="article-meta">
         
-        <span>字数:427</span>
+        <span>字数:547</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -800,7 +800,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax简介"><span class="toc-text">Ajax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax大概流程"><span class="toc-text">ajax大概流程</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ajax简介"><span class="toc-text">Ajax简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ajax大概流程"><span class="toc-text">ajax大概流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通过XMLHttpRequest对象发送请求"><span class="toc-text">通过XMLHttpRequest对象发送请求</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -829,7 +829,19 @@
 <li>运用<strong>XMLHttpRequest</strong>和web服务器进行数据的异步交换</li>
 <li>运用JavaScript操作DOM，实现动态局部刷新</li>
 </ul>
+<h2 id="通过XMLHttpRequest对象发送请求"><a href="#通过XMLHttpRequest对象发送请求" class="headerlink" title="通过XMLHttpRequest对象发送请求"></a>通过XMLHttpRequest对象发送请求</h2><p>1.open(method, url, async)</p>
+<pre><code>method：发送请求方法 get/post
 
+url：请求方地址
+
+async：发送异步/同步请求，默认为true异步
+</code></pre><p>2.send(string)</p>
+<p>向服务器发送请求，string是发送传递参数，get方法参数在url中可以string为空，而post方法则需要有string参数了</p>
+<p>e.g. </p>
+<pre><code>request.open(&quot;GET&quot;, &quot;get.php&quot;, true);
+request.setRequestHeader(&quot;Content-type&quot;, &quot;apllication/x-www-form-urlencoded&quot;);
+request.send(&quot;name=王二狗&amp;sex=男&quot;);
+</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
     </div>
@@ -843,7 +855,7 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>ajax学习笔记</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">427</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">547</span></p>
     <p><span class="copy-title">本文作者:</span>Brain Cao</p>
     <p><span class="copy-title">发布时间:</span>2018-03-21, 16:49:52</p>
     <p><span class="copy-title">最后更新:</span>2020-03-09, 15:30:22</p>
