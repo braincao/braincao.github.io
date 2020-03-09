@@ -912,6 +912,31 @@
     
     
     <entry>
+      <title>http请求过程、方式</title>
+      <link href="/2018/07/18/http-request/"/>
+      <url>/2018/07/18/http-request/</url>
+      
+        <content type="html"><![CDATA[<p>简要总结了http请求过程与请求方式</p><a id="more"></a><h2 id="完整的http请求过程–7步"><a href="#完整的http请求过程–7步" class="headerlink" title="完整的http请求过程–7步"></a>完整的http请求过程–7步</h2><p>1.建立tcp连接</p><p>2.Web浏览器向Web服务器发送请求命令</p><p>3.Web浏览器发送请求头信息</p><p>4.Web服务器应答</p><p>5.Web服务器发送应答头信息</p><p>6.Web服务器向浏览器发送数据</p><p>7.Web服务器关闭tcp连接    </p><h2 id="一个http请求一般由四部分组成"><a href="#一个http请求一般由四部分组成" class="headerlink" title="一个http请求一般由四部分组成"></a>一个http请求一般由四部分组成</h2><p>1.http请求的方法：get请求还是post请求<br>2.正在请求的url，就是发起请求的地址</p><p>3.请求头，包含一些客户端环境信息，身份验证信息等</p><p>4.请求体，也就是请求正文，请求正文中可以包含客户提交的查询字符串信息，表单信息等</p><h2 id="一个http响应一般由三部分组成"><a href="#一个http响应一般由三部分组成" class="headerlink" title="一个http响应一般由三部分组成"></a>一个http响应一般由三部分组成</h2><p>1.一个数字和文字组成的状态码，用来显示请求成功还是失败</p><p>2.响应头，响应头也和请求头一样包含许多有用的信息，例如服务器类型、日期时间、内容类型和长度等</p><p>3.响应体，也就是响应正文</p><h2 id="get与post"><a href="#get与post" class="headerlink" title="get与post"></a>get与post</h2><ul><li><p>get：</p><p>  一般用于信息获取</p><p>  使用url传递参数（用get发送用户名密码是非常不安全的）</p><p>  对所发送信息的数量也有限制，一般在2000个字符</p></li><li><p>post：</p><p>  一般用于修改服务器上的资源</p><p>  对所发送信息的数量无限制</p></li></ul><h2 id="http请求中GET和POST的区别"><a href="#http请求中GET和POST的区别" class="headerlink" title="http请求中GET和POST的区别"></a>http请求中GET和POST的区别</h2><ul><li>GET - 从指定的服务器中获取数据</li><li>POST - 提交数据给指定的服务器处理</li></ul><p>GET请求：请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数用&amp;连接。URL的编码格式采用的是ASCII编码，而不是uniclde，即是说所有的非ASCII字符都要编码之后再传输。</p><p>POST请求：POST请求会把请求的数据放置在HTTP请求包的包体中。上面的item=bandsaw就是实际的传输数据。</p><p>因此，GET请求的数据会暴露在地址栏中，而POST请求则不会。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计网 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计网 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python中shell调用</title>
       <link href="/2018/07/18/python-shell/"/>
       <url>/2018/07/18/python-shell/</url>
