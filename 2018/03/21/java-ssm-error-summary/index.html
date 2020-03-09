@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>linux命令 | Braincao&#39;s blog</title>
-  <meta name="keywords" content=" linux ">
-  <meta name="description" content="linux命令 | Braincao&#39;s blog">
+  <title>ssm框架的问题汇总 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" spring ">
+  <meta name="description" content="ssm框架的问题汇总 | Braincao&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
 <meta property="og:type" content="website">
@@ -772,9 +772,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-linux-orders" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-java-ssm-error-summary" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">linux命令</h1>
+        <h1 class="article-title">ssm框架的问题汇总</h1>
     
     <div class="article-meta">
         
@@ -782,30 +782,30 @@
         
         <span class="book">
             
-                <a  data-rel="linux">linux</a>
+                <a  data-rel="spring">spring</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color1">linux</a>
+            <a class="color2">spring</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date">2018-07-23 23:31</time>
+        创建时间:<time class="date">2018-03-21 16:49</time>
         
         
-        更新时间:<time class="updated">2020-03-09 15:46</time>
+        更新时间:<time class="updated">2020-03-09 18:20</time>
         
 
     </div>
     <div class="article-meta">
         
-        <span>字数:241</span>
+        <span>字数:2.6k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -824,7 +824,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux标准输入输出2-gt-amp-1"><span class="toc-text">linux标准输入输出2&gt;&amp;1</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建表sql语句导入数据库时报错-Invalid-default-value-for-“字段名”"><span class="toc-text">创建表sql语句导入数据库时报错 Invalid default value for “字段名”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编码问题导致jdbc查询数据库查询不到值"><span class="toc-text">编码问题导致jdbc查询数据库查询不到值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Idea-重命名或复制一个项目"><span class="toc-text">Idea 重命名或复制一个项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制整个项目"><span class="toc-text">复制整个项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重命名整个Idea-工作空间"><span class="toc-text">重命名整个Idea 工作空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取包路径下的xml文件，Could-not-find-resource-com-xml"><span class="toc-text">获取包路径下的xml文件，Could not find resource com&#x2F;*&#x2F;.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log4j-properties找不到"><span class="toc-text">log4j.properties找不到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bootstrap-模态框（Modal）带参数传值实例"><span class="toc-text">Bootstrap 模态框（Modal）带参数传值实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动tomcat时发现占用端口"><span class="toc-text">启动tomcat时发现占用端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tomcat终端关闭-shutdown-sh时报错"><span class="toc-text">tomcat终端关闭.&#x2F;shutdown.sh时报错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bootstrap-使用-glyphicon图标不显示"><span class="toc-text">bootstrap 使用 glyphicon图标不显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用jQuery-cookie插件获取cookie值失败"><span class="toc-text">使用jQuery cookie插件获取cookie值失败</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-监听回车事件"><span class="toc-text">JS 监听回车事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#one代替cilck"><span class="toc-text">one代替cilck</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#modal中的input输入框自动获取焦点"><span class="toc-text">modal中的input输入框自动获取焦点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看端口占用情况"><span class="toc-text">查看端口占用情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看进程监听的端口号"><span class="toc-text">查看进程监听的端口号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mac启动php-fpm"><span class="toc-text">mac启动php-fpm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#phpinfo怎么用"><span class="toc-text">phpinfo怎么用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php-fpm启动，重启，终止操作"><span class="toc-text">php-fpm启动，重启，终止操作</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -840,16 +840,148 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>linux命令学习总结</p>
+        <p>此文档为maven组建ssm框架的问题汇总</p>
 <a id="more"></a>
 
-<h2 id="linux标准输入输出2-gt-amp-1"><a href="#linux标准输入输出2-gt-amp-1" class="headerlink" title="linux标准输入输出2&gt;&amp;1"></a>linux标准输入输出2&gt;&amp;1</h2><ul>
-<li>linux中有三种标准输入输出，分别是STDIN，STDOUT，STDERR，对应的数字是0，1，2。<code>2&gt;&amp;1，指将标准输出、标准错误指定为同一输出路径</code></li>
-<li>STDIN是标准输入，默认从键盘读取信息；STDOUT是标准输出，默认将输出结果输出至终端；STDERR是标准错误，默认将输出结果输出至终端。</li>
-<li>由于STDOUT与STDERR都会默认显示在终端上，为了区分二者的信息，就有了编号的0，1，2的定义，用1表示STDOUT，2表示STDERR。</li>
-<li>若要将所有标准输出及标准错误都输出至文件，可用&amp;表示全部1和2的信息，eg：<code>find /etc -name passwd &amp;&gt;find.all 或 find /etc -name passwd &gt;find.all 2&gt;&amp;1</code></li>
-<li><code>2&gt;&amp;1 |less</code> 表示将标准错误重定向至标准输出，并用less进行分页显示</li>
+<h2 id="创建表sql语句导入数据库时报错-Invalid-default-value-for-“字段名”"><a href="#创建表sql语句导入数据库时报错-Invalid-default-value-for-“字段名”" class="headerlink" title="创建表sql语句导入数据库时报错 Invalid default value for “字段名”"></a>创建表sql语句导入数据库时报错 Invalid default value for “字段名”</h2><p><a href="https://blog.csdn.net/qq_26245325/article/details/78916363" target="_blank" rel="noopener">Mysql ERROR 1067: Invalid default value for 字段</a></p>
+<h2 id="编码问题导致jdbc查询数据库查询不到值"><a href="#编码问题导致jdbc查询数据库查询不到值" class="headerlink" title="编码问题导致jdbc查询数据库查询不到值"></a>编码问题导致jdbc查询数据库查询不到值</h2><p>问题：编码问题导致jdbc查询数据库查询不到值。</p>
+<p>解决：在jdbc的数据库连接地址后面加<br>?useUnicode=true&amp;characterEncoding=UTF-8，否则查询不到，编码问题。</p>
+<pre><code>Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+//下面一定要再jdbc的数据库连接地址后面加?useUnicode=true&amp;characterEncoding=UTF-8，否则查询不到，编码问题
+Connection conn = DriverManager.getConnection(&quot;jdbc:mysql://127.0.0.1:3306/micro_message?useUnicode=true&amp;characterEncoding=UTF-8&quot;, &quot;root&quot;, &quot;123456&quot;);</code></pre><h2 id="Idea-重命名或复制一个项目"><a href="#Idea-重命名或复制一个项目" class="headerlink" title="Idea 重命名或复制一个项目"></a>Idea 重命名或复制一个项目</h2><p>目前找到的最好的方法：</p>
+<p>一、重命名一个项目</p>
+<p>在Idea 项目关闭状态下，在Finder里重命名文件夹，并删除.idea 文件夹下的 workspace.xml (此文件不删的话有些项目配置会有问题)。<br>Idea 菜单 File - Open… 打开重命名后的项目，在Project Structure中设置如下：</p>
+<p>如果是Web 项目，需要重命名模块module name；</p>
+<p>重命名项目名Project Name(这个不改也没什么影响)；</p>
+<p>在artifact中删掉错的，再添加正确的artifact，见下图；</p>
+<p><img src="https://img.braincao.cn/blogimg/1583753868.png" alt="1583753868"></p>
+<p>大功告成，配置Tomcat即可。</p>
+<h2 id="复制整个项目"><a href="#复制整个项目" class="headerlink" title="复制整个项目"></a>复制整个项目</h2><p>复制之前可先删除target 文件夹，里面是项目编译后的文件(每次启动Tomcat 都会生成)，其中的jar 包体积较大。</p>
+<p>在Finder直接复制整个项目文件夹，可直接粘贴在同一个项目目录，修改项目文件夹名称即可；当然也可复制到另一个项目目录。<br>删除.idea 文件夹下的 workspace.xml (此文件不删的话有些项目配置会有问题)。<br>(与上面重命名项目的第2步完全一样) 菜单 File - Open… 打开复制出来的项目文件夹(图同上)，如果是Web 项目，需要重命名模块，操作是在项目名上shift+F6 (Rename Module)；菜单File - Project Structure - Project Name, 重命名项目(但不改好象也没什么影响)，图同上；并在 Project Structure 查看 artifact，删掉错的，再添加正确的artifact，图同上；然后再配置Tomcat 即可。</p>
+<h2 id="重命名整个Idea-工作空间"><a href="#重命名整个Idea-工作空间" class="headerlink" title="重命名整个Idea 工作空间"></a>重命名整个Idea 工作空间</h2><p>如果Idea 工作空间文件夹含空格，可能导致某些程序错误，比如用this.getClass().getResource(“/“).getPath() 得到的路径，空格会被自动转换成”20%”，再使用这个路径就找不到了。所以可以将整个Idea 工作空间重命名，然后直接打开里面的项目的话，Maven 报错无法载入，这个还是workspace.xml 的问题，所以要把整个Idea 工作空间内的workspace.xml 都删了，再打开项目。</p>
+<h2 id="获取包路径下的xml文件，Could-not-find-resource-com-xml"><a href="#获取包路径下的xml文件，Could-not-find-resource-com-xml" class="headerlink" title="获取包路径下的xml文件，Could not find resource com/*/.xml"></a>获取包路径下的xml文件，Could not find resource com/<em>*/</em>.xml</h2><p>问题：在eclipse中，把资源文件放在src文件夹下，是可以找到的；<br>但是在idea中，直接把资源文件放在src文件夹下，如果不进行设置，是不能被找到的。例如使用Mybatis，mapper文件都是放在包路径下，和实体一个层级，使用IDEA时就会报错</p>
+<p>解决：配置maven的pom文件配置，在pom文件中找到节点，添加下列代码：</p>
+<pre><code class="html">&lt;build&gt;  
+    &lt;resources&gt;  
+        &lt;resource&gt;  
+            &lt;directory&gt;src/main/java&lt;/directory&gt;  
+            &lt;includes&gt;  
+                &lt;include&gt;**/*.xml&lt;/include&gt;  
+            &lt;/includes&gt;  
+        &lt;/resource&gt;  
+    &lt;/resources&gt;  
+&lt;/build&gt; 
+</code></pre>
+<p>*/.xml是通配符，匹配src/main/java目录下所有的xml文件，将其映射为资源文件，这样，IDEA就会加载该xml文件。</p>
+<h2 id="log4j-properties找不到"><a href="#log4j-properties找不到" class="headerlink" title="log4j.properties找不到"></a>log4j.properties找不到</h2><p>问题：No appenders could be found for logger (org.apache.ibatis.logging.LogFactory).</p>
+<ul>
+<li><p>如果不是web项目，有main函数的那种，则：</p>
+<p>  1、在main函数中加入<code>BasicConfigurator.configure();</code></p>
+<p>  2、把log4j.properties放在src目录下，这样才能被找到</p>
+</li>
+<li><p>如果是有web的那种正常项目，一下两步解决：</p>
+<p>  1、将写好的log4j.properties放在WEB-INF目录下(如/WEB-INF/class/log4j.properties)</p>
+<p>  2、在web.xml中加入下面的配置：        </p>
+</li>
 </ul>
+<pre><code class="html">&lt;!--以下两个是log4j的配置相关--&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;log4jConfigLocation&lt;/param-name&gt;
+&lt;param-value&gt;/WEB-INF/class/log4j.properties&lt;/param-value&gt;
+&lt;/context-param&gt;
+
+&lt;listener&gt;
+&lt;listener-class&gt;
+  org.springframework.web.util.Log4jConfigListener
+&lt;/listener-class&gt;
+&lt;/listener&gt;
+</code></pre>
+<h2 id="Bootstrap-模态框（Modal）带参数传值实例"><a href="#Bootstrap-模态框（Modal）带参数传值实例" class="headerlink" title="Bootstrap 模态框（Modal）带参数传值实例"></a>Bootstrap 模态框（Modal）带参数传值实例</h2><p>来自：<a href="https://blog.csdn.net/linhaiyun_ytdx/article/details/77417702" target="_blank" rel="noopener">Bootstrap 模态框（Modal）带参数传值实例</a>，完美的解决了我的问题hiahia</p>
+<p>模态框（Modal）是覆盖在父窗体上的子窗体。通常，目的是显示来自一个单独的源的内容，可以在不离开父窗体的情况下有一些互动。子窗体可提供信息、交互等。</p>
+<pre><code>为了实现父窗体与其的交互，通常需要向其传值，实现带参数的传递，查看数据的唯一性。例如下面窗体：点击任意一个模态框（&quot;回复&quot;按钮）,如果不做任何处理，则会出现回复混淆，甚至程序出错的情况。</code></pre><p><img src="https://img.braincao.cn/blogimg/1583753886.png" alt="1583753886"></p>
+<p>为了实现其回复的唯一性和带参传值的功能，需要做以下处理<br><img src="https://img.braincao.cn/blogimg/1583753904.png" alt="1583753904"><br><img src="https://img.braincao.cn/blogimg/1583753912.png" alt="1583753912"><br><img src="https://img.braincao.cn/blogimg/1583753918.png" alt="1583753918"></p>
+<p>实现的效果：</p>
+<p><img src="https://img.braincao.cn/blogimg/1583753951.png" alt="1583753951"></p>
+<p>我的示例如下：</p>
+<h2 id="启动tomcat时发现占用端口"><a href="#启动tomcat时发现占用端口" class="headerlink" title="启动tomcat时发现占用端口"></a>启动tomcat时发现占用端口</h2><p>mac上终端操作：</p>
+<p>第一步：使用lsof -i tcp:1099 查看时那个应用占用了1099端口(换成你想找的端口)</p>
+<p>第二部：使用kill pid 即可，这里的pid是第一步所查询到结果</p>
+<h2 id="tomcat终端关闭-shutdown-sh时报错"><a href="#tomcat终端关闭-shutdown-sh时报错" class="headerlink" title="tomcat终端关闭./shutdown.sh时报错"></a>tomcat终端关闭./shutdown.sh时报错</h2><p>问题报错：Could not contact localhost:8005. Tomcat may not be running.</p>
+<p>直接重装tomcat</p>
+<h2 id="bootstrap-使用-glyphicon图标不显示"><a href="#bootstrap-使用-glyphicon图标不显示" class="headerlink" title="bootstrap 使用 glyphicon图标不显示"></a>bootstrap 使用 glyphicon图标不显示</h2><p>来源 <a href="http://www.runoob.com/bootstrap/bootstrap-glyphicons.html" target="_blank" rel="noopener">Bootstrap 字体图标(Glyphicons)</a></p>
+<p>解决：引入cdn的bootstrap、jquery即可</p>
+<pre><code class="html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;  
+&lt;script src=&quot;https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="使用jQuery-cookie插件获取cookie值失败"><a href="#使用jQuery-cookie插件获取cookie值失败" class="headerlink" title="使用jQuery cookie插件获取cookie值失败"></a>使用jQuery cookie插件获取cookie值失败</h2><p>问题：js中<code>var killPhone = $.cookie(&quot;killPhone&quot;);</code>取不到值，原来是 <code>$.cookie is not a function</code>就是说</p>
+<p>解决：出现这种问题有3中可能</p>
+<p>1是没有导入cookie相关的库文件</p>
+<p>2是cookie的库文件和jquery库文件的先后顺序问题， 必须先导入jquery库文件后到其他库文件 </p>
+<p>3一个页面由于二次或多次引入了jquery插件导致。</p>
+<p>我们问题原因是手残导入2次jquery库文件，orz。。。</p>
+<h2 id="JS-监听回车事件"><a href="#JS-监听回车事件" class="headerlink" title="JS 监听回车事件"></a>JS 监听回车事件</h2><pre><code>//监听回车事件
+document.onkeydown = function(e){
+    if(e.keyCode === 13){
+        $(&quot;#killPhoneButton&quot;).click();
+    }
+};
+</code></pre><h2 id="one代替cilck"><a href="#one代替cilck" class="headerlink" title="one代替cilck"></a>one代替cilck</h2><p>用one绑定而不是click的好处就是：只绑定一次点击事件。防止一个用户不停的点秒杀，都发送服务端造成崩溃</p>
+<pre><code>$    (&quot;#killBtn&quot;).one(&quot;click&quot;,function(){
+});
+</code></pre><h2 id="modal中的input输入框自动获取焦点"><a href="#modal中的input输入框自动获取焦点" class="headerlink" title="modal中的input输入框自动获取焦点"></a>modal中的input输入框自动获取焦点</h2><p>解决：在jsp中的input属性中加入autofocus即可</p>
+<pre><code class="html">&lt;input type=&quot;text&quot;  name=&quot;killPhone&quot; autofocus class=&quot;form-control&quot; id=&quot;killPhoneKey&quot; placeholder=&quot;填手机号&quot;/&gt;
+</code></pre>
+<h2 id="查看端口占用情况"><a href="#查看端口占用情况" class="headerlink" title="查看端口占用情况"></a>查看端口占用情况</h2><p>命令sudo lsof -i tcp:port（port替换成端口号，比如6379）可以查看该端口被什么程序占用，并显示PID，方便KILL</p>
+<p>e.g. </p>
+<p><code>sudo lsof -i tcp:80</code></p>
+<h2 id="查看进程监听的端口号"><a href="#查看进程监听的端口号" class="headerlink" title="查看进程监听的端口号"></a>查看进程监听的端口号</h2><p>linux：sudo netstat -ltnp |grep xxx</p>
+<p>mac:</p>
+<pre><code>sudo lsof -i -n -P | grep 45046  (所查询的进程pid是45046)
+sudo lsof -i -n -P | grep memcached  (所查询的进程名是memcached)
+</code></pre><p>-i:列出符合条件的进程<br>-P 表示不显示端口俗称，直接显示端口号http-&gt;80<br>不加 sudo 只能查看以当前用户运行的程序，所以必须加</p>
+<h2 id="mac启动php-fpm"><a href="#mac启动php-fpm" class="headerlink" title="mac启动php-fpm"></a>mac启动php-fpm</h2><p><code>sudo php-fpm -D</code></p>
+<p>4.mac终端执行php脚本</p>
+<p><code>php test.php</code></p>
+<h2 id="phpinfo怎么用"><a href="#phpinfo怎么用" class="headerlink" title="phpinfo怎么用"></a>phpinfo怎么用</h2><p><code>php -r &#39;phpinfo();’即可</code></p>
+<p>或者启动apache，在apache目录中建一个info.php页面</p>
+<pre><code>&lt;?php
+    phpinfo();
+?&gt;
+</code></pre><p>然后浏览器输入localhost/info.php即可</p>
+<p>另外 php -m可以看到php相关扩展</p>
+<h2 id="php-fpm启动，重启，终止操作"><a href="#php-fpm启动，重启，终止操作" class="headerlink" title="php-fpm启动，重启，终止操作"></a>php-fpm启动，重启，终止操作</h2><p>php 5.3.3 以后的php-fpm 不再支持 php-fpm 以前具有的 /usr/local/php/sbin/php-fpm (start|stop|reload)等命令，所以不要再看这种老掉牙的命令了，需要使用信号控制：</p>
+<p>master进程可以理解以下信号</p>
+<p>INT, TERM 立刻终止<br>QUIT 平滑终止<br>USR1 重新打开日志文件<br>USR2 平滑重载所有worker进程并重新载入配置和二进制模块</p>
+<p>1.启动php-fpm:</p>
+<p><code>/usr/local/opt/php@7.2/sbin//php-fpm</code></p>
+<p>2.重启、关闭</p>
+<p>来源:<a href="http://www.4wei.cn/archives/1002061" target="_blank" rel="noopener">php-fpm - 启动参数及重要配置详解</a></p>
+<p>方法一：</p>
+<p>先查看ps aux | grep php-fpm看master进程号，即root用户下的进程号</p>
+<p>kill -USR2 pid即可</p>
+<p>方法二：</p>
+<p>上面方案一般是没有生成php-fpm.pid文件时使用，如果要生成php-fpm.pid，使用下面这种方案：</p>
+<p>上面master进程可以看到，matster使用的是/usr/local/php/etc/php-fpm.conf这个配置文件，cat /usr/local/php/etc/php-fpm.conf 发现：</p>
+<pre><code>[global]
+; Pid file
+; Note: the default prefix is /usr/local/php/var
+; Default Value: none
+;pid = run/php-fpm.pid
+
+</code></pre><p>pid文件路径应该位于/usr/local/var/run/php-fpm.pid,由于注释掉，所以没有生成，我们把注释去除，再kill -USR2 42891 重启php-fpm,便会生成pid文件，下次就可以使用以下命令重启,关闭php-fpm了：</p>
+<pre><code>php-fpm 关闭：
+kill -INT &#39;cat /usr/local/var/run/php-fpm.pid&#39;
+php-fpm 重启：
+kill -USR2 &#39;cat /usr/local/var/run/php-fpm.pid&#39;
+</code></pre><p>daemon进程kill不掉不断重启的解决方法：</p>
+<p>1./Library/LaunchDaemons/中删除<a href="mailto:homebrew.mxcl.php@7.2.plist">homebrew.mxcl.php@7.2.plist</a>文件，这个是mac下的自启文件，删了就不会自启了</p>
+<p>2.把<a href="http://www.conf中的www换成xxx都可以。原因是www.conf头部定义了新建一个线程池www，如果user/group也是www的话那就在www下正常运行，但是这样就没法在braincao下甚至root下kill进程了，因此需要把user/group设置为不是www的，这样启动php-fpm就会忽略user/group，也就不会在www下启动而是在briancao下启动，这样就能kill进程了" target="_blank" rel="noopener">www.conf中的www换成xxx都可以。原因是www.conf头部定义了新建一个线程池www，如果user/group也是www的话那就在www下正常运行，但是这样就没法在braincao下甚至root下kill进程了，因此需要把user/group设置为不是www的，这样启动php-fpm就会忽略user/group，也就不会在www下启动而是在briancao下启动，这样就能kill进程了</a></p>
+<pre><code>;user = www
+;group = www
+user = root  (braincao或xxx都可以)
+group = root  (braincao或xxx都可以)
+</code></pre><p>3.设置完后就可以正常的像启动、重启kill -usr2 pid、关闭kill -int pid了，注意pid是最小的那个pid。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
@@ -863,12 +995,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>linux命令</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">241</span></p>
+    <p><span class="copy-title">文章标题:</span>ssm框架的问题汇总</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2.6k</span></p>
     <p><span class="copy-title">本文作者:</span>Brain Cao</p>
-    <p><span class="copy-title">发布时间:</span>2018-07-23, 23:31:32</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-09, 15:46:08</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/07/23/linux-orders/" title="linux命令">https://braincao.cn/2018/07/23/linux-orders/</a>
+    <p><span class="copy-title">发布时间:</span>2018-03-21, 16:49:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-09, 18:20:44</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/03/21/java-ssm-error-summary/" title="ssm框架的问题汇总">https://braincao.cn/2018/03/21/java-ssm-error-summary/</a>
     <p>
         <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
     </p>

@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ssm框架学习笔记 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" spring ">
+  <meta name="description" content="ssm框架学习笔记 | Braincao&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://braincao.cn/about/index.html">
+<meta property="og:site_name" content="Braincao&#39;s blog">
+<meta property="og:description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+<meta property="article:published_time" content="2020-02-15T18:03:30.000Z">
+<meta property="article:modified_time" content="2020-03-06T15:55:50.345Z">
+<meta property="article:author" content="Brain Cao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+
+
+<link rel="icon" href="/img/avatar.gif">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.gif" />
+</a>
+<div class="author">
+    <span>Brain Cao</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/braincao" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/pop_rain" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:491316377@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=491316377&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(49)</small></div></li>
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="综合技术">综合技术<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法刷题">算法刷题<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="技术之外"><i class="fold iconfont icon-right"></i>技术之外<small>(5)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="投资理财">投资理财<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="java">java<small>(16)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="计网">计网<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="spring">spring<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="linux">linux<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="多线程">多线程<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据库">数据库<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="python">python<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="49">
+<input type="hidden" id="yelog_site_word_count" value="164.3k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            
+            <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            
+            <li><a target="_blank" href="https://www.csdn.net/">csdn</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">前端</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">算法刷题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">投资理财</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">动态规划</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">hosts</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">计网</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">职业管理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">面经</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">排序算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">技术之外</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2020/02/21/blog-index/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
+            <span class="post-date" title="2020-02-21 01:37:19">2020/02/21</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/03/05/fund-bank-screw/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="《指数基金投资指南》学习笔记">《指数基金投资指南》学习笔记</span>
+            <span class="post-date" title="2020-03-05 18:52:28">2020/03/05</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/29/oss-img-bed/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="使用阿里云oss做博客图床">使用阿里云oss做博客图床</span>
+            <span class="post-date" title="2020-02-29 12:22:43">2020/02/29</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/28/thinking-cognition/"
+           data-tag="技术之外"
+           data-author="" >
+            <span class="post-title" title="思考认知">思考认知</span>
+            <span class="post-date" title="2020-02-28 13:24:54">2020/02/28</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2020/02/27/normal-algorithms-summary/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="常用算法心得总结">常用算法心得总结</span>
+            <span class="post-date" title="2020-02-27 18:13:44">2020/02/27</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/23/master-seek-job/"
+           data-tag="职业管理"
+           data-author="" >
+            <span class="post-title" title="研二找工作过程总结">研二找工作过程总结</span>
+            <span class="post-date" title="2020-02-23 12:54:10">2020/02/23</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/20/github-hosts/"
+           data-tag="hosts,github"
+           data-author="" >
+            <span class="post-title" title="加速github访问速度">加速github访问速度</span>
+            <span class="post-date" title="2020-02-20 23:24:11">2020/02/20</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/01/20/fund-investment/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="基金定投">基金定投</span>
+            <span class="post-date" title="2020-01-20 10:30:31">2020/01/20</span>
+        </a>
+        
+        <a  class="多线程 "
+           href="/2019/10/01/multithread-programming-demo/"
+           data-tag="多线程"
+           data-author="" >
+            <span class="post-title" title="多线程编程例子">多线程编程例子</span>
+            <span class="post-date" title="2019-10-01 19:00:08">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2019/10/01/postgraduate-interview-questions/"
+           data-tag="算法刷题,面经"
+           data-author="" >
+            <span class="post-title" title="研二面试题目">研二面试题目</span>
+            <span class="post-date" title="2019-10-01 12:03:55">2019/10/01</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2019/05/08/financial-tips/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="金融小知识">金融小知识</span>
+            <span class="post-date" title="2019-05-08 09:43:21">2019/05/08</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/01/16/java-concurrency/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java并发">java并发</span>
+            <span class="post-date" title="2019-01-16 22:08:05">2019/01/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-collection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java集合">java集合</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-constant-pool/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="方法区与常量池">方法区与常量池</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-copy/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java深浅拷贝">java深浅拷贝</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-final/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="final关键字">final关键字</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-io/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java IO">java IO</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-lamada/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="lamada表达式">lamada表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-enum/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java枚举">java枚举</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-multi-thread/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java多线程">java多线程</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-jmm/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java内存模型JMM">java内存模型JMM</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-priority-queue/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java优先队列">java优先队列</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-reflection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java反射">java反射</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-regular/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java正则">java正则</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-parameter/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java参数...">java参数...</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-throwable/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="Java异常和处理详解">Java异常和处理详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/12/16/spring-filter/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring拦截器与过滤器的区别">spring拦截器与过滤器的区别</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/12/16/sql-btree/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="B树系列详解">B树系列详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-md5-string/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="md5加密字符串">md5加密字符串</span>
+            <span class="post-date" title="2018-12-16 13:45:57">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leftgod-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="左神刷题">左神刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/sword-offer-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-orders/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux命令">linux命令</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-virtual/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="ubuntu虚拟机共享文件夹">ubuntu虚拟机共享文件夹</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/19/python-mysql-connect/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="Python3连接MySQL">Python3连接MySQL</span>
+            <span class="post-date" title="2018-07-19 19:13:39">2018/07/19</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/http-request/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="http请求过程、方式">http请求过程、方式</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/18/python-shell/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python中shell调用">python中shell调用</span>
+            <span class="post-date" title="2018-07-18 22:28:30">2018/07/18</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/04/08/dfs-template/"
+           data-tag="算法刷题,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS模板">DFS模板</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-key-index/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="数据库的主键外键索引">数据库的主键外键索引</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-transaction/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="MySQL事务">MySQL事务</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/sql-grammar/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="sql语法">sql语法</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2018/03/21/ajax/"
+           data-tag="前端"
+           data-author="" >
+            <span class="post-title" title="ajax学习笔记">ajax学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-error-summary/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架的问题汇总">ssm框架的问题汇总</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-maven-build/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="用maven配置ssm框架">用maven配置ssm框架</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-learning/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架学习笔记">ssm框架学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/03/21/dynamic-programming/"
+           data-tag="算法刷题,动态规划"
+           data-author="" >
+            <span class="post-title" title="动态规划">动态规划</span>
+            <span class="post-date" title="2018-03-21 08:54:35">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/build-hexo/"
+           data-tag="hexo,gitee,博客"
+           data-author="" >
+            <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/git-orders/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git命令">git命令</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-java-ssm-learning" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">ssm框架学习笔记</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="spring">spring</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color2">spring</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date">2018-03-21 16:49</time>
+        
+        
+        更新时间:<time class="updated">2020-03-09 19:47</time>
+        
+
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:16.4k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SSM简介"><span class="toc-text">SSM简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean容器初始化"><span class="toc-text">Bean容器初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Spring常用的三种注入方式"><span class="toc-text">一、Spring常用的三种注入方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于注解的注入"><span class="toc-text">基于注解的注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、spring学习之AOP"><span class="toc-text">二、spring学习之AOP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AOP实现方式"><span class="toc-text">AOP实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Schema-based-AOP-基于XML配置实现的SpringAOP"><span class="toc-text">Schema-based AOP(基于XML配置实现的SpringAOP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于注解实现的SpringAOP"><span class="toc-text">基于注解实现的SpringAOP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#看完关于ioc-bean装载和aop之后的思考"><span class="toc-text">看完关于ioc,bean装载和aop之后的思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Spring事务管理"><span class="toc-text">三、Spring事务管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PlatformTransactionManager–事务管理器"><span class="toc-text">PlatformTransactionManager–事务管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TransactionDefinition–事务定义信息-隔离、传播、超时、只读"><span class="toc-text">TransactionDefinition–事务定义信息(隔离、传播、超时、只读)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TransactionStatus–事务具体运行状态"><span class="toc-text">TransactionStatus–事务具体运行状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring事务管理"><span class="toc-text">Spring事务管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spring事务实践–转账案例"><span class="toc-text">spring事务实践–转账案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#声明式事务管理的三种方式"><span class="toc-text">声明式事务管理的三种方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于TransactionProxyFactoryBean的方式"><span class="toc-text">基于TransactionProxyFactoryBean的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于AspectJ的配置方式"><span class="toc-text">基于AspectJ的配置方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于注解的事务管理配置方式"><span class="toc-text">基于注解的事务管理配置方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax异步获取服务端json数据并动态加载前端页面"><span class="toc-text">Ajax异步获取服务端json数据并动态加载前端页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#springmvc拦截器"><span class="toc-text">springmvc拦截器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis入门"><span class="toc-text">MyBatis入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mybatis的特点"><span class="toc-text">mybatis的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#案例分析："><span class="toc-text">案例分析：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、实战第一步–回复内容列表模块"><span class="toc-text">一、实战第一步–回复内容列表模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、实战第二部–Mybatis实践"><span class="toc-text">二、实战第二部–Mybatis实践</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mybatis之SqlSession"><span class="toc-text">Mybatis之SqlSession</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OGNL表达式"><span class="toc-text">OGNL表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#log4j调试日志管理"><span class="toc-text">log4j调试日志管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重要-总结下项目分层后的逻辑"><span class="toc-text">重要!_总结下项目分层后的逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jsp、js文件"><span class="toc-text">jsp、js文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#页面中点击按钮弹出一个带有输入框的对话框"><span class="toc-text">页面中点击按钮弹出一个带有输入框的对话框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#input-默认提示文字，点击清空，移出时恢复提示"><span class="toc-text">input 默认提示文字，点击清空，移出时恢复提示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL联合查询-主表与子表联合查询-–left-join-on"><span class="toc-text">SQL联合查询(主表与子表联合查询)–left join on</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过自动回复机器人学Mybatis—加强版–开始学习"><span class="toc-text">通过自动回复机器人学Mybatis—加强版–开始学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#设计模式之代理模式"><span class="toc-text">设计模式之代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#聚合方式的静态代理"><span class="toc-text">聚合方式的静态代理</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动态代理"><span class="toc-text">动态代理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#FileUtils类可以轻松对文件读写操作"><span class="toc-text">FileUtils类可以轻松对文件读写操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反射"><span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、反射–class类"><span class="toc-text">1、反射–class类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、反射–java动态加载类"><span class="toc-text">2、反射–java动态加载类</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#java方法的反射操作-重点"><span class="toc-text">java方法的反射操作_重点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mybatis-的接口式编程"><span class="toc-text">Mybatis 的接口式编程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分页功能的实现1"><span class="toc-text">分页功能的实现1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分页功能的实现2–mybatis拦截器实现"><span class="toc-text">分页功能的实现2–mybatis拦截器实现</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java高并发秒杀API之业务分析与DAO层–开始学习"><span class="toc-text">Java高并发秒杀API之业务分析与DAO层–开始学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、前期准备"><span class="toc-text">一、前期准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#需要的技术栈总结"><span class="toc-text">需要的技术栈总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#秒杀业务分析"><span class="toc-text">秒杀业务分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql实现秒杀的难点分析–事务-行级锁"><span class="toc-text">mysql实现秒杀的难点分析–事务+行级锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#我们需要实现的秒杀功能–3个"><span class="toc-text">我们需要实现的秒杀功能–3个</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完成上述功能的代码开发阶段"><span class="toc-text">完成上述功能的代码开发阶段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、开始开发"><span class="toc-text">二、开始开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数据表"><span class="toc-text">创建数据表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DAO层实体和接口开发"><span class="toc-text">DAO层实体和接口开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service层的设计和实现"><span class="toc-text">Service层的设计和实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web层的设计和实现"><span class="toc-text">Web层的设计和实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#秒杀系统的高并发优化"><span class="toc-text">秒杀系统的高并发优化</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此文档记录研二学习ssm框架的知识点笔记</p>
+<a id="more"></a>
+
+<h2 id="SSM简介"><a href="#SSM简介" class="headerlink" title="SSM简介"></a>SSM简介</h2><p>最初：jsp + servlet + jdbc</p>
+<p>现在：springmvc + spring + mybatis</p>
+<p>官网地址：</p>
+<p>logback配置：<a href="https://logback.qos.ch/manual/configuration.html" target="_blank" rel="noopener">https://logback.qos.ch/manual/configuration.html</a></p>
+<p>spring-api-doc：<a href="https://docs.spring.io/spring/docs/" target="_blank" rel="noopener">https://docs.spring.io/spring/docs/</a></p>
+<p>mybatis中文官网：<a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">http://www.mybatis.org/mybatis-3/zh/index.html</a></p>
+<h2 id="Bean容器初始化"><a href="#Bean容器初始化" class="headerlink" title="Bean容器初始化"></a>Bean容器初始化</h2><p><img src="https://img.braincao.cn/blogimg/1583753997.jpg" alt="1583753997"></p>
+<h2 id="一、Spring常用的三种注入方式"><a href="#一、Spring常用的三种注入方式" class="headerlink" title="一、Spring常用的三种注入方式"></a>一、Spring常用的三种注入方式</h2><p>Spring通过DI（依赖注入）实现IOC（控制反转），常用的注入方式主要有三种：setter设值注入，构造注入，基于注解的注入。<br><img src="https://img.braincao.cn/blogimg/1583754027.jpg" alt="1583754027"><br><img src="https://img.braincao.cn/blogimg/1583754035.jpg" alt="1583754035"></p>
+<h2 id="基于注解的注入"><a href="#基于注解的注入" class="headerlink" title="基于注解的注入"></a>基于注解的注入</h2><p>基于注解的注入：注解方式注册bean，注入依赖 </p>
+<ul>
+<li>主要有<strong>四种</strong>注解可以注册bean，每种注解可以任意使用，只是语义上有所差异：</li>
+</ul>
+<pre><code>@Component：可以用于注册所有bean
+​@Repository：主要用于注册dao层的bean
+​@Controller：主要用于注册控制层的bean
+​@Service：主要用于注册服务层的bean
+</code></pre><ul>
+<li>描述依赖关系主要有<strong>两种</strong>：</li>
+</ul>
+<p>@Resource：java的注解，默认以byName的方式去匹配与属性名相同的bean的id，如果没有找到就会以byType的方式查找，如果byType查找到多个的话，使用@Qualifier注解（spring注解）指定某个具体名称的bean。<br>​<br>​```<br>@Resource<br>@Qualifier(“userDaoMyBatis”)<br>private IUserDao userDao;</p>
+<p>public UserService(){</p>
+<p>}</p>
+<pre><code>
+@Autowired：spring注解，默认也是以byName的方式去匹配与属性名相同的bean的id，如果没有找到，就通过byType的方式去查找，如果查找到多个，用@Qualifier注解限定具体使用哪个。
+</code></pre><p>@Autowired<img src="" alt="
+">    @Qualifier(“userDaoJdbc”)<br>​    private IUserDao userDao;<br>​<br>​```</p>
+<h2 id="二、spring学习之AOP"><a href="#二、spring学习之AOP" class="headerlink" title="二、spring学习之AOP"></a>二、spring学习之AOP</h2><p>入门请参考：<a href="https://blog.csdn.net/daguanjia11/article/details/49278003" target="_blank" rel="noopener">Spring AOP入门Demo</a><br>、<a href="https://www.cnblogs.com/flowwind/p/4782606.html" target="_blank" rel="noopener">Java Spring AOP用法</a></p>
+<h2 id="AOP实现方式"><a href="#AOP实现方式" class="headerlink" title="AOP实现方式"></a>AOP实现方式</h2><p>1.预编译</p>
+<ul>
+<li>AspectJ</li>
+</ul>
+<p>2.运行期动态代理(JDK动态代理、CGLib动态代理)</p>
+<ul>
+<li>SpringAOP、JbossAOP</li>
+</ul>
+<h2 id="Schema-based-AOP-基于XML配置实现的SpringAOP"><a href="#Schema-based-AOP-基于XML配置实现的SpringAOP" class="headerlink" title="Schema-based AOP(基于XML配置实现的SpringAOP)"></a>Schema-based AOP(基于XML配置实现的SpringAOP)</h2><p>Spring 所有的切面和通知器都必须放在一个&lt;aop:config&gt;内(可以包含多个&lt;aop:config&gt;元素)，每一个&lt;aop:config&gt;可以包含pointcut, advisor和aspect元素(它们必须按照这个顺序声明)</p>
+<pre><code class="HTML">&lt;bean id=&quot;car&quot; class=&quot;com.braincao.aop.car.Car&quot;&gt;&lt;/bean&gt;
+&lt;bean id=&quot;carLogger&quot; class=&quot;com.braincao.aop.car.CarLogger&quot;&gt;&lt;/bean&gt;
+
+  &lt;aop:config&gt;
+        &lt;!--指定切面--&gt;
+        &lt;aop:aspect id=&quot;carLoggerAOP&quot; ref=&quot;carLogger&quot;&gt;
+            &lt;!--定义切点--&gt;
+            &lt;aop:pointcut id=&quot;go&quot; expression=&quot;execution(* com.braincao.aop.car.Car.go(..))&quot;&gt;&lt;/aop:pointcut&gt;
+            &lt;!--定义连接点--&gt;
+            &lt;aop:after-returning method=&quot;beforeRun&quot; pointcut-ref=&quot;go&quot;&gt;&lt;/aop:after-returning&gt;
+            &lt;aop:after method=&quot;afterRun&quot; pointcut-ref=&quot;go&quot;&gt;&lt;/aop:after&gt;
+        &lt;/aop:aspect&gt;
+  &lt;/aop:config&gt;
+</code></pre>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>由Spring创建了一个car对象。Spring在创建该对象时，发现它的一个方法被配置成了切点（pointcut），所以，在实例化该对象时，会创建一个<strong>代理对象</strong>，<strong>当切点方法go()执行时，会被Spring创建的代理对象所拦截</strong>，运行go方法之前，会调用所对应的切面类CarLogger的前置方法beforeRun()，然后调用Car.go()方法，再然后就调用切面类CarLogger的后置方法afterRun()。 </p>
+<h2 id="基于注解实现的SpringAOP"><a href="#基于注解实现的SpringAOP" class="headerlink" title="基于注解实现的SpringAOP"></a>基于注解实现的SpringAOP</h2><p>略</p>
+<h2 id="看完关于ioc-bean装载和aop之后的思考"><a href="#看完关于ioc-bean装载和aop之后的思考" class="headerlink" title="看完关于ioc,bean装载和aop之后的思考"></a>看完关于ioc,bean装载和aop之后的思考</h2><p>IOC即DI,不必调用者自己去new被调用对象，而是通过spring IOC容器把配置好的bean对象注入，可以通过设置注入即setter方法和构造器注入。bean装载可以通过xml配置设定，也可以同过设定扫描路径，然后通过注解来让容器识别到要装载的bean。aop面向切面编程，切面与业务是垂直的，不同业务往往都要做一些公共的类似的额外操作，在业务之前做，或在业务之后做，或在业务出了异常时做，或者在业务前后都要做，甚至这些要做的额外操作要用到业务本身的输入参数和业务完成的输出结果。比如业务一般都得记录日志，比如涉及数据更新的业务完成后都得伴随数据库操作，账户各种操作前都要验证用户权限，这些业务伴随的操作往往大致相似，如果每个业务都要写这些操作，特别繁琐，把这些操作提出来就成了切面，与业务分离。xml 和API方式都可以实现aop配置,pointcut是业务，aspect是切面，它俩怎么交互执行，怎么传参和调用结果，都可以通过xml和API方式实现。另外还有配置代理这一块比较蒙逼。最牛逼的是，之前看得傻了眼那么繁琐和复杂的xml,api方式用简单直观的aspectj方式竟然能等效实现，用的纯Java标签，在xml 里设一下自动代理。不过仅仅@Aspect容器不识别，要加上@Component 才识别。我觉得标签简直就是福音，差点我就被吓的放弃了。我以为一辈子就只能写xml了。orz。。。</p>
+<p>1、若代理类有接口，使用JDK代理。也可以通过设置proxyTargetClass为true,强制使用CGLIB代理</p>
+<p>1、若代理类无接口，使用CGLIB代理</p>
+<p>3、如果proxyInterfaces属性被设置为一个或者多个全限定接口名，则使用JDK代理；如果该属性没有被设置，但是目标类实现了接口，也使用JDK代理。</p>
+<h2 id="三、Spring事务管理"><a href="#三、Spring事务管理" class="headerlink" title="三、Spring事务管理"></a>三、Spring事务管理</h2><p>事务：指的是逻辑上的一组操作，这组操作要么全部成功，要么全部失败</p>
+<p>Spring事务管理主要包含3个接口</p>
+<ul>
+<li><p>PlatformTransactionManager–事务管理器</p>
+</li>
+<li><p>TransactionDefinition–事务定义信息(隔离、传播、超时、只读)</p>
+</li>
+<li><p>TransactionStatus–事务具体运行状态</p>
+</li>
+</ul>
+<p>以上三个接口详细看Spring api即可，下面简要介绍几个重点知识。</p>
+<h3 id="PlatformTransactionManager–事务管理器"><a href="#PlatformTransactionManager–事务管理器" class="headerlink" title="PlatformTransactionManager–事务管理器"></a>PlatformTransactionManager–事务管理器</h3><p><img src="https://img.braincao.cn/blogimg/1583754072.png" alt="1583754072"></p>
+<h3 id="TransactionDefinition–事务定义信息-隔离、传播、超时、只读"><a href="#TransactionDefinition–事务定义信息-隔离、传播、超时、只读" class="headerlink" title="TransactionDefinition–事务定义信息(隔离、传播、超时、只读)"></a>TransactionDefinition–事务定义信息(隔离、传播、超时、只读)</h3><p>事务的传播行为：web层-&gt;业务层(Service)-&gt;持久层(DAO)</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754081.jpg" alt="1583754081"></p>
+<h3 id="TransactionStatus–事务具体运行状态"><a href="#TransactionStatus–事务具体运行状态" class="headerlink" title="TransactionStatus–事务具体运行状态"></a>TransactionStatus–事务具体运行状态</h3><p>略</p>
+<h3 id="Spring事务管理"><a href="#Spring事务管理" class="headerlink" title="Spring事务管理"></a>Spring事务管理</h3><p>spring支持两种方式事务管理：</p>
+<ul>
+<li><p>编程式事务管理</p>
+<p>  在实际应用中很少使用，通过TransactionTemplate手动管理事务</p>
+</li>
+<li><p>使用<strong>XML配置声明式事务</strong></p>
+<p>  开发中推荐使用(代码侵入性最小)，spring的声明式事务是通过<strong>AOP</strong>实现的</p>
+</li>
+</ul>
+<h2 id="spring事务实践–转账案例"><a href="#spring事务实践–转账案例" class="headerlink" title="spring事务实践–转账案例"></a>spring事务实践–转账案例</h2><p>具体可看 <a href="https://www.imooc.com/video/9330" target="_blank" rel="noopener">转账案例</a></p>
+<h2 id="声明式事务管理的三种方式"><a href="#声明式事务管理的三种方式" class="headerlink" title="声明式事务管理的三种方式"></a>声明式事务管理的三种方式</h2><p>详情参考<a href="https://www.imooc.com/video/9333" target="_blank" rel="noopener">声明式事务管理的三种方式</a></p>
+<p>声明式事务管理的三种方式：基于TransactionProxyFactoryBean的方式(很少使用)，基于AspectJ的配置方式(经常)，以及基于注解的方式(经常)。</p>
+<h3 id="基于TransactionProxyFactoryBean的方式"><a href="#基于TransactionProxyFactoryBean的方式" class="headerlink" title="基于TransactionProxyFactoryBean的方式"></a>基于TransactionProxyFactoryBean的方式</h3><p><img src="https://img.braincao.cn/blogimg/1583754099.jpg" alt="1583754099"></p>
+<p>基于TransactionProxyFactoryBean的方式不常用，因为要对需要事务的每个类都设置一个代理类，繁琐</p>
+<h3 id="基于AspectJ的配置方式"><a href="#基于AspectJ的配置方式" class="headerlink" title="基于AspectJ的配置方式"></a>基于AspectJ的配置方式</h3><pre><code class="html">    &lt;!--配置事务管理器--&gt;
+    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+        &lt;!--配置连接池--&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!--配置事务的通知(事务增强)(基于aspectj声明式事务管理)--&gt;
+    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;
+        &lt;tx:attributes&gt;
+            &lt;!--
+                propagation      :传播事务行为
+                isolation        :事务隔离级别
+                read             :只读
+                rollback-for     :发生哪些异常回滚
+                no-rollback-for  :发生哪些异常不回滚
+            --&gt;
+            &lt;tx:method name=&quot;transfer&quot; propagation=&quot;REQUIRED&quot;/&gt;
+        &lt;/tx:attributes&gt;
+    &lt;/tx:advice&gt;
+
+    &lt;!--配置aop--&gt;
+    &lt;aop:config&gt;
+        &lt;!--配置切入点 AccountService+表示所有其子类--&gt;
+        &lt;aop:pointcut id=&quot;pointcut&quot; expression=&quot;execution(* transactiondemo02.service.AccountService+.*(..))&quot;&gt;&lt;/aop:pointcut&gt;
+        &lt;!--配置切面:表示在pointcut切入点上应用txAdvice增强--&gt;
+        &lt;!--advisor表示有一个切入点的，aspect表示有多个切入点的--&gt;
+        &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;pointcut&quot;&gt;&lt;/aop:advisor&gt;
+    &lt;/aop:config&gt;
+</code></pre>
+<h3 id="基于注解的事务管理配置方式"><a href="#基于注解的事务管理配置方式" class="headerlink" title="基于注解的事务管理配置方式"></a>基于注解的事务管理配置方式</h3><p>很明显这个更简单啊！</p>
+<p>xml:</p>
+<pre><code class="html">    &lt;!--配置事务管理器--&gt;
+    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+        &lt;!--配置连接池--&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;!--开启注解事务--&gt;
+    &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
+</code></pre>
+<p>ServiceImpl:  </p>
+<pre><code class="html">    //注解式的事务管理
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT))
+    public class AccountServiceImpl implements AccountService {
+</code></pre>
+<p>@Transactional的属性：</p>
+<p>​```<br>propagation      :传播事务行为<br>isolation        :事务隔离级别<br>readOnly         :只读<br>rollbackFor      :发生哪些异常回滚<br>noRollbackFor    :发生哪些异常不回滚</p>
+<pre><code>
+## 四、Spring MVC
+
+mvc: Model-Viewer-Controller
+
+mvc的核心思想是业务数据**抽取**同业务数据**呈现**相**分离**。
+
+前端控制器Front Controller(MVC)
+
+![1583754122](https://img.braincao.cn/blogimg/1583754122.jpg)
+
+Spring MVC为我们提供了一个基于组件和松耦合的MVC实现框架。在使用Java中其它MVC框架多年之后，面对Spring MVC有一种相见恨晚的感觉。Spring MVC是如此的优雅，轻盈与简洁， 让人从其它框架的桎梏解脱出来。
+
+SpringMVC是一个基于DispatcherServlet的MVC框架，每一个请求最先访问的都是DispatcherServlet，DispatcherServlet负责转发每一个Request请求给相应的Handler，Handler处理以后再返回相应的视图(View)和模型(Model)，返回的视图和模型都可以不指定，即可以只返回Model或只返回View或都不返回。SpringMVC是基于DispatcherServlet的，DispatcherServlet是继承自HttpServlet的，HttpServlet是在web.xml文件中声明的。(相关配置请左转至: maven_pom等相关配置)
+
+![1583754147](https://img.braincao.cn/blogimg/1583754147.png)
+
+如图，其中我们最主要写的就是Controller，其他的基本都是框架的东西。
+
+### Spring MVC具体的项目实践
+
+详情参考下面，重点学习了四大块:
+
+- 基本的controller编写
+- 数据绑定
+- 文件上传
+- json协同
+
+视频：[Spring MVC实操](https://www.imooc.com/video/7681)
+
+视频太慢并且已经看完，复习直接看这个人的同步笔记即可[Spring MVC起步](https://www.cnblogs.com/zjfjava/p/6746704.html)
+
+这个视频我自己学习实践的同步工程也已上传到github了，直接看自己的项目工程即可**[springmvc_demoproject](https://github.com/braincao/springmvc_demoproject)**
+
+注意：项目工程的WEB-INF下所有文件是私有的，必须经过后端调用才能访问到的，如果要公共访问的东西需要放在webapps目录下
+
+### controller三种方式
+
+controller的多种操作：基本的controller编写、数据绑定、文件上传、json协同
+
+```java
+package com.braincao.controller;
+import com.braincao.model.Course;
+import com.braincao.service.CourseService;
+import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+
+@Controller
+@RequestMapping(&quot;/courses&quot;)
+public class CourseController {
+    private CourseService courseService;
+
+    @Autowired
+    public void setCourseService(CourseService courseService) {
+        this.courseService = courseService;
+    }
+
+    //法一：本方法将处理http://localhost:8080/courses/view?courseId=123
+    //此方法url中必须指定?courseId=xxx的参数名courseId，参数名不可自适应改变，不好
+    // @RequestParam 和@PathVariable绑定了请求中的参数。@RequestParam(&quot;courseId&quot;)显式指明参数
+    @RequestMapping(value = &quot;/view&quot;, method = RequestMethod.GET)
+    public String viewCourse(@RequestParam(&quot;courseId&quot;) Integer courseId, Model model){//Model就是spring mvc的部分
+        Course course = courseService.getCoursebyId(courseId);
+        model.addAttribute(course);//将查询到的course放到model中
+        return &quot;course_overview&quot;;//返回jsps目录下的course_overview.jsp
+    }
+
+    //法二：这个方法就不用指定参数名courseId了，自动识别/view2/后面的东西并放到mvc中
+    @RequestMapping(value = &quot;/view2/{courseId}&quot;, method = RequestMethod.GET)
+    public String viewCourse2(@PathVariable(&quot;courseId&quot;) Integer courseId, Map&lt;String, Object&gt; model){//Model就是spring mvc的部分
+        Course course = courseService.getCoursebyId(courseId);
+        model.put(&quot;course&quot;, course);//将查询到的course放到model中
+        return &quot;course_overview&quot;;//返回jsps目录下的course_overview.jsp
+    }
+
+    //法三：上面两种方法都是spring mvc方法，下面这个是传统的HttpServletRequest方法
+    //处理/courses/view3?courseId=123形式的url
+    @RequestMapping(value = &quot;/view3&quot;, method = RequestMethod.GET)
+    public String viewCourse3(HttpServletRequest request){
+        Integer courseId = Integer.valueOf(request.getParameter(&quot;courseId&quot;));
+        Course course = courseService.getCoursebyId(courseId);
+        request.setAttribute(&quot;course&quot;, course);//将查询到的course放到model中
+        return &quot;course_overview&quot;;//返回jsps目录下的course_overview.jsp
+    }
+
+    //绑定binding：将请求中的字段(前端)按照名字匹配原则填入模型对象(后端)
+    //处理/courses/create?add形式的url来创建表单,表示一个参数params = &quot;add&quot;
+    @RequestMapping(value = &quot;/create&quot;, method=RequestMethod.GET, params = &quot;add&quot;)
+    public String createCourse(){
+        return &quot;admin_create/edit&quot;;//二级目录也能行哦
+    }
+
+    //绑定binding法一：不用@ModelAttribute
+    @RequestMapping(value = &quot;/save&quot;, method = RequestMethod.POST)
+    public String doSave(Course course){
+        //这里进行业务操作，比如数据库持久化
+        course.setCourseId(456);
+        return &quot;redirect:view2/&quot; + course.getCourseId();//请求重定向：因为这里提交表单后courseId更新了，需要请求重定向，这样就完成更新
+    }
+
+    //绑定binding法二：用@ModelAttribute也可以
+    @RequestMapping(value = &quot;/save2&quot;, method = RequestMethod.POST)
+    public String doSave2(@ModelAttribute Course course){
+        //这里进行业务操作，比如数据库持久化
+        course.setCourseId(456);
+        return &quot;redirect:view2/&quot; + course.getCourseId();//请求重定向：因为这里提交表单后courseId更新了，需要请求重定向，这样就完成更新
+    }
+
+    //文件上传的controller
+    @RequestMapping(value = &quot;/upload&quot;, method = RequestMethod.GET)
+    public String showUploadPage(){
+        return &quot;admin_upload/edit&quot;;
+    }
+
+    @RequestMapping(value = &quot;/doUpload&quot;, method = RequestMethod.POST)
+    public String showUploadPage(@RequestParam(&quot;file&quot;) MultipartFile file) throws IOException {//file从页面上来
+        if(!file.isEmpty()){//无损的(InputStream)将上传的文件保存到指定目录下，并返回success界面
+            FileUtils.copyInputStreamToFile(file.getInputStream(), new File(&quot;/Users/braincao&quot;, System.currentTimeMillis()+file.getOriginalFilename()));
+        }
+        return &quot;admin_upload/success&quot;;
+    }
+
+    //JSON格式的前后端交互之一：给定courseId，返回对应课程的json数据，给前端展示
+    @RequestMapping(value=&quot;/{courseId}&quot;, method = RequestMethod.GET)
+    public @ResponseBody Course getCourseInJson(@PathVariable Integer courseId){
+        return courseService.getCoursebyId(courseId);
+    }
+
+    //上面方法的第二种实现(泛型实现)。这两种都可以
+    @RequestMapping(value=&quot;/jsontype/{courseId}&quot;, method = RequestMethod.GET)
+    public ResponseEntity&lt;Course&gt; getCourseInJson2(@PathVariable Integer courseId){
+        Course course = courseService.getCoursebyId(courseId);
+        return new ResponseEntity&lt;Course&gt;(course, HttpStatus.OK);
+    }
+
+    //JSON格式的前后端交互之二：异步方式获取数据，前端通过js代码(ajax)来整合页面，
+    // 即前端写个框架本来没数据，运行时异步加载获取数据填充到界面中，
+    // 且注意前端的这个加载页面一定要放在webapps下，WEB-INF是私有的不能访问
+    // 现在用上面两个已实现的json交互方法进行：前端异步加载后端json数据的demo。给定json数据，返回对应课程的信息，前端展示信息界面
+    //启动tomcat后直接浏览器访问http://localhost:8080/courses_json.jsp?courseId=123即可
+}
+</code></pre><h3 id="Ajax异步获取服务端json数据并动态加载前端页面"><a href="#Ajax异步获取服务端json数据并动态加载前端页面" class="headerlink" title="Ajax异步获取服务端json数据并动态加载前端页面"></a>Ajax异步获取服务端json数据并动态加载前端页面</h3><p>启动tomcat后直接浏览器访问<a href="http://localhost:8080/courses_json.jsp?courseId=123即可" target="_blank" rel="noopener">http://localhost:8080/courses_json.jsp?courseId=123即可</a></p>
+<p>webapps目录下的courses_json.jsp：</p>
+<pre><code class="html">    &lt;%@ page language=&quot;java&quot; contentType=&quot;text/html;charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt;
+    &lt;%@taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot;%&gt;&lt;!--将jstl标签库引入此.jsp文件，简化jsp开发--&gt;
+    &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD//XHTML 1.0 Transitional//EN&quot;
+    &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+        &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;
+        &lt;title&gt;前端异步加载后端json数据的demo&lt;/title&gt;
+        &lt;%--这个css样式我没有，展示就简朴一点吧&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%=request.getContextPath()%&gt;/resources/css/main.css&quot; type=&quot;text/html&quot;&gt;--%&gt;
+
+        &lt;!--引入本地jQuery--&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=request.getContextPath()%&gt;/resources/js/jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;script&gt;
+        jQuery(function($){
+            var urlStr = &quot;&lt;%=request.getContextPath()%&gt;/courses/&lt;%=request.getParameter(&quot;courseId&quot;)%&gt;&quot;;
+            //alert(&quot;Before Call: &quot; + urlStr);
+            $.ajax({//通过ajax异步从服务端拿到json数据并动态加载页面
+                method: &quot;GET&quot;,
+                url: urlStr,
+                success: function(data, status, jqXHR){
+                    //alert(&quot;Success: &quot; + data);
+                    var course = data;
+                    var path = &quot;&lt;%=request.getContextPath()%&gt;/&quot;;
+                    $(&quot;.course_title&quot;).text(course.courseTitle);
+                    $(&quot;.course_info&quot;).text(course.courseDesc);
+                    $(&quot;.course_imgPath&quot;).attr(&quot;src&quot;, path+course.imgPath);
+                    $(&quot;#course_duration&quot;).text(course.courseDuration);
+                }
+            });//end ajax
+        });
+    &lt;/script&gt;
+
+    &lt;body&gt;
+    &lt;p&gt;This is MvcHome, your world!&lt;/p&gt;
+    &lt;h3 class=&quot;course_title&quot;&gt;&lt;/h3&gt;
+    &lt;h3 class=&quot;course_info&quot;&gt;&lt;/h3&gt;
+    &lt;h3 id=&quot;course_duration&quot;&gt;&lt;/h3&gt;
+    &lt;div&gt;&lt;img class=&quot;course_imgPath&quot;/&gt;&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+</code></pre>
+<h2 id="springmvc拦截器"><a href="#springmvc拦截器" class="headerlink" title="springmvc拦截器"></a>springmvc拦截器</h2><p>拦截器是指通过统一拦截从浏览器发往服务器的请求来完成功能的增强，解决请求的共性问题(乱码、权限验证等问题)</p>
+<p>springmvc过滤器也能起到一定的拦截器作用</p>
+<p>拦截器的实现：</p>
+<ul>
+<li>1.编写拦截器类实现HandlerInterceptor接口(WebRequestInterceptor接口也可以，但不常用)</li>
+<li>2.将拦截器注册进SpringMVC框架中(mvc-dispatcher-servlet.xml)</li>
+<li>3.配置拦截器的拦截规划</li>
+</ul>
+<p>过滤器与拦截器的区别：</p>
+<ul>
+<li><p>过滤器Filter依赖于Servlet容器，基于回调函数，过滤范围大</p>
+</li>
+<li><p>拦截器Interceptor依赖于框架容器，基于反射机制，只拦截请求</p>
+</li>
+</ul>
+<h2 id="MyBatis入门"><a href="#MyBatis入门" class="headerlink" title="MyBatis入门"></a>MyBatis入门</h2><p><a href="https://www.imooc.com/learn/154" target="_blank" rel="noopener">通过自动回复机器人学Mybatis</a></p>
+<h3 id="mybatis的特点"><a href="#mybatis的特点" class="headerlink" title="mybatis的特点"></a>mybatis的特点</h3><p>1.sql语句与代码分离。优点：便于管理和维护；缺点：不便于调试，需要借助日志工具获得信息</p>
+<p>2.用标签控制动态sql语句的拼接。优点：用标签代替编写逻辑代码；缺点：拼接复杂sql语句时，没有代码灵活，比较复杂</p>
+<p>3.结果集与java对象的自动映射。优点：保证名称相同可自动映射；缺点：对开发人员所写的sql依赖性很强</p>
+<p>4.编写原生sql。优点：接近JDBC，很灵活；缺点：对sql语句依赖很高(不同数据库sql语句可能不相同)，半自动，数据库移植不方便</p>
+<h4 id="案例分析："><a href="#案例分析：" class="headerlink" title="案例分析："></a>案例分析：</h4><ul>
+<li><p>基本功能</p>
+<p>  接受发送指令</p>
+<p>  根据指令自动回复对应的内容</p>
+</li>
+<li><p>模块划分</p>
+<p>  回复内容列表</p>
+<p>  回复内容维护–后台新建、更改、删除指令及对应回复的维护界面</p>
+<p>  对话功能</p>
+<p>  回复内容删除</p>
+</li>
+<li><p>项目开发流程(当然，每个人的开发顺序可能都不同)</p>
+</li>
+</ul>
+<p><img src="https://img.braincao.cn/blogimg/1583754163.jpg" alt="1583754163"></p>
+<h3 id="一、实战第一步–回复内容列表模块"><a href="#一、实战第一步–回复内容列表模块" class="headerlink" title="一、实战第一步–回复内容列表模块"></a>一、实战第一步–回复内容列表模块</h3><p>在没有 Mybatis的情况下，完整的<strong>Jsp + Servlet + Jdbc</strong>实现案例中的回复内容列表模块，流程如下。</p>
+<p>1.数据库建表</p>
+<p>2.写一个jsp前端界面</p>
+<p>3.servlet：</p>
+<ul>
+<li><p>web.xml中注册一个servlet并建立映射请求</p>
+</li>
+<li><p>写一个servlet类继承HttpServlet，重写doGet、doPost方法，用：访问数据库并把数据传给jsp。</p>
+</li>
+</ul>
+<p>4.代码重构下：bean装数据实体、dao层jdbc数据库增删改查、service业务操作、servlet是前后端页面控制</p>
+<p>下面是最简单完整的<strong>Jsp + Servlet + Jdbc</strong>实现代码，工程名MicroMessage_jdbc。</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754180.jpg" alt="1583754180"></p>
+<p>bean.Message:<br>​<br>​```java<br>package com.braincao.bean;</p>
+<p>/**</p>
+<ul>
+<li>@FileName: Message</li>
+<li>@Author: braincao</li>
+<li>@Date: 2018/11/18 23:18</li>
+<li>@Description: 与数据库信息对应的实体类</li>
+<li>一个表对应一个类、表中的一个列属性对应一个成员</li>
+<li>/</li>
+</ul>
+<p>public class Message {<br>    //主键<br>    private String id;</p>
+<pre><code>//指令名称
+private String  command;
+
+//描述
+private String description;
+
+//内容
+private String content;
+
+public String getId() {
+    return id;
+}
+
+public void setId(String id) {
+    this.id = id;
+}
+
+public String getCommand() {
+    return command;
+}
+
+public void setCommand(String command) {
+    this.command = command;
+}
+
+public String getDescription() {
+    return description;
+}
+
+public void setDescription(String description) {
+    this.description = description;
+}
+
+public String getContent() {
+    return content;
+}
+
+public void setContent(String content) {
+    this.content = content;
+}</code></pre><p>}</p>
+<pre><code>
+dao.MessageDao:
+
+```java
+package com.braincao.dao;
+
+import com.braincao.bean.Message;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @FileName: MessageDao
+ * @Author: braincao
+ * @Date: 2018/11/19 15:42
+ * @Description: 使用jdbc访问数据库，和message表相关的数据库操作
+ */
+
+public class MessageDao {
+    /**
+     * 根据查询条件查询消息列表
+     * @param : 查询条件：command指令名称、description描述
+     * @return : 根据查询条件查询到的结果
+     */
+    public List&lt;Message&gt; queryListMessage(String command, String description){
+        List&lt;Message&gt; messageList = new ArrayList&lt;&gt;();//把查询出来的结果放在这里
+        try {
+            //连接jdbc数据库
+            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+            //下面一定要再jdbc的数据库连接地址后面加?useUnicode=true&amp;characterEncoding=UTF-8，否则查询不到，编码问题
+            Connection conn = DriverManager.getConnection(&quot;jdbc:mysql://127.0.0.1:3306/micro_message?useUnicode=true&amp;characterEncoding=UTF-8&quot;, &quot;root&quot;, &quot;123456&quot;);
+
+            //拼接查询语句
+            StringBuilder sql = new StringBuilder(&quot;SELECT ID, COMMAND, DESCRIPTION, CONTENT FROM message WHERE 1=1&quot;);
+            List&lt;String&gt; paramList = new ArrayList&lt;&gt;();
+            if(command!=null &amp;&amp; !&quot;&quot;.equals(command.trim())){//查询
+                sql.append(&quot; AND COMMAND= ?&quot;);
+                paramList.add(command);
+            }
+            if(description!=null &amp;&amp; !&quot;&quot;.equals(description.trim())){//查询
+                sql.append(&quot; AND DESCRIPTION LIKE &#39;%&#39; ? &#39;%&#39;&quot;);//%是sql的通配符，类似于*
+                paramList.add(description);
+            }
+            PreparedStatement statement = conn.prepareStatement(sql.toString());//防止sql注入
+            for(int i=0; i&lt;paramList.size(); ++i){//给之前的sql语句中的 ? 赋值
+                statement.setString(i+1, paramList.get(i));
+            }
+            //执行sql查询语句，将查询到的结果添加到messageList列表中
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+                Message message = new Message();
+                message.setId(rs.getString(&quot;ID&quot;));
+                message.setCommand(rs.getString(&quot;COMMAND&quot;));
+                message.setDescription(rs.getString(&quot;DESCRIPTION&quot;));
+                message.setContent(rs.getString(&quot;CONTENT&quot;));
+                messageList.add(message);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //返回查询结果
+        return messageList;
+    }
+}
+</code></pre><p>service.ListService:</p>
+<pre><code class="java">package com.braincao.service;
+
+import com.braincao.bean.Message;
+import com.braincao.dao.MessageDao;
+
+import java.util.List;
+
+/**
+ * @FileName: ListService
+ * @Author: braincao
+ * @Date: 2018/11/19 15:50
+ * @Description: 和message表相关的业务操作
+ */
+
+public class ListService {
+    public List&lt;Message&gt; queryListMessage(String command, String description){
+        MessageDao messageDao = new MessageDao();
+        return messageDao.queryListMessage(command, description);
+    }
+}
+
+servlet.ListServlet:
+
+package com.braincao.servlet;
+import com.braincao.service.ListService;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+/**
+ * @FileName: ListServlet
+ * @Author: braincao
+ * @Date: 2018/11/18 21:15
+ * @Description: 列表页面初始化控制的servlet，使用jdbc访问数据库
+ */
+
+@SuppressWarnings(&quot;serial&quot;)
+public class ListServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //设置编码格式
+        req.setCharacterEncoding(&quot;UTF-8&quot;);
+
+        //接受页面的值
+        String command = req.getParameter(&quot;command&quot;);
+        String description = req.getParameter(&quot;description&quot;);
+        //向页面传值
+        req.setAttribute(&quot;command&quot;, command);
+        req.setAttribute(&quot;description&quot;, description);
+
+        //查询消息列表并传给前端页面
+        ListService listService = new ListService();
+        req.setAttribute(&quot;messageList&quot;, listService.queryListMessage(command, description));
+        req.getRequestDispatcher(&quot;/WEB-INF/jsps/back/list.jsp&quot;).forward(req, resp);//把数据传给前端jsp
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doGet(req, resp);
+    }
+}
+</code></pre>
+<p>前端list.jsp：</p>
+<pre><code class="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD//XHTML 1.0 Transitional//EN&quot;
+&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html;charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;
+    &lt;title&gt;留言评论功能&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%=request.getContextPath()%&gt;/resources/css/base.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%=request.getContextPath()%&gt;/resources/css/jquery.datetimepicker.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%=request.getContextPath()%&gt;/resources/css/plan.css&quot;/&gt;
+
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=request.getContextPath()%&gt;/resources/js/jquery-3.1.1.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=request.getContextPath()%&gt;/resources/js/jquery.datetimepicker.full.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=request.getContextPath()%&gt;/resources/js/store.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=request.getContextPath()%&gt;/resources/js/plan2.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body style=&quot;background: #e1e9eb;&quot;&gt;
+
+&lt;form id=&quot;form&quot; action=&quot;&lt;%=request.getContextPath()%&gt;/list.action&quot; method=&quot;post&quot;&gt;
+    &lt;div class=&quot;right&quot;&gt;
+        &lt;div class=&quot;current&quot;&gt;当前位置: &lt;a href=&quot;javascript:void(0)&quot; style=&quot;color:#6e6e6e;&quot;&gt;哈哈&lt;/a&gt;&lt;/div&gt;
+        &lt;div class=&quot;rightCont&quot;&gt;
+            &lt;p class=&quot;g_title fix&quot;&gt;内容列表: &lt;a class=&quot;btn03&quot; href=&quot;#&quot;&gt;新增&lt;/a&gt;&lt;/p&gt;
+            &lt;table class=&quot;tab1&quot;&gt;
+                &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td width=&quot;90&quot; align=&quot;right&quot;&gt;指令名称: &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input name=&quot;command&quot; type=&quot;text&quot; class=&quot;allInput&quot; value=&quot;${command}&quot;/&gt;
+                    &lt;/td&gt;
+
+                    &lt;td name=&quot;description&quot; width=&quot;90&quot; align=&quot;right&quot;&gt;描述: &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;input name=&quot;description&quot; type=&quot;text&quot; class=&quot;allInput&quot; value=&quot;${description}&quot;/&gt;
+                    &lt;/td&gt;
+
+                    &lt;td width=&quot;85&quot; align=&quot;right&quot;&gt;&lt;input type=&quot;submit&quot; class=&quot;tabSub&quot; value=&quot;查询&quot;&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+
+            &lt;div class=&quot;zuxun fix&quot;&gt;
+                &lt;table class=&quot;tab2&quot; width=&quot;100%&quot;&gt;
+                    &lt;tbody align=&quot;center&quot;&gt;
+
+                    &lt;!--表格中第一行的表头--&gt;
+                    &lt;tr  style=&quot;background-color: #33aaff&quot;&gt;
+                        &lt;th&gt;&lt;input type=&quot;checkbox&quot; id=&quot;all&quot; onclick=&quot;#&quot;/&gt;&lt;/th&gt;
+                        &lt;th&gt;序号&lt;/th&gt;
+                        &lt;th&gt;指令名称&lt;/th&gt;
+                        &lt;th&gt;描述&lt;/th&gt;
+                        &lt;th&gt;操作&lt;/th&gt;
+                    &lt;/tr&gt;
+
+                    &lt;!--表格的数据部分，隔行换色--&gt;
+                    &lt;c:forEach items=&quot;${messageList}&quot; var=&quot;message&quot; varStatus=&quot;status&quot;&gt;
+                        &lt;tr &lt;c:if test=&quot;${status.index%2!=0}&quot;&gt;style=&quot;background-color: #33aaff&quot;&lt;/c:if&gt; &gt;
+                            &lt;!--th是表格中第一行的表头--&gt;
+                            &lt;td&gt;&lt;input type=&quot;checkbox&quot;/&gt;&lt;/td&gt;
+                            &lt;td&gt;${status.index + 1}&lt;/td&gt;
+                            &lt;td&gt;${message.command}&lt;/td&gt;
+                            &lt;td&gt;${message.description}&lt;/td&gt;
+                            &lt;td&gt;
+                                &lt;a href=&quot;#&quot;&gt;修改&lt;/a&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                &lt;a href=&quot;#&quot;&gt;删除&lt;/a&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/c:forEach&gt;
+
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+</code></pre>
+<p>web.xml代码:</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app version=&quot;2.4&quot;
+          xmlns=&quot;http://java.sun.com/xml/ns/j2ee&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee
+          http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;&gt;
+&lt;!--注意这里要把maven新建项目时自动生成的web.xml头部替换成上面的头部，这样就能自动支持spring EL--&gt;
+
+  &lt;display-name&gt;Mybatis Demo Study&lt;/display-name&gt;
+
+  &lt;!--注册一个servlet，用于列表页面初始化控制--&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;ListServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;com.braincao.servlet.ListServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;ListServlet&lt;/servlet-name&gt;
+    &lt;!--将/list.action的URL请求映射到ListServlet--&gt;
+    &lt;url-pattern&gt;/list.action&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;
+</code></pre>
+<h3 id="二、实战第二部–Mybatis实践"><a href="#二、实战第二部–Mybatis实践" class="headerlink" title="二、实战第二部–Mybatis实践"></a>二、实战第二部–Mybatis实践</h3><p>上面完成了在没有 Mybatis的情况下，完整的Jsp + Servlet + Jdbc实现案例中的回复内容列表模块。现在<strong>将JDBC部分替换为 Mybatis</strong>，实践如下。</p>
+<p>mybatis作用</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754197.jpg" alt="1583754197"></p>
+<p>mybatis特点：只需要给出参数+sql语句即可，剩下的数据表与实体的映射自动实现</p>
+<h4 id="Mybatis之SqlSession"><a href="#Mybatis之SqlSession" class="headerlink" title="Mybatis之SqlSession"></a>Mybatis之SqlSession</h4><ul>
+<li><p>SqlSession的作用</p>
+<p>  1.向sql语句传入参数</p>
+<p>  2.执行sql语句</p>
+<p>  3.获取执行sql语句的结果</p>
+<p>  4.事务的控制</p>
+</li>
+<li><p>如何得到SqlSession：</p>
+<p>  1.通过配置文件获取数据库连接相关信息</p>
+<p>  2.通过配置信息构建SqlSessionFactory</p>
+<p>  3.通过SqlSessionFactory打开数据库会话</p>
+</li>
+</ul>
+<p>Mybatis的配置文件conf.xml：</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+&lt;configuration&gt;
+    &lt;environments default=&quot;development&quot;&gt;
+        &lt;environment id=&quot;development&quot;&gt;
+            &lt;transactionManager type=&quot;JDBC&quot; /&gt;
+            &lt;!-- 配置数据库连接信息 --&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot; /&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/mybatis&quot; /&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot; /&gt;
+                &lt;property name=&quot;password&quot; value=&quot;XDP&quot; /&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h4 id="OGNL表达式"><a href="#OGNL表达式" class="headerlink" title="OGNL表达式"></a>OGNL表达式</h4><p>在MessageMapper.xml中的sql语句中，要进行if、foreach等判断时，不能直接在&lt;&gt;中写，这时用强大的OGNL表达式(和jstl表达式类似)，它可以直接在标签中引入java语句。</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754226.jpg" alt="1583754226"></p>
+<p><img src="https://img.braincao.cn/blogimg/1583754242.jpg" alt="1583754242"></p>
+<p>注意的是原java语句中的&amp;&amp;，空字符串”” 等在标签中需要转义。如：<code>&quot; --&gt; &amp;quot;</code>  <a href="http://tool.oschina.net/commons?type=2" target="_blank" rel="noopener">这是常用对照表</a></p>
+<p>MessageMapper.xml中select按照给定条件查询的语句如下：</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+&lt;!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名加sql映射文件名，这样就能够保证namespace的值是唯一的--&gt;
+&lt;mapper namespace=&quot;com.braincao.configs.sql.MessageMapper&quot;&gt;
+
+    &lt;!--确定映射关系，此命名空间下，id=MessageResult的resultMap所映射实体类是Message--&gt;
+    &lt;resultMap type=&quot;com.braincao.bean.Message&quot; id=&quot;MessageResult&quot;&gt;
+        &lt;!--左边数据库名，右边model实体名--&gt;
+        &lt;id column=&quot;ID&quot; jdbcType=&quot;INTEGER&quot; property=&quot;id&quot;/&gt;
+        &lt;result column=&quot;COMMAND&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;command&quot;/&gt;
+        &lt;result column=&quot;DESCRIPTION&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;description&quot;/&gt;
+        &lt;result column=&quot;CONTENT&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;content&quot;/&gt;
+    &lt;/resultMap&gt;
+
+    &lt;!--根据查询条件查询消息列表:parameterType是sql中参数的类型--&gt;
+    &lt;select id=&quot;queryListMessage&quot; parameterType=&quot;com.braincao.bean.Message&quot; resultMap=&quot;MessageResult&quot;&gt;
+        SELECT ID, COMMAND, DESCRIPTION, CONTENT FROM message WHERE 1=1
+        &lt;if test=&quot;command!=null and !&amp;quot;&amp;quot;.equals(command.trim())&quot;&gt;AND COMMAND = #{command}&lt;/if&gt;
+        &lt;if test=&quot;description!=null and !&amp;quot;&amp;quot;.equals(description.trim())&quot;&gt;AND DESCRIPTION LIKE &#39;%&#39; #{description} &#39;%&#39;&lt;/if&gt;
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<h4 id="log4j调试日志管理"><a href="#log4j调试日志管理" class="headerlink" title="log4j调试日志管理"></a>log4j调试日志管理</h4><p>xml中sql语句如果报错需要调试，没法像java代码一样打断点调试，这时就需要log4j了。<a href="https://www.cnblogs.com/wangzhuxing/p/7753420.html" target="_blank" rel="noopener">Log4J日志整合及配置详解</a></p>
+<pre><code>#默认输出路径，下面指定为输出到控制台
+log4j.rootLogger=debug,logfile #debug是输出级别，logfile是输出的文件名(自定义)
+log4j.appender.logfile=org.apache.log4j.ConsoleAppender #定义上面的logfile是输出到控制台ConsoleAppender
+log4j.appender.logfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.logfile.layout.ConversionPattern=%d [%t] %-5p [%c] - %m %n
+log4j.logger.org.apache=info #这是个性化，在指定包下的日志输出级别，会覆盖rootLogger的级别
+</code></pre><p>ConversionPattern=%d [%t] %-5p [%c] - %m %n。</p>
+<p>%d时间，%t所处的线程名称，%-5p级别(-5表示至少占5个字，不足5个空格补齐，-5补齐的空格在右边，5-表示补齐的空格在左边),%c所在类的全名，%m附加信息，%n换行 </p>
+<p>输出级别：</p>
+<pre><code>#输出级别依次从低到高，如为debug，则四个全部输出
+log.debug(&quot;asf&quot;);
+log.info(message);
+log.warn(message);
+log.error(message);
+</code></pre><h4 id="重要-总结下项目分层后的逻辑"><a href="#重要-总结下项目分层后的逻辑" class="headerlink" title="重要!_总结下项目分层后的逻辑"></a>重要!_总结下项目分层后的逻辑</h4><p>setvlet：接收页面的值、像页面传值、如果有业务逻辑需要处理调用service进行处理</p>
+<p>service：接收servlet传过来的处理要求，进行业务处理，如果有需要则调用相应的dao层</p>
+<p>dao：完成与数据库的操作，这个过程用mybatis的sqlsession完成，具体的sql语句在mapper.xml中写</p>
+<p>几个注意：</p>
+<p>1.service处理的每个业务都要对应一个servlet，每个servlet都要在web.xml中注册</p>
+<p>2.数据库中查询与增加、删除、修改操作不同，后三个修改数据库后sqlSession需要commit才会提交一个事务</p>
+<h4 id="jsp、js文件"><a href="#jsp、js文件" class="headerlink" title="jsp、js文件"></a>jsp、js文件</h4><p>js中ajax的url要用路径，需要basePath,那么jsp调用js方法时不用传递参数，可以在jsp文件中埋一个hidden标签，之后在js中直接通过id就能找到basePath的参数，如下：</p>
+<pre><code class="html">&lt;!--埋一个hidden便签，用于js调用--&gt;
+&lt;input type=&quot;hidden&quot; value=&quot;&lt;%= basePath %&gt;&quot; id=&quot;basePath&quot;/&gt;
+</code></pre>
+<p>1.jsp文件：</p>
+<pre><code class="html">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html;charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot; %&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%
+String path = request.getContextPath();
+String basePath = request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;;
+%&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+    &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;title&gt;微信公众号&lt;/title&gt;
+    &lt;!--讨论区滚动条begin--&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;%= basePath %&gt;resources/css/jscrollpane1.css&quot; /&gt;
+    &lt;script src=&quot;&lt;%= basePath %&gt;resources/js/common/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;!-- the mousewheel plugin --&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= basePath %&gt;resources/js/common/jquery.mousewheel.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- the jScrollPane script --&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= basePath %&gt;resources/js/common/jquery.jscrollpane.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= basePath %&gt;resources/js/common/scroll-startstop.events.jquery.js&quot;&gt;&lt;/script&gt;
+    &lt;!--讨论区滚动条end--&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%= basePath %&gt;resources/js/front/talk.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;input type=&quot;hidden&quot; value=&quot;&lt;%= basePath %&gt;&quot; id=&quot;basePath&quot;/&gt;
+        &lt;br/&gt;
+        &lt;div class=&quot;talk&quot;&gt;
+            &lt;div class=&quot;talk_title&quot;&gt;&lt;span&gt;正在与公众号对话&lt;/span&gt;&lt;/div&gt;
+            &lt;div class=&quot;talk_record&quot;&gt;
+                &lt;div id=&quot;jp-container&quot; class=&quot;jp-container&quot;&gt;
+                    &lt;div class=&quot;talk_recordbox&quot;&gt;
+                        &lt;div class=&quot;user&quot;&gt;&lt;img src=&quot;&lt;%= basePath %&gt;images/thumbs/talk_recordbox.jpg&quot;/&gt;公众号&lt;/div&gt;
+                        &lt;div class=&quot;talk_recordtextbg&quot;&gt;&amp;nbsp;&lt;/div&gt;
+                        &lt;div class=&quot;talk_recordtext&quot;&gt;
+                            &lt;h3&gt;客官，来啦，坐吧！回复[查看]收取更多精彩内容。&lt;/h3&gt;
+                            &lt;span class=&quot;talk_time&quot;&gt;2018年11月20日21:30:07&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;talk_recordboxme&quot;&gt;
+                        &lt;div class=&quot;user&quot;&gt;&lt;img src=&quot;&lt;%= basePath %&gt;images/thumbs/talk_recordboxme.jpg&quot;/&gt;公众号&lt;/div&gt;
+                        &lt;div class=&quot;talk_recordtextbg&quot;&gt;&amp;nbsp;&lt;/div&gt;
+                        &lt;div class=&quot;talk_recordtext&quot;&gt;
+                            &lt;h3&gt;查看&lt;/h3&gt;
+                            &lt;span class=&quot;talk_time&quot;&gt;2018年11月20日21:30:07&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;talk_word&quot;&gt;
+                &amp;nbsp;
+                &lt;input class=&quot;add_face&quot; id=&quot;facial&quot; type=&quot;button&quot; title=&quot;添加表情&quot; value=&quot;&quot; /&gt;
+                &lt;input id=&quot;content&quot; class=&quot;messages emotion&quot;   /&gt;
+                &lt;input class=&quot;talk_send&quot; onclick=&quot;send();&quot; type=&quot;button&quot; title=&quot;发送&quot; value=&quot;发送&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;text-align:center;margin:50px 0; font:normal 14px/24px &#39;MicroSoft YaHei&#39;;&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>2.前端jsp页面中需要的.js文件：</p>
+<p>.js文件包含jsp中点击等操作触发的ajax动态查询后台加载页面的方法：</p>
+<pre><code class="java">/**
+ * 发送消息。前端界面输入文字，用ajax将文字传给后端，返回的回复动态加载到前端页面
+ * @param basePath
+ */
+function send() {
+    var content = $(&quot;#content&quot;).val();//获取id为content文本框的文字
+    if(!content) {
+        alert(&quot;请输入内容！&quot;);
+        return;
+    }
+    $.ajax({
+        url : $(&quot;#basePath&quot;).val() + &quot;AutoReplyServlet.action&quot;,
+        type : &quot;POST&quot;,
+        dataType : &quot;text&quot;,//dataType期望服务端给我的响应类型
+        timeout : 10000,//超时时间
+        success : function (data) {//成功回调函数
+            appendDialog(&quot;talk_recordboxme&quot;,&quot;My账号&quot;,content); //在对话框中显示我发送的文字
+            appendDialog(&quot;talk_recordbox&quot;,&quot;公众号&quot;,data);//在对话框中显示后台的回复
+            $(&quot;#content&quot;).val(&quot;&quot;);//清空发送框中的文字
+            render();//这个东西是输入后在对话框中显示后计算是否需要出现滚动条的方法，知道干啥的就行了忽略这里的细节
+        },
+        data : {&quot;content&quot;:content}//向服务端发送ajax请求的参数
+    });
+</code></pre>
+<h4 id="页面中点击按钮弹出一个带有输入框的对话框"><a href="#页面中点击按钮弹出一个带有输入框的对话框" class="headerlink" title="页面中点击按钮弹出一个带有输入框的对话框"></a>页面中点击按钮弹出一个带有输入框的对话框</h4><p>不用看下面的代码了，直接bootstrap-modal，遇到这个需求的最大收获就是学到了bootstrap框架，简直神器。</p>
+<pre><code class="html">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;My Test Document&lt;/title&gt;
+
+&lt;style&gt;
+.box{
+    width:50%; margin-top:10%; margin:auto; padding:28px;
+    height:350px; border:1px #111 solid;
+    display:none;            /* 默认对话框隐藏 */
+}
+.box.show{display:block;} 
+.box .x{ font-size:18px; text-align:right; display:block;}
+.box input{width:80%; font-size:18px; margin-top:18px;}
+&lt;/style&gt;
+&lt;/head&gt;  
+&lt;body&gt; 
+
+    &lt;h2&gt;测试&lt;/h2&gt;
+    &lt;input type=&quot;button&quot; onClick=&quot;msgbox(1)&quot; value=&quot;点击弹出输入框&quot;&gt;
+
+    &lt;script&gt;  
+        function msgbox(n){
+            document.getElementById(&#39;inputbox&#39;).style.display=n?&#39;block&#39;:&#39;none&#39;;     /* 点击按钮打开/关闭 对话框 */
+        }
+     &lt;/script&gt;  
+
+     &lt;div id=&#39;inputbox&#39; class=&quot;box&quot;&gt;
+        &lt;a class=&#39;x&#39; href=&#39;&#39;; onclick=&quot;msgbox(0); return false;&quot;&gt;关闭&lt;/a&gt;
+        &lt;input type=&quot;text&quot;&gt;
+        &lt;input type=&quot;text&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;确定&quot;&gt;
+     &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<h4 id="input-默认提示文字，点击清空，移出时恢复提示"><a href="#input-默认提示文字，点击清空，移出时恢复提示" class="headerlink" title="input 默认提示文字，点击清空，移出时恢复提示"></a>input 默认提示文字，点击清空，移出时恢复提示</h4><pre><code class="html">    &lt;input type=&quot;text&quot; value=&quot;模糊型号查询&quot; onfocus=&quot;if(value==&#39;模糊型号查询&#39;) {value=&#39;&#39;}&quot; onblur=&quot;if (value==&#39;&#39;) {value=&#39;模糊型号查询&#39;}&quot; name=&quot;keyword&quot; size=&quot;30&quot; style=&quot;color:#e5e1e1;&quot;/&gt;
+</code></pre>
+<h4 id="SQL联合查询-主表与子表联合查询-–left-join-on"><a href="#SQL联合查询-主表与子表联合查询-–left-join-on" class="headerlink" title="SQL联合查询(主表与子表联合查询)–left join on"></a>SQL联合查询(主表与子表联合查询)–left join on</h4><pre><code class="sql">SELECT A.DESCRIPTION,B.CONTENT FROM COMMAND A LEFT JOIN COMMAND_CONTENT B ON A.COMMAND_ID=B.COMMAND_ID WHERE A.COMMAND_ID=&#39;查看&#39;;
+</code></pre>
+<p>这里需要注意一个问题，请看这个<a href="https://blog.csdn.net/weixin_36174051/article/details/80377061" target="_blank" rel="noopener">LEFT JOIN 使用时的注意事项</a>、<a href="https://blog.csdn.net/xingfeng0501/article/details/7816703" target="_blank" rel="noopener">left join on and 与 left join on where的区别</a></p>
+<p>具体的实践如下，一个CommandMapper.xml文件：</p>
+<p>注意 <code>&lt;id column=&quot;A_ID&quot; jdbcType=&quot;INTEGER&quot; property=&quot;id&quot;/&gt;</code> 中的A_ID不能是ID</p>
+<p>代码：</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+&lt;!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名加sql映射文件名，这样就能够保证namespace的值是唯一的--&gt;
+&lt;mapper namespace=&quot;CommandMapper&quot;&gt;
+
+&lt;!--确定映射关系，此命名空间下，id=CommandResult的resultMap所映射实体类是Command--&gt;
+&lt;resultMap type=&quot;com.braincao.bean.Command&quot; id=&quot;CommandResult&quot;&gt;
+    &lt;!--左边数据库名，右边model实体名--&gt;
+    &lt;id column=&quot;A_ID&quot; jdbcType=&quot;INTEGER&quot; property=&quot;id&quot;/&gt;
+    &lt;result column=&quot;COMMAND&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;command&quot;/&gt;
+    &lt;result column=&quot;DESCRIPTION&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;description&quot;/&gt;
+    &lt;!--一对多的映射关系：主表包含字表的集合--&gt;
+    &lt;collection resultMap=&quot;CommandContentMapper.CommandContentResult&quot; property=&quot;commandContentList&quot;/&gt;
+&lt;/resultMap&gt;
+
+&lt;!--根据查询条件查询消息列表:parameterType表示传入的参数类型--&gt;
+&lt;select id=&quot;queryListCommand&quot; parameterType=&quot;com.braincao.bean.Command&quot; resultMap=&quot;CommandResult&quot;&gt;
+    SELECT A.ID A_ID,A.COMMAND,A.DESCRIPTION,B.CONTENT FROM COMMAND A LEFT JOIN COMMAND_CONTENT B
+    ON A.ID=B.COMMAND_ID
+    &lt;where&gt;
+        &lt;if test=&quot;command!=null and !&amp;quot;&amp;quot;.equals(command.trim())&quot;&gt;AND A.COMMAND = #{command}&lt;/if&gt;
+        &lt;if test=&quot;description!=null and !&amp;quot;&amp;quot;.equals(description.trim())&quot;&gt;AND A.DESCRIPTION LIKE &#39;%&#39; #{description} &#39;%&#39;&lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<h3 id="通过自动回复机器人学Mybatis—加强版–开始学习"><a href="#通过自动回复机器人学Mybatis—加强版–开始学习" class="headerlink" title="通过自动回复机器人学Mybatis—加强版–开始学习"></a>通过自动回复机器人学Mybatis—加强版–开始学习</h3><p>来源：<a href="https://www.imooc.com/learn/260" target="_blank" rel="noopener">通过自动回复机器人学Mybatis—加强版</a></p>
+<h4 id="设计模式之代理模式"><a href="#设计模式之代理模式" class="headerlink" title="设计模式之代理模式"></a>设计模式之代理模式</h4><p>这个知识的学习至关重要，对后面的mybatis接口编程、spring-aop思想理解都有帮助，来源:<a href="https://www.imooc.com/learn/214" target="_blank" rel="noopener">模式的秘密—代理模式</a></p>
+<p>代理模式定义：为其他对象提供一种代理以控制对这个对象的访问。</p>
+<p>代理两种实现方式：静态代理、动态代理</p>
+<p>静态代理又有两种实现方式：继承方式、聚合方式，其中聚合方式更适合静态代理。</p>
+<h5 id="聚合方式的静态代理"><a href="#聚合方式的静态代理" class="headerlink" title="聚合方式的静态代理"></a>聚合方式的静态代理</h5><p>一个接口，实现了一个类，现在想对这个类进行代理，方便增加额外的服务。那么就创建一个代理类，实现相同的接口，用构造方法将原始接口传参进去，直接增加额外服务即可。如下：</p>
+<pre><code class="java">package com.braincao.proxy;
+
+/**
+ * @FileName: Car2
+ * @Author: braincao
+ * @Date: 2018/11/23 16:06
+ * @Description: 相同的接口Moveable
+ * CarLogProxy实现相同接口Moveable---使用聚合方式(一个类中调用另一个类)的静态代理
+ */
+
+public class CarLogProxy implements Moveable {
+    private Moveable moveable;
+
+    public CarLogProxy(Moveable moveable){
+        this.moveable = moveable;
+    }
+
+    @Override
+    public void move() {//为Car原始类增加额外功能
+        System.out.println(&quot;日志开始....&quot;);
+
+        moveable.move();
+
+        System.out.println(&quot;日志结束...&quot;);
+    }
+
+    public static void main(String[] args){//测试
+        Moveable car = new CarLogProxy(new Car());
+        car.move();
+    }
+}
+</code></pre>
+<p>静态代理，每一个额外服务(日志记录、时间记录)都需要新建一个代理类，对汽车的日志记录和对火车的日志记录都需要新建，解决这个问题的方式就是动态代理。</p>
+<h4 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h4><p>动态代理：动态产生代理，实现对不同类、不同方法的代理。动态代理也有两种：jdk动态代理、cglib动态代理</p>
+<p>1.jdk动态代理</p>
+<pre><code class="java">package com.braincao.jdkproxy;
+
+import com.braincao.proxy.Car;
+import com.braincao.proxy.Car3;
+import com.braincao.proxy.Moveable;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
+/**
+ * @FileName: TimeHandler
+ * @Author: braincao
+ * @Date: 2018/11/23 17:18
+ * @Description: jdk动态代理
+ */
+
+public class TimeHandler implements InvocationHandler{
+    private Object target;
+
+    public TimeHandler(Object target) {
+        this.target = target;
+    }
+
+    /*
+     * 参数：
+     * proxy--被代理对象
+     * method--被代理对象的方法
+     * args--被代理对象的方法的参数
+     * 返回：
+     * Object 被代理对象的方法的返回值
+     */
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        //开车起始时间
+        long startTime = System.currentTimeMillis();
+        System.out.println(&quot;汽车开始行驶....&quot;);
+
+        method.invoke(target);
+
+        //开车终止时间
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;汽车停止行驶....行驶时间：&quot; + (endTime-startTime) + &quot;ms&quot;);
+
+        return null;
+    }
+
+    //动态代理测试
+    public static void main(String[] args){
+        Car car = new Car();
+        InvocationHandler h = new TimeHandler(car);
+        /**
+         * 生成代理类。
+         * 参数：
+         * loader 类的加载器
+         * interfaces 类的实现接口
+         * h(InvocationHandler)
+         */
+        Moveable m = (Moveable)Proxy.newProxyInstance(car.getClass().getClassLoader(),
+                car.getClass().getInterfaces(),h);
+        m.move();
+    }
+}
+</code></pre>
+<p>2.cglib动态代理</p>
+<p>下面的代码需引入cglib-nodep-2.2.jar包</p>
+<pre><code class="java">package com.braincao.cglibproxy;
+
+
+​    
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+
+import java.lang.reflect.Method;
+
+/**
+ * @FileName: CglibProxy
+ * @Author: braincao
+ * @Date: 2018/11/23 17:45
+ * @Description:
+ */
+
+public class CglibProxy implements MethodInterceptor {
+
+    private Enhancer enhancer = new Enhancer();
+
+    public Object getProxy(Class clazz){
+        //设置创建子类的类
+        enhancer.setSuperclass(clazz);
+        enhancer.setCallback(this);
+        return enhancer.create();
+    }
+
+    /*
+     *拦截所有目标类方法的调用
+     * 参数：
+     *  o 目标类的实例
+     *  method 目标方法
+     *  objects 方法的参数
+     *  methodProxy 代理类的实例
+     */
+    @Override
+    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        System.out.println(&quot;日志开始.....&quot;);
+
+        //代理类调用父类的方法
+        methodProxy.invokeSuper(o, objects);
+
+        System.out.println(&quot;日志结束.....&quot;);
+
+        return null;
+    }
+
+    public static void main(String[] args){
+        CglibProxy proxy = new CglibProxy();
+        Train train =(Train)proxy.getProxy(Train.class);
+        train.move();
+    }
+}
+</code></pre>
+<p><strong>总结代理模式</strong>：日常项目中代理模式有很重要的作用，比如日志管理、事务处理、权限管理等，在不改变原有类的基础利用代理类增加额外功能，这个就是<strong>aop，面向切面编程</strong></p>
+<p>动态代理的代理类是实现了一个InvocationHandler的接口，我们通过reflect.Proxy的类的newProxyInstance方法就可以得到这个接口的实例，然后再来作为参数传递进去，这里每一个在代理类上处理的东西也会被重定向到调用处理器上。</p>
+<p>至于动态代理和静态代理的区别，即动态代理是动态的创建代理和动态的处理方法的，这也是反射的一个重要体现之处。<br>​    </p>
+<h5 id="FileUtils类可以轻松对文件读写操作"><a href="#FileUtils类可以轻松对文件读写操作" class="headerlink" title="FileUtils类可以轻松对文件读写操作"></a>FileUtils类可以轻松对文件读写操作</h5><p>FileUtils.writeString(new File(filename), strData);</p>
+<h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><p>来源：</p>
+<p><a href="https://www.imooc.com/video/3725" target="_blank" rel="noopener">反射专题视频</a></p>
+<p><a href="https://www.cnblogs.com/haodawang/p/5967185.html" target="_blank" rel="noopener">Java动态代理与反射详解_博客</a></p>
+<h5 id="1、反射–class类"><a href="#1、反射–class类" class="headerlink" title="1、反射–class类"></a>1、反射–class类</h5><p>任何一个类都是Class的实例对象，这个实例对象有三种表示方式。</p>
+<p>1.Class c1 = Foo.class;</p>
+<p>2.Class c2 = foo1.getClass();</p>
+<p>3.</p>
+<pre><code class="java">Class c3 = null;
+try{
+    try {
+        c3 = Class.forName(&quot;com.braincao.reflect.Foo&quot;);
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+}
+</code></pre>
+<p>我们可以通过类的类类型创建该类的对象实例：</p>
+<pre><code>Foo foo = (Foo) c1.newInstance();
+</code></pre><h5 id="2、反射–java动态加载类"><a href="#2、反射–java动态加载类" class="headerlink" title="2、反射–java动态加载类"></a>2、反射–java动态加载类</h5><p>编译时刻加载的类是静态加载类，运行时刻加载的类是动态加载类.</p>
+<p>new创建对象是静态加载的类，在编译时刻就需要加载所有的可能使用到的类，即java代码中Word word=new Word();如果没有相关的Word类则编译不通过，找不到Word类，这就是静态加载的类</p>
+<p>动态加载类：</p>
+<pre><code class="java">package com.braincao.reflect;
+/**
+ * @FileName: OfficeReflect
+ * @Author: braincao
+ * @Date: 2018/11/23 18:53
+ * @Description:
+ */
+
+public class OfficeReflect {
+    public static void main(String[] args){
+        Class c1 = null;
+        try {
+            //动态加载类，在运行时刻加载
+            c1 = Class.forName(args[0]);//命令行输入想加载的类名(Word/Excel，他们都实现了接口Office)
+            Office office = (Office)c1.newInstance();//动态创建指定的对象
+            office.start();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<h4 id="java方法的反射操作-重点"><a href="#java方法的反射操作-重点" class="headerlink" title="java方法的反射操作_重点"></a>java方法的反射操作_重点</h4><p>反射的操作是绕过编译，在运行时刻来操作的。</p>
+<pre><code class="java">package com.braincao.reflect;
+
+import java.lang.invoke.MethodHandle;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+/**
+ * @FileName: Reflect
+ * @Author: braincao
+ * @Date: 2018/11/23 20:36
+ * @Description: java的反射操作
+ */
+
+public class Reflect {
+    public static void main(String[] args){
+        //A a = new A();
+        //a.add(10, 20);
+
+        //java方法的反射操作
+        try {
+            Class c = A.class;
+            Method m = c.getMethod(&quot;add&quot;, new Class[]{int.class, int.class}); //获得方法对象
+            //Method m = c.getMethod(&quot;add&quot;, int.class, int.class); //这样写也行
+            m.invoke(c.newInstance(), 10, 20);//用方法对象进行反射操作
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class A{
+    public void add(int a, int b){
+        System.out.println(a + b);
+    }
+}
+</code></pre>
+<h4 id="Mybatis-的接口式编程"><a href="#Mybatis-的接口式编程" class="headerlink" title="Mybatis 的接口式编程"></a>Mybatis 的接口式编程</h4><pre><code class="java">/**
+ * @FileName: MessageDao
+ * @Author: braincao
+ * @Date: 2018/11/19 15:42
+ * @Description: 和command表相关的数据库操作
+ * 不用原始的jdbc了，用mybatis的sqlsession更方便的访问数据库，另外用了接口式编程，用反射来进行mapper.xml进行sql方法的调用
+ */
+
+public class CommandDao {
+    /**
+     * 根据查询条件查询指令列表。
+     * @param : 查询条件：command指令名称||description描述
+     * @return : 根据查询条件查询到的结果
+     */
+    public List&lt;Command&gt; queryCommandList(String commandData, String descriptionData) {
+        DBAccess dbAccess = new DBAccess();
+        List&lt;Command&gt; commandList = new ArrayList&lt;&gt;();//把查询出来的结果放在这里
+        SqlSession sqlSession = null;
+
+        try {
+            sqlSession = dbAccess.getSqlSession();//得到SqlSession
+            Command command = new Command();
+            command.setCommand(commandData);
+            command.setDescription(descriptionData);//把要传递的参数放在对象里，再把这个对象当成参数给SqlSession即可
+
+            //通过sqlSession执行sql语句,这里改成了接口式mybatis编程
+            //commandList = sqlSession.selectList(&quot;CommandMapper.queryListCommand&quot;, command);//xxx.Message是命名空间，queryListMessage是具体的sql语句
+            //用反射来操作:ICommandMapper是一个接口，里面有sql相关的方法，现在不创建ICommandMapper就调用其中的方法，用反射操作
+            ICommandMapper iCommandMapper = (ICommandMapper)sqlSession.getMapper(ICommandMapper.class);
+            commandList = iCommandMapper.queryListCommand(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+        return commandList;
+    }
+</code></pre>
+<p>总结接口式编程：</p>
+<p>将：</p>
+<pre><code>commandList = sqlSession.selectList(&quot;CommandMapper.queryListCommand&quot;, command);
+</code></pre><p>换成了：</p>
+<pre><code>ICommandMapper iCommandMapper = sqlSession.getMapper(ICommandMapper.class);//反射操作，动态代理。getMapper方法返回时代理示例已经对目标示例进行强转，不需再(ICommandMapper)强转
+commandList = iCommandMapper.queryListCommand(command);
+</code></pre><h4 id="分页功能的实现1"><a href="#分页功能的实现1" class="headerlink" title="分页功能的实现1"></a>分页功能的实现1</h4><p>直接在加强版的项目上实现了，具体看代码实现</p>
+<h4 id="分页功能的实现2–mybatis拦截器实现"><a href="#分页功能的实现2–mybatis拦截器实现" class="headerlink" title="分页功能的实现2–mybatis拦截器实现"></a>分页功能的实现2–mybatis拦截器实现</h4><p>为什么需要拦截器实现分页：上面虽然已经实现，但是实际项目中每一个页面都要重写一个分页功能，这样真成码农了，为了实现分页的共同处理，我们在不改变原来查询列表不分页显示的sql语句及相关逻辑基础上，用拦截器对需要分页的需求对象进行拦截，处理(在原来sql基础上拼接分页需要的limitsql语句，再返回查询结果即可)，实现共同处理。</p>
+<p>视频来源: <a href="https://www.imooc.com/video/5929" target="_blank" rel="noopener">拦截器实现分页</a></p>
+<p>mybatis拦截器是一个类似于log4j的能直接拿到配置文件中的sql参数的东西，有动态代理的思想。拦截器就是在不改变mybatis源码的情况下利用代理改变mybatis原本的一些逻辑行为便于我们更好的使用</p>
+<p>拦截器要做的事：</p>
+<ul>
+<li>1.要拦截住</li>
+<li>2.拦截下来做事(eg分页)</li>
+<li>3.事情完成后要交回主权</li>
+</ul>
+<p>现将分页功能的实现1的实现去掉，恢复原来没有分页的功能的界面，现在要通过拦截器实现分页功能(即带byPage$结束符的sqlId进行拦截分页显示，不带byPage$结束符的sqlId的查询正常显示)</p>
+<p>拦截器代码：(注意，写完拦截器需要在配置文件中注册拦截器)</p>
+<pre><code class="java">package com.braincao.interceptor;
+
+import com.braincao.entity.Page;
+import org.apache.ibatis.executor.parameter.ParameterHandler;
+import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.mapping.BoundSql;
+import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.plugin.*;
+import org.apache.ibatis.reflection.DefaultReflectorFactory;
+import org.apache.ibatis.reflection.MetaObject;
+import org.apache.ibatis.reflection.SystemMetaObject;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Map;
+import java.util.Properties;
+
+/**
+ * @FileName: PageInterceptor
+ * @Author: braincao
+ * @Date: 2018/11/25 17:20
+ * @Description: 分页拦截器
+ * 实现mybatis的拦截器接口
+ */
+//下面的注解准确的描述了我们需要拦截的对象中的方法,本例中就是想获取mybatis中执行sql前能获取到sql语句的方法prepare
+@Intercepts({@Signature(type=StatementHandler.class, method=&quot;prepare&quot;, args={Connection.class})})
+public class PageInterceptor implements Interceptor {
+
+
+​    
+    //invocation参数中就有被拦截下来的对象invocation.getTarget()，对拦截下来的对象处理
+    @Override
+    public Object intercept(Invocation invocation) throws Throwable {
+        //获取拦截下来的对象
+        StatementHandler statementHandler = (StatementHandler)invocation.getTarget();
+
+        //查看拦截下来的对象(查询需求)是否是想要实现分页的--即mapper.xml的查询id是否以&quot;byPage$&quot;结尾
+        //这里用mybatis已经封装好的MetaObject类来获取查询id
+        MetaObject metaObject = MetaObject.forObject(statementHandler,
+                SystemMetaObject.DEFAULT_OBJECT_FACTORY,
+                SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY,
+                new DefaultReflectorFactory());
+        MappedStatement mappedStatement =(MappedStatement) metaObject.getValue(&quot;delegate.mappedStatement&quot;);
+        String id = mappedStatement.getId();//拿到了mapper.xml该查询语句的id
+        if(id.matches(&quot;.+ByPage$&quot;)){//String.matches方法用来匹配
+            BoundSql boundSql = statementHandler.getBoundSql();
+            String sql = boundSql.getSql();//原来的sql查询语句
+
+            //原来的查询参数Map
+            Map&lt;?, ?&gt; parameter = (Map&lt;?, ?&gt;)boundSql.getParameterObject();
+            Page page = (Page) parameter.get(&quot;page&quot;);
+            //获取查询结果的总条数
+            String countSql = &quot;select count(*) from (&quot; + sql + &quot;)a&quot;; //a是别名
+            Connection connection = (Connection)invocation.getArgs()[0];
+            PreparedStatement countStatement = connection.prepareStatement(countSql);
+            ParameterHandler parameterHandler = (ParameterHandler)metaObject.getValue(&quot;delegate.parameterHandler&quot;);
+            parameterHandler.setParameters(countStatement);
+            ResultSet rs = countStatement.executeQuery();
+            if(rs.next()){
+                page.setTotalNumber(rs.getInt(1));//获取查询结果的总条数
+            }
+
+            //改造后的sql语句，拼接了分页需要的limit
+            String newSql = sql + &quot; limit &quot; + page.getDbIndex() + &quot;,&quot; + page.getDbNumber();
+
+            //将改造后的sql写入，偷天换日
+            metaObject.setValue(&quot;delegate.boundSql.sql&quot;, newSql);
+        }
+
+
+​    
+        return invocation.proceed();//拦截下来对象，处理完成后，需要把拦截下来的对象主权返回，必须执行这步
+    }
+
+    //target就是被拦截下来的对象，返回的就是拦截下来动态代理的代理类对象
+    //this会根据上面的注解找到需要拦截对象和方法的class，用动态代理操作创建拦截对象的代理类target来进行处理
+    @Override
+    public Object plugin(Object target) {
+        return Plugin.wrap(target, this);
+    }
+
+    //这个是注册用的，如果已经在配置文件xml中注册了就不用在这里注册了
+    @Override
+    public void setProperties(Properties properties) {
+
+    }
+}
+</code></pre>
+<p>总结拦截器的思路：</p>
+<ul>
+<li><p>1.创建拦截器类实现Interceptor接口，通过注解<code>@Intercepts({@Signature(type=StatementHandler.class, method=&quot;prepare&quot;, args={Connection.class})})</code>定位需要拦截的对象及方法</p>
+</li>
+<li><p>2.注册拦截器到配置文件中</p>
+</li>
+<li><p>3.逐步重写第一步中Interceptor接口的的方法，进行拦截、处理、返回</p>
+</li>
+</ul>
+<h1 id="Java高并发秒杀API之业务分析与DAO层–开始学习"><a href="#Java高并发秒杀API之业务分析与DAO层–开始学习" class="headerlink" title="Java高并发秒杀API之业务分析与DAO层–开始学习"></a>Java高并发秒杀API之业务分析与DAO层–开始学习</h1><p>来源：<a href="https://www.imooc.com/learn/587" target="_blank" rel="noopener">Java高并发秒杀API之业务分析与DAO层</a> </p>
+<p>本案例整合了上述的spring mvc + spring + mybatis，所以这个应该重点总结，重点回顾</p>
+<h2 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h2><h4 id="需要的技术栈总结"><a href="#需要的技术栈总结" class="headerlink" title="需要的技术栈总结"></a>需要的技术栈总结</h4><p>mysql:</p>
+<ul>
+<li>表设计<br>​- sql技巧</li>
+<li>事务和行级锁</li>
+</ul>
+<p>mybatis:</p>
+<ul>
+<li>dao层设计与开发</li>
+<li>mybatis合理使用</li>
+<li>mybatis与spring整合</li>
+</ul>
+<p>spring:</p>
+<ul>
+<li>spring IOC整合service</li>
+<li>声明式事务运用</li>
+</ul>
+<p>spring MVC:</p>
+<ul>
+<li>Restful接口设计和使用</li>
+<li>框架运作流程</li>
+<li>Controller开发技巧</li>
+</ul>
+<p>前端:</p>
+<ul>
+<li>交互设计</li>
+<li>bootstrap</li>
+<li>jquery</li>
+</ul>
+<p>高并发:</p>
+<ul>
+<li>高并发点和高并发分析</li>
+<li>优化思路并实现</li>
+</ul>
+<h4 id="秒杀业务分析"><a href="#秒杀业务分析" class="headerlink" title="秒杀业务分析"></a>秒杀业务分析</h4><p>1.秒杀业务流程分析–&gt;秒杀业务的核心：对库存的处理</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754258.jpg" alt="1583754258"></p>
+<p>2.用户针对库存业务分析–&gt;减库存+记录购买明细</p>
+<p>减库存+记录购买明细这两件事必须组成一个事务，否则将出现超卖/少卖情况。</p>
+<p>关于数据落地的数据库选择：mysql vs nosql</p>
+<p>mysql：关系型数据库。事务机制很好，本秒杀系统的案例采用mysql数据库</p>
+<p>nosql：非关系型数据库。Redis、HBASE等，nosql创新很多，应用现在很挺多，追求性能，追求分布式，但是对事务的支持不是很好</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754304.jpg" alt="1583754304"></p>
+<p>3.用户的购买行为：</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754294.jpg" alt="1583754294"></p>
+<h4 id="mysql实现秒杀的难点分析–事务-行级锁"><a href="#mysql实现秒杀的难点分析–事务-行级锁" class="headerlink" title="mysql实现秒杀的难点分析–事务+行级锁"></a>mysql实现秒杀的难点分析–事务+行级锁</h4><p>事务：<br>​    </p>
+<ul>
+<li>1.start transaction</li>
+<li>2.update 库存数量(这是重点，需要加行级锁)</li>
+<li>3.insert 购买明细</li>
+<li>4.commit</li>
+</ul>
+<p>上面第二步中的行级锁：当一个用户在update时其他用户等待</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754287.jpg" alt="1583754287"></p>
+<h4 id="我们需要实现的秒杀功能–3个"><a href="#我们需要实现的秒杀功能–3个" class="headerlink" title="我们需要实现的秒杀功能–3个"></a>我们需要实现的秒杀功能–3个</h4><p>秒杀接口暴露</p>
+<p>执行秒杀</p>
+<p>相关查询</p>
+<h4 id="完成上述功能的代码开发阶段"><a href="#完成上述功能的代码开发阶段" class="headerlink" title="完成上述功能的代码开发阶段"></a>完成上述功能的代码开发阶段</h4><p>DAO设计编码</p>
+<p>Service设计编码</p>
+<p>Web设计编码</p>
+<h2 id="二、开始开发"><a href="#二、开始开发" class="headerlink" title="二、开始开发"></a>二、开始开发</h2><h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>schema.sql:</p>
+<pre><code class="sql">-- 创建数据库
+CREATE DATABASE seckill;
+
+-- 使用数据库
+USE seckill;
+
+-- 创建秒杀库存表
+CREATE TABLE seckill(
+`seckill_id` bigint NOT NULL AUTO_INCREMENT COMMENT &#39;商品库存id&#39;,
+`name` varchar(120) NOT NULL COMMENT &#39;商品名称&#39;,
+`number` int NOT NULL COMMENT &#39;库存数量&#39;,
+`start_time`timestamp NOT NULL COMMENT &#39;秒杀开启时间&#39;,
+`end_time` timestamp NOT NULL COMMENT &#39;秒杀结束时间&#39;,
+`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT &#39;创建时间&#39;,
+PRIMARY KEY(seckill_id),
+key idx_start_time(start_time),
+key idx_end_time(end_time),
+key idx_create_time(create_time)
+)ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT &#39;秒杀库存表&#39;;
+
+-- 初始化数据
+INSERT INTO seckill
+  (name,number,start_time,end_time) VALUES
+  (&#39;1000元秒杀iphoneX&#39;, 100, &#39;2018-12-01 00:00:00&#39;, &#39;2018-12-02 00:00:00&#39;),
+  (&#39;500元秒杀ipadPro&#39;, 200, &#39;2018-12-01 00:00:00&#39;, &#39;2018-12-02 00:00:00&#39;),
+  (&#39;300元秒杀小米Max&#39;, 300, &#39;2018-12-01 00:00:00&#39;, &#39;2018-12-02 00:00:00&#39;),
+  (&#39;200元秒杀华为mete20&#39;, 400, &#39;2018-12-01 00:00:00&#39;, &#39;2018-12-02 00:00:00&#39;);
+
+-- 秒杀成功明细表:包含用户登录认证相关的信息
+CREATE TABLE success_killed(
+`seckill_id` bigint NOT NULL AUTO_INCREMENT COMMENT &#39;秒杀商品id&#39;,
+`user_phone` bigint NOT NULL COMMENT &#39;用户手机号&#39;,
+`state` tinyint NOT NULL DEFAULT -1 COMMENT &#39;状态标示：-1无效 0成功 1已付款 2已发货&#39;,
+`create_time` timestamp NOT NULL COMMENT &#39;创建时间&#39;,
+PRIMARY KEY(seckill_id,user_phone), /*联合主键*/
+key idx_create_time(create_time)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT &#39;秒杀成功明细表&#39;;
+</code></pre>
+<h3 id="DAO层实体和接口开发"><a href="#DAO层实体和接口开发" class="headerlink" title="DAO层实体和接口开发"></a>DAO层实体和接口开发</h3><p>DAO层开发就是三件事：创建表、接口设计、sql编写。具体流程如下。</p>
+<p>1.Seckill.java开发。首先开发entity包中的实体类：数据表table对应实体entity类，表中的列名对应实体类中的属性</p>
+<p>2.SeckillDao.java开发(这是interface)。编写完实体类后，编码DAO包下的增删改查接口</p>
+<p>3.Mapper.xml开发。对应实体类的dao层接口写完后，下面就是基于mybatis实现dao接口的开发。(mybatis只需要知道参数+sql语句就可以Mapper自动完成数据表与实体的映射)</p>
+<p>4.spring-dao.xml编写。放在resources目录下，<strong>配置整合spring-mybatis</strong>。这个整合又省去了很多原生mybatis中mapper.xml的配置编码，比如类型Seckill不用再写包名而直接写类名、不用写参数类型parameterType和返回类型resultMap等,很多都不用再写了，另外在mybatis-config.xml也不用一个一个配置mapper.xml文件，而是<strong>自动扫描配置文件</strong>。</p>
+<p>整合后做两件事：XML提供sql + DAO接口Mapper –&gt;就可以了</p>
+<p>5.至此DAO部分基本写完了，现在进行DAO层单元测试和问题排查。直接在SeckillDao.java类名上右键go to test即可进行junit4测试，同时也自动在src/test/java包下创建对应目录的test类。</p>
+<p>注:我们需要在test类中配置spring和junit整合(@RunWith等)，这样junit启动时会加载springIOC容器，拿到相应的bean。请左转参考SeckillDaoTest.java示例</p>
+<p>至此，DAO层开发完毕</p>
+<h3 id="Service层的设计和实现"><a href="#Service层的设计和实现" class="headerlink" title="Service层的设计和实现"></a>Service层的设计和实现</h3><p>基于Spring托管Service实现类，并使用了Spring声明式事务，具体流程如下。</p>
+<p>1.service层的业务接口开发。service层的业务接口应站在”使用者”角度设计接口，三个方面考虑：方法定义粒度、参数、返回类型(return 类型/异常)，如下：</p>
+<pre><code class="java">package com.braincao.service;
+
+import com.braincao.dto.Exposer;
+import com.braincao.dto.SeckillExecution;
+import com.braincao.entity.Seckill;
+import com.braincao.exception.RepeatKillException;
+import com.braincao.exception.SeckillCloseException;
+import com.braincao.exception.SeckillException;
+
+import java.util.List;
+
+/**
+ * 业务接口：Service层接口应站在使用者角度设计接口
+ *
+ */
+public interface SeckillService {
+
+    /**
+     * 查询所有秒杀商品
+     * @param void
+     * @return List&lt;Seckill&gt;
+     */
+    List&lt;Seckill&gt; getSeckillList();
+
+    /**
+     * 根据id查询一个秒杀商品
+     * @param seckillId
+     * @return Seckill
+     */
+    Seckill getById(long seckillId);
+
+    /**
+     * 用户根据id查询该秒杀商品的秒杀接口地址(点击即可秒杀)，如果秒杀未开启时输出系统时间和秒杀开启时间
+     * @param seckillId
+     * @return  秒杀接口地址。用dto传输层的实体来封装秒杀接口地址,dto方便web层拿到秒杀暴露接口相关数据
+     */
+    Exposer exportSeckillUrl(long seckillId);
+
+    /**
+     * 执行秒杀操作
+     * @param seckillId,userPhone,md5
+     *        md5用来验证是否是同一用户操作，如果md5变了，说明用户被篡改
+     * @return dto传输层的实体来封装秒杀操作的返回实体，包含成功、失败
+     * 当秒杀失败时输出自定义运行期异常RepeatKillException
+     */ 
+    SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
+        throws SeckillException, SeckillCloseException, RepeatKillException;
+
+}
+</code></pre>
+<p>2.service层接口的实现开发。</p>
+<p>略，出门左转参考示例。</p>
+<p>3.基于spring管理service依赖。service层接口和实现都开发完后，就要进行spring-IOC注入。创建spring-service.xml + serviceImpl.java(service层的注解+类内部的spring注入依赖)，左转看参考示例</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754335.jpg" alt="1583754335"></p>
+<p>4.spring声明式事务</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754342.jpg" alt="1583754342"></p>
+<p><img src="https://img.braincao.cn/blogimg/1583754348.jpg" alt="1583754348"></p>
+<p>什么时候回滚事务：抛出运行期异常(RunTimeException)时回滚事务</p>
+<p>4.1配置使用spring声明式事务，采用注解方式。见spring-service.xml，在service层实现类的应用就是在需要声明事务的方法上@Transactional即可</p>
+<p>使用注解控制事务方法的优点：</p>
+<ul>
+<li>1.开发团队达成一致的约定，明确标注事务方法的编程风格，不至于开发过程中忘了哪些需要事务控制，这样看到注解就好了知道这是事务方法</li>
+<li>2.保证事务方法的执行时间尽可能短，不要穿插其他网络操作RPC/HTTP请求或者剥离到事务方法外部</li>
+<li>3.不是所有的方法都需要事务，如只有一条修改操作，只读操作不需要事务控制</li>
+</ul>
+<p>5.还需要resources下配置logback.xml配置下日志管理。至此Service层基本写完了，现在进行service层单元测试和问题排查。</p>
+<p>至此，Service层开发完毕</p>
+<h3 id="Web层的设计和实现"><a href="#Web层的设计和实现" class="headerlink" title="Web层的设计和实现"></a>Web层的设计和实现</h3><p>秒杀业务Web层的设计和实现，使⽤SpringMVC整合spring,实现秒杀restful接⼝。</p>
+<p>主要有：</p>
+<ul>
+<li>1.前端交互设计</li>
+<li>2.Restful接口</li>
+<li>3.SpringMVC</li>
+<li>4.bootstrap + jquery</li>
+</ul>
+<p>1.前端交互设计</p>
+<p>1.1前端页面流程：</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754373.jpg" alt="1583754373"></p>
+<p>1.2 详情页的流程逻辑</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754380.jpg" alt="1583754380"></p>
+<p>2.Restful接口的设计</p>
+<p>什么是Restful?</p>
+<p>兴起于Rails，一种优雅的URL表述方式，规范url的设计，理念就是：资源的状态和状态转移。</p>
+<p>Restful规范：</p>
+<ul>
+<li>GET–&gt;查询操作</li>
+<li>POST–&gt;添加/修改操作</li>
+<li>PUT–&gt;修改操作</li>
+<li>DELETE–&gt;删除操作</li>
+</ul>
+<p>Restful接口示例：<code>/模块/资源/{id标示}/名词1/名词2</code></p>
+<ul>
+<li>1./user/{uid}/friends–&gt;好友列表</li>
+<li>2./user/{uid}/followers–&gt;关注者列表</li>
+</ul>
+<p>本案例的restful设计：<br>​<br><img src="https://img.braincao.cn/blogimg/1583754396.jpg" alt="1583754396"></p>
+<p>3.SpringMVC整合spring。</p>
+<p>springMVC运行流程：</p>
+<p><img src="https://img.braincao.cn/blogimg/1583754415.jpg" alt="1583754415"></p>
+<p>需要配置两个东西，具体请左转：</p>
+<ul>
+<li>1.resources包下的spring-web.xml</li>
+<li>2.web.xml</li>
+</ul>
+<p>4.controller开发.</p>
+<p>实现Restful接口的Controller层：接受请求与参数，跳转页面的控制，并且返回参数都是已经dto传输层封装好的类型</p>
+<p>一个例子SeckillController.java请出门左转</p>
+<p>springMVC开发技巧：DTO封装传递数据，便于controller与前端交互传递数据</p>
+<p>5.采用bootstrap进行jsp主页面开发。</p>
+<p>6.前端页面写完后，用jquery开发交互设计。</p>
+<p>5、6两步请左转：依次看jsp主页面、.js文件</p>
+<p>至此，dao、service、web层所有开发完毕，整个项目跑通，测试完毕，开发完毕。后续要做的就是高并发秒杀优化</p>
+<h3 id="秒杀系统的高并发优化"><a href="#秒杀系统的高并发优化" class="headerlink" title="秒杀系统的高并发优化"></a>秒杀系统的高并发优化</h3><p>上述实现的秒杀系统实际上是扛不住多少并发量的，下面将进行高并发优化分析与实现。主要包括：前端CDN、后端redis缓存、mysql并发优化(减少行级锁持有时间+存储过程)</p>
+<p>1.redis后端缓存优化编码。</p>
+<p>秒杀接口地址可以放到<strong>redis服务器缓存</strong>中，而不用每次都访问数据库，redis可以定期同步更新一次数据库即可。</p>
+<p>对应的redisDao,java:</p>
+<pre><code class="java">package com.braincao.dao.cache;
+
+import com.braincao.entity.Seckill;
+import com.dyuproject.protostuff.LinkedBuffer;
+import com.dyuproject.protostuff.ProtostuffIOUtil;
+import com.dyuproject.protostuff.runtime.RuntimeSchema;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
+/**
+ * @FileName: RedisDao
+ * @Author: braincao
+ * @Date: 2018/11/30 10:27
+ * @Description: 高并发优化:读取/存取redis操作。这个dao就不做接口了，直接实现即可
+ */
+
+public class RedisDao {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    private final JedisPool jedisPool;
+
+    //java存取redis采用RuntimeSchema序列化工具类高效转化
+    private RuntimeSchema&lt;Seckill&gt; schema = RuntimeSchema.createFrom(Seckill.class);
+
+    public RedisDao(String ip, int port){
+        jedisPool = new JedisPool(ip, port);
+    }
+
+    //读取redis:根据id读取Seckill
+    public Seckill getSeckill(long seckillId){
+        //redis操作逻辑
+        try{
+            Jedis jedis = jedisPool.getResource();
+            try {
+                String key = &quot;seckill:&quot; + seckillId;
+                //redis并没有实现内部序列化操作
+                //get-&gt;byte[] -&gt;反序列化 -&gt;Object[Seckill]
+                //采用自定义序列化工具protostuff进行java存取redis
+                byte[] bytes = jedis.get(key.getBytes());
+
+                if (bytes != null) {
+                    Seckill seckill = schema.newMessage();
+                    ProtostuffIOUtil.mergeFrom(bytes, seckill, schema);
+                    //反序列化seckill
+                    return seckill;
+                }
+            }finally {
+                jedis.close();
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return null;
+    }
+
+    //存取redis:将Seckill存储到redis中
+    public String putSeckill(Seckill seckill){
+        //set Onject[Seckill] -&gt; 序列化 -&gt; byte[]
+        //redis操作逻辑
+        try{
+            Jedis jedis = jedisPool.getResource();
+            try{
+                String key = &quot;seckill:&quot; + seckill.getSeckillId();
+                //redis并没有实现内部序列化操作
+                //get-&gt;byte[] -&gt;反序列化 -&gt;Object[Seckill]
+                //采用自定义序列化工具protostuff进行java存取redis
+                byte[] bytes = ProtostuffIOUtil.toByteArray(seckill, schema,
+                        LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE));
+
+                //超时缓存1h
+                int timeout = 60*60;
+
+                //redis存储，result是存储成功或失败的结果
+                String result = jedis.setex(key.getBytes(),timeout,bytes);
+
+                return result;
+            }finally {
+                jedis.close();
+            }
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+        }
+        return null;
+    }
+}
+</code></pre>
+<p>在service层的优化如下：</p>
+<p>原来：<code>Seckill seckill = seckillDao.queryById(id);</code></p>
+<p>优化：</p>
+<pre><code class="java">//将这句话进行优化:1.先访问redis
+Seckill seckill = redisDao.getSeckill(seckillId);
+if(seckill == null){
+    //2.访问数据库
+    seckill = seckillDao.queryById(id);
+    if(seckill==null) {
+        return new Exposer(false, seckillId);
+    }else{
+        //3.放入redis
+        redisDao.putSeckill(seckill);
+    }
+}
+</code></pre>
+<p>2.执行秒杀操作(减库存+记录购买明细)高并发优化。调整sql顺序：记录购买行为在前<br>，减库存在后。因为记录购买行为只是插入，而减库存需要行级锁，这样能减少行级锁持有时间</p>
+<pre><code class="java">//执行秒杀逻辑:减库存 + 记录购买行为，对里面抛出的异常进行try/catch并记录到日志，汇总后向外只抛一个总异常就好
+Date date = new Date();
+try{
+    //优化高并发：记录购买行为在前
+    int insertCount = successKilledDao.insertSuccessKilled(seckillId, userPhone);
+    if(insertCount&lt;=0){//重复秒杀
+        throw new RepeatKillException(&quot;Repeat seckill&quot;);
+    }else{
+        //优化高并发：减库存在后，热点商品竞争。因为减库存需要行级锁，这样能减少行级锁持有时间
+        int updateCount = seckillDao.reduceNumber(seckillId, date);
+        if(updateCount&lt;=0){//减库存失败，秒杀结束
+            throw new SeckillCloseException(&quot;seckill is closed&quot;);
+        }else{
+            //秒杀成功
+            SuccessKilled successKilled = successKilledDao.queryByIdWithSeckill(seckillId,userPhone);
+            return new SeckillExecution(seckillId, SeckillStateEnum.SUCCESS, successKilled);
+        }
+    }
+}catch(SeckillCloseException e1){
+    throw e1;
+}catch (RepeatKillException e2){
+    throw e2;
+}catch (Exception e){
+    logger.error(e.getMessage(), e);
+    //所有编译期异常转化为运行期异常，这样spring声明式事务会帮我们做roll back
+    throw new SeckillException(&quot;seckill inner error: &quot; + e.getMessage());
+}
+</code></pre>
+<p>3.事务sql放在Mysql端执行(定义<strong>存储过程</strong>)。上面第2步的update减库存事务操作需要用户在客户端执行秒杀操作，现在将这个事务放在Mysql端执行(定义存储过程)，这样可以完全避免网络延迟和gc(垃圾回收)时间。</p>
+<p><a href="https://www.cnblogs.com/mark-chan/p/5384139.html" target="_blank" rel="noopener">MySQL存储过程</a></p>
+<p>SQL语句需要先编译然后执行，而存储过程（Stored Procedure）是一组为了完成特定功能的SQL语句集，经编译后存储在数据库中，用户通过指定存储过程的名字并给定参数（如果该存储过程带有参数）来调用执行它。</p>
+<p>利用存储过程将执行秒杀的一条事务逻辑放到mysql服务端去执行，减少了客户端和服务端之间的延迟和gc时间，客户端只需要传入参数执行存储过程并根据得到的返回结果做相应的逻辑处理。存储过程比较适合于简单的逻辑。</p>
+<p>存储过程的优点：增强SQL语言的功能和灵活性、标准组件式编程、较快的执行速度、减少网络流量、作为一种安全机制来充分利用。</p>
+<p>但存储过程 (只在银行被大量的时候,互联网公司用的很少,但是在秒杀中用)</p>
+<ul>
+<li>1.存储过程优化: 事务行级锁持有的时间（Mysql服务器执行sql十分快）</li>
+<li>2.不要过渡依赖存储过程。</li>
+<li>3.简单的逻辑可以应用存储过程</li>
+<li>4.测试发现QPS:一个秒杀单6000/qps（不同秒杀单，不同行，不存在问题）</li>
+</ul>
+<p>下面就是sql包下的seckill.sql：(定义存储过程:insert+update)</p>
+<pre><code class="sql">-- 执行秒杀的存储过程(插入购买明细+减库存)
+DELIMITER $$ -- 结束符 ; -&gt;
+$$
+
+-- 定义存储过程
+-- 参数:in输入参数;out输出参数
+-- row_count():返回上一条修改类型sql(delete\insert\update)的影响行数
+-- row_count: 0未修改数据; &gt;0影响修改的行数; &lt;0sql错误/未执行修改sql
+CREATE PROCEDURE `seckill`.`execute_seckill`
+  (IN v_seckill_id BIGINT, IN v_phone BIGINT,
+   IN v_kill_time  TIMESTAMP, OUT r_result INT)
+  BEGIN
+    DECLARE insert_count INT DEFAULT 0;
+    START TRANSACTION;
+    INSERT IGNORE INTO success_killed
+    (seckill_id, user_phone, create_time)
+    VALUES (v_seckill_id, v_phone, v_kill_time);
+    SELECT row_count()
+    INTO insert_count;
+    IF (insert_count = 0)
+    THEN
+      ROLLBACK;
+      SET r_result = -1;
+    ELSEIF (insert_count &lt; 0)
+      THEN
+        ROLLBACK;
+        SET r_result = -2;
+    ELSE
+      UPDATE seckill
+      SET number = number - 1
+      WHERE seckill_id = v_seckill_id
+            AND end_time &gt; v_kill_time
+            AND start_time &lt; v_kill_time
+            AND number &gt; 0;
+      SELECT row_count()
+      INTO insert_count;
+      IF (insert_count = 0)
+      THEN
+        ROLLBACK;
+        SET r_result = 0;
+      ELSEIF (insert_count &lt; 0)
+        THEN
+          ROLLBACK;
+          SET r_result = -2;
+      ELSE
+        COMMIT;
+        SET r_result = 1;
+      END IF;
+    END IF;
+  END;
+$$
+-- 定义存储过程结束
+
+DELIMITER ;
+
+set @r_result = -3;
+-- 执行存储过程
+CALL execute_seckill(1003,15652965942,now(),@r_result);
+
+-- 获取结果
+</code></pre>
+<p>至此，基于SSM框架的dao、service、web、并发优化四章的秒杀系统完结，收获颇多，再次热烈祝贺自己。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>ssm框架学习笔记</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">16.4k</span></p>
+    <p><span class="copy-title">本文作者:</span>Brain Cao</p>
+    <p><span class="copy-title">发布时间:</span>2018-03-21, 16:49:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-09, 19:47:21</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/03/21/java-ssm-learning/" title="ssm框架学习笔记">https://braincao.cn/2018/03/21/java-ssm-learning/</a>
+    <p>
+        <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2020 Braincao</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢请收藏,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#前端','#hexo','#gitee','#博客','#算法刷题','#DFS','#投资理财','#动态规划','#hosts','#github','#java','#git','#计网','#spring','#leetcode','#linux','#职业管理','#多线程','#数据库','#面经','#python','#排序算法','#技术之外',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>用maven配置ssm框架 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" spring ">
+  <meta name="description" content="用maven配置ssm框架 | Braincao&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://braincao.cn/about/index.html">
+<meta property="og:site_name" content="Braincao&#39;s blog">
+<meta property="og:description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+<meta property="article:published_time" content="2020-02-15T18:03:30.000Z">
+<meta property="article:modified_time" content="2020-03-06T15:55:50.345Z">
+<meta property="article:author" content="Brain Cao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.braincao.cn/blogimg/1583405239.jpg">
+
+
+<link rel="icon" href="/img/avatar.gif">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.gif" />
+</a>
+<div class="author">
+    <span>Brain Cao</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/braincao" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/pop_rain" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:491316377@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=491316377&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(49)</small></div></li>
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="综合技术">综合技术<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法刷题">算法刷题<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="技术之外"><i class="fold iconfont icon-right"></i>技术之外<small>(5)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="投资理财">投资理财<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="java">java<small>(16)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="计网">计网<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="spring">spring<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="linux">linux<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="多线程">多线程<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据库">数据库<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="python">python<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="49">
+<input type="hidden" id="yelog_site_word_count" value="164.3k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            
+            <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            
+            <li><a target="_blank" href="https://www.csdn.net/">csdn</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">前端</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">算法刷题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">投资理财</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">动态规划</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">hosts</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">计网</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">职业管理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">面经</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">排序算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">技术之外</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2020/02/21/blog-index/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
+            <span class="post-date" title="2020-02-21 01:37:19">2020/02/21</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/03/05/fund-bank-screw/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="《指数基金投资指南》学习笔记">《指数基金投资指南》学习笔记</span>
+            <span class="post-date" title="2020-03-05 18:52:28">2020/03/05</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/29/oss-img-bed/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="使用阿里云oss做博客图床">使用阿里云oss做博客图床</span>
+            <span class="post-date" title="2020-02-29 12:22:43">2020/02/29</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/28/thinking-cognition/"
+           data-tag="技术之外"
+           data-author="" >
+            <span class="post-title" title="思考认知">思考认知</span>
+            <span class="post-date" title="2020-02-28 13:24:54">2020/02/28</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2020/02/27/normal-algorithms-summary/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="常用算法心得总结">常用算法心得总结</span>
+            <span class="post-date" title="2020-02-27 18:13:44">2020/02/27</span>
+        </a>
+        
+        <a  class="技术之外 "
+           href="/2020/02/23/master-seek-job/"
+           data-tag="职业管理"
+           data-author="" >
+            <span class="post-title" title="研二找工作过程总结">研二找工作过程总结</span>
+            <span class="post-date" title="2020-02-23 12:54:10">2020/02/23</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/20/github-hosts/"
+           data-tag="hosts,github"
+           data-author="" >
+            <span class="post-title" title="加速github访问速度">加速github访问速度</span>
+            <span class="post-date" title="2020-02-20 23:24:11">2020/02/20</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2020/01/20/fund-investment/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="基金定投">基金定投</span>
+            <span class="post-date" title="2020-01-20 10:30:31">2020/01/20</span>
+        </a>
+        
+        <a  class="多线程 "
+           href="/2019/10/01/multithread-programming-demo/"
+           data-tag="多线程"
+           data-author="" >
+            <span class="post-title" title="多线程编程例子">多线程编程例子</span>
+            <span class="post-date" title="2019-10-01 19:00:08">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2019/10/01/postgraduate-interview-questions/"
+           data-tag="算法刷题,面经"
+           data-author="" >
+            <span class="post-title" title="研二面试题目">研二面试题目</span>
+            <span class="post-date" title="2019-10-01 12:03:55">2019/10/01</span>
+        </a>
+        
+        <a  class="技术之外 投资理财 "
+           href="/2019/05/08/financial-tips/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="金融小知识">金融小知识</span>
+            <span class="post-date" title="2019-05-08 09:43:21">2019/05/08</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/01/16/java-concurrency/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java并发">java并发</span>
+            <span class="post-date" title="2019-01-16 22:08:05">2019/01/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-collection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java集合">java集合</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-constant-pool/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="方法区与常量池">方法区与常量池</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-copy/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java深浅拷贝">java深浅拷贝</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-final/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="final关键字">final关键字</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-io/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java IO">java IO</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-lamada/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="lamada表达式">lamada表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-enum/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java枚举">java枚举</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-multi-thread/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java多线程">java多线程</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-jmm/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java内存模型JMM">java内存模型JMM</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-priority-queue/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java优先队列">java优先队列</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-reflection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java反射">java反射</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-regular/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java正则">java正则</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-parameter/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java参数...">java参数...</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-throwable/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="Java异常和处理详解">Java异常和处理详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/12/16/spring-filter/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring拦截器与过滤器的区别">spring拦截器与过滤器的区别</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/12/16/sql-btree/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="B树系列详解">B树系列详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-md5-string/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="md5加密字符串">md5加密字符串</span>
+            <span class="post-date" title="2018-12-16 13:45:57">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leftgod-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="左神刷题">左神刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/sword-offer-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-orders/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux命令">linux命令</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-virtual/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="ubuntu虚拟机共享文件夹">ubuntu虚拟机共享文件夹</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/19/python-mysql-connect/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="Python3连接MySQL">Python3连接MySQL</span>
+            <span class="post-date" title="2018-07-19 19:13:39">2018/07/19</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/http-request/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="http请求过程、方式">http请求过程、方式</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/18/python-shell/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python中shell调用">python中shell调用</span>
+            <span class="post-date" title="2018-07-18 22:28:30">2018/07/18</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/04/08/dfs-template/"
+           data-tag="算法刷题,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS模板">DFS模板</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-key-index/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="数据库的主键外键索引">数据库的主键外键索引</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-transaction/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="MySQL事务">MySQL事务</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/sql-grammar/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="sql语法">sql语法</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2018/03/21/ajax/"
+           data-tag="前端"
+           data-author="" >
+            <span class="post-title" title="ajax学习笔记">ajax学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-error-summary/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架的问题汇总">ssm框架的问题汇总</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-maven-build/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="用maven配置ssm框架">用maven配置ssm框架</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-learning/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架学习笔记">ssm框架学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/03/21/dynamic-programming/"
+           data-tag="算法刷题,动态规划"
+           data-author="" >
+            <span class="post-title" title="动态规划">动态规划</span>
+            <span class="post-date" title="2018-03-21 08:54:35">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/build-hexo/"
+           data-tag="hexo,gitee,博客"
+           data-author="" >
+            <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/git-orders/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git命令">git命令</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-java-ssm-maven-build" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">用maven配置ssm框架</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="spring">spring</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color2">spring</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date">2018-03-21 16:49</time>
+        
+        
+        更新时间:<time class="updated">2020-03-09 19:47</time>
+        
+
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1.8k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-创建好maven后首先需要改web-xml的表头"><span class="toc-text">0.创建好maven后首先需要改web.xml的表头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0-5-maven目录结构"><span class="toc-text">0.5 maven目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-pom-xml"><span class="toc-text">1.pom.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-mybatis-config-xml"><span class="toc-text">2.mybatis-config.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-配置完mybatis-config后写mapper-xml"><span class="toc-text">3.配置完mybatis-config后写mapper.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-spring-dao-xml"><span class="toc-text">4.spring-dao.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Service层接口与实现"><span class="toc-text">5.Service层接口与实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-spring-service-xml"><span class="toc-text">6.spring-service.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-logback-xml"><span class="toc-text">7.logback.xml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-单元测试"><span class="toc-text">8.单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-另一种手写的单元测试"><span class="toc-text">9.另一种手写的单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-Controller层"><span class="toc-text">11.Controller层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-jsp主页面-js"><span class="toc-text">12.jsp主页面 + .js</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>此文档总结了在maven中组建ssm框架的相关配置</p>
+<a id="more"></a>
+
+<h2 id="0-创建好maven后首先需要改web-xml的表头"><a href="#0-创建好maven后首先需要改web-xml的表头" class="headerlink" title="0.创建好maven后首先需要改web.xml的表头"></a>0.创建好maven后首先需要改web.xml的表头</h2><pre><code class="html">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
+         version=&quot;3.1&quot;
+         metadata-complete=&quot;true&quot;&gt;
+  &lt;!--注意这里要把maven新建项目时自动生成的web.xml头部替换成上面的头部，修改servlet版本，这里为3.1，这样就能自动支持spring EL--&gt;
+&lt;/web-app&gt;
+</code></pre>
+<h2 id="0-5-maven目录结构"><a href="#0-5-maven目录结构" class="headerlink" title="0.5 maven目录结构"></a>0.5 maven目录结构</h2><pre><code class="html">src
+  main
+    java
+    resources
+    sql
+    webapps
+
+  test</code></pre>
+<h2 id="1-pom-xml"><a href="#1-pom-xml" class="headerlink" title="1.pom.xml"></a>1.pom.xml</h2><pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;groupId&gt;com.braincao&lt;/groupId&gt;
+  &lt;artifactId&gt;seckill&lt;/artifactId&gt;
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+  &lt;packaging&gt;war&lt;/packaging&gt;
+
+  &lt;name&gt;seckill Maven Webapp&lt;/name&gt;
+  &lt;!-- FIXME change it to the project&#39;s website --&gt;
+  &lt;url&gt;http://www.example.com&lt;/url&gt;
+
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;1.7&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;1.7&lt;/maven.compiler.target&gt;
+
+    &lt;junit.version&gt;4.11&lt;/junit.version&gt;
+    &lt;slf4j-api.version&gt;1.7.12&lt;/slf4j-api.version&gt;
+    &lt;logback-core.version&gt;1.1.1&lt;/logback-core.version&gt;
+    &lt;mysql-connector-java.version&gt;5.1.35&lt;/mysql-connector-java.version&gt;
+    &lt;c3p0.version&gt;0.9.1.2&lt;/c3p0.version&gt;
+    &lt;mybatis.version&gt;3.3.0&lt;/mybatis.version&gt;
+    &lt;mybatis-spring.version&gt;1.2.3&lt;/mybatis-spring.version&gt;
+    &lt;standard.version&gt;1.1.2&lt;/standard.version&gt;
+    &lt;jstl.version&gt;1.2&lt;/jstl.version&gt;
+    &lt;jackson-databind.version&gt;2.5.4&lt;/jackson-databind.version&gt;
+    &lt;javax.servlet-api.version&gt;3.1.0&lt;/javax.servlet-api.version&gt;
+    &lt;spring-core.version&gt;4.1.7.RELEASE&lt;/spring-core.version&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+    &lt;!-- 单元测试：使用junit4，支持注解 --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;${junit.version}&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+
+    &lt;!-- 1.日志
+      java日志：slf4j,log4j,logback,common-logging
+      slf4j: 是规范/接口
+      日志实现：log4j,logback,common-logging
+      本案例使用：slf4j+logback --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+      &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+      &lt;version&gt;${slf4j-api.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+      &lt;artifactId&gt;logback-core&lt;/artifactId&gt;
+      &lt;version&gt;${logback-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--实现slf4j接口并整合--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;
+      &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;
+      &lt;version&gt;${logback-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--2.数据库相关依赖--&gt;
+    &lt;!--mysql driver--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;mysql&lt;/groupId&gt;
+      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+      &lt;version&gt;${mysql-connector-java.version}&lt;/version&gt;
+      &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--c3p0连接池--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;c3p0&lt;/groupId&gt;
+      &lt;artifactId&gt;c3p0&lt;/artifactId&gt;
+      &lt;version&gt;${c3p0.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--DAO框架:mybatis依赖--&gt;
+    &lt;!--mybatis--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--mybatis自身实现的spring整合依赖--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+      &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+      &lt;version&gt;${mybatis-spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--3.Servlet web相关依赖--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;taglibs&lt;/groupId&gt;
+      &lt;artifactId&gt;standard&lt;/artifactId&gt;
+      &lt;version&gt;${standard.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;jstl&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+      &lt;version&gt;${jstl.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+      &lt;version&gt;${jackson-databind.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+      &lt;version&gt;${javax.servlet-api.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--4.Spring依赖--&gt;
+    &lt;!--1)Spring核心依赖--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--2)Spring dao层依赖--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--3)Spring web依赖: Spring Web+Spring MVC--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;!--4)Spring test依赖--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+      &lt;version&gt;${spring-core.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;build&gt;
+    &lt;finalName&gt;seckill&lt;/finalName&gt;
+    &lt;pluginManagement&gt;&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;
+      &lt;plugins&gt;
+        &lt;plugin&gt;
+          &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;
+          &lt;version&gt;3.0.0&lt;/version&gt;
+        &lt;/plugin&gt;
+        &lt;!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging --&gt;
+        &lt;plugin&gt;
+          &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;
+          &lt;version&gt;3.0.2&lt;/version&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+          &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+          &lt;version&gt;3.7.0&lt;/version&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+          &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.20.1&lt;/version&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+          &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+          &lt;version&gt;3.2.0&lt;/version&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+          &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.5.2&lt;/version&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+          &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;
+          &lt;version&gt;2.8.2&lt;/version&gt;
+        &lt;/plugin&gt;
+      &lt;/plugins&gt;
+    &lt;/pluginManagement&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<h2 id="2-mybatis-config-xml"><a href="#2-mybatis-config-xml" class="headerlink" title="2.mybatis-config.xml"></a>2.mybatis-config.xml</h2><p>表头可以在mybatis中文官网中找到</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE configuration
+        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+
+&lt;configuration&gt;
+    &lt;!--配置全局属性--&gt;
+    &lt;settings&gt;
+        &lt;!--默认为false，设为true后我们使用jdbc的getGeneratedKeys可以获取数据库的自增主键值--&gt;
+        &lt;setting name=&quot;useGeneratedKeys&quot; value=&quot;true&quot;/&gt;
+
+        &lt;!--默认为true，使用列别名替换列名
+            select name as title from table--&gt;
+        &lt;setting name=&quot;useColumnLabel&quot; value=&quot;true&quot;/&gt;
+
+        &lt;!--开启驼峰命名转换:table(create_time) -&gt; entity(createTime)--&gt;
+        &lt;setting name=&quot;mapUnderscoreCamelCase&quot; value=&quot;true&quot;/&gt;
+
+    &lt;/settings&gt;
+
+    &lt;!--其他的mybatis配置如连接数据库等都在mybatis与spring整合中一起配置--&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="3-配置完mybatis-config后写mapper-xml"><a href="#3-配置完mybatis-config后写mapper-xml" class="headerlink" title="3.配置完mybatis-config后写mapper.xml"></a>3.配置完mybatis-config后写mapper.xml</h2><p>这里放3个示例mapper.xml，同样表头可以在mybatis中文官网示例中找到.</p>
+<p>mapper.xml目的:为DAO接口方法提供sql语句配置</p>
+<p>mapper.xml中参数多个的时候可以不写，dao层用的时候可以通过@param(“xxx”)来自动识别</p>
+<p>mapper.xml中返回值如果是列表，写列表里面的类型即可</p>
+<p>mapper.xml中类型不用写包名，配置时配置就行</p>
+<![CDATA[<=]]><p>是XML转义用的</p>
+<p>示例1：</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.braincao.dao.SeckillDao&quot;&gt;
+    &lt;!--目的:为DAO接口方法提供sql语句配置--&gt;
+    &lt;!--参数多个的时候可以不写;返回值如果是列表，写列表里面的类型即可--&gt;
+    &lt;!--&lt;![CDATA[&lt;=]]&gt;是XML转义用的--&gt;
+
+    &lt;update id=&quot;reduceNumber&quot;&gt;
+        UPDATE
+          seckill
+        SET
+          number = number - 1
+        WHERE
+          seckill_id = #{seckillId}
+          and start_time &lt;![CDATA[&lt;=]]&gt; #{createTime}
+          and end_time &gt;= #{createTime}
+          and number &gt; 0
+    &lt;/update&gt;
+
+    &lt;select id=&quot;queryById&quot; parameterType=&quot;long&quot; resultType=&quot;Seckill&quot;&gt;
+        SELECT seckillId,name,number,start_time,end_time,create_time
+        FROM seckill
+        WHERE seckillId = #{seckillId}
+    &lt;/select&gt;
+
+    &lt;select id=&quot;queryAll&quot; resultType=&quot;Seckill&quot;&gt;
+        SELECT seckillId,name,number,start_time,end_time,create_time
+        FROM seckill
+        ORDER BY create_time DESC
+        limit #{offset}, #{limit}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p>示例2：</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper
+        PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+&lt;mapper namespace=&quot;com.braincao.dao.SeckillDao&quot;&gt;
+    &lt;!--目的:为DAO接口方法提供sql语句配置--&gt;
+    &lt;!--参数多个的时候可以不写，dao层用的时候可以通过@param(&quot;xxx&quot;)来自动识别;返回值如果是列表，写列表里面的类型即可;类型不用写包名，配置时配置就行--&gt;
+    &lt;!--&lt;![CDATA[&lt;=]]&gt;是XML转义用的--&gt;
+
+    &lt;insert id=&quot;insertSuccessKilled&quot;&gt;
+        &lt;!--INSERT ignore INTO:主键冲突时不报错，而是返回0--&gt;
+        INSERT ignore INTO success_killed(seckill_id, user_phone)
+        VALUES (#{seckillId}, #{userPhone})
+    &lt;/insert&gt;
+
+    &lt;!--根据seckillId查询SuccessKilled实体(也携带Seckill秒杀商品对象实体)--&gt;
+    &lt;!--mybatis把结果映射到SuccessKilled，同时映射属性seckill属性--&gt;
+    &lt;!--由此可以看出，mybatis可以很自由的控制sql--&gt;
+    &lt;select id=&quot;queryByIdWithSeckill&quot; resultType=&quot;SuccessKilled&quot;&gt;
+        SELECT
+          sk.seckillId,
+          sk.user_phone,
+          sk.state,
+          sk.create_time,
+          s.seckillId &quot;seckill.seckill_id&quot;,
+          s.name &quot;seckill.name&quot;,
+          s.number &quot;seckill.number&quot;,
+          s.start_time &quot;seckill.start_time&quot;,
+          s.end_time &quot;seckill.end_time&quot;,
+          s.create_time &quot;seckill.create_time&quot;
+        FROM success_killed sk INNER JOIN seckill s
+        ON sk.seckill_id = s.seckill_id
+        WHERE sk.seckillId = #{seckillId}
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p>示例3：</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;
+
+&lt;!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名加sql映射文件名，这样就能够保证namespace的值是唯一的--&gt;
+&lt;mapper namespace=&quot;com.braincao.dao.ICommandDao&quot;&gt;
+
+    &lt;!--确定映射关系，此命名空间下，id=CommandResult的resultMap所映射实体类是Command--&gt;
+    &lt;resultMap type=&quot;com.braincao.bean.Command&quot; id=&quot;CommandResult&quot;&gt;
+        &lt;!--左边数据库名，右边model实体名--&gt;
+        &lt;id column=&quot;A_ID&quot; jdbcType=&quot;INTEGER&quot; property=&quot;id&quot;/&gt;
+        &lt;result column=&quot;COMMAND&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;command&quot;/&gt;
+        &lt;result column=&quot;DESCRIPTION&quot; jdbcType=&quot;VARCHAR&quot; property=&quot;description&quot;/&gt;
+        &lt;!--一对多的映射关系：主表包含字表的集合； 如果是多对一的话同样的，只是collection换成了association--&gt;
+        &lt;collection resultMap=&quot;CommandContentMapper.CommandContentResult&quot; property=&quot;commandContentList&quot;/&gt;
+    &lt;/resultMap&gt;
+
+    &lt;!--分页功能:后台list.jsp根据查询条件查询消息列表:parameterType表示传入的参数类型--&gt;
+    &lt;select id=&quot;queryListCommand&quot; parameterType=&quot;java.util.Map&quot; resultMap=&quot;CommandResult&quot;&gt;
+        SELECT A.ID A_ID,A.COMMAND,A.DESCRIPTION,B.CONTENT FROM COMMAND A LEFT JOIN COMMAND_CONTENT B
+        ON A.ID=B.COMMAND_ID
+        &lt;where&gt;
+            &lt;if test=&quot;command.command!=null and !&amp;quot;&amp;quot;.equals(command.command.trim())&quot;&gt;AND A.COMMAND = #{command.command}&lt;/if&gt;
+            &lt;if test=&quot;command.description!=null and !&amp;quot;&amp;quot;.equals(command.description.trim())&quot;&gt;AND A.DESCRIPTION LIKE &#39;%&#39; #{command.description} &#39;%&#39;&lt;/if&gt;
+        &lt;/where&gt;
+        ORDER BY A.ID LIMIT #{page.dbIndex}, #{page.dbNumber}
+    &lt;/select&gt;
+
+    &lt;!--拦截器实现分页功能:后台list.jsp根据查询条件查询消息列表:parameterType表示传入的参数类型--&gt;
+    &lt;!--看源码后发现parameterType会自动先统一转成小写，并且map、list等直接写也行不用写包名，所以下面的MAp实验是成功的--&gt;
+    &lt;select id=&quot;queryListCommandByPage&quot; parameterType=&quot;MAp&quot; resultMap=&quot;CommandResult&quot;&gt;
+        SELECT A.ID A_ID,A.COMMAND,A.DESCRIPTION,B.CONTENT FROM COMMAND A LEFT JOIN COMMAND_CONTENT B
+        ON A.ID=B.COMMAND_ID
+        &lt;where&gt;
+            &lt;if test=&quot;command.command!=null and !&amp;quot;&amp;quot;.equals(command.command.trim())&quot;&gt;AND A.COMMAND = #{command.command}&lt;/if&gt;
+            &lt;if test=&quot;command.description!=null and !&amp;quot;&amp;quot;.equals(command.description.trim())&quot;&gt;AND A.DESCRIPTION LIKE &#39;%&#39; #{command.description} &#39;%&#39;&lt;/if&gt;
+        &lt;/where&gt;
+        ORDER BY A.ID
+    &lt;/select&gt;
+
+    &lt;!--前台initTalk.jsp根据查询条件查询消息列表:parameterType表示传入的参数类型--&gt;
+    &lt;select id=&quot;queryListContent&quot; parameterType=&quot;com.braincao.bean.Command&quot; resultMap=&quot;CommandResult&quot;&gt;
+        SELECT A.ID A_ID,A.COMMAND,A.DESCRIPTION,B.CONTENT FROM COMMAND A LEFT JOIN COMMAND_CONTENT B
+        ON A.ID=B.COMMAND_ID
+        &lt;where&gt;
+            &lt;if test=&quot;command!=null and !&amp;quot;&amp;quot;.equals(command.trim())&quot;&gt;AND A.COMMAND = #{command}&lt;/if&gt;
+            &lt;if test=&quot;description!=null and !&amp;quot;&amp;quot;.equals(description.trim())&quot;&gt;AND A.DESCRIPTION LIKE &#39;%&#39; #{description} &#39;%&#39;&lt;/if&gt;
+        &lt;/where&gt;
+    &lt;/select&gt;
+
+    &lt;!--根据条件查询消息列表的总条数--&gt;
+    &lt;select id=&quot;count&quot; parameterType=&quot;com.braincao.bean.Command&quot; resultType=&quot;int&quot;&gt;
+        SELECT COUNT(*) FROM COMMAND
+        &lt;where&gt;
+            &lt;if test=&quot;command!=null and !&amp;quot;&amp;quot;.equals(command.trim())&quot;&gt;AND COMMAND = #{command}&lt;/if&gt;
+            &lt;if test=&quot;description!=null and !&amp;quot;&amp;quot;.equals(description.trim())&quot;&gt;AND DESCRIPTION LIKE &#39;%&#39; #{description} &#39;%&#39;&lt;/if&gt;
+        &lt;/where&gt;
+    &lt;/select&gt;
+
+    &lt;!--新增一条指令--&gt;
+    &lt;insert id=&quot;addCommand&quot; parameterType=&quot;com.braincao.bean.Command&quot;&gt;
+        INSERT INTO COMMAND (COMMAND,DESCRIPTION) VALUES(#{command},#{description})
+    &lt;/insert&gt;
+
+    &lt;!--修改指令及描述--&gt;
+    &lt;update id=&quot;updateCommand&quot; parameterType=&quot;com.braincao.bean.Command&quot;&gt;
+        UPDATE COMMAND SET COMMAND=#{command},DESCRIPTION=#{description} WHERE ID=#{id}
+    &lt;/update&gt;
+
+    &lt;!--根据id删除指定的一条指令--&gt;
+    &lt;delete id=&quot;deleteOne&quot; parameterType=&quot;int&quot;&gt;
+        DELETE FROM COMMAND WHERE ID = #{_parameter}
+    &lt;/delete&gt;
+
+    &lt;!--根据id批量删除消息--&gt;
+    &lt;delete id=&quot;deleteBatch&quot; parameterType=&quot;java.util.List&quot;&gt;
+        DELETE FROM COMMAND WHERE ID in
+        (
+        &lt;foreach collection=&quot;list&quot; item=&quot;item&quot; separator=&quot;,&quot;&gt;
+            #{item}
+        &lt;/foreach&gt;
+        )
+    &lt;/delete&gt;
+&lt;/mapper&gt;
+</code></pre>
+<h2 id="4-spring-dao-xml"><a href="#4-spring-dao-xml" class="headerlink" title="4.spring-dao.xml"></a>4.spring-dao.xml</h2><p>放在resources目录下，配置整合spring-mybatis：</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+    &lt;!--配置整合spring-mybatis过程,classpath就是java与resources下面的--&gt;
+
+    &lt;!--1. 配置数据库相关参数 引入外部jdbc.properties属性文件，properties属性:${url}--&gt;
+    &lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;
+
+    &lt;!--2. 数据库连接池，这里为c3p0--&gt;
+    &lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;
+        &lt;!--配置连接池属性--&gt;
+        &lt;property name=&quot;driverClass&quot; value=&quot;${jdbc.driver}&quot;/&gt;
+        &lt;property name=&quot;jdbcUrl&quot; value=&quot;${jdbc.url}&quot;/&gt;
+        &lt;property name=&quot;user&quot; value=&quot;${jdbc.username}&quot;/&gt;
+        &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;/&gt;
+
+        &lt;!--c3p0连接池私有属性，一般不配置，由于本案例高并发因此个性化配置--&gt;
+        &lt;property name=&quot;maxPoolSize&quot; value=&quot;30&quot;/&gt;
+        &lt;property name=&quot;minPoolSize&quot; value=&quot;10&quot;/&gt;
+
+        &lt;!--关闭连接后不自动commit，默认为false--&gt;
+        &lt;property name=&quot;autoCommitOnClose&quot; value=&quot;false&quot;/&gt;
+
+        &lt;!--获取连接超时时间--&gt;
+        &lt;property name=&quot;checkoutTimeout&quot; value=&quot;1000&quot;/&gt;
+
+        &lt;!--当获取连接失败重试次数--&gt;
+        &lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;2&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--3. 配置sqlSessionFactory对象--&gt;
+    &lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;
+        &lt;!--注入数据库连接池--&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+
+        &lt;!--配置mybatis全局配置文件:mybatis-config.xml--&gt;
+        &lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis-config.xml&quot;/&gt;
+
+        &lt;!--扫描entity包，方便在mapper.xml中直接使用类名--&gt;
+        &lt;property name=&quot;typeAliasesPackage&quot; value=&quot;com.braincao.entity&quot;/&gt;
+
+        &lt;!--扫描sql配置文件:mapper需要的xml文件，这样不用在mybatis-config.xml中一个一个添加mapper.xml--&gt;
+        &lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:mapper/*.xml&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--4. 配置扫描DAO接口包，动态实现DAO接口，注入到spring容器中--&gt;
+    &lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;
+        &lt;!--注入sqlSessionFactory--&gt;
+        &lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot;/&gt;
+
+        &lt;!--给出需要扫描的DAO接口包--&gt;
+        &lt;property name=&quot;basePackage&quot; value=&quot;com.braincao.dao&quot;/&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+<h2 id="5-Service层接口与实现"><a href="#5-Service层接口与实现" class="headerlink" title="5.Service层接口与实现"></a>5.Service层接口与实现</h2><p>service层接口：</p>
+<pre><code class="html">package com.braincao.service;
+
+import com.braincao.dto.Exposer;
+import com.braincao.dto.SeckillExecution;
+import com.braincao.entity.Seckill;
+import com.braincao.exception.RepeatKillException;
+import com.braincao.exception.SeckillCloseException;
+import com.braincao.exception.SeckillException;
+
+import java.util.List;
+
+/**
+ * 业务接口：Service层接口应站在使用者角度设计接口
+ *
+ */
+public interface SeckillService {
+
+    /**
+     * 查询所有秒杀商品
+     * @param void
+     * @return List&lt;Seckill&gt;
+     */
+    List&lt;Seckill&gt; getSeckillList();
+
+    /**
+     * 根据id查询一个秒杀商品
+     * @param seckillId
+     * @return Seckill
+     */
+    Seckill getById(long seckillId);
+
+    /**
+     * 用户根据id查询该秒杀商品的秒杀接口地址时:
+     * 秒杀开启时输出秒杀接口地址，未开启时输出系统时间+秒杀开启时间
+     * @param seckillId
+     * @return  秒杀接口地址。用dto传输层的实体来封装秒杀接口地址,dto方便web层拿到秒杀暴露接口相关数据
+     */
+    Exposer exportSeckillUrl(long seckillId);
+
+    /**
+     * 执行秒杀操作
+     * @param seckillId,userPhone,md5
+     *        md5用来验证是否是同一用户操作，如果md5变了，说明用户被篡改
+     * @return dto传输层的实体来封装秒杀操作的返回实体，包含成功、失败
+     * 当秒杀失败时输出自定义运行期异常RepeatKillException
+     */
+    SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
+        throws SeckillException, SeckillCloseException, RepeatKillException;
+
+}
+
+service层实现：
+
+package com.braincao.service.impl;
+
+import com.braincao.dao.SeckillDao;
+import com.braincao.dao.SuccessKilledDao;
+import com.braincao.dto.Exposer;
+import com.braincao.dto.SeckillExecution;
+import com.braincao.entity.Seckill;
+import com.braincao.entity.SuccessKilled;
+import com.braincao.enums.SeckillStateEnum;
+import com.braincao.exception.RepeatKillException;
+import com.braincao.exception.SeckillCloseException;
+import com.braincao.exception.SeckillException;
+import com.braincao.service.SeckillService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * @FileName: SeckillServiceImpl
+ * @Author: braincao
+ * @Date: 2018/11/27 15:40
+ * @Description: Service层接口的实现
+ * md5:对任意长度字符串返回一个特定长度的加密编码，不可逆
+ * 所有编译期异常转化为运行期异常，这样spring声明式事务会帮我们做roll back
+ */
+//@Component / @Service / @Dao / @Controller
+@Service
+public class SeckillServiceImpl implements SeckillService {
+
+    //slf4j规范接口的日志
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    //spring注入Service依赖：spring注入的DAO层对象 @Autowired / @Resource / @Inject
+    @Autowired
+    private SeckillDao seckillDao;
+
+    //spring注入的DAO层对象
+    @Autowired
+    private SuccessKilledDao successKilledDao;
+
+    //盐值字符串，用于混淆md5。越复杂越好，用户猜不到
+    private final String slat = &quot;asdc#$!EFSD$#%$GWVDSQ#!$#%$#T~~@#$^GV&quot;;
+
+    //对seckillId生成md5的过程
+    private String getMD5(long seckillId){
+        String base = seckillId + &quot;/&quot; + slat;
+        String md5 = DigestUtils.md5DigestAsHex(base.getBytes());//用base二进制生成md5
+        return md5;
+    }
+
+    //查询所有秒杀商品
+    @Override
+    public List&lt;Seckill&gt; getSeckillList() {
+        return seckillDao.queryAll(0,4);
+    }
+
+    //根据id查询一个秒杀商品
+    @Override
+    public Seckill getById(long seckillId) {
+        return seckillDao.queryById(seckillId);
+    }
+
+    //用户根据id查询该秒杀商品的秒杀接口地址时:
+    //秒杀开启时输出秒杀接口地址，未开启时输出系统时间+秒杀开启时间
+    @Override
+    public Exposer exportSeckillUrl(long seckillId) {
+        Seckill seckill = seckillDao.queryById(seckillId);//拿到目标的秒杀商品
+        //1.如果目标商品为null
+        if(seckill==null){
+            return new Exposer(false, seckillId);
+        }
+        Date startTime = seckill.getStartTime();
+        Date endTime = seckill.getEndTime();
+        Date date = new Date(); //系统的当前时间
+
+        //2.如果秒杀未开始或已经结束
+        if(date.getTime()&lt;startTime.getTime() || date.getTime()&gt;endTime.getTime()){
+            return new Exposer(false,seckillId,date.getTime(),startTime.getTime(),endTime.getTime());
+        }
+        //3.如果秒杀开始，暴露接口地址
+        String md5 = getMD5(seckillId);
+        return new Exposer(true, md5, seckillId);
+    }
+
+    //执行秒杀操作，使用注解来声明式事务
+    @Override
+    @Transactional
+    public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, SeckillCloseException, RepeatKillException {
+        //md5验证，如果不对则抛出异常，秒杀失败，防止用户私自篡改
+        if(md5==null || !md5.equals(getMD5(seckillId))){
+            throw new SeckillException(&quot;seckill data rewrite&quot;);
+        }
+
+        //执行秒杀逻辑:减库存 + 记录购买行为，对里面抛出的异常进行try/catch并记录到日志，汇总后向外只抛一个总异常就好
+        Date date = new Date();
+        try{
+            //减库存
+            int updateCount = seckillDao.reduceNumber(seckillId, date);
+            if(updateCount&lt;=0){//减库存失败，秒杀结束
+                throw new SeckillCloseException(&quot;seckill is closed&quot;);
+            }else{
+                //减库存成功，记录购买行为
+                int insertCount = successKilledDao.insertSuccessKilled(seckillId, userPhone);
+                if(insertCount&lt;=0){//重复秒杀
+                    throw new RepeatKillException(&quot;Repeat seckill&quot;);
+                }else{
+                    //秒杀成功
+                    SuccessKilled successKilled = successKilledDao.queryByIdWithSeckill(seckillId,userPhone);
+                    return new SeckillExecution(seckillId, SeckillStateEnum.SUCCESS, successKilled);
+                }
+            }
+        }catch(SeckillCloseException e1){
+            throw e1;
+        }catch (RepeatKillException e2){
+            throw e2;
+        }catch (Exception e){
+            logger.error(e.getMessage(), e);
+            //所有编译期异常转化为运行期异常，这样spring声明式事务会帮我们做roll back
+            throw new SeckillException(&quot;seckill inner error: &quot; + e.getMessage());
+        }
+    }
+}
+</code></pre>
+<h2 id="6-spring-service-xml"><a href="#6-spring-service-xml" class="headerlink" title="6.spring-service.xml"></a>6.spring-service.xml</h2><pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/mvc/spring-tx.xsd&quot;&gt;
+
+    &lt;!--扫描service包下所有使用注解的类型 @Component @Service @Dao @Controller @自定义--&gt;
+    &lt;context:component-scan base-package=&quot;com.braincao.service&quot;/&gt;
+
+    &lt;!--配置事务管理器--&gt;
+    &lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;
+        &lt;!--注入数据库连接池--&gt;
+        &lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--配置基于注解的声明式事务
+        设置为默认使用注解来管理事务行为--&gt;
+    &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot;/&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<h2 id="7-logback-xml"><a href="#7-logback-xml" class="headerlink" title="7.logback.xml"></a>7.logback.xml</h2><p>resources下的logback.xml，是实现slf4j接口规范的日志管理。配置示例可以从logback官网上找到。</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;configuration debug=&quot;true&quot;&gt;
+
+    &lt;!--打印格式：默认往ConsoleAppender控制台打印，打印格式如下配置--&gt;
+    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;!-- encoders are  by default assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder --&gt;
+        &lt;encoder&gt;
+            &lt;pattern&gt;%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+
+    &lt;!--打印级别，默认为debug--&gt;
+    &lt;root level=&quot;debug&quot;&gt;
+        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;
+    &lt;/root&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="8-单元测试"><a href="#8-单元测试" class="headerlink" title="8.单元测试"></a>8.单元测试</h2><p>DAO层–SeckillDaoTest.java:</p>
+<pre><code class="html">package com.braincao.dao;
+import com.braincao.entity.Seckill;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.List;
+import static org.junit.Assert.*;
+
+
+//配置spring和junit整合(@RunWith)，这样junit启动时会加载springIOC容器，拿到相应的bean
+@RunWith(SpringJUnit4ClassRunner.class)
+//告诉junit spring的配置文件(这里测试dao，是spring-dao.xml)
+@ContextConfiguration({&quot;classpath:spring/spring-dao.xml&quot;})
+public class SeckillDaoTest {
+
+    //用resource注解来注入seckillDao依赖
+    @Resource
+    private SeckillDao seckillDao;
+
+    @Test
+    public void queryById() {
+        long id = 1000;
+        Seckill seckill = seckillDao.queryById(id);
+        System.out.println(seckill.getName());
+        System.out.println(seckill);
+    }
+
+    @Test
+    public void queryAll() {
+        List&lt;Seckill&gt; seckills = seckillDao.queryAll(0,100);
+        //这里注意：java没有保存形参的记录，多个参数时会将offset-&gt;arg0，
+        // 因此在dao层接口中参数前需要加@Param(&quot;offset&quot;)，否则会报错
+        for(Seckill seckill: seckills){
+            System.out.println(seckill);
+        }
+    }
+
+    @Test
+    public void reduceNumber() {
+        Date createTime = new Date();
+        int updateCount = seckillDao.reduceNumber(1000L,createTime);
+        System.out.println(updateCount);
+    }
+
+service层(带logger输出控制台)---SeckillServiceTest.java:
+
+package com.braincao.service;
+
+import com.braincao.dto.Exposer;
+import com.braincao.dto.SeckillExecution;
+import com.braincao.entity.Seckill;
+import com.braincao.exception.RepeatKillException;
+import com.braincao.exception.SeckillCloseException;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.List;
+
+//配置spring和junit整合(@RunWith)，这样junit启动时会加载springIOC容器，拿到相应的bean
+@RunWith(SpringJUnit4ClassRunner.class)
+//告诉junit spring的配置文件(这里测试dao，是spring-dao.xml)
+@ContextConfiguration({&quot;classpath:spring/spring-dao.xml&quot;,
+                        &quot;classpath:spring/spring-service.xml&quot;})
+public class SeckillServiceTest {
+
+    //日志，因为测试service方法时存在秒杀失败抛出异常，所以把这些输出放在日志中
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    //用@Autowired注解来注入seckillService依赖
+    @Autowired
+    private SeckillService seckillService;
+
+    //查询所有秒杀商品
+    @Test
+    public void getSeckillList() {
+        List&lt;Seckill&gt; seckillList = seckillService.getSeckillList();
+        logger.info(&quot;list={}&quot;, seckillList);//{}是占位符，把后面的object放到占位符中
+    }
+
+    //根据id查询一个秒杀商品
+    @Test
+    public void getById() {
+        long id = 1000;
+        Seckill seckill = seckillService.getById(id);
+        logger.info(&quot;seckill={}&quot;, seckill);
+    }
+
+
+    //集成测试代码完整逻辑，将接口地址暴露和执行秒杀操作两个一起集成测试，
+    // 这样md5值就中间可用，可重复执行测试
+    @Test
+    public void testSeckillLogic() throws Exception {
+        long id = 1000;
+        Exposer exposer = seckillService.exportSeckillUrl(id);
+        if(exposer.isExposed()){
+            logger.info(&quot;exposer={}&quot;, exposer);
+            long userPhone = 15652965935L;
+            String md5 = exposer.getMd5();
+            try{
+                SeckillExecution seckillExecution = seckillService.executeSeckill(id, userPhone, md5);
+                logger.info(&quot;seckillResult={}&quot;, seckillExecution);
+            }catch (RepeatKillException e){
+                logger.error(e.getMessage());
+            }catch (SeckillCloseException e){
+                logger.error(e.getMessage());
+            }
+        }
+        else{
+            //秒杀未开启
+            logger.warn(&quot;exposer={}&quot;, exposer);
+        }
+    }
+}
+</code></pre>
+<h2 id="9-另一种手写的单元测试"><a href="#9-另一种手写的单元测试" class="headerlink" title="9.另一种手写的单元测试"></a>9.另一种手写的单元测试</h2><p>UintTestBase:</p>
+<pre><code class="html">import org.junit.After;
+import org.junit.Before;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.util.StringUtils;
+
+public class UnitTestBase {
+
+    private ClassPathXmlApplicationContext context;
+    private String stringXmlPath;
+
+    public UnitTestBase() {
+    }
+
+    public UnitTestBase(String stringXmlPath) {
+        this.stringXmlPath = stringXmlPath;
+    }
+
+    @Before
+    public void before() {
+
+        if (StringUtils.isEmpty(this.stringXmlPath)) {
+            stringXmlPath = &quot;classPath*:spring-*.xml&quot;;
+        }
+        try {//context就是一个bean容器
+            context = new ClassPathXmlApplicationContext(stringXmlPath.split(&quot;[,\\s]+&quot;));
+            context.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @After
+    public void after() {
+        context.destroy();
+    }
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    protected &lt;T extends Object&gt; T getBean(String beanId) {
+        return (T) context.getBean(beanId);
+    }
+
+    protected &lt;T extends Object&gt; T getBean(Class&lt;T&gt; clazz) {
+        return (T) context.getBean(clazz);
+    }
+}
+
+AppTest：
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.BlockJUnit4ClassRunner;
+import sevice.AccountService;
+
+@RunWith(BlockJUnit4ClassRunner.class)
+public class AppTest extends UnitTestBase
+{
+
+    public AppTest(){
+        super(&quot;classpath:applicationContext.xml&quot;);
+    }
+
+    @Test
+    public void testJdbcDaoSupport(){
+        AccountService accountService = super.getBean(&quot;accountService&quot;);
+        accountService.transfer(&quot;aaa&quot;, &quot;bbb&quot;, 50);
+    }
+}
+</code></pre>
+<p>##10.Spring-MVC配置</p>
+<p>SpringMVC是基于DispatcherServlet的，DispatcherServlet是继承自HttpServlet的，HttpServlet是在web.xml文件中声明的。关于Spring-MVC我们需要配置两个东西。</p>
+<p>1.resources包下的spring-web.xml</p>
+<pre><code class="html">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;&gt;
+    &lt;!--配置整合springMVC过程,classpath就是java与resources下面的--&gt;
+
+    &lt;!--1.开启springMVC注解模式--&gt;
+    &lt;!--简化配置：
+        1)自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
+        2)提供一系列：数据绑定，数字和日期的format,@NumberFormat,@DataTimeFormat,
+        xml,json默认读写支持。
+    --&gt;
+    &lt;mvc:annotation-driven/&gt;
+
+    &lt;!--2.静态资源默认sevlet配置
+            1)加入对静态资源的处理：js,gif,png
+            2)允许使用&quot;/&quot;做整体映射
+    --&gt;
+    &lt;mvc:default-servlet-handler/&gt;
+
+    &lt;!-- 3.配置ViewResolver，这里配置jsp格式的。
+          对转向页面的路径解析，spring mvc的这个ViewResolver就是将相同的后端数据给前端不同的呈现(jsp格式数据\JSON格式数据等)。
+        可以用多个ViewResolver,使用order属性排序,InternalResourceViewResolver放在最后
+    --&gt;
+    &lt;!--json格式的，但这里先不用--&gt;
+    &lt;!--&lt;bean class=&quot;org.springframework.web.servlet.view.ContentNegotiatingViewResolver&quot;&gt;--&gt;
+        &lt;!--&lt;property name=&quot;order&quot; value=&quot;1&quot; /&gt;--&gt;
+        &lt;!--&lt;property name=&quot;mediaTypes&quot;&gt;--&gt;
+            &lt;!--&lt;map&gt;--&gt;
+                &lt;!--&lt;entry key=&quot;json&quot; value=&quot;application/json&quot; /&gt;--&gt;
+                &lt;!--&lt;entry key=&quot;xml&quot; value=&quot;application/xml&quot; /&gt;--&gt;
+                &lt;!--&lt;entry key=&quot;htm&quot; value=&quot;text/html&quot; /&gt;--&gt;
+            &lt;!--&lt;/map&gt;--&gt;
+        &lt;!--&lt;/property&gt;--&gt;
+
+        &lt;!--&lt;property name=&quot;defaultViews&quot;&gt;--&gt;
+            &lt;!--&lt;list&gt;--&gt;
+                &lt;!--&amp;lt;!&amp;ndash; JSON View &amp;ndash;&amp;gt;--&gt;
+                &lt;!--&lt;bean class=&quot;org.springframework.web.servlet.view.json.MappingJackson2JsonView&quot;&gt;&lt;/bean&gt;--&gt;
+            &lt;!--&lt;/list&gt;--&gt;
+        &lt;!--&lt;/property&gt;--&gt;
+        &lt;!--&lt;property name=&quot;ignoreAcceptHeader&quot; value=&quot;true&quot; /&gt;--&gt;
+    &lt;!--&lt;/bean&gt;--&gt;
+
+    &lt;!--jsp格式的，InternalResourceViewResolver放在最后--&gt;
+    &lt;bean id=&quot;viewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.JstlView&quot;/&gt;
+        &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsps/&quot;/&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+    &lt;/bean&gt;
+
+    &lt;!--4.扫描web相关的bean，就是自己开发的Controller--&gt;
+    &lt;context:component-scan base-package=&quot;com.braincao.web&quot;/&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<p>2.web.xml</p>
+<pre><code class="html">&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
+         version=&quot;3.1&quot;
+         metadata-complete=&quot;true&quot;&gt;
+  &lt;!--注意这里要把maven新建项目时自动生成的web.xml头部替换成上面的头部，修改servlet版本为3.1，这样就能自动支持spring EL--&gt;
+
+  &lt;!--修改--&gt;
+  &lt;display-name&gt;Spring MVC Demo Study&lt;/display-name&gt;
+
+  &lt;!--Spring MVC核心: 配置DispatcherServlet，不同的拦截需求可以有多个DispatcherServlet--&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;seckill-dispatcher&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;!-- 可以像如下自定义servlet.xml配置文件的位置和名称，默认为WEB-INF目录下，名称为[&lt;servlet-name&gt;]-servlet.xml，如spring-servlet.xml--&gt;
+    &lt;!--配置springMVC需要加载的配置文件
+        spring-dao.xml,spring-service.xml,spring-web.xml
+        mybatis-&gt;spring-&gt;springMVC
+    --&gt;
+    &lt;init-param&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;classpath:spring/spring-*.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+  &lt;/servlet&gt;
+
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;seckill-dispatcher&lt;/servlet-name&gt;
+    &lt;!--默认匹配所有请求，并映射到此dispatcher--&gt;
+    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+
+  &lt;!--&amp;lt;!&amp;ndash;Spring应用上下文，理解层次化的ApplicationContext&amp;ndash;&amp;gt;--&gt;
+  &lt;!--&lt;context-param&gt;--&gt;
+    &lt;!--&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;--&gt;
+    &lt;!--&lt;param-value&gt;/WEB-INF/configs/applicationContext.xml&lt;/param-value&gt;--&gt;
+  &lt;!--&lt;/context-param&gt;--&gt;
+
+  &lt;!--&amp;lt;!&amp;ndash;Spring监听&amp;ndash;&amp;gt;--&gt;
+  &lt;!--&lt;listener&gt;--&gt;
+    &lt;!--&lt;listener-class&gt;--&gt;
+      &lt;!--org.springframework.web.context.ContextLoaderListener--&gt;
+    &lt;!--&lt;/listener-class&gt;--&gt;
+  &lt;!--&lt;/listener&gt;--&gt;
+
+
+  &lt;!--&amp;lt;!&amp;ndash;springmvc过滤器，作为处理乱码等问题的拦截器&amp;ndash;&amp;gt;--&gt;
+  &lt;!--&lt;filter&gt;--&gt;
+    &lt;!--&lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;--&gt;
+    &lt;!--&lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;--&gt;
+    &lt;!--&lt;init-param&gt;--&gt;
+      &lt;!--&lt;param-name&gt;encoding&lt;/param-name&gt;--&gt;
+      &lt;!--&lt;param-value&gt;utf8&lt;/param-value&gt;--&gt;
+    &lt;!--&lt;/init-param&gt;--&gt;
+  &lt;!--&lt;/filter&gt;--&gt;
+
+  &lt;!--&lt;filter-mapping&gt;--&gt;
+    &lt;!--&lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;--&gt;
+    &lt;!--&amp;lt;!&amp;ndash;匹配所有请求&amp;ndash;&amp;gt;--&gt;
+    &lt;!--&lt;url-pattern&gt;*&lt;/url-pattern&gt;--&gt;
+  &lt;!--&lt;/filter-mapping&gt;--&gt;
+
+&lt;/web-app&gt;
+</code></pre>
+<h2 id="11-Controller层"><a href="#11-Controller层" class="headerlink" title="11.Controller层"></a>11.Controller层</h2><p>实现Restful接口的Controller层：接受请求与参数，跳转页面的控制，并且返回参数都是已经dto传输层封装好的类型</p>
+<p>SeckillController.java:</p>
+<pre><code class="html">package com.braincao.web;
+
+import com.braincao.dto.Exposer;
+import com.braincao.dto.SeckillExecution;
+import com.braincao.dto.SeckillResult;
+import com.braincao.entity.Seckill;
+import com.braincao.enums.SeckillStateEnum;
+import com.braincao.exception.RepeatKillException;
+import com.braincao.exception.SeckillCloseException;
+import com.braincao.service.SeckillService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * @FileName: SeckillController
+ * @Author: braincao
+ * @Date: 2018/11/28 20:16
+ * @Description: 实现Restful接口的Controller层：接受请求与参数，跳转页面的控制，并且返回参数都是已经dto传输层封装好的类型
+ */
+@Controller
+//url: 模块/资源/{id}/细分
+@RequestMapping(&quot;/seckill&quot;)
+public class SeckillController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    private SeckillService seckillService;
+
+    //获取所有秒杀商品列表页
+    @RequestMapping(value=&quot;/list&quot;, method = RequestMethod.GET)
+    public String list(Model model){
+        List&lt;Seckill&gt; seckillList = seckillService.getSeckillList();
+        model.addAttribute(&quot;list&quot;, seckillList);
+        //jsp页面 + model数据 = ModelAndView
+
+        //跳转到/WEB-INF/jsps/list.jsp
+        return &quot;list&quot;;
+    }
+
+    //获取单个秒杀商品的详情页
+    @RequestMapping(value=&quot;/{seckillId}/detail&quot;, method = RequestMethod.GET)
+    public String detail(@PathVariable(&quot;seckillId&quot;) Long seckillId, Model model){
+        if(seckillId==null){
+            return &quot;redirect:/seckill/list&quot;; //重定向
+        }
+        Seckill seckill = seckillService.getById(seckillId);
+        if(seckill==null){
+            return &quot;forward:/seckill/list&quot;;
+        }
+        model.addAttribute(&quot;seckill&quot;, seckill);
+        //jsp页面 + model数据 = ModelAndView
+
+        //跳转到/WEB-INF/jsps/detail.jsp
+        return &quot;detail&quot;;
+    }
+
+    //获取秒杀地址。接收ajaxPOST请求，返回json格式。produces解决乱码问题
+    @RequestMapping(value = &quot;/{seckillId}/exposer&quot;,
+            method = RequestMethod.POST,
+            produces = {&quot;application/json;charset=UTF-8&quot;})
+    @ResponseBody
+    public SeckillResult&lt;Exposer&gt; exposer(@PathVariable(&quot;seckillId&quot;)long seckillId){
+        SeckillResult&lt;Exposer&gt; result;
+        try{
+            Exposer exposer = seckillService.exportSeckillUrl(seckillId);
+            result = new SeckillResult&lt;&gt;(true, exposer);
+        }catch (Exception e){
+            logger.error(e.getMessage());
+            result = new SeckillResult&lt;&gt;(false,e.getMessage());
+        }
+
+        return result;
+    }
+
+    //执行秒杀的ajax请求，返回json。CookieValue是通过cookie获取手机号，如果不存在也不报错，交给程序try/catch
+    @RequestMapping(value = &quot;/{seckillId}/{md5}/execution&quot;,
+            method = RequestMethod.POST,
+            produces = {&quot;application/json;charset=UTF-8&quot;})
+    @ResponseBody
+    public SeckillResult&lt;SeckillExecution&gt; exposer(
+            @PathVariable(&quot;seckillId&quot;)Long seckillId,
+            @PathVariable(&quot;md5&quot;) String md5,
+            @CookieValue(value = &quot;killPhone&quot;, required = false)Long userPhone){
+
+        if(userPhone==null){
+            return new SeckillResult&lt;SeckillExecution&gt;(false,&quot;用户未注册&quot;);
+        }
+        try{
+            SeckillExecution seckillExecution = seckillService.executeSeckill(seckillId,userPhone,md5);
+            return new SeckillResult&lt;SeckillExecution&gt;(true,seckillExecution);
+        }catch (RepeatKillException e) {
+            SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.REPEAT_KILL);
+            return new SeckillResult&lt;SeckillExecution&gt;(true,seckillExecution);
+        }catch (SeckillCloseException e){
+            SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.END);
+            return new SeckillResult&lt;SeckillExecution&gt;(true,seckillExecution);
+        }catch (Exception e){
+            logger.error(e.getMessage(),e);
+            SeckillExecution seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.INNER_ERROR);
+            return new SeckillResult&lt;SeckillExecution&gt;(true,seckillExecution);
+        }
+    }
+
+    //前端获取系统时间，ajax请求
+    @RequestMapping(value = &quot;/time/now&quot;, method = RequestMethod.GET)
+    @ResponseBody
+    public SeckillResult&lt;Long&gt; time(){
+        Date now = new Date();
+        return new SeckillResult&lt;Long&gt;(true, now.getTime());
+    }
+}
+</code></pre>
+<h2 id="12-jsp主页面-js"><a href="#12-jsp主页面-js" class="headerlink" title="12.jsp主页面 + .js"></a>12.jsp主页面 + .js</h2><p>detail.jsp：</p>
+<pre><code class="html">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%@include file=&quot;common/taglib.jsp&quot;%&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;;
+%&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;秒杀详情页&lt;/title&gt;
+
+    &lt;!--静态包含jsp，将所引的jsp部分会合并过来--&gt;
+    &lt;%@include file=&quot;common/head.jsp&quot;%&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;panel panel-default text-center&quot;&gt;
+            &lt;div class=&quot;panel-heading&quot;&gt;
+                &lt;h1&gt;${seckill.name}&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;panel-body&quot;&gt;
+                &lt;h2 class=&quot;text-danger&quot;&gt;
+                    &lt;!--显示time图标--&gt;
+                    &lt;span class=&quot;glyphicon glyphicon-time&quot;&gt;&lt;/span&gt;
+                    &lt;!--展示倒计时--&gt;
+                    &lt;span class=&quot;glyphicon&quot; id=&quot;seckill-box&quot;&gt;&lt;/span&gt;
+                &lt;/h2&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!--登录弹出层，输入电话--&gt;
+    &lt;div id=&quot;killPhoneModal&quot; class=&quot;modal fade&quot;&gt;
+        &lt;div class=&quot;modal-dialog&quot;&gt;
+            &lt;div class=&quot;modal-content&quot;&gt;
+
+                &lt;div class=&quot;modal-header&quot;&gt;
+                    &lt;h3 class=&quot;modal-title text-center&quot;&gt;
+                        &lt;span class=&quot;glyphicon glyphicon-phone&quot;&gt;&lt;/span&gt;
+                        秒杀前请输入用户手机号
+                    &lt;/h3&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;modal-body&quot;&gt;
+                    &lt;div class=&quot;row&quot;&gt;
+                        &lt;div class=&quot;col-xs-8 col-xs-offset-2&quot;&gt;
+                            &lt;input type=&quot;text&quot; name=&quot;killPhone&quot; autofocus class=&quot;form-control&quot; id=&quot;killPhoneKey&quot; placeholder=&quot;填手机号&quot;/&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;modal-footer&quot;&gt;
+                    &lt;!--验证信息--&gt;
+                    &lt;span id=&quot;killPhoneMessage&quot; class=&quot;glyphicon&quot;&gt;&lt;/span&gt;
+                    &lt;button type=&quot;button&quot; id=&quot;killPhoneButton&quot; class=&quot;btn btn-success&quot;&gt;
+                        &lt;span class=&quot;glyphicon glyphicon-phone&quot;&gt;&lt;/span&gt;
+                        Submit
+                    &lt;/button&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;!--引入的插件用cdn链接:cookie插件、倒计时插件--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bootcss.com/jquery.countdown/2.2.0/jquery.countdown.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=path%&gt;/resources/js/seckill.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function(){
+        //使用EL表达式传入参数，初始化页面
+        seckill.detail.init({
+            seckillId: ${seckill.seckillId},
+            startTime: ${seckill.startTime.time}, //startTime是date类型，转成毫秒
+            endTime: ${seckill.endTime.time}
+        });
+    });
+&lt;/script&gt;
+&lt;/html&gt;
+
+seckill.js:
+
+//存放主要交互逻辑js代码
+//javascript模块化封装，不要写成一坨
+var seckill = {
+    //封装所有秒杀相关的url
+    URL:{
+        now:function(){
+            return &quot;/seckill/time/now&quot;
+        },
+
+        exposer:function(seckillId){
+            return &quot;/seckill/&quot; + seckillId + &quot;/exposer&quot;;
+        },
+
+        execution:function(seckillId, md5){
+            return &quot;/seckill/&quot; + seckillId + &quot;/&quot; + md5 + &quot;/execution&quot;;
+        }
+    },
+
+    //秒杀开始时的秒杀逻辑:获取秒杀地址，控制显示逻辑，执行秒杀
+    handlerSeckill:function(seckillId, node){
+        node.hide().html(&quot;&lt;button class=&#39;btn btn-primary btn-lg&#39; id=&#39;killBtn&#39;&gt;开始秒杀&lt;/button&gt;&quot;);//隐藏按钮
+        //通过ajaxPOST请求获取秒杀接口地址
+        $.post(seckill.URL.exposer(seckillId), {}, function(result){
+            if(result &amp;&amp; result[&quot;success&quot;]){
+                var exposer = result[&quot;data&quot;];
+                if(exposer[&quot;exposed&quot;]){
+                    //开启秒杀
+                    //获取秒杀地址
+                    var md5 = exposer[&quot;md5&quot;];
+                    var killUrl = seckill.URL.execution(seckillId, md5);//拿到服务器返回的秒杀接口地址
+                    console.log(&quot;killUrl: &quot; + killUrl);//输出到控制台
+                    //用one绑定而不是click的好处就是：只绑定一次点击事件
+                    // 防止一个用户不停的点秒杀，都发送服务端造成崩
+                    $(&quot;#killBtn&quot;).one(&quot;click&quot;,function(){
+                        //执行秒杀请求
+                        //1.点击后按钮变灰色，禁用按钮
+                        $(this).addClass(&quot;disabled&quot;);
+                        //2.发送ajaxPOST请求，执行秒杀
+                        $.post(killUrl,{},function(result){
+                            if(result &amp;&amp; result[&quot;success&quot;]){
+                                var killResult = result[&quot;data&quot;];
+                                var state = killResult[&quot;state&quot;];
+                                var stateInfo = killResult[&quot;stateInfo&quot;];
+                                //3.显示秒杀结果
+                                node.html(&quot;&lt;span class=&#39;label label-success&#39;&gt;&quot; + stateInfo + &quot;&lt;/span&gt;&quot;);
+                            }
+                        });
+                    });
+                    node.show();
+                }
+            }
+            else{
+                console.log(&quot;result: &quot; + result);
+            }
+        });
+    },
+
+    //验证手机号
+    validatePhone:function(phone){
+      if(phone &amp;&amp; phone.length===11 &amp;&amp; !isNaN(phone)){
+          return true;
+      }else{
+          return false;
+      }
+    },
+
+    //倒计时的时间判断
+    countdown: function(seckillId, nowTime, startTime, endTime){
+        var seckillBox = $(&quot;#seckill-box&quot;);
+        //时间判断
+        if(nowTime&gt;endTime){
+            //秒杀结束
+            seckillBox.html(&quot;秒杀结束!&quot;);
+        }
+        else if(nowTime&lt;startTime){
+            //秒杀未开始，计时事件绑定，用countdown插件倒计时
+            var killTime = new Date(startTime+1000);
+            seckillBox.countdown(killTime,function(event){//countdown插件的函数
+                //时间格式
+                var format = event.strftime(&quot;秒杀倒计时：%D天 %H时 %M分 %S秒&quot;);
+                seckillBox.html(format);
+                /*倒计时结束后回调事件*/
+            }).on(&quot;finish.countdown&quot;, function(){
+                //获取秒杀地址，控制显示逻辑，执行秒杀
+                seckill.handlerSeckill(seckillId, seckillBox);
+            });
+        }
+        else{
+            //秒杀开始
+            seckill.handlerSeckill(seckillId, seckillBox);
+        }
+    },
+
+    //详情页秒杀逻辑
+    detail:{
+        //详情页初始化
+        init:function(params){
+            //详情页初始化：手机验证和登录 + 计时交互
+            //在cookie中查找手机号
+            var killPhone = $.cookie(&quot;killPhone&quot;);
+            //1.验证手机号
+            if(!seckill.validatePhone(killPhone)){
+                //手机号不存在，显示弹出层，开始绑定phone
+                var killPhoneModal = $(&quot;#killPhoneModal&quot;);
+                killPhoneModal.modal({
+                    show:true,
+                    backdrop:&quot;static&quot;, //禁止位置关闭:点别的地方关不掉
+                    keyboard:false //关闭键盘事件:按esc关不掉
+                });
+                //监听回车事件:回车也同样进行下面的click
+                document.onkeydown = function(e){
+                    if(e.keyCode === 13){
+                        $(&quot;#killPhoneButton&quot;).click();
+                    }
+                };
+                $(&quot;#killPhoneButton&quot;).click(function(){
+                    var inputPhone = $(&quot;#killPhoneKey&quot;).val();
+                    console.log(&quot;inputPhone&quot; + inputPhone);
+                    if(seckill.validatePhone(inputPhone)){
+                        //手机号写入cookie，名字为killPhone，值为用户输入的正确手机号，有效期为7天，只在/seckill路径下有效
+                        $.cookie(&quot;killPhone&quot;, inputPhone, {expires:7,path:&quot;/seckill&quot;});
+                        //刷新页面
+                        window.location.reload();
+                    }
+                    else{//手机号填写错误，这个过程先hide再show，这样用户看不到中间渲染的过程，更好的体验
+                        $(&quot;#killPhoneMessage&quot;).hide().html(&quot;&lt;lable class=&#39;label label-danger&#39;&gt;手机号填写错误!&lt;/lable&gt;&quot;).show(300);
+                    }
+                })
+            }
+            //2.已经登录，开始计时交互
+            //通过ajaxGET请求获取服务器时间/time/now，ajax请求返回的数据是json格式的result
+            var seckillId = params[&quot;seckillId&quot;];
+            var startTime = params[&quot;startTime&quot;];
+            var endTime = params[&quot;endTime&quot;];
+            $.get(seckill.URL.now(), {}, function(result){
+                if(result &amp;&amp; result[&quot;success&quot;]){
+                    var nowTime = result[&quot;data&quot;];//拿到服务器时间
+                    //时间判断，计时交互
+                    seckill.countdown(seckillId,nowTime,startTime, endTime);
+                }
+                else{
+                    console.log(&quot;result: &quot; + result);
+                }
+            });
+        }
+    }
+};
+</code></pre>
+<p>附上jsp主页面依赖的其他jsp：</p>
+<p>head.jsp:</p>
+<pre><code class="html">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;
+
+&lt;!--移动设备自适应--&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+
+&lt;!--响应式图像:可以让图像按比例缩放，不超过其父元素的尺寸--&gt;
+&lt;!--img src=&quot;...&quot; class=&quot;img-responsive&quot; alt=&quot;响应式图像&quot;--&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;
+&lt;script src=&quot;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;&lt;%=path%&gt;/resources/js/bootstrap-table.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;&lt;%=path%&gt;/resources/css/bootstrap-table.css&quot;/&gt;
+</code></pre>
+<p>taglib.jsp:</p>
+<pre><code class="html">&lt;!--引入jstl标签库--&gt;
+&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%@ taglib prefix=&quot;fmt&quot; uri=&quot;http://java.sun.com/jsp/jstl/fmt&quot; %&gt;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>用maven配置ssm框架</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.8k</span></p>
+    <p><span class="copy-title">本文作者:</span>Brain Cao</p>
+    <p><span class="copy-title">发布时间:</span>2018-03-21, 16:49:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-09, 19:47:40</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/03/21/java-ssm-maven-build/" title="用maven配置ssm框架">https://braincao.cn/2018/03/21/java-ssm-maven-build/</a>
+    <p>
+        <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2020 Braincao</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢请收藏,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#前端','#hexo','#gitee','#博客','#算法刷题','#DFS','#投资理财','#动态规划','#hosts','#github','#java','#git','#计网','#spring','#leetcode','#linux','#职业管理','#多线程','#数据库','#面经','#python','#排序算法','#技术之外',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
