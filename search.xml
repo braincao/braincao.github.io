@@ -358,11 +358,11 @@
     
     
     <entry>
-      <title>java深浅拷贝</title>
-      <link href="/2018/12/16/java-copy/"/>
-      <url>/2018/12/16/java-copy/</url>
+      <title>java枚举</title>
+      <link href="/2018/12/16/java-enum/"/>
+      <url>/2018/12/16/java-enum/</url>
       
-        <content type="html"><![CDATA[<p>此文档为java深浅拷贝的学习总结</p><a id="more"></a><h2 id="Java-浅拷贝和深拷贝"><a href="#Java-浅拷贝和深拷贝" class="headerlink" title="Java 浅拷贝和深拷贝"></a>Java 浅拷贝和深拷贝</h2><p>来源：<a href="https://www.cnblogs.com/qlky/p/7348353.html" target="_blank" rel="noopener">Java 浅拷贝和深拷贝</a></p><p>1.直接赋值</p><p>A1 a1 = a2;</p><p>那么对象a1/a2指向同一个对象，即a2对对象的操作，a1也跟着变了</p><p>2.浅拷贝</p><p>类的方法中加个clone方法。这种浅拷贝实现的是：创建一个新对象，然后将当前对象的非静态字段复制到该新对象，如果字段是值类型的，那么对该字段执行复制；如果该字段是<strong>引用类型的话，则复制引用但不复制引用的对象。因此，原始对象及其副本引用同一个对象。</strong></p><pre><code class="java">private String name;  //姓名  private String sex;   //性别  private int age;      //年龄  private String experience; //工作经历public Object clone() {      try {          return (Resume)super.clone();      } catch (Exception e) {          e.printStackTrace();          return null;      }  }public static void main(String[] args) {          Resume zhangsan = new Resume(&quot;zhangsan&quot;,&quot;男&quot;,24);          zhangsan.setExperience(&quot;2009-2013就读于家里蹲大学，精通JAVA,C,C++,C#等代码拷贝和粘贴&quot;);          zhangsan.displayResume();          Resume zhangsan1 = (Resume)zhangsan.clone();          zhangsan1.setAge(23);          zhangsan1.displayResume();          Resume zhangsan2 = (Resume)zhangsan.clone();          zhangsan2.setExperience(&quot;2009-2013就读于家里蹲大学，精通JAVA,C,C++,C#等代码&quot;);          zhangsan2.displayResume();          zhangsan.displayResume();      }  </code></pre><p>上面代码没问题，因为数据没有引用类型，a1/a2指向对象不同，彼此对立，但是下面的就不行了:</p><pre><code class="java">class Experience {      private String educationBackground;      private String skills;      public void setExperience(String educationBackground, String skills) {          // TODO Auto-generated constructor stub          this.educationBackground = educationBackground;          this.skills = skills;      }      public String toString() {          return educationBackground + skills;      }  }  /* 建立类，实现Clone方法  */  class Resume  implements Cloneable{      private String name;  //姓名      private String sex;   //性别      private int age;      //年龄      private Experience experience; //工作经历,引用类型    public Resume(String name, String sex, int age) {          this.name = name;          this.sex = sex;          this.age = age;          this.experience = new Experience();      }      public void setAge(int age) {          this.age = age;      }      public int getAge() {          return age;      }      public Experience getExperience() {          return experience;      }      public void setExperience(String educationBackground, String skills) {          experience.setExperience(educationBackground, skills);      }      public void displayResume() {          System.out.println(&quot;姓名：&quot;+name+&quot; 性别：&quot;+sex+&quot; 年龄:&quot;+age);          System.out.println(&quot;工作经历：&quot;+experience.toString());      }      public Object clone() {          try {              return (Resume)super.clone();          } catch (Exception e) {              e.printStackTrace();              return null;          }      }  }  public class MainClass {      public static void main(String[] args) {          Resume zhangsan = new Resume(&quot;zhangsan&quot;,&quot;男&quot;,24);          zhangsan.setExperience(&quot;2009-2013就读于家里蹲大学&quot;,&quot;精通JAVA,C,C++,C#等代码拷贝和粘贴&quot;);          zhangsan.displayResume();          Resume zhangsan2 = (Resume)zhangsan.clone();          zhangsan2.setExperience(&quot;2009-2013就读于家里蹲大学&quot;,&quot;精通JAVA,C,C++,C#等&quot;);          zhangsan2.displayResume();          zhangsan.displayResume();          zhangsan2.displayResume();      }  }out:姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等代码拷贝和粘贴  姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等  姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等  姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等</code></pre><p>如果该字段是引用类型的话，则复制引用但不复制引用的对象。因此，原始对象及其副本引用同一个对象。”其实也就是说，zhangsan和zhangsan2里面的Experience类指向的是同一个对象,不管是zhangsan里面的Experience变化，还是zhangsan2里面的Experience变化都会影响另外一个。</p><p>3.深拷贝</p><p>java深拷贝两种方法:</p><ul><li>1.继承Cloneable重写clone方法</li><li>2.对象实现Serializable通过序列化实现深拷贝</li></ul><p>其实出现问题的关键就在于clone()方法上，我们知道该clone()方法是使用Object类的clone()方法，但是该方法存在一个缺陷，它并不会将对象的所有属性全部拷贝过来，而是有选择性的拷贝，基本规则如下：</p><p>1、 基本类型</p><p> 如果变量是基本很类型，则拷贝其值，比如int、float等。</p><p>2、 String字符串</p><p>若变量为String字符串，则拷贝其地址引用。但是在修改时，它会从字符串池中重新生成一个新的字符串，原有对象保持不变。</p><p>3、 对象/引用类型</p><p>如果变量是一个实例对象，则拷贝其地址引用，也就是说此时新对象与原来对象是公用该实例变量。（即浅拷贝）</p><p>因此深拷贝就是在clone方法中把引用类型深拷贝即可。</p><pre><code class="java">public class YuelyLog implements Cloneable {    private Attachment attachment;//引用类型    private String name;    private String date;    @Override    protected YuelyLog clone() throws CloneNotSupportedException {        return (YuelyLog)super.clone();    }}</code></pre><p>深拷贝问题解决了，但对于上面的解决方案还是存在一个问题，若我们系统中存在大量的对象是通过拷贝生成的，如果我们每一个类都写一个clone()方法，并将还需要进行深拷贝，新建大量的对象，这个工程是非常大的，这里我们可以利用<strong>对象的序列化来实现对象的拷贝</strong>。</p><p>如何利用序列化来完成对象的拷贝呢？在内存中通过<strong>字节流的拷贝</strong>是比较容易实现的。把母对象写入到一个字节流中，再从字节流中将其读出来，这样就可以创建一个新的对象了，并且该新对象与母对象之间并不存在引用共享的问题，真正实现对象的深拷贝。</p><pre><code class="java">public class CloneUtils {    @SuppressWarnings(&quot;unchecked&quot;)    public static &lt;T extends Serializable&gt; T clone(T obj){        T cloneObj = null;        try {            //写入字节流            ByteArrayOutputStream out = new ByteArrayOutputStream();            ObjectOutputStream obs = new ObjectOutputStream(out);            obs.writeObject(obj);            obs.close();            //分配内存，写入原始对象，生成新对象            ByteArrayInputStream ios = new ByteArrayInputStream(out.toByteArray());            ObjectInputStream ois = new ObjectInputStream(ios);            //返回生成的新对象            cloneObj = (T) ois.readObject();            ois.close();        } catch (Exception e) {            e.printStackTrace();        }        return cloneObj;    }}</code></pre><p>使用该工具类的对象必须要实现Serializable接口，否则是没有办法实现克隆的。</p><pre><code class="java">public class Person implements Serializable{    private static final long serialVersionUID = 2631590509760908280L;    ..................    //去除clone()方法}public class Email implements Serializable{    private static final long serialVersionUID = 1267293988171991494L;    ....................}</code></pre><p>所以使用该工具类的对象只要实现Serializable接口就可实现对象的克隆，无须继承Cloneable接口实现clone()方法。</p><pre><code class="java">public class Client {    public static void main(String[] args) {        //写封邮件        Email email = new Email(&quot;请参加会议&quot;,&quot;请与今天12:30到二会议室参加会议...&quot;);        Person person1 =  new Person(&quot;张三&quot;,email);        Person person2 =  CloneUtils.clone(person1);        person2.setName(&quot;李四&quot;);        Person person3 =  CloneUtils.clone(person1);        person3.setName(&quot;王五&quot;);        person1.getEmail().setContent(&quot;请与今天12:00到二会议室参加会议...&quot;);        System.out.println(person1.getName() + &quot;的邮件内容是：&quot; + person1.getEmail().getContent());        System.out.println(person2.getName() + &quot;的邮件内容是：&quot; + person2.getEmail().getContent());        System.out.println(person3.getName() + &quot;的邮件内容是：&quot; + person3.getEmail().getContent());    }}-------------------Output:张三的邮件内容是：请与今天12:00到二会议室参加会议...李四的邮件内容是：请与今天12:30到二会议室参加会议...王五的邮件内容是：请与今天12:30到二会议室参加会议...</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>此文档为java枚举的学习总结</p><a id="more"></a><h2 id="使用枚举表示常量数据"><a href="#使用枚举表示常量数据" class="headerlink" title="使用枚举表示常量数据"></a>使用枚举表示常量数据</h2><p>使用枚举表示常量数据，将多个参数一起打包作为常量</p><pre><code class="java">package com.braincao.enums;/** * @FileName: SeckillStateEnum * @Author: braincao * @Date: 2018/11/27 16:41 * @Description: 使用枚举表示seckill秒杀状态的常量数据。 */public enum SeckillStateEnum {    SUCCESS(1,&quot;秒杀成功&quot;),    END(0, &quot;秒杀结束&quot;),    REPEAT_KILL(-1, &quot;重复秒杀&quot;),    INNER_ERROR(-2, &quot;系统异常&quot;),    DATA_REWRITE(-3,&quot;数据篡改&quot;);    //状态    private int state;    //状态说明    private String stateInfo;    //构造方法赋值    SeckillStateEnum(int state, String stateInfo) {        this.state = state;        this.stateInfo = stateInfo;    }    public int getState() {        return state;    }    public String getStateInfo() {        return stateInfo;    }    public static SeckillStateEnum stateOf(int index){        for(SeckillStateEnum state: values()){            if(state.getState() == index){                return state;            }        }        return null;    }}</code></pre><p>定义枚举后使用：SeckillStateEnum.SUCCESS</p>]]></content>
       
       
       <categories>
@@ -383,11 +383,11 @@
     
     
     <entry>
-      <title>java枚举</title>
-      <link href="/2018/12/16/java-enum/"/>
-      <url>/2018/12/16/java-enum/</url>
+      <title>java深浅拷贝</title>
+      <link href="/2018/12/16/java-copy/"/>
+      <url>/2018/12/16/java-copy/</url>
       
-        <content type="html"><![CDATA[<p>此文档为java枚举的学习总结</p><a id="more"></a><h2 id="使用枚举表示常量数据"><a href="#使用枚举表示常量数据" class="headerlink" title="使用枚举表示常量数据"></a>使用枚举表示常量数据</h2><p>使用枚举表示常量数据，将多个参数一起打包作为常量</p><pre><code class="java">package com.braincao.enums;/** * @FileName: SeckillStateEnum * @Author: braincao * @Date: 2018/11/27 16:41 * @Description: 使用枚举表示seckill秒杀状态的常量数据。 */public enum SeckillStateEnum {    SUCCESS(1,&quot;秒杀成功&quot;),    END(0, &quot;秒杀结束&quot;),    REPEAT_KILL(-1, &quot;重复秒杀&quot;),    INNER_ERROR(-2, &quot;系统异常&quot;),    DATA_REWRITE(-3,&quot;数据篡改&quot;);    //状态    private int state;    //状态说明    private String stateInfo;    //构造方法赋值    SeckillStateEnum(int state, String stateInfo) {        this.state = state;        this.stateInfo = stateInfo;    }    public int getState() {        return state;    }    public String getStateInfo() {        return stateInfo;    }    public static SeckillStateEnum stateOf(int index){        for(SeckillStateEnum state: values()){            if(state.getState() == index){                return state;            }        }        return null;    }}</code></pre><p>定义枚举后使用：SeckillStateEnum.SUCCESS</p>]]></content>
+        <content type="html"><![CDATA[<p>此文档为java深浅拷贝的学习总结</p><a id="more"></a><h2 id="Java-浅拷贝和深拷贝"><a href="#Java-浅拷贝和深拷贝" class="headerlink" title="Java 浅拷贝和深拷贝"></a>Java 浅拷贝和深拷贝</h2><p>来源：<a href="https://www.cnblogs.com/qlky/p/7348353.html" target="_blank" rel="noopener">Java 浅拷贝和深拷贝</a></p><p>1.直接赋值</p><p>A1 a1 = a2;</p><p>那么对象a1/a2指向同一个对象，即a2对对象的操作，a1也跟着变了</p><p>2.浅拷贝</p><p>类的方法中加个clone方法。这种浅拷贝实现的是：创建一个新对象，然后将当前对象的非静态字段复制到该新对象，如果字段是值类型的，那么对该字段执行复制；如果该字段是<strong>引用类型的话，则复制引用但不复制引用的对象。因此，原始对象及其副本引用同一个对象。</strong></p><pre><code class="java">private String name;  //姓名  private String sex;   //性别  private int age;      //年龄  private String experience; //工作经历public Object clone() {      try {          return (Resume)super.clone();      } catch (Exception e) {          e.printStackTrace();          return null;      }  }public static void main(String[] args) {          Resume zhangsan = new Resume(&quot;zhangsan&quot;,&quot;男&quot;,24);          zhangsan.setExperience(&quot;2009-2013就读于家里蹲大学，精通JAVA,C,C++,C#等代码拷贝和粘贴&quot;);          zhangsan.displayResume();          Resume zhangsan1 = (Resume)zhangsan.clone();          zhangsan1.setAge(23);          zhangsan1.displayResume();          Resume zhangsan2 = (Resume)zhangsan.clone();          zhangsan2.setExperience(&quot;2009-2013就读于家里蹲大学，精通JAVA,C,C++,C#等代码&quot;);          zhangsan2.displayResume();          zhangsan.displayResume();      }  </code></pre><p>上面代码没问题，因为数据没有引用类型，a1/a2指向对象不同，彼此对立，但是下面的就不行了:</p><pre><code class="java">class Experience {      private String educationBackground;      private String skills;      public void setExperience(String educationBackground, String skills) {          // TODO Auto-generated constructor stub          this.educationBackground = educationBackground;          this.skills = skills;      }      public String toString() {          return educationBackground + skills;      }  }  /* 建立类，实现Clone方法  */  class Resume  implements Cloneable{      private String name;  //姓名      private String sex;   //性别      private int age;      //年龄      private Experience experience; //工作经历,引用类型    public Resume(String name, String sex, int age) {          this.name = name;          this.sex = sex;          this.age = age;          this.experience = new Experience();      }      public void setAge(int age) {          this.age = age;      }      public int getAge() {          return age;      }      public Experience getExperience() {          return experience;      }      public void setExperience(String educationBackground, String skills) {          experience.setExperience(educationBackground, skills);      }      public void displayResume() {          System.out.println(&quot;姓名：&quot;+name+&quot; 性别：&quot;+sex+&quot; 年龄:&quot;+age);          System.out.println(&quot;工作经历：&quot;+experience.toString());      }      public Object clone() {          try {              return (Resume)super.clone();          } catch (Exception e) {              e.printStackTrace();              return null;          }      }  }  public class MainClass {      public static void main(String[] args) {          Resume zhangsan = new Resume(&quot;zhangsan&quot;,&quot;男&quot;,24);          zhangsan.setExperience(&quot;2009-2013就读于家里蹲大学&quot;,&quot;精通JAVA,C,C++,C#等代码拷贝和粘贴&quot;);          zhangsan.displayResume();          Resume zhangsan2 = (Resume)zhangsan.clone();          zhangsan2.setExperience(&quot;2009-2013就读于家里蹲大学&quot;,&quot;精通JAVA,C,C++,C#等&quot;);          zhangsan2.displayResume();          zhangsan.displayResume();          zhangsan2.displayResume();      }  }out:姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等代码拷贝和粘贴  姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等  姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等  姓名：zhangsan 性别：男 年龄:24  工作经历：2009-2013就读于家里蹲大学精通JAVA,C,C++,C#等</code></pre><p>如果该字段是引用类型的话，则复制引用但不复制引用的对象。因此，原始对象及其副本引用同一个对象。”其实也就是说，zhangsan和zhangsan2里面的Experience类指向的是同一个对象,不管是zhangsan里面的Experience变化，还是zhangsan2里面的Experience变化都会影响另外一个。</p><p>3.深拷贝</p><p>java深拷贝两种方法:</p><ul><li>1.继承Cloneable重写clone方法</li><li>2.对象实现Serializable通过序列化实现深拷贝</li></ul><p>其实出现问题的关键就在于clone()方法上，我们知道该clone()方法是使用Object类的clone()方法，但是该方法存在一个缺陷，它并不会将对象的所有属性全部拷贝过来，而是有选择性的拷贝，基本规则如下：</p><p>1、 基本类型</p><p> 如果变量是基本很类型，则拷贝其值，比如int、float等。</p><p>2、 String字符串</p><p>若变量为String字符串，则拷贝其地址引用。但是在修改时，它会从字符串池中重新生成一个新的字符串，原有对象保持不变。</p><p>3、 对象/引用类型</p><p>如果变量是一个实例对象，则拷贝其地址引用，也就是说此时新对象与原来对象是公用该实例变量。（即浅拷贝）</p><p>因此深拷贝就是在clone方法中把引用类型深拷贝即可。</p><pre><code class="java">public class YuelyLog implements Cloneable {    private Attachment attachment;//引用类型    private String name;    private String date;    @Override    protected YuelyLog clone() throws CloneNotSupportedException {        return (YuelyLog)super.clone();    }}</code></pre><p>深拷贝问题解决了，但对于上面的解决方案还是存在一个问题，若我们系统中存在大量的对象是通过拷贝生成的，如果我们每一个类都写一个clone()方法，并将还需要进行深拷贝，新建大量的对象，这个工程是非常大的，这里我们可以利用<strong>对象的序列化来实现对象的拷贝</strong>。</p><p>如何利用序列化来完成对象的拷贝呢？在内存中通过<strong>字节流的拷贝</strong>是比较容易实现的。把母对象写入到一个字节流中，再从字节流中将其读出来，这样就可以创建一个新的对象了，并且该新对象与母对象之间并不存在引用共享的问题，真正实现对象的深拷贝。</p><pre><code class="java">public class CloneUtils {    @SuppressWarnings(&quot;unchecked&quot;)    public static &lt;T extends Serializable&gt; T clone(T obj){        T cloneObj = null;        try {            //写入字节流            ByteArrayOutputStream out = new ByteArrayOutputStream();            ObjectOutputStream obs = new ObjectOutputStream(out);            obs.writeObject(obj);            obs.close();            //分配内存，写入原始对象，生成新对象            ByteArrayInputStream ios = new ByteArrayInputStream(out.toByteArray());            ObjectInputStream ois = new ObjectInputStream(ios);            //返回生成的新对象            cloneObj = (T) ois.readObject();            ois.close();        } catch (Exception e) {            e.printStackTrace();        }        return cloneObj;    }}</code></pre><p>使用该工具类的对象必须要实现Serializable接口，否则是没有办法实现克隆的。</p><pre><code class="java">public class Person implements Serializable{    private static final long serialVersionUID = 2631590509760908280L;    ..................    //去除clone()方法}public class Email implements Serializable{    private static final long serialVersionUID = 1267293988171991494L;    ....................}</code></pre><p>所以使用该工具类的对象只要实现Serializable接口就可实现对象的克隆，无须继承Cloneable接口实现clone()方法。</p><pre><code class="java">public class Client {    public static void main(String[] args) {        //写封邮件        Email email = new Email(&quot;请参加会议&quot;,&quot;请与今天12:30到二会议室参加会议...&quot;);        Person person1 =  new Person(&quot;张三&quot;,email);        Person person2 =  CloneUtils.clone(person1);        person2.setName(&quot;李四&quot;);        Person person3 =  CloneUtils.clone(person1);        person3.setName(&quot;王五&quot;);        person1.getEmail().setContent(&quot;请与今天12:00到二会议室参加会议...&quot;);        System.out.println(person1.getName() + &quot;的邮件内容是：&quot; + person1.getEmail().getContent());        System.out.println(person2.getName() + &quot;的邮件内容是：&quot; + person2.getEmail().getContent());        System.out.println(person3.getName() + &quot;的邮件内容是：&quot; + person3.getEmail().getContent());    }}-------------------Output:张三的邮件内容是：请与今天12:00到二会议室参加会议...李四的邮件内容是：请与今天12:30到二会议室参加会议...王五的邮件内容是：请与今天12:30到二会议室参加会议...</code></pre>]]></content>
       
       
       <categories>
@@ -658,31 +658,6 @@
     
     
     <entry>
-      <title>spring拦截器与过滤器的区别</title>
-      <link href="/2018/12/16/spring-filter/"/>
-      <url>/2018/12/16/spring-filter/</url>
-      
-        <content type="html"><![CDATA[<p>此文档为spring拦截器与过滤器的学习总结</p><a id="more"></a><h2 id="spring拦截器与过滤器的区别"><a href="#spring拦截器与过滤器的区别" class="headerlink" title="spring拦截器与过滤器的区别"></a>spring拦截器与过滤器的区别</h2><pre><code>1.拦截器是基于java的反射机制的，而过滤器是基于函数回调。2.拦截器不依赖与servlet容器，过滤器依赖与servlet容器。3.拦截器只能对action请求起作用，而过滤器则可以对几乎所有的请求起作用。4.拦截器可以访问action上下文、值栈里的对象，而过滤器不能访问。5.在action的生命周期中，拦截器可以多次被调用，而过滤器只能在容器初始化时被调用一次</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> spring </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> spring </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>十大经典排序算法总结</title>
       <link href="/2018/12/16/sort-algorithm/"/>
       <url>/2018/12/16/sort-algorithm/</url>
@@ -702,6 +677,31 @@
             <tag> 算法刷题 </tag>
             
             <tag> 排序算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>spring拦截器与过滤器的区别</title>
+      <link href="/2018/12/16/spring-filter/"/>
+      <url>/2018/12/16/spring-filter/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为spring拦截器与过滤器的学习总结</p><a id="more"></a><h2 id="spring拦截器与过滤器的区别"><a href="#spring拦截器与过滤器的区别" class="headerlink" title="spring拦截器与过滤器的区别"></a>spring拦截器与过滤器的区别</h2><pre><code>1.拦截器是基于java的反射机制的，而过滤器是基于函数回调。2.拦截器不依赖与servlet容器，过滤器依赖与servlet容器。3.拦截器只能对action请求起作用，而过滤器则可以对几乎所有的请求起作用。4.拦截器可以访问action上下文、值栈里的对象，而过滤器不能访问。5.在action的生命周期中，拦截器可以多次被调用，而过滤器只能在容器初始化时被调用一次</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> spring </tag>
             
         </tags>
       
@@ -829,6 +829,31 @@
         <tags>
             
             <tag> 算法刷题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux命令</title>
+      <link href="/2018/07/23/linux-orders/"/>
+      <url>/2018/07/23/linux-orders/</url>
+      
+        <content type="html"><![CDATA[<p>linux命令学习总结</p><a id="more"></a><h2 id="linux标准输入输出2-gt-amp-1"><a href="#linux标准输入输出2-gt-amp-1" class="headerlink" title="linux标准输入输出2&gt;&amp;1"></a>linux标准输入输出2&gt;&amp;1</h2><ul><li>linux中有三种标准输入输出，分别是STDIN，STDOUT，STDERR，对应的数字是0，1，2。<code>2&gt;&amp;1，指将标准输出、标准错误指定为同一输出路径</code></li><li>STDIN是标准输入，默认从键盘读取信息；STDOUT是标准输出，默认将输出结果输出至终端；STDERR是标准错误，默认将输出结果输出至终端。</li><li>由于STDOUT与STDERR都会默认显示在终端上，为了区分二者的信息，就有了编号的0，1，2的定义，用1表示STDOUT，2表示STDERR。</li><li>若要将所有标准输出及标准错误都输出至文件，可用&amp;表示全部1和2的信息，eg：<code>find /etc -name passwd &amp;&gt;find.all 或 find /etc -name passwd &gt;find.all 2&gt;&amp;1</code></li><li><code>2&gt;&amp;1 |less</code> 表示将标准错误重定向至标准输出，并用less进行分页显示</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
             
         </tags>
       
