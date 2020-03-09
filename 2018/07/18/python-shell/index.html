@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>git命令 | Braincao&#39;s blog</title>
-  <meta name="keywords" content=" git ">
-  <meta name="description" content="git命令 | Braincao&#39;s blog">
+  <title>python中shell调用 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" python ">
+  <meta name="description" content="python中shell调用 | Braincao&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
 <meta property="og:type" content="website">
@@ -672,9 +672,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-git-orders" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-python-shell" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">git命令</h1>
+        <h1 class="article-title">python中shell调用</h1>
     
     <div class="article-meta">
         
@@ -682,30 +682,30 @@
         
         <span class="book">
             
-                <a  data-rel="综合技术">综合技术</a>
+                <a  data-rel="python">python</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">git</a>
+            <a class="color2">python</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date">2018-02-22 19:29</time>
+        创建时间:<time class="date">2018-07-18 22:28</time>
         
         
-        更新时间:<time class="updated">2020-02-27 18:31</time>
+        更新时间:<time class="updated">2020-03-09 15:37</time>
         
 
     </div>
     <div class="article-meta">
         
-        <span>字数:2k</span>
+        <span>字数:723</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -724,7 +724,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git命令总览"><span class="toc-text">git命令总览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-多人协同github开发"><span class="toc-text">1.多人协同github开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-多人协同远程私人服务器开发"><span class="toc-text">2.多人协同远程私人服务器开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-指定远程仓库origin"><span class="toc-text">3.指定远程仓库origin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-push"><span class="toc-text">4.push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-分支操作"><span class="toc-text">5.分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-本地与远程分支对应"><span class="toc-text">6.本地与远程分支对应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-分支开发后merge到master"><span class="toc-text">7.分支开发后merge到master</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-修改本地以及远程分支名称"><span class="toc-text">8.修改本地以及远程分支名称</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-新总结的git命令"><span class="toc-text">9.新总结的git命令</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#python前后端调用另辟蹊径–shell脚本调用"><span class="toc-text">python前后端调用另辟蹊径–shell脚本调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python调用Shell脚本"><span class="toc-text">python调用Shell脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端JSON解析–JSON-parse"><span class="toc-text">前端JSON解析–JSON.parse</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -740,190 +740,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="git命令总览"><a href="#git命令总览" class="headerlink" title="git命令总览"></a>git命令总览</h1><table>
-<thead>
-<tr>
-<th align="center">序号</th>
-<th align="center">目的操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center"><a href="#1">多人协同github开发</a></td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center"><a href="#2">多人协同远程私人服务器开发</a></td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center"><a href="#3">指定远程仓库origin</a></td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center"><a href="#4">push</a></td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center"><a href="#5">分支操作</a></td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center"><a href="#6">本地与远程分支对应</a></td>
-</tr>
-<tr>
-<td align="center">7</td>
-<td align="center"><a href="#7">分支开发后merge到master</a></td>
-</tr>
-<tr>
-<td align="center">8</td>
-<td align="center"><a href="#8">修改本地以及远程分支名称</a></td>
-</tr>
-<tr>
-<td align="center">9</td>
-<td align="center"><a href="#9">新总结的git命令</a></td>
-</tr>
-</tbody></table>
-<p><a name="1"></a></p>
-<h2 id="1-多人协同github开发"><a href="#1-多人协同github开发" class="headerlink" title="1.多人协同github开发"></a>1.多人协同github开发</h2><p><strong>四步走原则</strong>：本地分支开发，本地主干拉取最新的远程主干+本地主干merge本地分支，本地主干向远程主干发布，切换并同步分支</p>
-<p>具体操作如下：</p>
-<pre><code>0.确保本地分支和远程分支一致(git checkout dev_braincao &amp;&amp; git pull)，开始在本地分支上开发(修改、写作、删除等)
+        <h2 id="python前后端调用另辟蹊径–shell脚本调用"><a href="#python前后端调用另辟蹊径–shell脚本调用" class="headerlink" title="python前后端调用另辟蹊径–shell脚本调用"></a>python前后端调用另辟蹊径–shell脚本调用</h2><p>再经过了前面的flask前后端调用的一天bug洗礼后，有个问题仍旧难以解决，大概就是flask是python的web服务，理论上来说是要打开网页进行交互，网页与后台传参也可以用上述的ajax传递。但是，鄙人的这个神奇的项目需求是要我有起点终点，现在调用百度api，返回地图规划路径，但是调用过程中不能用鼠标单击网页api，自动|后台|悄悄的调用，我只要得到返回的规划路径str就可以了，谁要你打开网页显示出来路径的信息啊，只要文字不要二维的路径图案。于是乎，我先后尝试了</p>
+<blockquote>
+<p>1.基于flask框架下的ajax传参，gg：不打开网页，但是网页是动态的，必须打开才可以ajax获取</p>
+</blockquote>
+<blockquote>
+<p>2.基于flask框架下，在路由index()方法中用多进程的方式分别调用百度api、获取api计算后的str路径，gg：因为index()必须返回页面，而这个页面正是我index()方法中要调用的，脑袋疼。。。</p>
+</blockquote>
+<blockquote>
+<p>3.基于flask框架下，在flask的main方法下写，gg: 神奇的flask在调用app.run()后根本他么不执行后面的语句，原因后想也比较好理解，因为是flask啊，启动后就是web服务啊，要什么main函数后面的逻辑。。。</p>
+</blockquote>
+<blockquote>
+<p>4.还有些其他很小的尝试，均失败无法实现，关键这个需求还很难描述百度，吃饭回来后冷静下来好好想了想，发现就是两步调用百度api、获取api计算后的str路径，而这两步我都实现了，只是被神奇的flask羁绊住了，只是因为后期有个需求需要用flask，我还不能更换框架，于是，无意中我知道python调用Shell脚本的有两种方法：os.system(cmd)或os.popen(cmd)，然后直接将上述两步写到两个脚本，用总得main去调用执行这两个脚本即可，细节介绍如下，脑瓜疼了半天终于解决了~</p>
+</blockquote>
+<h2 id="python调用Shell脚本"><a href="#python调用Shell脚本" class="headerlink" title="python调用Shell脚本"></a>python调用Shell脚本</h2><p>有两种方法：<code>os.system(cmd) 或 os.popen(cmd)</code></p>
+<p>前者返回值是脚本的退出状态码0、1；后者的返回值是脚本执行过程中的输出内容。下面是示例:</p>
+<pre><code>#先运行flask调用百度api的脚本
+os.system(&quot;python init.py&amp;&quot;)
+time.sleep(3)
 
-1.开发完成，本地切换到主干(git checkout master)，拉取最新的远程主干(git pull)，本地主干merge本地分支(git merge dev_braincao)，并解决冲突(即git add . &amp;&amp; git commit -m &#39;...&#39;)
+#再访问http://127.0.0.1:5000页面，得到目标字符串data.readline()
+data = os.popen(&quot;python init2.py&quot;)
+print(data.readline())
 
-2.此时本地主干可以进行远程发布了，本地主干向远程主干发布(git push)
+#终止os.system后台调用的程序
+os.system(&quot;pkill python init.py&amp;&quot;)
+</code></pre><h2 id="前端JSON解析–JSON-parse"><a href="#前端JSON解析–JSON-parse" class="headerlink" title="前端JSON解析–JSON.parse"></a>前端JSON解析–JSON.parse</h2><pre><code>var data = &#39;{&quot;staff&quot;: 123, &quot;asd&quot;:&quot;asd&quot;}&#39;;
+var jsonobj = JSON.parse(data); 
+alert(obj.staff); 
+</code></pre><p>JSON格式化和校验工具：<a href="http://jsonlint.com" target="_blank" rel="noopener">JSONLint</a></p>
 
-3.最后一步将同步远程分支和本地分支，保证一致(git checkout dev_braincao &amp;&amp; git merge master &amp;&amp; git add . &amp;&amp; git commit(这里不用再写-m了) &amp;&amp; git push)。此时本地在dev_braincao分支上，刚好无缝接入步骤0
-</code></pre><p><a name="2"></a></p>
-<h2 id="2-多人协同远程私人服务器开发"><a href="#2-多人协同远程私人服务器开发" class="headerlink" title="2.多人协同远程私人服务器开发"></a>2.多人协同远程私人服务器开发</h2><p>1.当本地的项目想git上传到远程仓库，但是远程仓库现在没有的话，需要以下操作：</p>
-<pre><code>0.远程建项目同名文件夹，git init
-1.远程.git/config配置（这是由于git默认拒绝了push操作，需要进行设置）：
-[receive]
-denyCurrentBranch = ignore
-2.本地push到远程
-2.远程git reset --hard才能看到push后的内容
-</code></pre><p>2.然后本地和远程都是master分支，应该本地和远程都建立分支，按上面建分支的操作来就行</p>
-<p>3.本地有分支，远程有分支，每次git push的时候push的分支必须不是远程所在分支(你想啊，这样的话你改了别人正在用怎么办)，所以正常来讲远程一直在master分支上，然后本地dev1分支push，远程merge即可。</p>
-<p><a name="3"></a></p>
-<h2 id="3-指定远程仓库origin"><a href="#3-指定远程仓库origin" class="headerlink" title="3.指定远程仓库origin"></a>3.指定远程仓库origin</h2><p><code>git remote add origin git@github.com:braincao/mmall.git</code> </p>
-<p><a name="4"></a></p>
-<h2 id="4-push"><a href="#4-push" class="headerlink" title="4.push"></a>4.push</h2><p><code>git push -u origin master</code> </p>
-<p>但是push前有可能需要先pull，这里用–rebase操作:</p>
-<p><code>git pull --rebase origin master</code></p>
-<p>解决冲突后再push即可</p>
-<p><a name="5"></a></p>
-<h2 id="5-分支操作"><a href="#5-分支操作" class="headerlink" title="5.分支操作"></a>5.分支操作</h2><p>查看所有分支<code>git branch -a</code> </p>
-<p>删除本地分支<code>git branch -d dev</code></p>
-<p>删除远程分支<code>git push origin --delete dev</code></p>
-<p><a name="6"></a></p>
-<h2 id="6-本地与远程分支对应"><a href="#6-本地与远程分支对应" class="headerlink" title="6.本地与远程分支对应"></a>6.本地与远程分支对应</h2><p>一般情况是分支开发，主干发布，因此建立远程分支，在远程分支上开发push，在远程主干上发布push。</p>
-<p>创建分支加切换分支的合并命令<code>git checkout -b &lt;new_branch&gt; [&lt;start point&gt;]</code></p>
-<p>本地建立并切换到v1.0分支，初始start point基于master分支<code>git checkout -b v1.0 master</code></p>
-<p>之后再把本地建立的分支推送到origin，即远程也建立了v1.0分支并与其对应<code>git push origin HEAD -u</code></p>
-<p>查看分支与远程分支追踪状态<code>git branch -vv</code></p>
-<p>设置远程跟踪。push的时候可以指定本地分支与远程的其他分支发生关系<code>git branch --set-upstream-to=origin/&lt;branch&gt; master</code>设置本地分支master跟踪origin/<branch>远程分支</p>
-<p>删除远程仓库文件，但不删本地资源。有时本地push到远程仓库时，本地不存在但远程仓库存在的文件没法更新，也删不掉，这时需要把远程仓库的指定文件删除，用以下命令(这里删除远程仓库的/target文件夹)：<code>git rm -r --cached /target*</code></p>
-<p><a name="7"></a></p>
-<h2 id="7-分支开发后merge到master"><a href="#7-分支开发后merge到master" class="headerlink" title="7.分支开发后merge到master"></a>7.分支开发后merge到master</h2><p>merge前先<code>git diff branch1 branch2</code>查看两个分支的修改diff，看diff没问题后再merge</p>
-<p>1.切换到<code>git checkout master</code></p>
-<p>2.把本地的分支合并到master<code>git merge branchXXX</code>，这个地方需要解决conflicts，解决完git commit</p>
-<p>3.把本地的master同步到远程<code>git push origin master</code></p>
-<p><a name="8"></a></p>
-<h2 id="8-修改本地以及远程分支名称"><a href="#8-修改本地以及远程分支名称" class="headerlink" title="8.修改本地以及远程分支名称"></a>8.修改本地以及远程分支名称</h2><p>修改分支名称总共分三步：</p>
-<pre><code>git branch -m old_branch new_branch #修改本地分支名
-git push origin :old_branch #删除远程分支
-git push --set-upstream origin new_branch #新建远程分支
-</code></pre><p><a name="9"></a></p>
-<h2 id="9-新总结的git命令"><a href="#9-新总结的git命令" class="headerlink" title="9.新总结的git命令"></a>9.新总结的git命令</h2><pre><code>切记:
-    dev上push前要经常rebase变基，养成好习惯
-
-    方法：git checkout dev &amp;&amp; git rebase master
-
-        自己总结的流程：
-            本地dev开发完成，
-            先在master上git pull更新
-            然后在dev上 git rebase master变基
-            然后dev上push，提交MR
-
-放弃修改：
-    git checkout -- file  回到最近一次git commit或git add时的状态
-
-放弃add：
-    git reset HEAD file
-
-放弃commit(版本回退)：
-    git reset --hard HEAD^/1g0a1
-
-merge（禁用fast-forword模式，留下合并历史）：
-    git merge --no-ff -m &quot;merged bug fix 101&quot; feature_name
-
-merge后有冲突解决即可：git add + git merge --continue 不用再commit || git add + git commit -m &quot;&quot;
-
-创建远程分支(本地分支push到远程)并关联起来：
-    git push --set-upstream(-u) origin [name]
-
-删除远程分支：
-git push origin :[name]
-
-修复一个Bug，先保存现场，创建bug分支修复后，回到原dev分支开发:
-    git stash 保存现场
-    git stash list 查看现场
-    git stash pop 恢复的同时把stash内容也删了(git stash apply 恢复现场 + git stash drop 删除现场)
-    git stash apply stash@{0} 多次stash后指定恢复现场
-
-复制指定的一次/多次commit到当前分支，避免全部merge一个分支（有冲突解决即可git cherry-pick --continue）
-    git cherry-pick 9b47dd dd4e49
-
-tag标签：
-    git tag v1.0 59abc158b 给某个commit打tag，不指定commit号的话是当前最新一次commit
-    git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb //-a指定标签名，-m 指定说明文字
-    git show &lt;tagname&gt; 通过标签查commit信息
-    git push origin v1.0 将指定的几个tag提交到远程
-    git push origin –-tags 将本地所有标签一次性提交到远程
-    git tag -d v1.0 删除标签
-    git push origin :refs/tags/v0.9 删除远程标签
-
-    注：标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签。
-
-rebase变基：
-    基于master开发自己的dev分支时，dev要push，此时master已经更新了
-
-    笨的方法时，pull master后再在dev上merge master，再dev push--&gt;笨且提交历史线很多，前后顺序有时也要考虑，diff时也要三方对比
-
-    推荐：dev在push前进行rebase将master的基变成最新的，这时在dev push时就已经包含了团队更新后的master，且提交历史干净,两根线变一根线
-    原理：找到dev与master最新commit的最近公共祖先point，将dev上在point之后的所有commit全部移动到master分支的最新commit之后，即只有一根线了
-
-    方法：git checkout dev &amp;&amp; git rebase master
-
-    自己总结的流程：
-        本地dev开发完成，
-        先在master上git pull更新
-        然后在dev上 git rebase master变基
-        然后dev上push，提交MR
-
-git fetch：
-    这将更新git remote 中所有的远程仓库所包含分支的最新commit-id, 将其记录到.git/FETCH_HEAD文件中
-
-git pull：
-    比对本地与远程的FETCH_HEAD记录fetch后并merge
-
-git pull = git fetch + git merge
-git pull --rebase = git fetch + git rebase
-详见（https://www.cnblogs.com/kevingrace/p/5896706.html）
-
-其他操作命令：
-    git config --global user.name &quot;John Doe&quot;
-    git config --global user.email johndoe@example.com
-    git remote add origin git@gitee.com:liaoxuefeng/learngit.git
-    git remote -v 看远程详细信息，可用于查看是否有fetch/push权限，也可用于指定同时开发多个远程库
-    git branch --set-upstream branch-name origin/branch-name  关联的操作
-
-push远程时要先pull
-    git checkout commitId/v0.21 此时会指向指定版本/tag时的代码状态（但现在处于一个空的分支上），用于查看指定版本状态
-
-关于github：
-    参加开源项目时先Fork到自己仓库，clone代码到本地开发后push到自己远程，之后推送pull request给官方仓库来贡献代码
-</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
     </div>
@@ -936,12 +782,12 @@ push远程时要先pull
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>git命令</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">2k</span></p>
+    <p><span class="copy-title">文章标题:</span>python中shell调用</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">723</span></p>
     <p><span class="copy-title">本文作者:</span>Brain Cao</p>
-    <p><span class="copy-title">发布时间:</span>2018-02-22, 19:29:01</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-27, 18:31:07</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/02/22/git-orders/" title="git命令">https://braincao.cn/2018/02/22/git-orders/</a>
+    <p><span class="copy-title">发布时间:</span>2018-07-18, 22:28:30</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-09, 15:37:05</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/07/18/python-shell/" title="python中shell调用">https://braincao.cn/2018/07/18/python-shell/</a>
     <p>
         <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
     </p>
