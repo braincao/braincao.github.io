@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://braincao.cn/2018/03/21/mac-tricks/</loc>
+    
+    <lastmod>2020-03-09T13:03:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://braincao.cn/2018/03/21/vim/</loc>
+    
+    <lastmod>2020-03-09T13:00:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://braincao.cn/2018/03/21/deep-learning/</loc>
+    
+    <lastmod>2020-03-09T12:56:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://braincao.cn/2017/12/08/java-learning-road/</loc>
+    
+    <lastmod>2020-03-09T12:45:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://braincao.cn/2018/03/21/java-ssm-maven-build/</loc>
     
     <lastmod>2020-03-09T11:47:40.000Z</lastmod>
@@ -54,13 +82,6 @@
     <loc>https://braincao.cn/2018/07/18/http-request/</loc>
     
     <lastmod>2020-03-09T07:36:17.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://braincao.cn/2018/03/21/ajax/</loc>
-    
-    <lastmod>2020-03-09T07:30:22.000Z</lastmod>
     
   </url>
   

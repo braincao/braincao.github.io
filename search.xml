@@ -383,11 +383,61 @@
     
     
     <entry>
+      <title>java枚举</title>
+      <link href="/2018/12/16/java-enum/"/>
+      <url>/2018/12/16/java-enum/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为java枚举的学习总结</p><a id="more"></a><h2 id="使用枚举表示常量数据"><a href="#使用枚举表示常量数据" class="headerlink" title="使用枚举表示常量数据"></a>使用枚举表示常量数据</h2><p>使用枚举表示常量数据，将多个参数一起打包作为常量</p><pre><code class="java">package com.braincao.enums;/** * @FileName: SeckillStateEnum * @Author: braincao * @Date: 2018/11/27 16:41 * @Description: 使用枚举表示seckill秒杀状态的常量数据。 */public enum SeckillStateEnum {    SUCCESS(1,&quot;秒杀成功&quot;),    END(0, &quot;秒杀结束&quot;),    REPEAT_KILL(-1, &quot;重复秒杀&quot;),    INNER_ERROR(-2, &quot;系统异常&quot;),    DATA_REWRITE(-3,&quot;数据篡改&quot;);    //状态    private int state;    //状态说明    private String stateInfo;    //构造方法赋值    SeckillStateEnum(int state, String stateInfo) {        this.state = state;        this.stateInfo = stateInfo;    }    public int getState() {        return state;    }    public String getStateInfo() {        return stateInfo;    }    public static SeckillStateEnum stateOf(int index){        for(SeckillStateEnum state: values()){            if(state.getState() == index){                return state;            }        }        return null;    }}</code></pre><p>定义枚举后使用：SeckillStateEnum.SUCCESS</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>final关键字</title>
       <link href="/2018/12/16/java-final/"/>
       <url>/2018/12/16/java-final/</url>
       
         <content type="html"><![CDATA[<p>此文档为java反射的学习总结</p><a id="more"></a><h1 id="匿名内部类使用的形参要设置为final"><a href="#匿名内部类使用的形参要设置为final" class="headerlink" title="匿名内部类使用的形参要设置为final"></a>匿名内部类使用的形参要设置为final</h1><p>详情参考<a href="https://www.cnblogs.com/chenssy/p/3390871.html" target="_blank" rel="noopener">使用的形参为何要为final</a></p><p><strong>我们给匿名内部类传递参数的时候，若该形参在内部类中需要被使用，那么该形参必须要为final</strong>。也就是说：当所在的方法的形参需要被内部类里面使用时，该形参必须为final。</p><p>为什么必须要为final呢？</p><p>简单理解就是，拷贝引用，为了避免引用值发生改变，例如被外部类的方法修改等，而导致内部类得到的值不一致，于是<strong>用final来让该引用不可改变</strong>。故如果定义了一个匿名内部类，并且希望它使用一个其外部定义的参数，那么编译器会要求该参数引用是final的。</p><p>首先我们知道在内部类编译成功后，它会产生一个class文件，该class文件与外部类并不是同一class文件，仅仅只保留对外部类的引用。当外部类传入的参数需要被内部类调用时，从java程序的角度来看是直接被调用。</p><p>内部类并不是直接调用方法传递的参数，而是利用自身的构造器对传入的参数进行备份，自己内部方法调用的实际上时自己的属性而不是外部方法传递进来的参数。</p><p>直到这里还没有解释为什么是final？在内部类中的属性和外部方法的参数两者从外表上看是同一个东西，但实际上却不是，所以他们两者是可以任意变化的，也就是说在内部类中我对属性的改变并不会影响到外部的形参，而然这从程序员的角度来看这是不可行的，毕竟站在程序的角度来看这两个根本就是同一个，如果内部类该变了，而外部方法的形参却没有改变这是难以理解和不可接受的，所以为了保持参数的一致性，就规定使用final来避免形参的不改变。</p><pre><code class="java">@Override    public void transfer(final String out, final String in, final double money) {//        accountDao.outMoney(out, money);//        accountDao.inMoney(in, money);//        System.out.println(&quot;转账成功&quot;);        //将上述方法进行事务管理:        transactionTemplate.execute(new TransactionCallbackWithoutResult() {            @Override            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {                accountDao.outMoney(out, money);                accountDao.inMoney(in, money);                System.out.println(&quot;转账成功&quot;);            }        });    }</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java内存模型JMM</title>
+      <link href="/2018/12/16/java-jmm/"/>
+      <url>/2018/12/16/java-jmm/</url>
+      
+        <content type="html"><![CDATA[<p>此文档为java内存模型JMM的学习总结</p><a id="more"></a><h2 id="java内存模型JMM"><a href="#java内存模型JMM" class="headerlink" title="java内存模型JMM"></a>java内存模型JMM</h2><p><img src="https://img.braincao.cn/blogimg/1583508070.jpg" alt="1583508070"></p><p>程序运行的时候，内存主要由以下部分组成：</p><p>堆：所有线程共享一个堆；存放的都是new 出来的对象；由垃圾回收器回收；</p><p>方法区：所有线程共享一个方法区；里面存放的内容有点杂，可以认为是除堆和栈中的其它东西（如类信息，静态变量，常量，代码等）；Java虚拟机规范规定可以不对方法区进行垃圾回收，当并不是不回收，主要看具体虚拟机的实现，比如可以回收一些废弃常量和无用的类；</p><p>程序计数器：也叫PC,存放下一条指令所在单元的地址的地方;</p><p>JAVA栈：每个线程都有一个自己的JAVA栈;存放的一般是方法的局部变量，方法出口信息等；方法调用过程中，自动压栈出栈；ps：栈空间大小是有限制的；</p><p>本地方法栈：与JAVA栈类似，区别是使用的对象不一样，本地方法栈是给Native方法使用的，JAVA栈是给JAVA方式使用的；</p>]]></content>
       
       
       <categories>
@@ -458,31 +508,6 @@
     
     
     <entry>
-      <title>java枚举</title>
-      <link href="/2018/12/16/java-enum/"/>
-      <url>/2018/12/16/java-enum/</url>
-      
-        <content type="html"><![CDATA[<p>此文档为java枚举的学习总结</p><a id="more"></a><h2 id="使用枚举表示常量数据"><a href="#使用枚举表示常量数据" class="headerlink" title="使用枚举表示常量数据"></a>使用枚举表示常量数据</h2><p>使用枚举表示常量数据，将多个参数一起打包作为常量</p><pre><code class="java">package com.braincao.enums;/** * @FileName: SeckillStateEnum * @Author: braincao * @Date: 2018/11/27 16:41 * @Description: 使用枚举表示seckill秒杀状态的常量数据。 */public enum SeckillStateEnum {    SUCCESS(1,&quot;秒杀成功&quot;),    END(0, &quot;秒杀结束&quot;),    REPEAT_KILL(-1, &quot;重复秒杀&quot;),    INNER_ERROR(-2, &quot;系统异常&quot;),    DATA_REWRITE(-3,&quot;数据篡改&quot;);    //状态    private int state;    //状态说明    private String stateInfo;    //构造方法赋值    SeckillStateEnum(int state, String stateInfo) {        this.state = state;        this.stateInfo = stateInfo;    }    public int getState() {        return state;    }    public String getStateInfo() {        return stateInfo;    }    public static SeckillStateEnum stateOf(int index){        for(SeckillStateEnum state: values()){            if(state.getState() == index){                return state;            }        }        return null;    }}</code></pre><p>定义枚举后使用：SeckillStateEnum.SUCCESS</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>java多线程</title>
       <link href="/2018/12/16/java-multi-thread/"/>
       <url>/2018/12/16/java-multi-thread/</url>
@@ -508,11 +533,36 @@
     
     
     <entry>
-      <title>java内存模型JMM</title>
-      <link href="/2018/12/16/java-jmm/"/>
-      <url>/2018/12/16/java-jmm/</url>
+      <title>java参数...</title>
+      <link href="/2018/12/16/java-parameter/"/>
+      <url>/2018/12/16/java-parameter/</url>
       
-        <content type="html"><![CDATA[<p>此文档为java内存模型JMM的学习总结</p><a id="more"></a><h2 id="java内存模型JMM"><a href="#java内存模型JMM" class="headerlink" title="java内存模型JMM"></a>java内存模型JMM</h2><p><img src="https://img.braincao.cn/blogimg/1583508070.jpg" alt="1583508070"></p><p>程序运行的时候，内存主要由以下部分组成：</p><p>堆：所有线程共享一个堆；存放的都是new 出来的对象；由垃圾回收器回收；</p><p>方法区：所有线程共享一个方法区；里面存放的内容有点杂，可以认为是除堆和栈中的其它东西（如类信息，静态变量，常量，代码等）；Java虚拟机规范规定可以不对方法区进行垃圾回收，当并不是不回收，主要看具体虚拟机的实现，比如可以回收一些废弃常量和无用的类；</p><p>程序计数器：也叫PC,存放下一条指令所在单元的地址的地方;</p><p>JAVA栈：每个线程都有一个自己的JAVA栈;存放的一般是方法的局部变量，方法出口信息等；方法调用过程中，自动压栈出栈；ps：栈空间大小是有限制的；</p><p>本地方法栈：与JAVA栈类似，区别是使用的对象不一样，本地方法栈是给Native方法使用的，JAVA栈是给JAVA方式使用的；</p>]]></content>
+        <content type="html"><![CDATA[<p>此文档为java参数…的学习总结</p><a id="more"></a><h2 id="java中参数的…"><a href="#java中参数的…" class="headerlink" title="java中参数的…"></a>java中参数的…</h2><p>…表示的是可变长参数，相当于一个数组</p><pre><code>如果是是形参 里面出现，表示的是可变参数比如：//表示的传入的参数可以随意，你传多少个参数都被放到一个数组里面。public static void dealArray(int...intArray) {for(int i: intArray){System.out.print(i +&quot; &quot;);}System.out.println();}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>java正则</title>
+      <link href="/2018/12/16/java-regular/"/>
+      <url>/2018/12/16/java-regular/</url>
+      
+        <content type="html"><![CDATA[<p>思科笔试时遇到的题，将其中的java正则思路保存下便于今后常看。</p><a id="more"></a><h2 id="java正则"><a href="#java正则" class="headerlink" title="java正则"></a>java正则</h2><pre><code class="java">import java.util.Scanner;import java.util.regex.Matcher;import java.util.regex.Pattern;/** * 提取sip地址的头部 * 方法：用正则 * 用例： *  1.%22hello%22world%22&lt;sip:10000@172.16.130.42&gt; --&gt;hello%22world *  2.%22%22hello%22world%22%22%22haha%22%22%22&lt;sip:10000@172.16.130.42&gt; --&gt;hello%22world%22%22%22haha *  3.hello22%world&lt;sip:10000@172.16.130.42&gt; --&gt;hello22%world */public class Solution {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        String url = sc.next();        System.out.println(decode(url));    }    static String decode(String url){        if(url.isEmpty() || url.trim().equals(&quot;&quot;)){            return &quot;&quot;;        }        url = url.trim();        String regex = &quot;^(%22)*(.+(%22)*[^(%22)]+)(%22)*&lt;sip:\\d+@\\d+\\.\\d+\\.\\d+\\.\\d+&gt;$&quot;;        Pattern pattern = Pattern.compile(regex);        Matcher matcher = pattern.matcher(url);        if(matcher.find()) {            return matcher.group(2);        }        return &quot;&quot;;    }}</code></pre>]]></content>
       
       
       <categories>
@@ -563,56 +613,6 @@
       <url>/2018/12/16/java-reflection/</url>
       
         <content type="html"><![CDATA[<p>此文档为java反射的学习总结</p><a id="more"></a><h2 id="动态代理详解"><a href="#动态代理详解" class="headerlink" title="动态代理详解"></a>动态代理详解</h2><p>详看这篇博客<a href="https://www.cnblogs.com/cenyu/p/6289209.html" target="_blank" rel="noopener">Java的三种代理模式</a></p><p>动态代理有以下特点:</p><ul><li>1.代理对象,不需要实现接口</li><li>2.代理对象的生成,是利用JDK的API,动态的在内存中构建代理对象(需要我们指定创建代理对象/目标对象实现的接口的类型)</li><li>3.动态代理也叫做:JDK代理,接口代理</li></ul><p>在Spring的AOP编程中:</p><p>如果加入容器的目标对象有实现接口,用JDK代理<br>如果目标对象没有实现接口,用Cglib代理</p><p>1.动态代理之jdk动态代理:</p><pre><code class="java">import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;//动态代理demo//接口interface UserManager{    public void call(String name);}//具体对象class UserManagerImpl implements UserManager {    @Override    public void call(String name) {        System.out.println(&quot;call..&quot; + name);    }}//代理类class ProxyT implements InvocationHandler{    private Object objectTarget;    public Object newProxyInstance(Object objectTarget){        this.objectTarget = objectTarget;        return Proxy.newProxyInstance(objectTarget.getClass().getClassLoader(), objectTarget.getClass().getInterfaces(), this);    }    @Override    /*InvocationHandler接口的方法，proxy表示代理，method表示原对象被调用的方法，args表示方法的参数*/    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {        System.out.println(&quot;startProxy...&quot;);        Object ret = null;        try{            System.out.println(&quot;日志记录start....&quot;);            ret = method.invoke(objectTarget, args);            System.out.println(&quot;日志记录end....&quot;);        }catch (Exception e){            e.printStackTrace();        }        return ret;    }}public class Test{    public static void main(String[] args) {        UserManager userManager = (UserManager)new ProxyT().newProxyInstance(new UserManagerImpl());        userManager.call(&quot;张三&quot;);    }}</code></pre><p>2.Cglib代理</p><p>上面的静态代理和动态代理模式都是要求目标对象是实现一个接口的目标对象,但是有时候目标对象只是一个单独的对象,并没有实现任何的接口,这个时候就可以使用以目标对象子类的方式类实现代理,这种方法就叫做:Cglib代理</p><p><strong>Cglib代理,也叫作子类代理,它是在内存中构建一个子类对象从而实现对目标对象功能的扩展.</strong></p><p>JDK的动态代理有一个限制,就是使用动态代理的对象必须实现一个或多个接口,如果想代理没有实现接口的类,就可以使用Cglib实现.<br>Cglib是一个强大的高性能的代码生成包,它可以在运行期扩展java类与实现java接口.它广泛的被许多AOP的框架使用,例如Spring AOP和synaop,为他们提供方法的interception(拦截)<br>Cglib包的底层是通过使用一个小而块的字节码处理框架ASM来转换字节码并生成新的类.不鼓励直接使用ASM,因为它要求你必须对JVM内部结构包括class文件的格式和指令集都很熟悉.</p><p>Cglib子类代理实现方法:</p><ul><li>1.需要引入cglib的jar文件,但是Spring的核心包中已经包括了Cglib功能,所以直接引入spring-core-3.2.5.jar即可.</li><li>2.引入功能包后,就可以在内存中动态构建子类</li><li>3.代理的类不能为final,否则报错</li><li>4.目标对象的方法如果为final/static,那么就不会被拦截,即不会执行目标对象额外的业务方法.</li></ul><pre><code class="java">import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;import org.springframework.cglib.proxy.Enhancer;import org.springframework.cglib.proxy.MethodInterceptor;import org.springframework.cglib.proxy.MethodProxy;/** * 动态代理之cglib动态代理 */class UserDao{    public void save(){        System.out.println(&quot;is saved.&quot;);    }}class ProxyFactory implements MethodInterceptor {    //维护一个目标对象    private Object target;    public ProxyFactory(Object target){        this.target = target;    }    //给目标对象生成代理对象    public Object getProxyInstance(){        //1.工具类        Enhancer en = new Enhancer();        //2.设置父类        en.setSuperclass(target.getClass());        //3.设置回调函数        en.setCallback(this);        //4.创建子类（代理对象）        return en.create();    }    @Override    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {        System.out.println(&quot;开始事务...&quot;);        //执行目标对象的方法        Object returnValue = method.invoke(target, objects);        System.out.println(&quot;提交事务...&quot;);        return returnValue;    }}public class Test{    public static void main(String args[]){        // 目标对象        UserDao target = new UserDao();        //原始类型        System.out.println(target.getClass());        // 给目标对象，创建代理对象        UserDao proxy = (UserDao) new ProxyFactory(target).getProxyInstance();        System.out.println(proxy.getClass());        // 执行方法   代理对象        proxy.save();    }    /**     * out:     *   class UserDao  //原始的类型 class cn.itcast.b_dynamic.UserDao         class $Proxy0  // class UserDao$$EnhancerByCGLIB$$90f08d08   内存中动态生成的代理对象         开始事务2         is saved.         提交事务2     */}</code></pre><h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>反射机制并没有什么神奇之处，当通过反射与一个未知类型的对象打交道时，JVM只是简单地检查这个对象，看它属于哪个特定的类。因此，那个类的.class对于JVM来说必须是可获取的，要么在本地机器上，要么从网络获取。所以对于RTTI和反射之间的<strong>真正区别只在于</strong>：</p><p>RTTI，编译器在编译时打开和检查.class文件</p><p>反射，运行时打开和检查.class文件</p><p>反射调用对象的过程：获取反射的 Class 对象、通过反射创建类对象、通过反射获取类属性方法及构造器。</p><pre><code class="java">import java.lang.reflect.Constructor;import java.lang.reflect.Method;/** * 反射 */public class Test{    private int price;    public int getPrice(){        return price;    }    public void setPrice(int price){        this.price = price;    }    public static void main(String args[]) throws Exception{        //正射调用，代码在未运行时就已经确定了要运行的类（Test）        Test test = new Test();        test.setPrice(5);        System.out.println(test.getPrice());        //反射调用，在运行时才知道要操作的类是什么，并且可以在运行时获取类的完整构造，并调用对应的方法。        Class clazz = Class.forName(&quot;Test&quot;);        Method setMethod = clazz.getMethod(&quot;setPrice&quot;, int.class);        Constructor testConstructor = clazz.getConstructor();        Object testObj = testConstructor.newInstance();        setMethod.invoke(testObj, 5);        Method getMethod = clazz.getMethod(&quot;getPrice&quot;);        System.out.println(getMethod.invoke(testObj));        //out: 5 5    }}</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>java正则</title>
-      <link href="/2018/12/16/java-regular/"/>
-      <url>/2018/12/16/java-regular/</url>
-      
-        <content type="html"><![CDATA[<p>思科笔试时遇到的题，将其中的java正则思路保存下便于今后常看。</p><a id="more"></a><h2 id="java正则"><a href="#java正则" class="headerlink" title="java正则"></a>java正则</h2><pre><code class="java">import java.util.Scanner;import java.util.regex.Matcher;import java.util.regex.Pattern;/** * 提取sip地址的头部 * 方法：用正则 * 用例： *  1.%22hello%22world%22&lt;sip:10000@172.16.130.42&gt; --&gt;hello%22world *  2.%22%22hello%22world%22%22%22haha%22%22%22&lt;sip:10000@172.16.130.42&gt; --&gt;hello%22world%22%22%22haha *  3.hello22%world&lt;sip:10000@172.16.130.42&gt; --&gt;hello22%world */public class Solution {    public static void main(String[] args) {        Scanner sc = new Scanner(System.in);        String url = sc.next();        System.out.println(decode(url));    }    static String decode(String url){        if(url.isEmpty() || url.trim().equals(&quot;&quot;)){            return &quot;&quot;;        }        url = url.trim();        String regex = &quot;^(%22)*(.+(%22)*[^(%22)]+)(%22)*&lt;sip:\\d+@\\d+\\.\\d+\\.\\d+\\.\\d+&gt;$&quot;;        Pattern pattern = Pattern.compile(regex);        Matcher matcher = pattern.matcher(url);        if(matcher.find()) {            return matcher.group(2);        }        return &quot;&quot;;    }}</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>java参数...</title>
-      <link href="/2018/12/16/java-parameter/"/>
-      <url>/2018/12/16/java-parameter/</url>
-      
-        <content type="html"><![CDATA[<p>此文档为java参数…的学习总结</p><a id="more"></a><h2 id="java中参数的…"><a href="#java中参数的…" class="headerlink" title="java中参数的…"></a>java中参数的…</h2><p>…表示的是可变长参数，相当于一个数组</p><pre><code>如果是是形参 里面出现，表示的是可变参数比如：//表示的传入的参数可以随意，你传多少个参数都被放到一个数组里面。public static void dealArray(int...intArray) {for(int i: intArray){System.out.print(i +&quot; &quot;);}System.out.println();}</code></pre>]]></content>
       
       
       <categories>
@@ -1014,31 +1014,6 @@
     
     
     <entry>
-      <title>MySQL事务</title>
-      <link href="/2018/04/08/mysql-transaction/"/>
-      <url>/2018/04/08/mysql-transaction/</url>
-      
-        <content type="html"><![CDATA[<p>这是一篇MySQL事务的学习笔记</p><a id="more"></a><h2 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h2><p><a href="http://www.runoob.com/mysql/mysql-transaction.html" target="_blank" rel="noopener">2min看完强推_MySQL 事务-菜鸟教程</a></p><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p><ul><li><p>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</p></li><li><p>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。</p></li><li><p>事务用来管理 insert,update,delete 语句</p></li></ul><p>一般来说，事务是必须满足4个条件（ACID）：：原子性（Atomicity，或称不可分割性）、一致性（Consistency）、隔离性（Isolation，又称独立性）、持久性（Durability）。</p><p>在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行 COMMIT 操作。因此要显式地开启一个事务务须使用命令 BEGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。</p><p>MYSQL 事务处理主要有两种方法：</p><ul><li>1、用 BEGIN, ROLLBACK, COMMIT来实现</li></ul><pre><code>BEGIN 开始一个事务ROLLBACK 事务回滚COMMIT 事务确认</code></pre><ul><li>2、直接用 SET 来改变 MySQL 的自动提交模式:</li></ul><pre><code>SET AUTOCOMMIT=0 禁止自动提交SET AUTOCOMMIT=1 开启自动提交</code></pre><p>事务的两个例子：</p><p><img src="https://img.braincao.cn/blogimg/1583560979.jpg" alt="1583560979"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据库 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据库 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>sql语法</title>
       <link href="/2018/04/08/sql-grammar/"/>
       <url>/2018/04/08/sql-grammar/</url>
@@ -1064,23 +1039,50 @@
     
     
     <entry>
-      <title>ajax学习笔记</title>
-      <link href="/2018/03/21/ajax/"/>
-      <url>/2018/03/21/ajax/</url>
+      <title>MySQL事务</title>
+      <link href="/2018/04/08/mysql-transaction/"/>
+      <url>/2018/04/08/mysql-transaction/</url>
       
-        <content type="html"><![CDATA[<p>学习ajax是研二做项目所需</p><p>学习资料来源：<a href="https://www.imooc.com/learn/250" target="_blank" rel="noopener">慕课网的ajax全接触视频教程</a></p><a id="more"></a><h2 id="Ajax简介"><a href="#Ajax简介" class="headerlink" title="Ajax简介"></a>Ajax简介</h2><p>Ajax即异步JavaScript和XML，是一种创建交互式网页的技术，可以不重新加载整个网页的情况下更新部分网页。目前jQuery库提供多个与AJAX相关的方法。通过 jQuery AJAX方法，能够使用HTTP Get和HTTP Post从远程服务器上请求文本、HTML、XML或JSON，同时能够把这些外部数据直接载入网页被选元素中。</p><p>作为web开发人员广泛采用的JavaScript封装库之一的jQuery库，它可以极大地简化我们的JavaScript编程，缓解浏览器之间不兼容的影响，要知道在不同浏览器中进行web网页的兼容性测试也是一个不小的工作量。我们可以通过一个简单的例子发现jQuery库的优势所在：</p><p><code>$(&quot;p.neat&quot;).addClass(&quot;ohmy&quot;).show(&quot;slow&quot;);</code></p><p>通过以上简短的代码，开发者可以遍历“neat”类中所有的&lt;p&gt;元素，然后向其增加“ohmy”类，同时以动画效果缓缓显示每一个段落。开发者无需检查客户端浏览器类型，无需编写循环代码，无需编写复杂的动画函数，仅仅通过一行代码就能实现上述效果。jQuery的口号“最少的代码做最多的事情”果真名副其实，它把JavaScript带到了一个更高的层次。</p><h2 id="ajax大概流程"><a href="#ajax大概流程" class="headerlink" title="ajax大概流程"></a>ajax大概流程</h2><ul><li>运用html和css来实现页面，表达信息</li><li>运用<strong>XMLHttpRequest</strong>和web服务器进行数据的异步交换</li><li>运用JavaScript操作DOM，实现动态局部刷新</li></ul><h2 id="通过XMLHttpRequest对象发送请求"><a href="#通过XMLHttpRequest对象发送请求" class="headerlink" title="通过XMLHttpRequest对象发送请求"></a>通过XMLHttpRequest对象发送请求</h2><p>1.open(method, url, async)</p><pre><code>method：发送请求方法 get/posturl：请求方地址async：发送异步/同步请求，默认为true异步</code></pre><p>2.send(string)</p><p>向服务器发送请求，string是发送传递参数，get方法参数在url中可以string为空，而post方法则需要有string参数了</p><p>e.g. </p><pre><code>request.open(&quot;GET&quot;, &quot;get.php&quot;, true);request.setRequestHeader(&quot;Content-type&quot;, &quot;apllication/x-www-form-urlencoded&quot;);request.send(&quot;name=王二狗&amp;sex=男&quot;);</code></pre><h2 id="通过XMLHttpRequest对象取得相应"><a href="#通过XMLHttpRequest对象取得相应" class="headerlink" title="通过XMLHttpRequest对象取得相应"></a>通过XMLHttpRequest对象取得相应</h2><p>请看一个较完整的XMLHttpRequest发送请求加取得响应的过程</p><pre><code>var request = new XMLHttpRequest();request.open(&quot;GET&quot;, &quot;get.php&quot;, true);request.send();request.onreadystatechange = function(){    if(request.readyState===4 &amp;&amp; request.status===200) //服务器响应完成且请求成功    {        //做一些事情 request.responseText    }}</code></pre><h2 id="用jQuery实现Ajax"><a href="#用jQuery实现Ajax" class="headerlink" title="用jQuery实现Ajax"></a>用jQuery实现Ajax</h2><p>通常不会手写js实现原生的Ajax，使用第三方js库jQuery实现Ajax，以下是一个实现LDAP网关登录的ajax显示demo</p><pre><code class="html">&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;utf-8&quot;%&gt;&lt;%String path = request.getContextPath();String basePath = request.getScheme()+&quot;://&quot;+request.getServerName()+&quot;:&quot;+request.getServerPort()+path+&quot;/&quot;;%&gt;&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;&lt;html&gt;&lt;head&gt;    &lt;base href=&quot;&lt;%=basePath%&gt;&quot;&gt;    &lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot;&gt;    &lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;&gt;    &lt;meta http-equiv=&quot;expires&quot; content=&quot;0&quot;&gt;    &lt;meta http-equiv=&quot;keywords&quot; content=&quot;keyword1,keyword2,keyword3&quot;&gt;    &lt;meta http-equiv=&quot;description&quot; content=&quot;This is my page&quot;&gt;    &lt;!--    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt;    --&gt;    &lt;!--meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;--&gt;    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;application/json; charset=utf-8&quot;&gt;    &lt;title&gt;Demo&lt;/title&gt;    &lt;style&gt;        body,h1,input,label,button,p {            font-size: 30px;            line-height: 2;        }    &lt;/style&gt;    &lt;script src=&quot;http://apps.bdimg.com/libs/jquery/1.11.1/jquery.js&quot;&gt;&lt;/script&gt;    &lt;script&gt;        $(document).ready(function(){            $(&quot;#login&quot;).click(function(){                $.ajax({                    type: &quot;POST&quot;,                    url: &quot;http://localhost:8080/SecondClass/ldap/login&quot;,                    contentType : &quot;application/json;charset=UTF-8&quot;,                    dataType: &quot;json&quot;,                    data:                        JSON.stringify({                            &quot;userId&quot;: $(&quot;#schoolNumber&quot;).val(),                            &quot;password&quot;: $(&quot;#password&quot;).val()                        }),                    success: function(data) {                            $(&quot;#loginResult&quot;).html(data.msg);                    },                    error: function(jqXHR) {                        alert(&quot;发生错误：&quot; + jqXHR.status);                    }                });            });        });    &lt;/script&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;网关登录&lt;/h1&gt;&lt;label&gt;请输入学号: &lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;schoolNumber&quot;/&gt;&lt;br&gt;&lt;label&gt;请输入密码: &lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;password&quot;/&gt;&lt;br&gt;&lt;button id=&quot;login&quot;&gt;登录&lt;/button&gt;&lt;p id=&quot;loginResult&quot;&gt;sadasd&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code></pre><h2 id="Ajax交互json数据"><a href="#Ajax交互json数据" class="headerlink" title="Ajax交互json数据"></a>Ajax交互json数据</h2><p>下面介绍前端jQuery.ajax()请求JSON数据的方法，代码如下：</p><pre><code>function useTestFun() {    $.ajax({        url: &quot;/Usedefine&quot;,//获取数据的URL        data:JSON.stringify({            &#39;wJsona&#39;:&quot;kkk&quot;,                    &#39;wjsonb&#39;:12,            &#39;wjsonc&#39;:80,        }),        type: &quot;POST&quot;,//HTTP请求方法        dataType:&#39;JSON&#39;,//获取数据执行方式        success:function(data){            if(data.status == &#39;True&#39;){//传入为JSON对象格式                alert(&#39;连接成功&#39;);            }            else{                 $(&quot;#labletip&quot;).show();            }        },        error:function(err){            alert(&#39;连接失败&#39;);        }    });}</code></pre><p>在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以JSON对象和JSON字符串之间的相互转换是关键，可以使用JSON.stringify()将JSON对象转化为JSON字符串，使用JSON.parse()将JSON字符串转换为JSON对象。</p><pre><code>JSON字符串:  var str1 = &#39;{ &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; }&#39;; JSON对象:  var obj = { &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; };var obj = str1.parseJSON(); //由JSON字符串转换为JSON对象var obj = JSON.parse(str1); //由JSON字符串转换为JSON对象var str2 = obj.toJSONString(); //将JSON对象转化为JSON字符var str2 = JSON.stringify(obj); //将JSON对象转化为JSON字符</code></pre><h2 id="flask框架下Ajax前后端Json数据交互方式示例"><a href="#flask框架下Ajax前后端Json数据交互方式示例" class="headerlink" title="flask框架下Ajax前后端Json数据交互方式示例"></a>flask框架下Ajax前后端Json数据交互方式示例</h2><p>1.后端—init.py 构建flask web服务</p><pre><code>from flask import Flask, render_template, json, request#创建应用app = Flask(__name__)#建立路由，通过路由可以执行其覆盖的方法，可以多个路由指向同一个方法。@app.route(&#39;/&#39;)def index():    return render_template(&#39;route.html&#39;, start=&quot;北京邮电大学&quot;, end=&quot;故宫博物院&quot;)#通过ajax获取前端返回的json数据@app.route(&#39;/test_post&#39;,methods=[&#39;POST&#39;])def test_post():    #获取POST数据    data = json.loads(request.get_data())    place = data[&quot;place&quot;]    print(place)    return &quot;11231&quot;if __name__ == &#39;__main__&#39;:    app.run(debug=True)</code></pre><p>2.前端—flask框架下的前端页面（由于项目要调用地图api，以下html是百度地图api给出的页面，其它不用看，直接看ajax写法即可）</p><pre><code class="html">&lt;html&gt;&lt;head&gt;    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0, user-scalable=no&quot;/&gt;    &lt;style type=&quot;text/css&quot;&gt;        body, html {            width: 100%;            height: 100%;            margin: 0;            font-family: &quot;微软雅黑&quot;;        }        #l-map {            height: 300px;            width: 100%;        }        #r-result {            width: 100%;            font-size: 14px;            line-height: 20px;        }    &lt;/style&gt;    &lt;script src=&quot;/static/jquery-1.12.4.min.js&quot;&gt;&lt;/script&gt;    &lt;script type=&quot;text/javascript&quot;            src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=gYiUfUgXTB51nrXkyjCaGqZgvwZfvjDx&quot;&gt;&lt;/script&gt;    &lt;title&gt;获取公交换乘的数据接口&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;div id=&quot;l-map&quot;&gt;&lt;/div&gt;&lt;div id=&quot;r-result&quot;&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&lt;script type=&quot;text/javascript&quot;&gt;    // 百度地图API功能    var map = new BMap.Map(&quot;l-map&quot;);    map.centerAndZoom(new BMap.Point(116.404, 39.915), 10);    map.enableScrollWheelZoom();    var transit = new BMap.TransitRoute(map, {renderOptions: {map: map},onSearchComplete: function(result) {            if (transit.getStatus() == BMAP_STATUS_SUCCESS) {                var firstPlan = result.getPlan(0);                // 绘制公交线路                for (i = 0; i &lt; firstPlan.getNumLines(); i++) {                    var line = firstPlan.getLine(i);                    map.addOverlay(new BMap.Polyline(line.getPath()));                }                // 输出方案信息                var data_str = (1) + &quot;. &quot; + firstPlan.getDescription(false);                document.getElementById(&quot;r-result&quot;).innerHTML = data_str;                //以下是ajax写法                var data_json = JSON.stringify({                    &quot;place&quot;: data_str                });                $.ajax({                    url: &quot;/test_post&quot;, //获取数据的url                    type: &quot;post&quot;, //http请求方法                    data: data_json,                    dataType: &quot;JSON&quot;,                    success: function(data_json){                        alert(&quot;获取json成功&quot;);                    },                    error: function(data_json) {                        alert(&quot;失败！&quot;);                    }                });            }        }    });    transit.search({{start|tojson}}, {{end|tojson}}); //模板的变量如果在js中，必须使用js的tojson：避免为了防止js注入，把&quot;&quot;等特殊字符进行转义&lt;/script&gt;</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>这是一篇MySQL事务的学习笔记</p><a id="more"></a><h2 id="MySQL事务"><a href="#MySQL事务" class="headerlink" title="MySQL事务"></a>MySQL事务</h2><p><a href="http://www.runoob.com/mysql/mysql-transaction.html" target="_blank" rel="noopener">2min看完强推_MySQL 事务-菜鸟教程</a></p><p>MySQL 事务主要用于处理操作量大，复杂度高的数据。比如说，在人员管理系统中，你删除一个人员，你即需要删除人员的基本资料，也要删除和该人员相关的信息，如信箱，文章等等，这样，这些数据库操作语句就构成一个事务！</p><ul><li><p>在 MySQL 中只有使用了 Innodb 数据库引擎的数据库或表才支持事务。</p></li><li><p>事务处理可以用来维护数据库的完整性，保证成批的 SQL 语句要么全部执行，要么全部不执行。</p></li><li><p>事务用来管理 insert,update,delete 语句</p></li></ul><p>一般来说，事务是必须满足4个条件（ACID）：：原子性（Atomicity，或称不可分割性）、一致性（Consistency）、隔离性（Isolation，又称独立性）、持久性（Durability）。</p><p>在 MySQL 命令行的默认设置下，事务都是自动提交的，即执行 SQL 语句后就会马上执行 COMMIT 操作。因此要显式地开启一个事务务须使用命令 BEGIN 或 START TRANSACTION，或者执行命令 SET AUTOCOMMIT=0，用来禁止使用当前会话的自动提交。</p><p>MYSQL 事务处理主要有两种方法：</p><ul><li>1、用 BEGIN, ROLLBACK, COMMIT来实现</li></ul><pre><code>BEGIN 开始一个事务ROLLBACK 事务回滚COMMIT 事务确认</code></pre><ul><li>2、直接用 SET 来改变 MySQL 的自动提交模式:</li></ul><pre><code>SET AUTOCOMMIT=0 禁止自动提交SET AUTOCOMMIT=1 开启自动提交</code></pre><p>事务的两个例子：</p><p><img src="https://img.braincao.cn/blogimg/1583560979.jpg" alt="1583560979"></p>]]></content>
       
       
       <categories>
           
-          <category> 前端 </category>
+          <category> 数据库 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 前端 </tag>
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习概念入门</title>
+      <link href="/2018/03/21/deep-learning/"/>
+      <url>/2018/03/21/deep-learning/</url>
+      
+        <content type="html"><![CDATA[<p>研究生是cv方向，也发了一篇四区sci，工作后计划不在此方向发展，但如果今后需要用到，还是要尽快拾起来。此文档记录机器学习、深度学习、增强学习概念入门</p><a id="more"></a><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>有监督学习：监督式学习的常见应用场景如分类问题和回归问题。常见监督式学习算法有决策树（ID3，C4.5算法等），朴素贝叶斯分类器，最小二乘法，逻辑回归（Logistic Regression），支持向量机（SVM），K最近邻算法（KNN，K-NearestNeighbor），线性回归（LR，Linear Regreesion），人工神经网络（ANN，Artificial Neural Network），集成学习以及反向传递神经网络（Back Propagation Neural Network）等等。</p><p>非监督学习（Unsupervised Learing）是另一种研究的比较多的学习方法，它与监督学习的不同之处，在于我们事先没有任何训练样本，而需要直接对数据进行建模。是否有监督（Supervised），就看输入数据是否有标签（Label）。输入数据有标签（即数据有标识分类），则为有监督学习，没标签则为无监督学习（非监督学习）。在很多实际应用中，并没有大量的标识数据进行使用，并且标识数据需要大量的人工工作量，非常困难。我们就需要非监督学习根据数据的相似度，特征及相关联系进行模糊判断分类。</p><p>半监督学习：应用场景包括分类和回归，算法包括一些对常用监督式学习算法的延伸，这些算法首先试图对未标识数据进行建模，在此基础上再对标识的数据进行预测。如自训练算法(self-training)、多视角算法(Multi-View)、生成模型（Enerative Models）、图论推理算法（Graph Inference）或者拉普拉斯支持向量机（Laplacian SVM）等。</p><h2 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h2><p>在企业数据应用的场景下， 人们最常用的可能就是监督式学习和非监督式学习的模型。 在图像识别等领域，由于存在大量的非标识的数据和少量的可标识数据， 目前半监督式学习是一个很热的话题。 而强化学习更多的应用在机器人控制及其他需要进行系统控制的领域。</p><p>强化学习（Reinforcement Learning）也叫再励学习、评价学习，在智能控制和机器人领域有许多应用。输入数据作为对模型的反馈，不像监督模型那样，输入数据仅仅是作为一个检查模型对错的方式。在强化学习下，输入数据直接反馈到模型，模型必须对此立刻作出调整。常见算法包括 Q-Learning、TD 算法（时间差分学习，Temporal Difference）、SARSA 算法。</p><p>强化学习灵感来源于心理学中的行为主义理论，即有机体如何在环境给予的奖励或惩罚的刺激下，逐步形成对刺激的预期，产生能获得最大利益的习惯性行为。这个方法具有普适性，因此在其他许多领域都有研究，例如博弈论、控制论、运筹学、信息论、模拟优化方法、多主体系统学习、群体智能、统计学以及遗传算法。 它的本质就是解决“决策（decision making）”问题，即学会自动进行决策。它在没有任何label告诉算法应该怎么做的情况下，通过先尝试做出一些行为——然后得到一个结果，通过判断这个结果是对还是错来对之前的行为进行反馈。由这个反馈来调整之前的行为，通过不断的调整算法能够学习到在什么样的情况下选择什么样的行为可以得到最好的结果。</p><p>重点：强化学习其实就是自动进行决策，并且可以做连续决策。强化学习有很多应用，比如自动直升机，机器人控制，市场决策，工业控制，无人驾驶，AlphaGo，玩游戏，还在制造业、库存处理、电商、广告、推荐、金融、医疗等与我们生活息息相关的领域也有应用。例如一家日本公司 Fanuc，工厂机器人在拿起一个物体时，会捕捉这个过程的视频，记住它每次操作的行动，操作成功还是失败了，积累经验，下一次可以更快更准地采取行动。</p><p>举个例子：在向用户推荐新闻文章的任务中，非监督式会找到用户先前已经阅读过类似的文章并向他们推荐其一，而强化学习将通过向用户先推荐少量的新闻，并不断获得来自用户的反馈，最后构建用户可能会喜欢的文章的“知识图”。</p><h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><p>深度学习（Deep Learning）是机器学习的一种，是它的一个大的分支，深度学习的概念由Hinton等人于2006年提出，深度学习的概念源于人工神经网络的研究。</p><p>深度学习实际上指的的深度神经网络学习，普通神经网络由于训练代价较高，一般只有3-4层，而深度神经网络由于采用了特殊的训练方法加上一些技术算法，可以达到8-10层。深度神经网络能够捕捉到数据中的深层联系，从而能够得到更精准的模型，而这些联系不容易被普通的机器学习方法所发觉。</p><p>用官方的含义就是：含多隐层的多层感知器就是一种深度学习结构。</p><p>深度学习通过组合低层特征形成更加抽象的高层表示属性类别或特征，以发现数据的分布式特征表示</p><p>同机器学习方法一样，深度机器学习方法也有监督学习与无监督学习之分。不同的学习框架下建立的学习模型很是不同。</p><p>例如，卷积神经网络（Convolutional neural networks，简称CNNs）就是一种深度的监督学习下的机器学习模型，而深度置信网（Deep Belief Nets，简称DBNs）就是一种无监督学习下的机器学习模型。</p><p>深度学习整个过程就是数据收集、数据清洗处理、传入数据进行训练模型和学习优化、经过不断优化调节后形成高准确率的识别分类模型，供相应的领域进行传入相关数据进行应用分类。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>机器学习和深度学习的核心就是数据、算法（模型函数）、算力（计算机运算能力）。</p><p>我们研究的核心就是算法，也就是针对某一应用需求场景，选择各种合适的函数公式进行构建和叠加形成一个处理数据的模型（也就是常说的训练数据模型）。</p><p>这个模型的作用是什么？就是能够将我们的普通数据输入进去，经过这个模型处理后，输出数据或者一个结果，这个输出的就是供我们参考或者使用的。</p><p>那我们怎么评判这个模型的好坏？例如每年 ImageNet 都会进行比赛，那么评判的结果就是你这个模型算法进行数据分析和处理的准确度。例如人脸识别，有的算法识别率 80%，有的达到 98%。那么这个高识别率的模型算法就要好一些。我们需要改进的也就是这个模型算法（也就是调优），其中就会涉及到权重（Weight）和损失函数（Loss）。当然损失函数越低说明我们的算法处理数据越接近最佳结果。</p><h2 id="再举个例子"><a href="#再举个例子" class="headerlink" title="再举个例子"></a>再举个例子</h2><p>我们进行预测某天天气的状况，这是一个需求。</p><p>某天天气的状况，会受到很多因素的影响，例如季节、地理位置、时间、人为因素等等，这些因素可能会有几十个。在深度学习模型里，这些影响结果的因素我们称之为特征。我们可以通过一些有标签的天气数据去输入到我们的模型里，不断的给各个特征设置权重、损失函数，不断的进行调优。最后形成能够很好的准确预测天气的一个模型。</p><p>我们在进行机器学习和深度学习的核心，就是在算法这块，也就是设计处理问题（数据）的模型。模型需要针对不同的问题和需求进行合理的选择或者搭配。会涉及到很多数学公式和函数。其实这些数学函数在一些框架里已经囊括了，如tensorflow，python 的 numpy 库。我们需要的就是通过训练数据进行模型测试训练，调优，再应用。</p><p>先有需求和目的：这个模型是干嘛的，处理什么问题的。输入的数据什么样的，想要有什么输出结果才是最好的，能够达到我们想要的目的的。是数据和需求驱动我们选择什么样的模型和函数算法。确定了大概的方案模型和算法函数，我们就要给模型不断的喂数据进行调整优化，使他能够输出更加准确的数据处理结果，也就是常说的训练模型。当模型通过数据训练好了后，我们就可以进行应用了，喂给它真实的数据进行处理。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 综合技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 综合技术 </tag>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -1131,6 +1133,60 @@
         <tags>
             
             <tag> spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ssm框架的问题汇总</title>
+      <link href="/2018/03/21/mac-tricks/"/>
+      <url>/2018/03/21/mac-tricks/</url>
+      
+        <content type="html"><![CDATA[<p>此文档记录mac一些操作技巧，提升开发效率</p><a id="more"></a><h2 id="mac系统的权限问题"><a href="#mac系统的权限问题" class="headerlink" title="mac系统的权限问题"></a>mac系统的权限问题</h2><p>遇到MacOS sierra系统的/usr下各种root操作出现“Operation not permitted”的问题，关闭 Rootless即可。重启按住 Command+R，进入恢复模式，打开Terminal:</p><p><code>csrutil disable</code></p><p>重启即可。如果要恢复默认：</p><p><code>csrutil enable</code></p><h2 id="mac用户组"><a href="#mac用户组" class="headerlink" title="mac用户组"></a>mac用户组</h2><p>OS X 内置会有staff wheel admin这三种常见的用户组，分别介绍一下</p><ol><li><p>staff : 所有创建用户都会属于这个用户组，提供最基本的对该用户目录~/<em>(/User/</em>)的rwx权限，其他的一般只有r或者rx权限。比如我建立一个用户叫做lizhuoli，那么我会在一个staff组里面，对/User/lizhuoli/*有rwx权限。</p></li><li><p>admin :默认创建的所有用户也会属于这个admin用户组，在它里面的用户可以通过 <code>su</code> 或者 <code>sudo</code> 切换到root用户，只要执行以后输入这个用户的密码即可，而不需要知道root密码。</p></li><li><p>wheel :唯一只拥有一个用户root，意思是root用户的专属用户组。</p></li></ol><p>结论</p><p>苹果新系统的Rootless防止用户误操作，或者防止一些软件能直接获取到root权限对系统造成危害。</p><p>说白了就是不想让用户去碰涉及系统内核的一些东西。把用户当傻子培养是苹果一贯策略。</p><p>sudo和su到root权限都不能对一些文件造成更改了。</p><p>想更改也很简单。重启，开机按住cmd+r，进入恢复模式的终端。然后使用命令csrutil disable关闭rootless</p><p>不过这就多了一份被恶意软件攻击的潜在威胁，建议此时打开Mac App Store 和被认可的开发者或者纯粹的Mac App Store限制。</p><h2 id="不同用户组下的文件"><a href="#不同用户组下的文件" class="headerlink" title="不同用户组下的文件"></a>不同用户组下的文件</h2><ol><li><p>一个用户(user)对于一个文件有三种状态，可读(r)、可写(w)、可执行(x)，一个文件会有一个所属用户，所属用户组。还会有文件属主权限、同组用户权限、其他用户权限这三种标识符用来定义一个文件对一个用户的权限集合。</p></li><li><p>为了达到多个用户的权限管理，每个用户会在一个或者多个用户组(group)中，一个用户组可以有多个用户</p></li><li><p>root用户是一个特殊用户（超级用户），拥有对所有文件的rwx权限（可读可写可执行）</p></li><li><p>UNIX系统是纯粹基于文件的，换言之你的网络读取，驱动程序，分区表什么的其实都会以文件的形式存在</p></li></ol><h2 id="mac硬盘分区相关"><a href="#mac硬盘分区相关" class="headerlink" title="mac硬盘分区相关"></a>mac硬盘分区相关</h2><p>MS-DOS（FAT）格式，可以共同兼容Mac OS系统和Windows系统的读写，但单个文件不能大于4GB，适合在 Mac 和 PC 之间共享文件。</p><p>NTFS 格式，在 Mac 上只读——注意是只读。而且在 Mac 上也不能将硬盘格式化为 NTFS。但是在 MS-DOS(FAT) 式下无法存储的 &gt;4GB 的文件可以在此存储，适合存放高清电影和大型软件。 </p><p>exFAT文件系统也能共同兼容Mac OS系统和Windows系统，但是，exFAT作为FAT32的升级版，目前还不太稳定，如果文件系统不够稳定，就存在着分区表丢失，数据丢失等隐患，建议大家谨慎使用。</p><p>将一个硬盘分为3个分区，一个区专门做Time Machine的备份：格式是MAC OS（日志）；一个区做成与Windows系统兼容的MS-DOS(FAT)格式，方便倒存共享数据(但是由于经常数据大于4g所以我不用这个，我还是用ntfs，然后用第三方应用来读写即可，如paragon ntfs for mac)；最后一个区域是Mac专属的数据存放区域，存储我的图片和音乐、视频等Mac常用的重要数据：格式：MAC OS（日志）。</p><p>分区名：macTimeMachine、mac、win</p><h2 id="mac上所有python管理"><a href="#mac上所有python管理" class="headerlink" title="mac上所有python管理"></a>mac上所有python管理</h2><h3 id="1-几个目录"><a href="#1-几个目录" class="headerlink" title="1.几个目录"></a>1.几个目录</h3><table><thead><tr><th align="center">来源</th><th align="center">python安装路径</th></tr></thead><tbody><tr><td align="center">系统默认</td><td align="center">/System/Library/Frameworks/Python.framework/Versions/2.7</td></tr><tr><td align="center">brew安装</td><td align="center">/usr/local/Cellar</td></tr><tr><td align="center">anaconda</td><td align="center">/anaconda3/bin/</td></tr><tr><td align="center">官网pkg安装</td><td align="center">/Library/Frameworks/Python.framework/Versions/2.7</td></tr></tbody></table><h3 id="2-现存mac上的所有python及pip路径"><a href="#2-现存mac上的所有python及pip路径" class="headerlink" title="2.现存mac上的所有python及pip路径"></a>2.现存mac上的所有python及pip路径</h3><p><strong>python：</strong></p><p>/usr/bin下mac自带python: /usr/bin/python<br>/usr/bin下mac自带python2.7: /usr/bin/python2.7<br>/usr/local/bin下python3: /usr/local/bin/python3<br>/usr/local/bin下python3.6: /usr/local/bin/python3.6<br>conda下python3: /anaconda3/bin/python3<br>conda下python3.6: /anaconda3/bin/python3.6<br>conda下虚拟环境python2.7:  /anaconda3/envs/tensorflow11027/bin/<br>conda下虚拟环境python3.6: /anaconda3/envs/python3/bin/</p><p><strong>pip:(pip安装的包路径在相应目录下的lib/site-packages中)：</strong></p><p>/usr/local/bin下pip3: /usr/local/bin/pip3<br>/usr/local/bin下pip3.6: /usr/local/bin/pip3.6<br>conda下pip: /anaconda3/envs/tensorflow11027/bin/pip<br>conda下pip2: /anaconda3/envs/tensorflow11027/bin/pip2<br>conda下pip2.7: /anaconda3/envs/tensorflow11027/bin/pip2.7<br>conda下虚拟环境pip2:/anaconda3/envs/tensorflow11027/bin/pip2<br>conda下虚拟环境pip3:/anaconda3/envs/tensorflow11027/bin/pip</p><h3 id="3-以上这么多python版本和路径，用conda的虚拟环境进行2与3的切换"><a href="#3-以上这么多python版本和路径，用conda的虚拟环境进行2与3的切换" class="headerlink" title="3.以上这么多python版本和路径，用conda的虚拟环境进行2与3的切换"></a>3.以上这么多python版本和路径，用conda的虚拟环境进行2与3的切换</h3><p>这个问题即如何更改默认的Anaconda python环境？通过修改<del>/.bashrc或</del>/.bash_profile即可，只要把默认的python、pip路径设置好，版本也就定了，安装包的路径也就在相应的lib下，并且conda的虚拟环境也可以任意更改删除，便于管理。</p><pre><code>将默认的conda root环境# added by Anaconda3 5.1.0 installer#export PATH=&quot;/anaconda3/bin:$PATH&quot;更改为以conda创建的虚拟环境，这里创建的环境为基于python2.7的tensorflow11027# set python3 as defaultexport PATH=&quot;/anaconda3/envs/tensorflow11027/bin:$PATH&quot;更改之后pip也在相应的tensorflow11027环境中，pip安装包的路径也在这里，很好管理</code></pre><p>###4.pip包安装与卸载</p><pre><code>安装pycurl包pip install pycurl列出已经安装的python包pip list输出pycurl包的信息pip show pycurl卸载pycurl包pip uninstall pycurl更新过期的包：pip list --outdated     #列出所有过期的库pip install --upgrade 库名     #更新想要更新的包</code></pre><p>###5.pip安装使用国内源</p><p>通过几次ｐiｐ的使用，对于默认的pip源的速度实在无法忍受，于是便搜集了一些国内的pip源，如下：</p><pre><code>阿里云 http://mirrors.aliyun.com/pypi/simple/中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/ 豆瓣 http://pypi.douban.com/simple/ 清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/</code></pre><p>使用方法很简单，直接 -i 加 url 即可！如下：</p><pre><code>pip install web.py -i http://pypi.douban.com/simple如果有报错，请使用命令：pip install web.py -i http://pypi.douban.com/simple --trusted-host pypi.douban.com</code></pre><p>如果想配置成默认的源，需要创建或修改配置文件（一般都是创建），linux的文件在~/.pip/pip.conf，修改内容为：</p><pre><code>[global]index-url = http://pypi.douban.com/simple[install]trusted-host=pypi.douban.com</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 综合技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 综合技术 </tag>
+            
+            <tag> mac </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vim总结</title>
+      <link href="/2018/03/21/vim/"/>
+      <url>/2018/03/21/vim/</url>
+      
+        <content type="html"><![CDATA[<p>此文档记录vim一些操作技巧，提升开发效率</p><a id="more"></a><h2 id="修改vimrc配置文件出现的权限问题"><a href="#修改vimrc配置文件出现的权限问题" class="headerlink" title="修改vimrc配置文件出现的权限问题"></a>修改vimrc配置文件出现的权限问题</h2><p>解决方法：</p><p>/usr/share/vim/vimrc 这个每次系统升级就会被覆盖</p><p>所以vim ~/.vimrc 在你的home目录创建一个.vimrc就好了，以后都在这个里面改就行</p><p>然后<code>echo $MYVIMRC</code>看看你的设置是否成功</p><h2 id="vim主题更换"><a href="#vim主题更换" class="headerlink" title="vim主题更换"></a>vim主题更换</h2><p>想更换vim的default主题，换成molokai.vim主题</p><pre><code>在终端输入$ ls /usr/share/vim/vim80/colors查看是否有上面提到的某些配色，所有配色均是以.vim结束的，如果有的话，再输入：$ cd ~/到用户主目录，然后输入$ vim .vimrc创建配置文件，将vim的内容设置如下：set nu  colorscheme molokai  syntax on</code></pre><p>mac下vim的16种配色的<a href="http://blog.csdn.net/myhelperisme/article/details" target="_blank" rel="noopener">主题方案</a>，把molokai换成对应的名字即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 综合技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 综合技术 </tag>
+            
+            <tag> vim </tag>
             
         </tags>
       
@@ -1207,11 +1263,11 @@
       
         <tags>
             
+            <tag> 博客 </tag>
+            
             <tag> hexo </tag>
             
             <tag> gitee </tag>
-            
-            <tag> 博客 </tag>
             
         </tags>
       
@@ -1237,6 +1293,31 @@
         <tags>
             
             <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>研二java基础知识点</title>
+      <link href="/2017/12/08/java-learning-road/"/>
+      <url>/2017/12/08/java-learning-road/</url>
+      
+        <content type="html"><![CDATA[<p>10天恶补java的学习笔记</p><a id="more"></a><h2 id="java学习路线"><a href="#java学习路线" class="headerlink" title="java学习路线"></a>java学习路线</h2><ul><li><a href="http://bbs.itheima.com/thread-200600-1-1.html" target="_blank" rel="noopener">阳哥笔记】Java基础之笔记系列（全）</a></li></ul><p>用法：一共27章笔记，每章都很少，按顺序看完即可。有问题想深入的可以百度+b站视频，以下是看的过程中我另外加餐深入了解的：</p><ul><li><p><a href="https://www.cnblogs.com/xiaoxi/p/6036701.html" target="_blank" rel="noopener">博客_String相关</a></p></li><li><p><a href="https://www.bilibili.com/video/av29576265/?p=1" target="_blank" rel="noopener">b站_多线程</a></p></li><li><p><a href="https://www.bilibili.com/video/av28590247/?p=1" target="_blank" rel="noopener">b站_集合</a></p></li><li><p><a href="https://www.bilibili.com/video/av29576016/?p=1" target="_blank" rel="noopener">b站_IO</a></p></li></ul><p>JAVA 工程师技术路线参考：</p><ul><li>基础：Java 教程，JSP 教程</li><li>进阶：SQL 教程，MySQL 教程</li><li>高级：正则表达式教程，Mongodb教程， AJAX 教程，JSON 教程，XML 教程，</li><li>开发工具：Eclipse、IDEA</li></ul><p>总结：以阳哥笔记为主线往下看，附加string相关+三章的b站视频即可。(截止写完这篇博客时，阳哥笔记还剩网络编程、反射两章，估计还要配合b站视频看)</p><p>疯狂看的话，一周半应该能看完(符合学习一门语言10天的节奏，时间太长收益不大)。把阳哥看完，java基础应该差不多了</p><h2 id="java语法"><a href="#java语法" class="headerlink" title="java语法"></a>java语法</h2><p>java菜鸟教程过一遍</p><p><a href="http://www.runoob.com/java/java-tutorial.html" target="_blank" rel="noopener">java教程</a></p><h2 id="int与String转换"><a href="#int与String转换" class="headerlink" title="int与String转换"></a>int与String转换</h2><pre><code class="java">int a = 20;System.out.println(new Integer(a).toString()); //int to StringString ss = &quot;25&quot;;System.out.println(Integer.parseInt(ss)); //String to int</code></pre><h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>静态方法中只能访问静态成员变量，静态方法中也只能调用静态方法</p><p>问：是否可以从一个static方法内部发出对非static方法的调用? 不可以<br>不可以。因为非static方法是要与对象关联在一起的，必须创建一个对象后，才可以在该对象上进行方法调用，而static方法调用时不需要创建对象，可以直接调用。也就是说，当一个static方法被调用时，可能还没有创建任何实例对象，如果从一个static方法中发出对非static方法的调用，那个非static方法是关联到哪个对象上的呢？这个逻辑无法成立，故不可以</p><p>举例：</p><pre><code class="java">public class xix {    // 静态成员     public static String string=&quot;static成员&quot;;    // 普通成员    public String string2=&quot;非static成员&quot;;    // 静态方法    public static void method(){        string=&quot;sss&quot;;        //string2=&quot;sss&quot;;编译报错,因为静态方法里面只能调用静态方法或静态成员        //method2();        System.out.println(&quot;这是static方法,static方法与对象无关&quot;);    }    // 普通方法     public void method2(){        string =&quot;string1&quot;;        string2=&quot;string2&quot;;        method(); //非静态方法里面可以发出对static方法的调用        System.out.println(&quot;这是非static方法,此方法必须和指定的对象关联起来才起作用&quot;);    }    public static void main(String[] args) {        xix x=new xix();        x.method2();// 引用调用普通方法         x.method();// 引用调用静态方法    }}</code></pre><h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p>final 修饰类中的属性或者变量</p><p>无论属性是基本类型还是引用类型，final 所起的作用都是变量里面存放的”值”不能变。</p><p>这个值，对于基本类型来说，变量里面放的就是实实在在的值，如 1，”abc” 等。</p><p>而引用类型变量里面放的是个地址，所以用 final 修饰引用类型变量指的是它里面的地址不能变，并不是说这个地址所指向的对象或数组的内容不可以变，这个一定要注意。</p><p>例如：类中有一个属性是 final Person p=new Person(“name”); 那么你不能对 p 进行重新赋值，但是可以改变 p 里面属性的值 p.setName(‘newName’);</p><p>final 修饰属性，声明变量时可以不赋值，而且一旦赋值就不能被修改了。对 final 属性可以在三个地方赋值：声明时、初始化块中、构造方法中，总之一定要赋值。</p><p>2、final修饰类中的方法</p><p>作用：可以被继承，但继承后不能被重写。</p><p>3、final修饰类</p><p>作用：类不可以被继承。</p><p>final 变量：</p><p>final 变量能被显式地初始化并且只能初始化一次。被声明为 final 的对象的引用不能指向不同的对象。但是 final 对象里的数据可以被改变。</p><p>也就是说 final 对象的引用不能改变，但是里面的值可以改变。<br>final 修饰符通常和 static 修饰符一起使用来创建类常量。</p><p>final 方法</p><p>类中的 final 方法可以被子类继承，但是不能被子类修改。<br>声明 final 方法的主要目的是防止该方法的内容被修改。</p><pre><code class="java">public class Test{    public final void changeName(){       // 方法体    }}final 类final 类不能被继承，没有类能够继承 final 类的任何特性。public final class Test {   // 类体}</code></pre><h2 id="abstract修饰符"><a href="#abstract修饰符" class="headerlink" title="abstract修饰符"></a>abstract修饰符</h2><p>抽象类：</p><p>抽象类不能用来实例化对象，声明抽象类的唯一目的是为了将来对该类进行扩充。</p><p>一个类不能同时被 abstract 和 final 修饰。如果一个类包含抽象方法，那么该类一定要声明为抽象类，否则将出现编译错误。<br>抽象类可以包含抽象方法和非抽象方法。</p><pre><code class="java">abstract class Caravan{   private double price;   private String model;   private String year;   public abstract void goFast(); //抽象方法   public abstract void changeColor();}</code></pre><p>抽象方法</p><p>抽象方法是一种没有任何实现的方法，该方法的的具体实现由子类提供。<br>抽象方法不能被声明成 final 和 static。</p><p>任何继承抽象类的子类必须实现父类的所有抽象方法，除非该子类也是抽象类。</p><p>如果一个类包含若干个抽象方法，那么该类必须声明为抽象类。抽象类可以不包含抽象方法。</p><p>抽象方法的声明以分号结尾，例如：<code>public abstract void sample();</code></p><pre><code class="java">public abstract class SuperClass{    abstract void m(); //抽象方法}class SubClass extends SuperClass{     //实现抽象方法      void m(){          .........      }}</code></pre><p>抽象类除了不能实例化对象之外，抽象类必须被继承，才能被使用</p><ol><li><p>抽象类不能被实例化(初学者很容易犯的错)，如果被实例化，就会报错，编译无法通过。只有抽象类的非抽象子类可以创建对象。</p></li><li><p>抽象类中不一定包含抽象方法，但是有抽象方法的类必定是抽象类。</p></li><li><p>抽象类中的抽象方法只是声明，不包含方法体，就是不给出方法的具体实现也就是方法的具体功能。</p></li><li><p>构造方法，类方法（用static修饰的方法）不能声明为抽象方法。</p></li><li><p>抽象类的子类必须给出抽象类中的抽象方法的具体实现，除非该子类也是抽象类。</p></li></ol><h2 id="synchronized-修饰符"><a href="#synchronized-修饰符" class="headerlink" title="synchronized 修饰符"></a>synchronized 修饰符</h2><p>synchronized 关键字声明的方法同一时间只能被一个线程访问。<br>synchronized 修饰符可以应用于四个访问修饰符。</p><pre><code class="java">public synchronized void showDetails(){.......}</code></pre><h2 id="transient-修饰符"><a href="#transient-修饰符" class="headerlink" title="transient 修饰符"></a>transient 修饰符</h2><p>序列化的对象包含被 transient 修饰的实例变量时，java 虚拟机(JVM)跳过该特定的变量。</p><p>该修饰符包含在定义变量的语句中，用来预处理类和变量的数据类型。</p><pre><code class="java">public transient int limit = 55;   // 不会持久化public int b; // 持久化</code></pre><h2 id="volatile-修饰符"><a href="#volatile-修饰符" class="headerlink" title="volatile 修饰符"></a>volatile 修饰符</h2><p>volatile 修饰的成员变量在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值。而且，当成员变量发生变化时，会强制线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</p><p>一个 volatile 对象引用可能是 null。</p><pre><code class="java">public class MyRunnable implements Runnable{    private volatile boolean active;    public void run()    {        active = true;        while (active) // 第一行        {            // 代码        }    }    public void stop()    {        active = false; // 第二行    }}</code></pre><p>通常情况下，在一个线程调用 run() 方法（在 Runnable 开启的线程），在另一个线程调用 stop() 方法。 如果 第一行 中缓冲区的 active 值被使用，那么在 第二行 的 active 值为 false 时循环不会停止。</p><p>但是以上代码中我们使用了 volatile 修饰 active，所以该循环会停止。</p><h2 id="子类与父类"><a href="#子类与父类" class="headerlink" title="子类与父类"></a>子类与父类</h2><p>子类是父类的类型，但父类不是子类的类型。</p><p>子类的实例可以声明为父类型，但父类的实例不能声明为子类型。</p><p><code>class Vehicle {}</code></p><pre><code class="java">public class Car extends Vehicle {    public static void main(String args[]){        Vehicle v1 = new Vehicle(); //父类型        Vehicle v2 = new Car(); //子类的实例可以声明为父类型        Car c1 = new Car();    // 子类型        Car c2 = new Vehicle(); //这句会报错，父类型的实例不能声明为子类型        //Car（子类）是Vehicle（父类）类型, Vehicle（父类）不是Car（子类）类型        boolean result1 =  c1 instanceof Vehicle;    // true        boolean result2 =  c1 instanceof Car;        // true        boolean result3 =  v1 instanceof Vehicle;    // true        boolean result4 =  v1 instanceof Car;          // false        boolean result5 =  v2 instanceof Vehicle;    // true        boolean result6 =  v2 instanceof Car;          // true        System.out.println(result1);        System.out.println(result2);        System.out.println(result3);        System.out.println(result4);        System.out.println(result5);        System.out.println(result6);   }}</code></pre><h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><p>当变量的值与 case 语句的值相等时，那么 case 语句之后的语句开始执行，直到 break 语句出现才会跳出 switch 语句。</p><pre><code>output:bchaha</code></pre><h2 id="在控制台输入由-号组成的菱形"><a href="#在控制台输入由-号组成的菱形" class="headerlink" title="在控制台输入由*号组成的菱形"></a>在控制台输入由*号组成的菱形</h2><pre><code class="java">public class Test{    public static void main(String[] args)    {        int num = 11;  //打印一个一行最多num个*的菱形        int k = num; //通过数学计算，我们可知菱形的行数总数也为num        for(int i=0; i&lt;(k+1)/2; ++i)    //升序排序打印输出        {            int mid = (k-1)/2; //mid是每行的居中点下标            for(int j=0; j&lt;k; ++j)            {                int temp = j-mid;                if(java.lang.Math.abs(temp) &lt;= i)                {                    System.out.print(&quot;*&quot;);                }                else                {                    System.out.print(&quot; &quot;);                }            }            System.out.println();        }        for(int i=(k-1)/2-1; i&gt;=0; i--)    //降序排序打印输出        {            int mid = (k-1)/2; //mid是每行的居中点下标            for(int j=0; j&lt;k; ++j)            {                int temp = j-mid;                if(java.lang.Math.abs(temp) &lt;= i)                {                    System.out.print(&quot;*&quot;);                }                else                {                    System.out.print(&quot; &quot;);                }            }            System.out.println();        }    }}</code></pre><h2 id="与equals"><a href="#与equals" class="headerlink" title="==与equals"></a>==与equals</h2><h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h2><p>注意：String 类是不可改变的，所以你一旦创建了 String 对象，那它的值就无法改变了。</p><p>如果需要对字符串做很多修改，那么应该选择使用 StringBuffer &amp; StringBuilder 类。</p><h2 id="StringBuffer-和-StringBuilder-类"><a href="#StringBuffer-和-StringBuilder-类" class="headerlink" title="StringBuffer 和 StringBuilder 类"></a>StringBuffer 和 StringBuilder 类</h2><p>当对字符串进行修改的时候，需要使用 StringBuffer 和 StringBuilder 类。</p><p>和 String 类不同的是，StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且不产生新的未使用对象。</p><p>StringBuilder 类在 Java 5 中被提出，它和 StringBuffer 之间的最大不同在于 StringBuilder 的方法不是线程安全的（不能同步访问）。</p><p>由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。</p><p>Java 中 StringBuffer 和 String 是有一定的区别的，首先，String 是被 final 修饰的，他的长度是不可变的，就算调用 String 的</p><p>concat 方法，那也是把字符串拼接起来并重新创建一个对象，把拼接后的 String 的值赋给新创建的对象，而 StringBuffer 的长度是可变的，</p><p>调用StringBuffer 的 append 方法，来改变 StringBuffer 的长度，并且，相比较于 StringBuffer，String 一旦发生长度变化，是非常耗费内存的！</p><p>String 长度大小不可变<br>StringBuffer 和 StringBuilder 长度可变<br>StringBuffer 线程安全 StringBuilder 线程不安全<br>StringBuilder 速度快</p><h2 id="length与size"><a href="#length与size" class="headerlink" title="length与size"></a>length与size</h2><p>length()方法，length属性和size()的方法的区别:</p><p>1.length()方法是针对字符串来说的，要求一个字符串的长度就要用到它的length()方法；</p><p>2.length属性是针对Java中的数组来说的，要求数组的长度可以用其length属性；</p><p>3.java中的size()方法是针对泛型集合说的,如果想看这个泛型有多少个元素,就调用此方法来查看!</p><h2 id="数组与Arrays类"><a href="#数组与Arrays类" class="headerlink" title="数组与Arrays类"></a>数组与Arrays类</h2><p>java.util.Arrays 类能方便地操作数组，它提供的所有方法都是静态的。</p><p>具有以下功能：</p><ul><li>给数组赋值：通过 fill 方法。</li><li>对数组排序：通过 sort 方法,按升序。</li><li>比较数组：通过 equals 方法比较数组中元素值是否相等。</li><li>查找数组元素：通过 binarySearch 方法能对排序好的数组进行二分查找法操作。</li></ul><p>String str = “helloworld”;</p><p>char[] data = str.toCharArray();// 将字符串转为数组</p><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><ol><li>对整数进行格式化：%[index$][标识][最小宽度]转换方式<pre><code>     格式化字符串由4部分组成，特殊的格式常以%index$开头，index从1开始取值，表示将第index个参数拿进来进行格式化，[最小宽度]的含义也很好理解，就是最终该整数转化的字符串最少包含多少位数字。剩下2个部分的含义：</code></pre></li></ol><p>标识：</p><pre><code> &#39;-&#39; 在最小宽度内左对齐，不可以与&quot;用0填充&quot;同时使用 &#39;#&#39; 只适用于8进制和16进制，8进制时在结果前面增加一个0，16进制时在结果前面增加0x &#39;+&#39; 结果总是包括一个符号(一般情况下只适用于10进制，若对象为BigInteger才可以用于8进制和16进制) &#39; &#39; 正值前加空格，负值前加负号(一般情况下只适用于10进制，若对象为BigInteger才可以用于8进制和16进制) &#39;0&#39; 结果将用零来填充 &#39;,&#39; 只适用于10进制，每3位数字之间用&quot;，&quot;分隔 &#39;(&#39; 若参数是负数，则结果中不添加负号而是用圆括号把数字括起来(同&#39;+&#39;具有同样的限制)转换方式：d-十进制 o-八进制 x或X-十六进制上面的说明过于枯燥，我们来看几个具体的例子。需要特别注意的一点是：大部分标识字符可以同时使用。</code></pre><ol start="2"><li>对浮点数进行格式化：%[index$][标识][最少宽度][.精度]转换方式<br>我们可以看到，浮点数的转换多了一个”精度”选项，可以控制小数点后面的位数。<br>标识：</li></ol><pre><code>&#39;-&#39; 在最小宽度内左对齐，不可以与&quot;用0填充&quot;同时使用&#39;+&#39; 结果总是包括一个符号&#39; &#39; 正值前加空格，负值前加负号&#39;0&#39; 结果将用零来填充&#39;,&#39; 每3位数字之间用&quot;，&quot;分隔(只适用于fgG的转换)&#39;(&#39; 若参数是负数，则结果中不添加负号而是用圆括号把数字括起来(只适用于eEfgG的转换)转换方式：&#39;e&#39;, &#39;E&#39; -- 结果被格式化为用计算机科学记数法表示的十进制数&#39;f&#39; -- 结果被格式化为十进制普通表示方式&#39;g&#39;, &#39;G&#39; -- 根据具体情况，自动选择用普通表示方式还是科学计数法方式&#39;a&#39;, &#39;A&#39; -- 结果被格式化为带有效位数和指数的十六进制浮点数</code></pre><p>3.对字符进行格式化：</p><p>对字符进行格式化是非常简单的，c表示字符，标识中’-‘表示左对齐，其他就没什么了。</p><p>这个格式化没有太掌握，用的时候还需要进一步学习</p><h2 id="sleep休眠、测量时间"><a href="#sleep休眠、测量时间" class="headerlink" title="sleep休眠、测量时间"></a>sleep休眠、测量时间</h2><p>sleep()使当前线程进入停滞状态（阻塞当前线程），让出CPU的使用、目的是不让当前线程独自霸占该进程所获的CPU资源，以留一定时间给其他线程执行的机会。</p><p>你可以让程序休眠一毫秒的时间或者到您的计算机的寿命长的任意段时间。</p><p>例如，下面的程序会休眠3秒：</p><pre><code class="java">Thread.sleep(1000*3);   // 休眠3秒output:3001</code></pre><h2 id="Calendar类与Date类"><a href="#Calendar类与Date类" class="headerlink" title="Calendar类与Date类"></a>Calendar类与Date类</h2><p>我们现在已经能够格式化并创建一个日期对象了，但是我们如何才能设置和获取日期数据的特定部分呢，比如说小时，日，或者分钟? 我们又如何在日期的这些部分加上或者减去值呢? 答案是使用Calendar 类。</p><p>Calendar类的功能要比Date类强大很多，而且在实现方式上也比Date类要复杂一些。</p><p>Calendar类是一个抽象类，在实际使用时实现特定的子类的对象，创建对象的过程对程序员来说是透明的，只需要使用getInstance方法创建即可。</p><p>1.Calendar c = Calendar.getInstance();//默认是当前日期</p><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>java.util.regex包</p><p>java.util.regex 包主要包括以下三个类：</p><p>Pattern 类：pattern 对象是一个正则表达式的编译表示。Pattern 类没有公共构造方法。要创建一个 Pattern 对象，你必须首先调用其公共静态编译方法，它返回一个 Pattern 对象。该方法接受一个正则表达式作为它的第一个参数。</p><p>Matcher 类：Matcher 对象是对输入字符串进行解释和匹配操作的引擎。与Pattern 类一样，Matcher 也没有公共构造方法。你需要调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。</p><p>PatternSyntaxException：PatternSyntaxException 是一个非强制异常类，它表示一个正则表达式模式中的语法错误。</p><p>1.匹配一组</p><pre><code class="java">String content = &quot;I am noob &quot; + &quot;from runoob.com.&quot;;String pattern = &quot;.*runoob.*&quot;;boolean isMatch = Pattern.matches(pattern, content);System.out.println(&quot;字符串中是否包含了 &#39;runoob&#39; 子字符串? &quot; + isMatch); //true</code></pre><ol start="2"><li>匹配多组</li></ol><pre><code class="java">// 按指定模式在字符串查找String line = &quot;This order was placed for QT3000! OK?&quot;;String pattern = &quot;(\\D*)(\\d+)(.*)&quot;;// 创建 Pattern 对象Pattern r = Pattern.compile(pattern);// 现在创建 matcher 对象Matcher m = r.matcher(line);if (m.find( )) { System.out.println(&quot;Found value: &quot; + m.group(0) ); System.out.println(&quot;Found value: &quot; + m.group(1) ); System.out.println(&quot;Found value: &quot; + m.group(2) ); System.out.println(&quot;Found value: &quot; + m.group(3) ); } else { System.out.println(&quot;NO MATCH&quot;);}</code></pre><h2 id="可变参数"><a href="#可变参数" class="headerlink" title="可变参数"></a>可变参数</h2><p>JDK 1.5 开始，Java支持传递同类型的可变参数给一个方法。<br>在方法声明中，在指定参数类型后加一个省略号(…) 。</p><p>一个方法中只能指定一个可变参数，它必须是方法的最后一个参数。任何普通的参数必须在它之前声明。</p><h2 id="finalize-方法"><a href="#finalize-方法" class="headerlink" title="finalize() 方法"></a>finalize() 方法</h2><p>Java 允许定义这样的方法，它在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象。</p><p>例如，你可以使用 finalize() 来确保一个对象打开的文件被关闭了。<br>在 finalize() 方法里，你必须指定在对象销毁时候要执行的操作。</p><p>finalize() 一般格式是：</p><pre><code class="java">protected void finalize(){   // 在这里终结代码}</code></pre><p>关键字 protected 是一个限定符，它确保 finalize() 方法不会被该类以外的代码调用。</p><p>当然，Java 的内存回收可以由 JVM 来自动完成。如果你手动使用，则可以使用上面的方法。</p><h2 id="java异常处理"><a href="#java异常处理" class="headerlink" title="java异常处理"></a>java异常处理</h2><p>所有的异常类是从 java.lang.Exception 类继承的子类。</p><p>Exception 类是 Throwable 类的子类。除了Exception类外，Throwable还有一个子类Error 。</p><p>Java 程序通常不捕获错误。错误一般发生在严重故障时，它们在Java程序处理的范畴之外。</p><p>Error 用来指示运行时环境发生的错误。</p><p>例如，JVM 内存溢出。一般地，程序不会从错误中恢复。</p><p>异常类有两个主要的子类：IOException 类和 RuntimeException 类。</p><p>从大体来分异常为两块：</p><p>1、error—错误 ： 是指程序无法处理的错误，表示应用程序运行时出现的重大错误。例如jvm运行时出现的OutOfMemoryError以及Socket编程时出现的端口占用等程序无法处理的错误。</p><p>2、Exception — 异常 ：异常可分为运行时异常跟编译异常</p><ul><li>运行时异常：即RuntimeException及其之类的异常。这类异常在代码编写的时候不会被编译器所检测出来，是可以不需要被捕获，但是程序员也可以根据需要进行捕获抛出。常见的RUNtimeException有：NullpointException（空指针异常），ClassCastException（类型转换异常），IndexOutOfBoundsException（数组越界异常）等。</li><li>编译异常：RuntimeException以外的异常。这类异常在编译时编译器会提示需要捕获，如果不进行捕获则编译错误。常见编译异常有：IOException（流传输异常），SQLException（数据库操作异常）等。</li></ul><p>3、java处理异常的机制：抛出异常以及捕获异常 ，一个方法所能捕捉的异常，一定是Java代码在某处所抛出的异常。简单地说，异常总是先被抛出，后被捕捉的。</p><p>4、throw跟throws的区别:</p><pre><code class="java">public void test() throws Exception {    throw new Exception();}</code></pre><p>从上面这一段代码可以明显的看出两者的区别。throws表示一个方法声明可能抛出一个异常，throw表示此处抛出一个已定义的异常（可以是自定义需继承Exception，也可以是java自己给出的异常类）。</p><p>5、接下来看一下如何捕获异常：</p><p>1）首先java对于异常捕获使用的是try—catch或try — catch — finally 代码块，程序会捕获try代码块里面的代码，若捕获到异常则进行catch代码块处理。若有finally则在catch处理后执行finally里面的代码。然而存在这样两个问题：</p><p>a.看如下代码：</p><pre><code class="java">try{    //待捕获代码}catch（Exception e）{    System.out.println(&quot;catch is begin&quot;);    return 1 ；}finally{     System.out.println(&quot;finally is begin&quot;);}</code></pre><p>在catch里面有一个return，那么finally会不会被执行呢？答案是肯定的，上面代码的执行结果为：</p><pre><code>catch is beginfinally is begin </code></pre><p>也就是说会先执行catch里面的代码后执行finally里面的代码最后才return1 ；</p><p>b.看如下代码：</p><pre><code class="java">try{   //待捕获代码    }catch（Exception e）{    System.out.println(&quot;catch is begin&quot;);    return 1 ；}finally{     System.out.println(&quot;finally is begin&quot;);     return 2 ;}</code></pre><p>在b代码中输出结果跟a是一样的，然而返回的是return 2 ； 原因很明显，就是执行了finally后已经return了，所以catch里面的return不会被执行到。也就是说finally永远都会在catch的return前被执行。（这个是面试经常问到的问题哦！）</p><p>6、对于异常的捕获不应该觉得方便而将几个异常合成一个Exception进行捕获，比如有IO的异常跟SQL的异常，这样完全不同的两个异常应该分开处理！而且在catch里处理异常的时候不要简单的e.printStackTrace()，而是应该进行详细的处理。比如进行console打印详情或者进行日志记录。</p><p>注意：异常和错误的区别：异常能被程序本身可以处理，错误是无法处理。</p><h2 id="java继承"><a href="#java继承" class="headerlink" title="java继承"></a>java继承</h2><p>注意：super 语句必须是子类构造方法的第一条语句。不能在子类中使用父类构造方法名来调用父类构造方法。 父类的构造方法不被子类继承。调用父类的构造方法的唯一途径是使用 super 关键字，如果子类中没显式调用，则编译器自动将 super(); 作为子类构造方法的第一条语句。这会形成一个构造方法链。</p><p>静态方法中不能使用 super 关键字。</p><ol><li>这个例子很重要，第三个输出注意看</li></ol><pre><code class="java">class SuperClass {  private int n;  SuperClass(){    System.out.println(&quot;SuperClass()&quot;);  }  SuperClass(int n) {    System.out.println(&quot;SuperClass(int n)&quot;);    this.n = n;  }}class SubClass extends SuperClass{  private int n;  SubClass(){    super(300);    System.out.println(&quot;SubClass&quot;);  }    public SubClass(int n){    System.out.println(&quot;SubClass(int n):&quot;+n);    this.n = n;  }}public class TestSuperSub{  public static void main (String args[]){    SubClass sc = new SubClass();    SubClass sc2 = new SubClass(200);   }}output:SuperClass(int n)SubClassSuperClass() //一定注意这一点，在子类构造方法之前，首先是调用父类的构造方法SubClass(int n):200</code></pre><p>2.又一个例子很重要</p><pre><code class="java">class Animal{   public void move(){      System.out.println(&quot;动物可以移动&quot;);   }}class Dog extends Animal{   public void move(){      System.out.println(&quot;狗可以跑和走&quot;);   }   public void bark(){      System.out.println(&quot;狗可以吠叫&quot;);   }}public class TestDog{   public static void main(String args[]){      Animal a = new Animal(); // Animal 对象      Animal b = new Dog(); // Dog 对象  //———如果改成Dog b = new Dog();就对了      a.move();// 执行 Animal 类的方法      b.move();//执行 Dog 类的方法      b.bark();   }}output:TestDog.java:30: cannot find symbolsymbol  : method bark()location: class Animal                b.bark();</code></pre><p>这是由于在编译阶段，只是检查参数的引用类型。如果编译通过，在运行时，Java虚拟机(JVM)指定对象的类型并且运行该对象的方法。</p><p>因此在上面的例子中，之所以能编译失败，是因为Animal类中不存在move方法，改成Dog b = new Dog();就对了</p><h2 id="java多态深入理解"><a href="#java多态深入理解" class="headerlink" title="java多态深入理解"></a>java多态深入理解</h2><p>强烈建议直接看菜鸟教程的多态和多态前一节(重载、重写)</p><p>多态存在的三个必要条件</p><ul><li>继承</li><li>重写</li><li>父类引用指向子类对象</li></ul><p>当使用多态方式调用方法时，首先检查父类中是否有该方法，如果没有，则编译错误；如果有，再去调用子类的同名方法。</p><p>多态的好处：可以使程序有良好的扩展，并可以对所有类的对象进行通用处理。</p><p>方法的重写(Overriding)和重载(Overloading)是java多态性的不同表现，重写是父类与子类之间多态性的一种表现，重载可以理解成多态的具体表现形式。</p><p>(1)方法重载是一个类中定义了多个方法名相同,而他们的参数的数量不同或数量相同而类型和次序不同,则称为方法的重载(Overloading)。</p><p>(2)方法重写是在子类存在方法与父类的方法的名字相同,而且参数的个数与类型一样,返回值也一样的方法,就称为重写(Overriding)。</p><p>(3)方法重载是一个类的多态性表现,而方法重写是子类与父类的一种多态性表现。</p><p>重载与重写的简明理解:</p><ul><li><p>重载反映的是”随机应变”. 同样一项功能, 根据数据类型的不同, 采用不同的处理方式. </p></li><li><p>重写反映的是”父子差异”. 你”继承”了父亲吃火锅的爱好, 但是吃同一份鸳鸯锅(注意, 数据类型相同) , 你喜欢涮红汤, 你父亲喜欢涮清汤.</p></li></ul><p>所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。</p><h2 id="java接口"><a href="#java接口" class="headerlink" title="java接口"></a>java接口</h2><p>类的多继承是不合法，一个类只能继承一个类，可以实现多个接口，但接口允许多继承.</p><p>1.接口可以多继承</p><p>2.接口的方法声明必须是 public abstract 即便不写默认也是</p><p>3.接口里面不能包含方法具体实现</p><p>4.类实继承接口必须实现接口里申明的全部方法，除非该类是抽象类</p><p>5.类里面可以声明 public static final 修饰的变量</p><p>6.接口不能被实例化，但是可以被实现类创建</p><p>接口里面定义的成员变量都是  public static final修饰，抽象类中的变量是普通变量</p><p>抽象类和接口的区别:</p><ol><li><p>抽象类中的方法可以有方法体，就是能实现方法的具体功能，但是接口中的方法不行。</p></li><li><p>抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是 public static final 类型的。</p></li><li><p>接口中不能含有静态代码块以及静态方法(用 static 修饰的方法)，而抽象类是可以有静态代码块和静态方法。</p></li><li><p>一个类只能继承一个抽象类，而一个类却可以实现多个接口。</p></li></ol><p>什么时候使用抽象类和接口:</p><ul><li><p>如果你拥有一些方法并且想让它们中的一些有默认实现，那么使用抽象类吧。</p></li><li><p>如果你想实现多重继承，那么你必须使用接口。由于Java不支持多继承，子类不能够继承多个类，但可以实现多个接口。因此你就可以使用接口来解决它。</p></li><li><p>如果基本功能在不断改变，那么就需要使用抽象类。如果不断改变基本功能并且使用接口，那么就需要改变所有实现了该接口的类。</p></li></ul><h2 id="java多线程"><a href="#java多线程" class="headerlink" title="java多线程"></a>java多线程</h2><p>Java 提供了三种创建线程的方法：</p><ul><li>通过实现 Runnable 接口；</li><li>通过继承 Thread 类本身；</li><li>通过 Callable 和 Future 创建线程。</li></ul><p>总结：Thread和Runnable的区别</p><p>如果一个类继承Thread，则不适合资源共享。但是如果实现了Runable接口的话，则很容易的实现资源共享。</p><p>实现Runnable接口比继承Thread类所具有的优势：</p><p>1）适合多个相同的程序代码的线程去处理同一个资源</p><p>2）可以避免java中的单继承的限制</p><p>3）增加程序的健壮性，代码可以被多个线程共享，代码和数据独立</p><p>4）线程池只能放入实现Runable或callable类线程，不能直接放入继承Thread的类</p><h2 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h2><p>1、调整线程优先级：Java线程有优先级，优先级高的线程会获得较多的运行机会。</p><p>Java线程的优先级用整数表示，取值范围是1~10，Thread类有以下三个静态常量：</p><pre><code class="java">static int MAX_PRIORITY          线程可以具有的最高优先级，取值为10。static int MIN_PRIORITY          线程可以具有的最低优先级，取值为1。static int NORM_PRIORITY          分配给线程的默认优先级，取值为5。</code></pre><p>Thread类的setPriority()和getPriority()方法分别用来设置和获取线程的优先级。</p><p>每个线程都有默认的优先级。主线程的默认优先级为Thread.NORM_PRIORITY。</p><p>线程的优先级有继承关系，比如A线程中创建了B线程，那么B将和A具有相同的优先级。</p><p>JVM提供了10个线程优先级，但与常见的操作系统都不能很好的映射。如果希望程序能移植到各个操作系统中，应该仅仅使用Thread类有以下三个静态常量作为优先级，这样能保证同样的优先级采用了同样的调度方式。</p><p>2、线程睡眠：Thread.sleep(long millis)方法，使线程转到阻塞状态。millis参数设定睡眠的时间，以毫秒为单位。当睡眠结束后，就转为就绪（Runnable）状态。sleep()平台移植性好。</p><p>3、线程等待：Object类中的wait()方法，导致当前的线程等待，直到其他线程调用此对象的 notify() 方法或 notifyAll() 唤醒方法。这个两个唤醒方法也是Object类中的方法，行为等价于调用 wait(0) 一样。</p><p>4、线程让步：Thread.yield() 方法，暂停当前正在执行的线程对象，把执行机会让给相同或者更高优先级的线程。</p><p>5、线程加入：join()方法，等待其他线程终止。在当前线程中调用另一个线程的join()方法，则当前线程转入阻塞状态，直到另一个进程运行结束，当前线程再由阻塞转为就绪状态。</p><p>6、线程唤醒：Object类中的notify()方法，唤醒在此对象监视器上等待的单个线程。如果所有线程都在此对象上等待，则会选择唤醒其中一个线程。选择是任意性的，并在对实现做出决定时发生。线程通过调用其中一个 wait 方法，在对象的监视器上等待。 直到当前的线程放弃此对象上的锁定，才能继续执行被唤醒的线程。被唤醒的线程将以常规方式与在该对象上主动同步的其他所有线程进行竞争；例如，唤醒的线程在作为锁定此对象的下一个线程方面没有可靠的特权或劣势。类似的方法还有一个notifyAll()，唤醒在此对象监视器上等待的所有线程。</p><p>注意：Thread中suspend()和resume()两个方法在JDK1.5中已经废除，不再介绍。因为有死锁倾向。</p><h2 id="wait-相关详解"><a href="#wait-相关详解" class="headerlink" title="wait()相关详解"></a>wait()相关详解</h2><p>Obj.wait()，与Obj.notify()必须要与synchronized(Obj)一起使用，也就是wait,与notify是针对已经获取了Obj锁进行操作，从语法角度来说就是Obj.wait(),Obj.notify必须在synchronized(Obj){…}语句块内。从功能上来说wait就是说线程在获取对象锁后，主动释放对象锁，同时本线程休眠。直到有其它线程调用对象的notify()唤醒该线程，才能继续获取对象锁，并继续执行。相应的notify()就是对对象锁的唤醒操作。但有一点需要注意的是notify()调用后，并不是马上就释放对象锁的，而是在相应的synchronized(){}语句块执行结束，自动释放锁后，JVM会在wait()对象锁的线程中随机选取一线程，赋予其对象锁，唤醒线程，继续执行。这样就提供了在线程间同步、唤醒的操作。Thread.sleep()与Object.wait()二者都可以暂停当前线程，释放CPU控制权，主要的区别在于Object.wait()在释放CPU同时，释放了对象锁的控制。</p><p>线程示例1（这个可以作为模板，请记住套路）</p><pre><code class="java">/** * 功能描述: 三个售票窗口同时出售20张票 * 程序分析：1.票数要使用同一个静态值            2.为保证不会出现卖出同一个票数，要java多线程同步锁。 *设计思路：            1.创建一个站台类Station，继承Thread，重写run方法，在run方法里面执行售票操作！                 售票要使用同步锁：即有一个站台卖这张票时，其他站台要等这张票卖完！            2.创建主方法调用类 @Author:braincao @Date: 2018/1/3 10:43 */public class Test{    public static void main(String[] args)    {        Station a = new Station(&quot;A&quot;);        Station b = new Station(&quot;B&quot;);        Station c = new Station(&quot;C&quot;);        a.start();        b.start();        c.start();    }}class Station extends Thread{    private String name;    private static int tickets = 20; //为了保持票数的一致，票数要静态    public Station(String name)    {        super(name);    }    static Object key = &quot;key&quot;; //创建一个静态钥匙    public void run()    {        while(tickets&gt;0)        {            synchronized(key) //这个很重要，必须使用一个锁，进去的人会把钥匙拿在手上，出来后才把钥匙让出来            {                if(tickets&gt;0)                {                    tickets--;                    System.out.println(getName() + &quot;窗口卖票一张 余票：&quot; + tickets);                }                else                {                    System.out.println(&quot;窗口无法买票，票买完了&quot;);                }            }            try            {                sleep(1000); //休息一秒，这里休息是必要的，否则很容易只让一个线程一直卖票，休息了给其他线程让出机会            }            catch(InterruptedException e)            {                e.printStackTrace();            }        }    }}</code></pre><p>线程示例2：建立三个线程，A线程打印10次A，B线程打印10次B,C线程打印10次C，要求线程同时运行，交替打印10次ABC。这个问题用Object的wait()，notify()就可以很方便的解决</p><pre><code class="java">/** * 功能描述:建立三个线程，A线程打印10次A，B线程打印10次B,C线程打印10次C， * 要求线程同时运行，交替打印10次ABC。这个问题用Object的wait()，notify()就可以很方便的解决 * @Author:braincao * @Date: 2018/1/3 14:44 */package com.multithread.wait;public class Test implements Runnable {    private String name;    private Object prev; //前一个对象锁    private Object self; //自身对象锁    private Test(String name, Object prev, Object self) {        this.name = name;        this.prev = prev;        this.self = self;    }    @Override    public void run() {        int count = 10;        while (count &gt; 0) {            synchronized (prev) {                synchronized (self) {                    System.out.print(name);                    count--;                    self.notify(); //释放自身对象锁                }                try {                    prev.wait();                } catch (InterruptedException e) {                    e.printStackTrace();                }            }        }    }    public static void main(String[] args) throws Exception {        Object a = new Object();        Object b = new Object();        Object c = new Object();        Test pa = new Test(&quot;A&quot;, c, a);        Test pb = new Test(&quot;B&quot;, a, b);        Test pc = new Test(&quot;C&quot;, b, c);        new Thread(pa).start();        Thread.sleep(1000);  //确保按顺序A、B、C执行        new Thread(pb).start();        Thread.sleep(1000);        new Thread(pc).start();        Thread.sleep(1000);    }}    输出结果：ABCABCABCABCABCABCABCABCABCABC</code></pre><p>先来解释一下其整体思路，从大的方向上来讲，该问题为三线程间的同步唤醒操作，主要的目的就是ThreadA-&gt;ThreadB-&gt;ThreadC-&gt;ThreadA循环执行三个线程。为了控制线程执行的顺序，那么就必须要确定唤醒、等待的顺序，所以每一个线程必须同时持有两个对象锁，才能继续执行。一个对象锁是prev，就是前一个线程所持有的对象锁。还有一个就是自身对象锁。主要的思想就是，为了控制执行的顺序，必须要先持有prev锁，也就前一个线程要释放自身对象锁，再去申请自身对象锁，两者兼备时打印，之后首先调用self.notify()释放自身对象锁，唤醒下一个等待线程，再调用prev.wait()释放prev对象锁，终止当前线程，等待循环结束后再次被唤醒。运行上述代码，可以发现三个线程循环打印ABC，共10次。程序运行的主要过程就是A线程最先运行，持有C,A对象锁，后释放A,C锁，唤醒B。线程B等待A锁，再申请B锁，后打印B，再释放B，A锁，唤醒C，线程C等待B锁，再申请C锁，后打印C，再释放C,B锁，唤醒A。看起来似乎没什么问题，但如果你仔细想一下，就会发现有问题，就是初始条件，三个线程按照A,B,C的顺序来启动，按照前面的思考，A唤醒B，B唤醒C，C再唤醒A。但是这种假设依赖于JVM中线程调度、执行的顺序。</p><h2 id="socket网络通信"><a href="#socket网络通信" class="headerlink" title="socket网络通信"></a>socket网络通信</h2><p>三次握手</p><p>在TCP/IP协议中，TCP协议通过三次握手建立一个可靠的连接</p><p>而下图是java socket网络通信的过程。定睛一看，服务器socket与客户端socket建立连接的部分其实就是大名鼎鼎的三次握手。</p><p>第一次握手：客户端尝试连接服务器，向服务器发送syn包（同步序列编号Synchronize Sequence Numbers），syn=j，客户端进入SYN_SEND状态等待服务器确认<br>第二次握手：服务器接收客户端syn包并确认（ack=j+1），同时向客户端发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态<br>第三次握手：第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手</p><h2 id="刷面经时别人总结的java知识点"><a href="#刷面经时别人总结的java知识点" class="headerlink" title="刷面经时别人总结的java知识点"></a>刷面经时别人总结的java知识点</h2><p>1.抽象方法只能定义在抽象类中，抽象方法和抽象类必须由abstract修饰，abstract关键字只能描述类和方法，不能描述变量。抽象方法只定义方法声明，不定义方法实现。抽象类不可以被实例化（创建对象），只有通过子类继承抽象类并覆盖抽象类中的所有抽象方法后，该子类才可以被实例化，否则该子类还是一个抽象类。抽象类中有构造函数用于给子类对象进行初始化，同时抽象类中可以含有非抽象方法。abstract关键字不可以与final，private,static关键字共存，因为被final修饰的方法不可以被重写，意味着子类不可以重写该方法，如果abstract和final共同修饰父类中的方法，子类要实现抽象方法（abstract的作用），而final又不让该方法重写，这相互矛盾。如果private和abstract共同修饰父类中的方法，private修饰则该方法不可以被子类访问，但是abstract修饰需要子类去实现，两者产生矛盾。如果static和abstract共同修饰父类中的方法，static表示是静态的方法，随着类的加载而加载，则该方法不需要在子类中去实现，这与abstract关键字矛盾。 </p><p>2.static用于修饰成员变量和成员函数，想要实现对象中的共性数据的对象共享，可以将这个数据进行静态修饰，被静态修饰的成员可以直接被类名调用，静态随着类的加载而加载，而且优先于对象存在。静态方法只能访问静态成员（静态方法和静态变量），不可以访问非静态成员，这是因为静态方法加载时，优先于对象存在，所以没有办法访问对象中的成员。静态方法中不能使用this和super关键字，因为this代表本类对象，super代表父类对象，而静态时，有可能没有对象存在，所以this和super无法使用。 </p><p>3.final关键字可以修饰类，方法，变量（成员变量内，局部变量，静态变量），被final修饰的类是一个最终类，不可以被继承，被final修饰的方法是一个最终方法，不可以被覆盖，但是可以被继承。被final修饰的变量只能是一个常量，只能赋值一次。内部类被定义在类中的局部位置上时，只能访问局部被final修饰的局部变量。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
             
         </tags>
       
