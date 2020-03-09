@@ -111,7 +111,15 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(45)</small></div></li>
+    <li><div class="all active">全部文章<small>(46)</small></div></li>
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(1)</small></div>
+                
+            </li>
+            
+        
     
         
             
@@ -215,8 +223,8 @@
     </div>
     <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="45">
-<input type="hidden" id="yelog_site_word_count" value="141.6k">
+<input type="hidden" id="yelog_site_posts_number" value="46">
+<input type="hidden" id="yelog_site_word_count" value="141.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -257,6 +265,10 @@
         </span>
     </form>
     <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">前端</a>
+    </li>
     
     <li class="article-tag-list-item">
         <a class="color3">博客</a>
@@ -335,11 +347,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color5">排序算法</a>
+        <a class="color2">spring</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a class="color2">spring</a>
+        <a class="color5">排序算法</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -477,14 +489,6 @@
         </a>
         
         <a  class="java "
-           href="/2018/12/16/java-enum/"
-           data-tag="java"
-           data-author="" >
-            <span class="post-title" title="java枚举">java枚举</span>
-            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
-        </a>
-        
-        <a  class="java "
            href="/2018/12/16/java-final/"
            data-tag="java"
            data-author="" >
@@ -497,6 +501,14 @@
            data-tag="java"
            data-author="" >
             <span class="post-title" title="java IO">java IO</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-enum/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java枚举">java枚举</span>
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
@@ -541,18 +553,18 @@
         </a>
         
         <a  class="java "
-           href="/2018/12/16/java-reflection/"
-           data-tag="java"
-           data-author="" >
-            <span class="post-title" title="java反射">java反射</span>
-            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
-        </a>
-        
-        <a  class="java "
            href="/2018/12/16/java-regular/"
            data-tag="java"
            data-author="" >
             <span class="post-title" title="java正则">java正则</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-reflection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java反射">java反射</span>
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
@@ -564,19 +576,19 @@
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
-        <a  class="算法刷题 "
-           href="/2018/12/16/sort-algorithm/"
-           data-tag="算法刷题,排序算法"
-           data-author="" >
-            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
-            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
-        </a>
-        
         <a  class="spring "
            href="/2018/12/16/spring-filter/"
            data-tag="spring"
            data-author="" >
             <span class="post-title" title="spring拦截器与过滤器的区别">spring拦截器与过滤器的区别</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
             <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
         </a>
         
@@ -690,6 +702,14 @@
            data-author="" >
             <span class="post-title" title="sql语法">sql语法</span>
             <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2018/03/21/ajax/"
+           data-tag="前端"
+           data-author="" >
+            <span class="post-title" title="ajax学习笔记">ajax学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
         </a>
         
         <a  class="算法刷题 "
@@ -927,7 +947,7 @@ public class Solution {
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#博客','#hexo','#gitee','#算法刷题','#DFS','#动态规划','#投资理财','#git','#hosts','#github','#计网','#java','#leetcode','#linux','#职业管理','#多线程','#数据库','#面经','#python','#排序算法','#spring','#技术之外',],
+            'data': ['#前端','#博客','#hexo','#gitee','#算法刷题','#DFS','#动态规划','#投资理财','#git','#hosts','#github','#计网','#java','#leetcode','#linux','#职业管理','#多线程','#数据库','#面经','#python','#spring','#排序算法','#技术之外',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
