@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>研二找工作过程总结 | Braincao&#39;s blog</title>
-  <meta name="keywords" content=" 职业管理 ">
-  <meta name="description" content="研二找工作过程总结 | Braincao&#39;s blog">
+  <title>http请求过程、方式 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" 计网 ">
+  <meta name="description" content="http请求过程、方式 | Braincao&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  迁移博客md，本周末结束  seo配置  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
 <meta property="og:type" content="website">
@@ -728,9 +728,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-master-seek-job" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-http-request" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">研二找工作过程总结</h1>
+        <h1 class="article-title">http请求过程、方式</h1>
     
     <div class="article-meta">
         
@@ -738,30 +738,30 @@
         
         <span class="book">
             
-                <a  data-rel="技术之外">技术之外</a>
+                <a  data-rel="计网">计网</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color5">职业管理</a>
+            <a class="color3">计网</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date">2020-02-23 12:54</time>
+        创建时间:<time class="date">2018-07-18 23:52</time>
         
         
-        更新时间:<time class="updated">2020-02-23 17:58</time>
+        更新时间:<time class="updated">2020-03-09 15:36</time>
         
 
     </div>
     <div class="article-meta">
         
-        <span>字数:3.5k</span>
+        <span>字数:531</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -778,9 +778,19 @@
         
     </div>
     
+    <div class="article-meta">
+        <span class="origin">原文:
+            <a href="https://www.cnblogs.com/igeneral/p/3641574.html" target="_blank">
+                
+                https://www.cnblogs.com/igeneral/p/3641574.html
+                
+            </a>
+        </span>
+    </div>
+    
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#春招实习"><span class="toc-text">春招实习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#秋招找工作"><span class="toc-text">秋招找工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#女朋友的秋招"><span class="toc-text">女朋友的秋招</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#应聘进度"><span class="toc-text">应聘进度</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#完整的http请求过程–7步"><span class="toc-text">完整的http请求过程–7步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个http请求一般由四部分组成"><span class="toc-text">一个http请求一般由四部分组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个http响应一般由三部分组成"><span class="toc-text">一个http响应一般由三部分组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get与post"><span class="toc-text">get与post</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http请求中GET和POST的区别"><span class="toc-text">http请求中GET和POST的区别</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -796,295 +806,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本博文记录研二春招实习、秋招找工作的阶段经历。</p>
+        <p>简要总结了http请求过程与请求方式</p>
 <a id="more"></a>
 
-<h2 id="春招实习"><a href="#春招实习" class="headerlink" title="春招实习"></a>春招实习</h2><p>当初并没有采取北邮普遍的广撒网策略，对自己有较为清晰的目标定位同时精力也是有限的，面试再多家拿再多offer最后也都只能去一家，所以只投了几家大厂。最后的结果是拿到腾讯、阿里、华为三家offer后，思考这三家基本涵盖了我的目标base、目标公司与目标岗位，只需要在这三家选择就可以了，因此没有再继续投别的公司，之前投过的有面试也宛然拒绝了。</p>
-<p>时过一年再回忆不免有些不记得，把能想起来的罗列如下：</p>
-<pre><code>春招实习投递：腾讯、阿里、头条、360、华为、百度、邮储、建行、招行等
-春招实习offer：
-    腾讯，teg部门，c++，base深圳总部
-    华为，it&amp;cloud部门，c++，base深圳总部
-    阿里，蚂蚁金服-金融核心平台-支付交换组，java，base杭州总部
-    招行，fintech，base深圳总行
-</code></pre><p>腾讯阿里两个offer到手后，其他的基本不考虑了。两个offer比较起来各有优势与弊端，腾讯teg清水衙门，非业务部门，做集团的技术支撑，技术发展没的说，但个人认为腾讯主要以产品为主，不做产品意味着部门旱涝保收且对上游业务嗅觉不足，长远来看光做技术也不行，毕竟技术永远在为业务服务；蚂蚁金服这边是支付核心，我眼中的阿里每年的双11如果没有高并发的支付技术支撑是不可能大放异彩的，同时缺点是杭州整体互联网氛围没有深圳好，为数不多的几家大厂很有可能本土一言堂等。在两家中间纠结了几天，最后选择了阿里，也宛然拒绝了腾讯的hr小姐姐。总体来说，腾讯阿里两个offer各有利弊，特点鲜明，最终的选择也是结合了自身的规划与对未来的预期，选择没有对错，既然已定，那就义无反顾，勇往直前。</p>
-<p>之后暑期就去阿里实习了。在主管和师兄师姐的带领下，完成了两三个项目，其中一个项目是完整跟下来，最后上线了两个项目，在最后转正答辩中有幸顺利转正，拿到了秋招offer。</p>
-<h2 id="秋招找工作"><a href="#秋招找工作" class="headerlink" title="秋招找工作"></a>秋招找工作</h2><p>坦白说在阿里转正拿到offer后，回学校我一份简历也没有投过，这在北邮秋招求职季中绝对算是一股清流。除阿里之外，正式拿到的还有招行、华为，以下简单介绍我的秋招经历。</p>
-<pre><code>秋招投递：没有投递
-秋招offer：
-    阿里，蚂蚁金服-金融核心平台-支付交换组，java，base杭州总部
-    招行，信息技术部，行员编制，base深圳总行
-    华为，it&amp;cloud部门，15级且有股票，业务方向随我选，主管推荐做分布式存储，c++，base成都杭州随我选
-</code></pre><p>我在研一对自己未来的规划是毕业后去深圳发展。之前去过几次，喜欢海边，同时深圳是一个年轻的城市，还曾专门让表哥带我去了腾讯总部和招行总部看了看，当时想着有一天我能来这两家的任何一家工作就好了，没想到最后有幸实现了自己的愿望但都没去，计划总是赶不上变化。</p>
-<p>深圳相对熟悉一些，但对杭州是完全陌生并且之前也没有考虑过，自从拿到阿里的实习offer后，我就一直在关注杭州与深圳两个城市，从楼市、人才发展、未来潜力等方面综合对比着看，具体的结论我就不说了，每个人各有所志，各有所属，最后在以上三个方面来说我选择了杭州与阿里，并且我深知我选择杭州的原生驱动力，这样以后也就不会瞻前顾后或心生懊悔。</p>
-<p>至于为什么没有投base在北京的，正常来讲北邮情侣男的去互联网女的拿户口，但我不考虑留北京，因此也就一份也没有投。北京到底好不好，各种辛酸也只有真正留北京的职场人才能理解。在北京求学8年，虽然是学生，但我深知毕业后在北京的工作生活我自己的状况，志不在此难以强求，还是为北京舒缓人口压力做些贡献吧。</p>
-<p>也正因如此，秋招看了看移动、华为、网易等杭州其他公司与岗位，比较来看还是想去阿里之后也就没有再投。至于北京、成都、深圳、青海（我在青海长大，回青海可以直接现场面试后进编）等其他城市，有面试的联系我也都基本没去。</p>
-<p>这其中，华为、招行的都去了。招行7月就给offer了，当时在杭州实习还没有转正，考虑求稳冒着1万的违约金还是签了。华为的面试后隔了几天给了offer，让带着三方现场签，去现场后发现别的同学是坐在大厅等待叫号前台面谈薪资，我是被主管带到单间单独谈，后来得知笔试面试比较突出，给了博士级15级，大概的待遇是15级加股票，base杭州成都都可以，方向按自己兴趣选。坦白说我当时心动了，觉得华为比较看重我，主管和我谈了4个小时，谈(苦)笑(口)风(婆)生(心)，感受到了头一回被当成人才的feel，并不是说其他公司不看重，但对华为来说万物皆客户，华为在为让客户满意舒服这件事上不得不说是有独有的实力的，更何况就招聘来说我是华为想招的预期未来当火车头的苦力呢。总结下华为这个offer就是一切都完美，但就是更想去阿里，也许是阿里更难进的原因吧（面试了5轮+转正答辩）。anyway，最后留了主管微信，最后宛然拒绝了，再次感谢华为的重视，以后力挺华为。</p>
-<p>最后在10月三方发下来的第一时间和阿里签了三方，秋招结束。一年的奔波与不安到此结束，落袋为安，希望今后做个合格的不给阿里丢脸的阿里人、蚂蚁人。</p>
-<h2 id="女朋友的秋招"><a href="#女朋友的秋招" class="headerlink" title="女朋友的秋招"></a>女朋友的秋招</h2><p>我算是北邮比较幸运的，春招实习与秋招找工作的过程都还算顺利，这一年更多的是陪女朋友一起找，通过回忆记录如下。</p>
-<p>先说春招，具体如下：</p>
-<pre><code>春招实习投递：腾讯、阿里、头条、360、华为、百度、邮储、建行、招行等
-春招实习offer：
-    华为，it&amp;cloud部门，c++，base成都
-    百度，手百内容生态部，测试，base北京
-    百度，度小满，测试，base北京
-    招行，fintech，base深圳总行
-最后在百度度小满、百度手百都有实习
-</code></pre><p>秋招她投的比较多，这在我们的计划之内，当时想着既然我定了去杭州，那她就只投base在杭州的，国企事业单位的话也只投浙江省公司或是杭州市公司。</p>
-<p>具体的秋招如下表，说明一下该表是当时随应聘过程记录的，后来基本定了去杭州招银科技后也都没有再更新，即使base在杭州的确定不想去的也都没去面试，保留该表的意义在于能还原当时投递、笔试、面试了哪些家公司，毕竟几个月奔波的时光是值得今后回忆的。</p>
-<h5 id="应聘进度"><a href="#应聘进度" class="headerlink" title="应聘进度"></a>应聘进度</h5><table>
-<thead>
-<tr>
-<th align="left">公司</th>
-<th align="left">网申地址</th>
-<th align="left">岗位</th>
-<th align="left">投递结果</th>
-<th align="left">宣讲</th>
-<th align="left">笔试</th>
-<th align="left">面试</th>
-<th align="left">备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">招商银行总行</td>
-<td align="left"><a href="http://career.cloud.cmbchina.com/index.html#jobList?id=96574F8D-C7ED-4772-AE7C-BAC896D190C1" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">信息技术部</td>
-<td align="left">已签两方</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">两个人都签了，违约金1万<br />管培生竞赛没参加，直接被捞起进入提前批面试并通过</td>
-</tr>
-<tr>
-<td align="left">移动杭研</td>
-<td align="left"><a href="https://job.10086.cn/personal/campus/" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">软件开发工程师<br />云计算研发工程师</td>
-<td align="left">已投</td>
-<td align="left">09-29 <br />19：00<br /><a href="http://live.51job.com/watch/3681456" target="_blank" rel="noopener">空中宣讲</a></td>
-<td align="left">11-2，没去</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">光大银行</td>
-<td align="left"><a href="http://campus.51job.com/cebbank/jobs.htm" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">杭州分行信息科技岗</td>
-<td align="left">已投</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">华为</td>
-<td align="left"><a href="http://career.huawei.com/reccampportal/portal4_index.html#!portal/usercenter4/recruitmentProgress/recruitmentProgress.html" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">杭州测试工程师</td>
-<td align="left">已投<br />现场面试<br />没有offer</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">10-14 <br/>9：45 中央硬件工程院部门-测试工程师</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">网易<br /></td>
-<td align="left"><a href="https://campus.163.com/app/personal/interview" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">网易严选测试开发工程师</td>
-<td align="left">已投<br />测评完成<br />笔试完成<br /><em>笔试未通过</em></td>
-<td align="left"></td>
-<td align="left">09-21 15：00-17：00<br /></td>
-<td align="left"></td>
-<td align="left">单选10题；编程4题；问答2题<br />编程50%、30%、0、0</td>
-</tr>
-<tr>
-<td align="left">中国电信</td>
-<td align="left"><a href="https://job.bupt.edu.cn/recruitment.2.ff8080816b9d4f8b016d0424843131eb.html" target="_blank" rel="noopener">北邮就业网公告</a></td>
-<td align="left">1、浙江省公司（本部）—IT运营（含优培生）（企业信息化部）<br />2、杭州分公司 —IT运营<br />3、四川省公司–IT研发<br />4、四川省公司–互联网金融平台开发</td>
-<td align="left">已投<br />测评完成<br />不去了</td>
-<td align="left">10月9日 <br />14:00—15:30 <br />科学会堂<br />分公司见面会<br />10月9日 <br />15:30—18:00 <br />体育馆</td>
-<td align="left">10-27北邮3-333</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">中国联通</td>
-<td align="left"><a href="https://zglt2020.zhaopin.com/careers.html" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">1、浙江省公司互联网产品开发<br />2、浙江省分公司java工程师<br />3、联通网络技术研究院 软件开发工程师</td>
-<td align="left">已投<br />测评完成<br />风评太差初面没有去</td>
-<td align="left">10月10日 <br />14:00—15:30 科学会堂 <br />分公司见面会<br />10月10日 15:30—18:00 <br />体育馆</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">工商银行</td>
-<td align="left"><a href="https://campus.icbc.com.cn/icbc/campus/default.htm" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">1、 软件开发中心(杭州)–java开发<br />2、软件开发中心(杭州)–java测试<br />3、杭州金融研修学院–业务类-信息科技</td>
-<td align="left">已投<br />测评完成<br />笔试通过<br />面试完成等结果</td>
-<td align="left">9月20日 18:30-20:30 <br />3-335</td>
-<td align="left">10-13 14：00 北林</td>
-<td align="left">10-24上午8：50研发中心面试</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">中信银行</td>
-<td align="left"><a href="https://job.citicbank.com/" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">杭州分行本部–信息科技岗</td>
-<td align="left">已投</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">浙商银行</td>
-<td align="left"><a href="https://zp.czbank.com.cn/zpweb/planController/gotoIndex.mvc?pageType=1" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">总行机关岗位（杭州）</td>
-<td align="left">已投<br />测评完成<br />笔试完成</td>
-<td align="left">9.17<br />北航</td>
-<td align="left">10-25下午</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">新华三</td>
-<td align="left"><a href="https://h3c.zhiye.com/Campus" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">1、测试工程师（杭州）<br />2、软件工程师（杭州）</td>
-<td align="left">已投<br />笔试放弃</td>
-<td align="left"></td>
-<td align="left">09-21 9：00-10：30 <br />北科逸夫楼105<br /></td>
-<td align="left"></td>
-<td align="left">缺席没去，睡过头了</td>
-</tr>
-<tr>
-<td align="left">银联</td>
-<td align="left"><a href="https://join.unionpay.com/wt/unionpayhr/web/index/campus" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">1、浙江分公司–技术开发<br />2、浙江分公司–产品支持</td>
-<td align="left">已投<br />笔试完成</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">招银网络科技</td>
-<td align="left"><a href="https://cmbnt.cmbchina.com/2020campus/index.html" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">测试开发工程师（杭州）</td>
-<td align="left">已投<br />笔试完成<br />一面通过<br />现场三面<br />资格审查<br />offer</td>
-<td align="left"></td>
-<td align="left">09-24   15:00–17:30</td>
-<td align="left">09-27 21：56 电话一面<br />10-11 16：40现场面试</td>
-<td align="left">给offer，已签三方</td>
-</tr>
-<tr>
-<td align="left">思科</td>
-<td align="left"><a href="http://campus.51job.com/cisco2020/template/position-software.html" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">1、信息技术中心-供应链管理-软件研发工程师(测试研发类)-杭州-硕士<br />2、信息技术中心-供应链管理-软件研发工程师(研发类)-杭州-硕士</td>
-<td align="left">已投<br />笔试完成<br />一面通过<br />二面等结果中</td>
-<td align="left">09-23 19：00-21：00</td>
-<td align="left"></td>
-<td align="left">10-08 10：30-11：00 视频面试<br />10-14 16：00 视频二面</td>
-<td align="left">hr，李女士<br/>给offer没签</td>
-</tr>
-<tr>
-<td align="left">浙江省银保监局</td>
-<td align="left"><a href="http://bm.scs.gov.cn/pp/gkweb/core/web/ui/business/person/person_home.html" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">已经报名<br />资格审查通过</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">11.23-11.24</td>
-<td align="left"></td>
-<td align="left">银保监局：<br />10%经济金融基础知识、<br />80%专业知识、<br />10%英语<br />国考：<br />公布时间：10.15<br />考试时间：11.23、11.24<br />浙江省考：<br />公告时间：4.9<br />报名时间：4.16<br />笔试时间：5.19<br />银保监计算机类考试侧重考察信息技术理论与实务，包括信息系统架构、软件工程与项目管理、数据库与数据挖掘分析、网络技术及应用、信息安全及信息科技风险管理等；<br/>笔试出分后没进面试</td>
-</tr>
-<tr>
-<td align="left">浙江省交通投资集团有限公司</td>
-<td align="left"><a href="http://www.cncico.com/recruit.html?nid=1&category=7212&id=5752817" target="_blank" rel="noopener">官网地址</a></td>
-<td align="left">信息技术管培生</td>
-<td align="left">已投</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">农业发展银行</td>
-<td align="left"><a href="http://adbc.zhaopin.com/" target="_blank" rel="noopener">招聘官网</a></td>
-<td align="left">浙江省分公司–信息技术岗位</td>
-<td align="left">已投</td>
-<td align="left"></td>
-<td align="left">11-3 9：00</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">国家开发银行</td>
-<td align="left"><a href="http://job.cdb.com.cn/" target="_blank" rel="noopener">招聘官网</a></td>
-<td align="left">1、浙江分行信息科技岗<br />2、浙江分行研究规划岗</td>
-<td align="left">已投</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">在<a href="https://xiaoyuan.zhaopin.com/Home/Resumes/UserResume" target="_blank" rel="noopener">校园招聘</a>查看报考</td>
-</tr>
-<tr>
-<td align="left">中国建设银行浙江分行</td>
-<td align="left"><a href="http://job.ccb.com/ccbjob/cn/job/index.jsp" target="_blank" rel="noopener">招聘官网</a></td>
-<td align="left">1、浙江省分行浙江省分行本部 - 科技类专项人才<br />2、浙江省分行浙江省杭州市余杭支行 - 管理培训生</td>
-<td align="left">已投<br />宣讲初面通过</td>
-<td align="left"></td>
-<td align="left">11-3笔试</td>
-<td align="left">10-15 11：00 北邮学活初面</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">海康威视</td>
-<td align="left"><a href="http://campus.hikvision.com/campus?r=&p=&c=3301&d=&k=#jlt" target="_blank" rel="noopener">招聘简介</a></td>
-<td align="left">测试工程师</td>
-<td align="left">已投<br />笔试缺席</td>
-<td align="left"></td>
-<td align="left">笔试缺席</td>
-<td align="left"></td>
-<td align="left">笔试忘记了</td>
-</tr>
-<tr>
-<td align="left">人民银行</td>
-<td align="left"><a href="http://zhaopin.pbc.gov.cn/ryzp/admin/user.jsp?t=1570861635298" target="_blank" rel="noopener">招聘系统</a></td>
-<td align="left">杭州分行–计算机</td>
-<td align="left">已投<br />资格审查通过<br />确认考试</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">🇺🇸</td>
-</tr>
-<tr>
-<td align="left">杭州银行</td>
-<td align="left"><a href="https://campus.liepin.com/emailnotice/showlist/?xycompId=170901" target="_blank" rel="noopener">投递记录</a></td>
-<td align="left">总行信息技术培训生</td>
-<td align="left">已投<br />不去了</td>
-<td align="left"></td>
-<td align="left">10-27 <br/>10:00-11:30 北京市海淀区北洼路89号北京经济管理学校培训学校勤奋楼5层多媒体教室9</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">中国铁塔-浙江杭州</td>
-<td align="left"><a href="http://zhaopin.chinatowercom.cn/Portal/Apply/Index" target="_blank" rel="noopener">投递记录</a></td>
-<td align="left">技术经理-浙江杭州</td>
-<td align="left">已投</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody></table>
-<p>最后她的秋招offer如下：</p>
-<pre><code>秋招投递：投递情况如上
-秋招offer：
-    招行，信息技术部，行员编制，base深圳总行
-    招银科技，测试开发工程师，base杭州
-    百度，手百移动生态质量部，测试开发工程师，base北京
-    tplink，测试开发工程师，base杭州
-</code></pre><p>最后女朋友也在10月和招银科技签了三方。</p>
-<p>总结来说，北邮研究生这个牌子还是不错的，主流互联网、银行、国企事业单位都还比较认可，其他的就看自己能力了。春招实习、秋招找工作的阶段经历已经结束，接下来希望能顺利毕业吧。</p>
+<h2 id="完整的http请求过程–7步"><a href="#完整的http请求过程–7步" class="headerlink" title="完整的http请求过程–7步"></a>完整的http请求过程–7步</h2><p>1.建立tcp连接</p>
+<p>2.Web浏览器向Web服务器发送请求命令</p>
+<p>3.Web浏览器发送请求头信息</p>
+<p>4.Web服务器应答</p>
+<p>5.Web服务器发送应答头信息</p>
+<p>6.Web服务器向浏览器发送数据</p>
+<p>7.Web服务器关闭tcp连接    </p>
+<h2 id="一个http请求一般由四部分组成"><a href="#一个http请求一般由四部分组成" class="headerlink" title="一个http请求一般由四部分组成"></a>一个http请求一般由四部分组成</h2><p>1.http请求的方法：get请求还是post请求<br>2.正在请求的url，就是发起请求的地址</p>
+<p>3.请求头，包含一些客户端环境信息，身份验证信息等</p>
+<p>4.请求体，也就是请求正文，请求正文中可以包含客户提交的查询字符串信息，表单信息等</p>
+<h2 id="一个http响应一般由三部分组成"><a href="#一个http响应一般由三部分组成" class="headerlink" title="一个http响应一般由三部分组成"></a>一个http响应一般由三部分组成</h2><p>1.一个数字和文字组成的状态码，用来显示请求成功还是失败</p>
+<p>2.响应头，响应头也和请求头一样包含许多有用的信息，例如服务器类型、日期时间、内容类型和长度等</p>
+<p>3.响应体，也就是响应正文</p>
+<h2 id="get与post"><a href="#get与post" class="headerlink" title="get与post"></a>get与post</h2><ul>
+<li><p>get：</p>
+<p>  一般用于信息获取</p>
+<p>  使用url传递参数（用get发送用户名密码是非常不安全的）</p>
+<p>  对所发送信息的数量也有限制，一般在2000个字符</p>
+</li>
+<li><p>post：</p>
+<p>  一般用于修改服务器上的资源</p>
+<p>  对所发送信息的数量无限制</p>
+</li>
+</ul>
+<h2 id="http请求中GET和POST的区别"><a href="#http请求中GET和POST的区别" class="headerlink" title="http请求中GET和POST的区别"></a>http请求中GET和POST的区别</h2><ul>
+<li>GET - 从指定的服务器中获取数据</li>
+<li>POST - 提交数据给指定的服务器处理</li>
+</ul>
+<p>GET请求：请求的数据会附加在URL之后，以?分割URL和传输数据，多个参数用&amp;连接。URL的编码格式采用的是ASCII编码，而不是uniclde，即是说所有的非ASCII字符都要编码之后再传输。</p>
+<p>POST请求：POST请求会把请求的数据放置在HTTP请求包的包体中。上面的item=bandsaw就是实际的传输数据。</p>
+<p>因此，GET请求的数据会暴露在地址栏中，而POST请求则不会。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
@@ -1098,12 +853,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>研二找工作过程总结</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">3.5k</span></p>
+    <p><span class="copy-title">文章标题:</span>http请求过程、方式</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">531</span></p>
     <p><span class="copy-title">本文作者:</span>Brain Cao</p>
-    <p><span class="copy-title">发布时间:</span>2020-02-23, 12:54:10</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-23, 17:58:36</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/23/master-seek-job/" title="研二找工作过程总结">https://braincao.cn/2020/02/23/master-seek-job/</a>
+    <p><span class="copy-title">发布时间:</span>2018-07-18, 23:52:28</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-09, 15:36:17</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/07/18/http-request/" title="http请求过程、方式">https://braincao.cn/2018/07/18/http-request/</a>
     <p>
         <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
     </p>
