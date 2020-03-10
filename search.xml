@@ -837,11 +837,11 @@
     
     
     <entry>
-      <title>linux命令</title>
-      <link href="/2018/07/23/linux-orders/"/>
-      <url>/2018/07/23/linux-orders/</url>
+      <title>ubuntu虚拟机共享文件夹</title>
+      <link href="/2018/07/23/linux-virtual/"/>
+      <url>/2018/07/23/linux-virtual/</url>
       
-        <content type="html"><![CDATA[<p>linux命令学习总结</p><a id="more"></a><h2 id="linux标准输入输出2-gt-amp-1"><a href="#linux标准输入输出2-gt-amp-1" class="headerlink" title="linux标准输入输出2&gt;&amp;1"></a>linux标准输入输出2&gt;&amp;1</h2><ul><li>linux中有三种标准输入输出，分别是STDIN，STDOUT，STDERR，对应的数字是0，1，2。<code>2&gt;&amp;1，指将标准输出、标准错误指定为同一输出路径</code></li><li>STDIN是标准输入，默认从键盘读取信息；STDOUT是标准输出，默认将输出结果输出至终端；STDERR是标准错误，默认将输出结果输出至终端。</li><li>由于STDOUT与STDERR都会默认显示在终端上，为了区分二者的信息，就有了编号的0，1，2的定义，用1表示STDOUT，2表示STDERR。</li><li>若要将所有标准输出及标准错误都输出至文件，可用&amp;表示全部1和2的信息，eg：<code>find /etc -name passwd &amp;&gt;find.all 或 find /etc -name passwd &gt;find.all 2&gt;&amp;1</code></li><li><code>2&gt;&amp;1 |less</code> 表示将标准错误重定向至标准输出，并用less进行分页显示</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="VBox虚拟机下Mac与ubuntu共享文件夹"><a href="#VBox虚拟机下Mac与ubuntu共享文件夹" class="headerlink" title="VBox虚拟机下Mac与ubuntu共享文件夹"></a>VBox虚拟机下Mac与ubuntu共享文件夹</h2><blockquote><ol><li>mac电脑下载并安装VBoxAdditions，网址：<a href="http://download.virtualbox.org/virtualbox/5.2.16/Oracle_VM_VirtualBox_Extension_Pack-5.1.12.vbox-extpack" target="_blank" rel="noopener">http://download.virtualbox.org/virtualbox/5.2.16/Oracle_VM_VirtualBox_Extension_Pack-5.1.12.vbox-extpack</a></li></ol></blockquote><blockquote><ol start="2"><li>在虚拟机ubuntu系统中下载VBoxAdditions，网址：<a href="http://download.virtualbox.org/virtualbox/5.2.16/VBoxGuestAdditions_5.1.12.iso，下载完成后在虚拟机中直接运行安装" target="_blank" rel="noopener">http://download.virtualbox.org/virtualbox/5.2.16/VBoxGuestAdditions_5.1.12.iso，下载完成后在虚拟机中直接运行安装</a></li></ol></blockquote><blockquote><ol start="3"><li>在vbox软件中设置共享目录：点击设置-&gt;共享文件夹&gt;增加一个共享路径，并设置为固定分配、自动挂载</li></ol></blockquote><blockquote><ol start="4"><li>在ubuntu中启用共享文件夹：</li></ol></blockquote><blockquote><p>   sudo mkdir /mnt/share</p></blockquote><blockquote><p>   mount -t vboxsf 3中的共享文件夹名 /mnt/share</p></blockquote><blockquote><ol start="5"><li>成功：完美实现了两个系统间的复制粘贴与文件共享</li></ol></blockquote>]]></content>
       
       
       <categories>
@@ -862,11 +862,11 @@
     
     
     <entry>
-      <title>ubuntu虚拟机共享文件夹</title>
-      <link href="/2018/07/23/linux-virtual/"/>
-      <url>/2018/07/23/linux-virtual/</url>
+      <title>linux命令</title>
+      <link href="/2018/07/23/linux-orders/"/>
+      <url>/2018/07/23/linux-orders/</url>
       
-        <content type="html"><![CDATA[<h2 id="VBox虚拟机下Mac与ubuntu共享文件夹"><a href="#VBox虚拟机下Mac与ubuntu共享文件夹" class="headerlink" title="VBox虚拟机下Mac与ubuntu共享文件夹"></a>VBox虚拟机下Mac与ubuntu共享文件夹</h2><blockquote><ol><li>mac电脑下载并安装VBoxAdditions，网址：<a href="http://download.virtualbox.org/virtualbox/5.2.16/Oracle_VM_VirtualBox_Extension_Pack-5.1.12.vbox-extpack" target="_blank" rel="noopener">http://download.virtualbox.org/virtualbox/5.2.16/Oracle_VM_VirtualBox_Extension_Pack-5.1.12.vbox-extpack</a></li></ol></blockquote><blockquote><ol start="2"><li>在虚拟机ubuntu系统中下载VBoxAdditions，网址：<a href="http://download.virtualbox.org/virtualbox/5.2.16/VBoxGuestAdditions_5.1.12.iso，下载完成后在虚拟机中直接运行安装" target="_blank" rel="noopener">http://download.virtualbox.org/virtualbox/5.2.16/VBoxGuestAdditions_5.1.12.iso，下载完成后在虚拟机中直接运行安装</a></li></ol></blockquote><blockquote><ol start="3"><li>在vbox软件中设置共享目录：点击设置-&gt;共享文件夹&gt;增加一个共享路径，并设置为固定分配、自动挂载</li></ol></blockquote><blockquote><ol start="4"><li>在ubuntu中启用共享文件夹：</li></ol></blockquote><blockquote><p>   sudo mkdir /mnt/share</p></blockquote><blockquote><p>   mount -t vboxsf 3中的共享文件夹名 /mnt/share</p></blockquote><blockquote><ol start="5"><li>成功：完美实现了两个系统间的复制粘贴与文件共享</li></ol></blockquote>]]></content>
+        <content type="html"><![CDATA[<p>linux命令学习总结</p><a id="more"></a><h2 id="linux标准输入输出2-gt-amp-1"><a href="#linux标准输入输出2-gt-amp-1" class="headerlink" title="linux标准输入输出2&gt;&amp;1"></a>linux标准输入输出2&gt;&amp;1</h2><ul><li>linux中有三种标准输入输出，分别是STDIN，STDOUT，STDERR，对应的数字是0，1，2。<code>2&gt;&amp;1，指将标准输出、标准错误指定为同一输出路径</code></li><li>STDIN是标准输入，默认从键盘读取信息；STDOUT是标准输出，默认将输出结果输出至终端；STDERR是标准错误，默认将输出结果输出至终端。</li><li>由于STDOUT与STDERR都会默认显示在终端上，为了区分二者的信息，就有了编号的0，1，2的定义，用1表示STDOUT，2表示STDERR。</li><li>若要将所有标准输出及标准错误都输出至文件，可用&amp;表示全部1和2的信息，eg：<code>find /etc -name passwd &amp;&gt;find.all 或 find /etc -name passwd &gt;find.all 2&gt;&amp;1</code></li><li><code>2&gt;&amp;1 |less</code> 表示将标准错误重定向至标准输出，并用less进行分页显示</li></ul>]]></content>
       
       
       <categories>
