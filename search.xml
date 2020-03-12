@@ -533,11 +533,11 @@
     
     
     <entry>
-      <title>java参数...</title>
-      <link href="/2018/12/16/java-parameter/"/>
-      <url>/2018/12/16/java-parameter/</url>
+      <title>java优先队列</title>
+      <link href="/2018/12/16/java-priority-queue/"/>
+      <url>/2018/12/16/java-priority-queue/</url>
       
-        <content type="html"><![CDATA[<p>此文档为java参数…的学习总结</p><a id="more"></a><h2 id="java中参数的…"><a href="#java中参数的…" class="headerlink" title="java中参数的…"></a>java中参数的…</h2><p>…表示的是可变长参数，相当于一个数组</p><pre><code>如果是是形参 里面出现，表示的是可变参数比如：//表示的传入的参数可以随意，你传多少个参数都被放到一个数组里面。public static void dealArray(int...intArray) {for(int i: intArray){System.out.print(i +&quot; &quot;);}System.out.println();}</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>此文档为java优先队列的学习总结</p><a id="more"></a><h2 id="java中优先队列和堆的详细使用"><a href="#java中优先队列和堆的详细使用" class="headerlink" title="java中优先队列和堆的详细使用"></a>java中优先队列和堆的详细使用</h2><p>来源:<a href="https://blog.csdn.net/cquzhengdayday/article/details/72514900" target="_blank" rel="noopener">java中优先队列和堆的详细使用</a></p><p><a href="https://www.cnblogs.com/lifegoesonitself/p/3391741.html" target="_blank" rel="noopener">优先队列实现 大小根堆 解决top k 问题</a></p><p><strong>我们知道优先队列其实内部实现就是一个堆的数据结构，java默认的是一个小跟堆，每次取出最小的元素，因为堆的性质他可以做到O(logn)级别的插入和删除操作。</strong></p><p>demo_小根堆：</p><pre><code class="java">Queue&lt;Integer&gt; queue = new PriorityQueue&lt;&gt;();//优先队列，内部实现就是一个小根堆queue.add(5);queue.add(3);queue.add(3);queue.add(56);while(!queue.isEmpty()){    System.out.println(queue.poll());///维护一个堆保证每次取出的都是最小的并出堆}out:3、3、5、56demo_大根堆:int initialCapacity = 5;//定义一个长度为5的优先队列(且是大根堆)PriorityQueue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;&gt;(initialCapacity, new Comparator&lt;Integer&gt;() {    @Override    public int compare(Integer o1, Integer o2) {        return o2 - o1;    }});</code></pre><p>我们知道堆的性质是有： </p><p>1.堆中某个结点的值总是不大于（或不小于）其父结点的值； </p><p>2.堆总是一棵完全二叉树。</p><p>将根结点最大的堆叫做大根堆，根结点最小的堆叫做小根堆。</p>]]></content>
       
       
       <categories>
@@ -558,11 +558,11 @@
     
     
     <entry>
-      <title>java优先队列</title>
-      <link href="/2018/12/16/java-priority-queue/"/>
-      <url>/2018/12/16/java-priority-queue/</url>
+      <title>java参数...</title>
+      <link href="/2018/12/16/java-parameter/"/>
+      <url>/2018/12/16/java-parameter/</url>
       
-        <content type="html"><![CDATA[<p>此文档为java优先队列的学习总结</p><a id="more"></a><h2 id="java中优先队列和堆的详细使用"><a href="#java中优先队列和堆的详细使用" class="headerlink" title="java中优先队列和堆的详细使用"></a>java中优先队列和堆的详细使用</h2><p>来源:<a href="https://blog.csdn.net/cquzhengdayday/article/details/72514900" target="_blank" rel="noopener">java中优先队列和堆的详细使用</a></p><p><a href="https://www.cnblogs.com/lifegoesonitself/p/3391741.html" target="_blank" rel="noopener">优先队列实现 大小根堆 解决top k 问题</a></p><p><strong>我们知道优先队列其实内部实现就是一个堆的数据结构，java默认的是一个小跟堆，每次取出最小的元素，因为堆的性质他可以做到O(logn)级别的插入和删除操作。</strong></p><p>demo_小根堆：</p><pre><code class="java">Queue&lt;Integer&gt; queue = new PriorityQueue&lt;&gt;();//优先队列，内部实现就是一个小根堆queue.add(5);queue.add(3);queue.add(3);queue.add(56);while(!queue.isEmpty()){    System.out.println(queue.poll());///维护一个堆保证每次取出的都是最小的并出堆}out:3、3、5、56demo_大根堆:int initialCapacity = 5;//定义一个长度为5的优先队列(且是大根堆)PriorityQueue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;&gt;(initialCapacity, new Comparator&lt;Integer&gt;() {    @Override    public int compare(Integer o1, Integer o2) {        return o2 - o1;    }});</code></pre><p>我们知道堆的性质是有： </p><p>1.堆中某个结点的值总是不大于（或不小于）其父结点的值； </p><p>2.堆总是一棵完全二叉树。</p><p>将根结点最大的堆叫做大根堆，根结点最小的堆叫做小根堆。</p>]]></content>
+        <content type="html"><![CDATA[<p>此文档为java参数…的学习总结</p><a id="more"></a><h2 id="java中参数的…"><a href="#java中参数的…" class="headerlink" title="java中参数的…"></a>java中参数的…</h2><p>…表示的是可变长参数，相当于一个数组</p><pre><code>如果是是形参 里面出现，表示的是可变参数比如：//表示的传入的参数可以随意，你传多少个参数都被放到一个数组里面。public static void dealArray(int...intArray) {for(int i: intArray){System.out.print(i +&quot; &quot;);}System.out.println();}</code></pre>]]></content>
       
       
       <categories>
@@ -1091,7 +1091,7 @@
     
     
     <entry>
-      <title>ssm框架的问题汇总</title>
+      <title>ssm框架问题汇总</title>
       <link href="/2018/03/21/java-ssm-error-summary/"/>
       <url>/2018/03/21/java-ssm-error-summary/</url>
       
@@ -1116,7 +1116,7 @@
     
     
     <entry>
-      <title>用maven配置ssm框架</title>
+      <title>ssm框架maven配置</title>
       <link href="/2018/03/21/java-ssm-maven-build/"/>
       <url>/2018/03/21/java-ssm-maven-build/</url>
       
@@ -1318,6 +1318,81 @@
         <tags>
             
             <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux文件类型和软硬链接</title>
+      <link href="/2017/06/03/linux-link-type/"/>
+      <url>/2017/06/03/linux-link-type/</url>
+      
+        <content type="html"><![CDATA[<h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><p>普通文件（———-）</p><p>目录文件（d———）</p><p>设备文件：块设备文件（b———磁盘）、字符设备文件（c———打印机和终端）</p><p>管道文件（p———）：有时候也叫做FIFO先进先出文件</p><p>链接文件（l———）：类似与windows的快捷方式但不完全相同，有软链接和硬链接之分</p><h2 id="软链接与硬链接"><a href="#软链接与硬链接" class="headerlink" title="软链接与硬链接"></a>软链接与硬链接</h2><p>1.软链接</p><p>软链接即为符号链接，这个文件包含了另一个文件的路径名，可以链接任意文件类型，甚至可以链接不存在的文件（“断链”问题）or循环链接自己（类似与递归）。在对符号文件进行读或写的时候，系统会自动地把该操作转换为对源文件的操作，但删除该文件时，系统仅仅删除链接文件而不删除源文件本身。</p><p>2.硬链接</p><p>硬链接是已存在文件的另一个文件，对硬链接文件进行读写和删除操作时候，结果和软链接相同，但如果删除硬链接文件的源文件，硬链接依然存在，而且保留了原有内容。这时，系统就忘记了它曾经是硬链接文件，而把它当成一个普通文件。硬链接有两个限制：不允许给目录创建硬链接; 只有在同一文件系统中的文件之间才能创建链接</p><p>3.总结</p><p>相同点：软链接与硬链接都是对源文件的一种映射式链接，修改链接文件源文件也随之被修改，但是删除链接文件源文件依然存在，链接文件就是挡箭牌。</p><p>不同点：当删除了源文件时，软链接的链接文件因“断链”也随之被删除，而硬链接的链接文件则从小三转正成为普通的文件了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux下误操作startx命令后无法登录</title>
+      <link href="/2017/06/03/linux-startx-login/"/>
+      <url>/2017/06/03/linux-startx-login/</url>
+      
+        <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>由于误操作了startx命令，导致输入正确地用户名和密码后无法进入系统，无限循环在登录界面。</p><h2 id="分析原因"><a href="#分析原因" class="headerlink" title="分析原因"></a>分析原因</h2><p>stratx 命令：用来启动X windows服务的。在Ubuntu下慎用，原理还不是很清楚，运行后在/home目录下自动生成.Xauthority 目录，导致出现上面的问题。</p><p>进不去的原因：在tty执行startx会生成的一个文件，ubuntu的登陆器是lightdm，这个登陆器发现你家目录里有这个文件就会死循环，让你无限输入密码。原来是之前误操作startx（在环境配置的某一步，手残敲了一个startx）之后，主目录下的.Xauthority文件的拥有者变成了root，从而用户在登录的时候，无法读取.Xauthority文件，就会报timeout错误。</p><p>具体细节：Xauthority，是startx脚本记录文件。Xserver启动时，读文件<del>/.Xauthority,读入对应其display的记录。当一个需要显示的客户程序启动调用XOpenDisplay()也读这个文 件，并把找到的magic code 发送给Xserver。 当Xserver验证这个magic code正确以后，就同意连接啦。观察startx脚本也可以看到，每次startx运行，都在调用xinit以前使用了xauth的add命令添加了一个新的记录到</del>/.Xauthority，用来这次运行X使用认证</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><pre><code>1，在登录界面按Ctrl+Alt+F3 切换到控制台登陆，这里要登录普通用户，而不是root2，命令：cd~3，命令：rm -rf .Xaut* #注意空格大小写rm_-rf_.Xaut*4，最后：按Ctrl+Alt+F7回到登陆界面，输入密码正常登陆。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Win10+Ubuntu17.04双系统安装</title>
+      <link href="/2017/04/22/build-win10-ubuntu/"/>
+      <url>/2017/04/22/build-win10-ubuntu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol><li><p>本教程默认已安装win10，即是在win10正常使用基础上进行的</p></li><li><p>本教程为不是虚拟机或wubi安装，而是u盘安装，这种双系统运行性能比较好。当然如果是mac的话就虚拟机安装吧，自行百度</p></li><li><p>本教程同样适用于Win10+Ubuntu16.04LTS，亲测同样成功</p></li><li><p>本教程全部图片来自网络（自己太懒并没有截图，只为讲述教程进行中的画面，因此图仅供参考）</p></li></ol><h2 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h2><p>Ubuntu系统的的<a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener">ISO</a>、<a href="http://cn.ultraiso.net/xiazai.html" target="_blank" rel="noopener">UltraISO</a>、<a href="https://neosmart.net/EasyBCD/" target="_blank" rel="noopener">EasyBCD</a>、U盘</p><h2 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h2><h3 id="1-数据备份"><a href="#1-数据备份" class="headerlink" title="1.数据备份"></a>1.数据备份</h3><h3 id="2-创建磁盘分区"><a href="#2-创建磁盘分区" class="headerlink" title="2.创建磁盘分区"></a>2.创建磁盘分区</h3><p>按住Win + X，选择“磁盘管理”</p><p><img src="https://img.braincao.cn/blogimg/1584006534.png" alt="1584006534"></p><p>选择剩余空间较大的可分配磁盘，右键并选择“压缩卷”，这里选择压缩E盘50G左右的空间</p><p><img src="https://img.braincao.cn/blogimg/1584006562.png" alt="1584006562"></p><p>点击“压缩”之后，E盘后部出现黑色的50G“未分配空间”</p><p><img src="https://img.braincao.cn/blogimg/1584006573.png" alt="1584006573"></p><p>至此，磁盘分区过程完成</p><h3 id="3-禁用快速启动-可选但是建议"><a href="#3-禁用快速启动-可选但是建议" class="headerlink" title="3.禁用快速启动(可选但是建议)"></a>3.禁用快速启动(可选但是建议)</h3><p>按住Win + X(请记住这个万能的组合)，选择“电源选项”，依次执行：</p><p>“选择电源按钮的功能” -&gt;”更改当前不可用的设置” -&gt;取消选择”启用快速启动”</p><p>注： “快速启动”是Windows 8时代引进的新特性，建议关闭该特性的原因是，“快速启动”会影响Grub开机引导过程，可能出现无法载入Ubuntu的状况，最后选择“保存修改”。</p><h3 id="4-制作Ubuntu的启动U盘"><a href="#4-制作Ubuntu的启动U盘" class="headerlink" title="4.制作Ubuntu的启动U盘"></a>4.制作Ubuntu的启动U盘</h3><p>（用U盘安装过操作系统的童鞋可以跳过这一步）</p><p>备份待写入的U盘并将其插入电脑</p><p>进入UltraISO，打开文件</p><p><img src="https://img.braincao.cn/blogimg/1584006708.png" alt="1584006708"></p><p>打开镜像文件（即你已经下载好的ubuntu ISO镜像文件）</p><p>启动&gt;写入硬盘映像</p><p><img src="https://img.braincao.cn/blogimg/1584006779.png" alt="1584006779"></p><p>按默认值写入</p><p><img src="https://img.braincao.cn/blogimg/1584006790.png" alt="1584006790"></p><p>完成硬盘映像写入后，别拔U盘</p><h3 id="5-U盘安装Ubuntu"><a href="#5-U盘安装Ubuntu" class="headerlink" title="5.U盘安装Ubuntu"></a>5.U盘安装Ubuntu</h3><p>重启，并按进入bios的快捷键(电脑不同型号快捷键不同，联想是F2），进入系统bios后设置优先u盘启动，设置后电脑自动重启并进入ubuntu安装界面。（此步不懂自行百度)</p><p><img src="https://img.braincao.cn/blogimg/1584006819.jpg" alt="1584006819"></p><p>选择“试用Ubuntu”</p><p><img src="https://img.braincao.cn/blogimg/1584006829.jpg" alt="1584006829"></p><p>进入ubuntu主界面然后双击打开ubuntu安装文件,完成默认设置</p><p>注：如果网络和空间匀速，可以选择“安装中下载更新”和“安装这个第三方软件”（可以不选择，我建议不选择，费时间也没啥用）</p><p>6.U盘安装Ubuntu本教程最重要的的分区步骤，选择“其他选项”</p><p><img src="https://img.braincao.cn/blogimg/1584006861.jpg" alt="1584006861"></p><p>单击“创建新分区表”，点击的“+”创建4个主要的基础分区（这里之前未分配的50G就是给ubuntu系统的50G），按以下参数设置4个主要的基础分区：</p><table><thead><tr><th>分配空间</th><th>分区功能</th><th>分区起始点</th><th>分区系统</th><th>分区路径</th></tr></thead><tbody><tr><td>10G</td><td>主分区</td><td>空间起始位置</td><td>Ext4日志文件系统</td><td>/</td></tr><tr><td>4G</td><td>逻辑分区</td><td>空间起始位置</td><td>交换空间</td><td>/swap</td></tr><tr><td>200MB</td><td>逻辑分区</td><td>空间起始位置</td><td>Ext4日志文件系统</td><td>/boot</td></tr><tr><td>剩余的空间</td><td>逻辑分区</td><td>空间起始位置</td><td>Ext4日志文件系统</td><td>/home</td></tr></tbody></table><p>注：这里还可创建自己的其他分区如/123分区，只要设置为逻辑分区、空间起始位置、Ext4日志文件系统即可，新手强烈建议忽略此步，按上面设置即可</p><p>安装启动引导设备的参数选择：与/boot所在的编号一致。设置好后安装即可，之后的选项（所在地点、键盘布局、电脑名称、开机密码等）正常进行直到安装完毕，大功告成。</p><p>重启系统，进入Win10完成最后的引导设置。</p><h3 id="7-EasyBCD引导Ubuntu"><a href="#7-EasyBCD引导Ubuntu" class="headerlink" title="7.EasyBCD引导Ubuntu"></a>7.EasyBCD引导Ubuntu</h3><p>重启在win10下进入EasyBCD，选择“添加新条目”，选择Linux/BSD操作系统，在“驱动器”栏目选择接近200M（与boot的那个接近）的Linux分区，点添加条目</p><p><img src="https://img.braincao.cn/blogimg/1584006907.png" alt="1584006907"></p><p>完成条目添加后，重启电脑，会发现Win10和Ubuntu的双系统已经完成安装。</p><p><img src="https://img.braincao.cn/blogimg/1584006917.jpg" alt="1584006917"></p><p><img src="https://img.braincao.cn/blogimg/1584006922.png" alt="1584006922"></p><h2 id="卸载ubuntu"><a href="#卸载ubuntu" class="headerlink" title="卸载ubuntu"></a>卸载ubuntu</h2><p>用Windows引导Ubuntu最大的好处就是，当不再需要Ubuntu的时候，直接在Windows磁盘管理中将其所在所有分区删除，然后将EasyBCD中对应条目删除即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
             
         </tags>
       
