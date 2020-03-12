@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>邮件的STMP、POP、IMAP、MIME协议 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" 计网 ">
+  <meta name="description" content="邮件的STMP、POP、IMAP、MIME协议 | Braincao&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  整理并迁移博客md  同步csdn、github，github备份  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://braincao.cn/about/index.html">
+<meta property="og:site_name" content="Braincao&#39;s blog">
+<meta property="og:description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  整理并迁移博客md  同步csdn、github，github备份  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.braincao.cn/blogimg/blog-aboutimg.jpg">
+<meta property="article:published_time" content="2020-02-15T18:03:30.000Z">
+<meta property="article:modified_time" content="2020-03-11T15:40:29.862Z">
+<meta property="article:author" content="Brain Cao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.braincao.cn/blogimg/blog-aboutimg.jpg">
+
+
+<link rel="icon" href="/img/avatar.gif">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.gif" />
+</a>
+<div class="author">
+    <span>Brain Cao</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/braincao" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/pop_rain" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:491316377@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=491316377&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(59)</small></div></li>
+    
+        
+            
+            <li><div data-rel="综合技术">综合技术<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="linux">linux<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法刷题">算法刷题<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计网">计网<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="技术外"><i class="fold iconfont icon-right"></i>技术外<small>(5)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="投资理财">投资理财<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="java">java<small>(17)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="spring">spring<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="多线程">多线程<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据库">数据库<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="python">python<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="59">
+<input type="hidden" id="yelog_site_word_count" value="184.4k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            
+            <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            
+            <li><a target="_blank" href="https://www.csdn.net/">csdn</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+            <li><a target="_blank" href="https://www.zhyong.cn/">ZhangYong</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">综合技术</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">深度学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">算法刷题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">计网</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">动态规划</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">投资理财</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">hosts</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">职业管理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">面经</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">正则表达式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">排序算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">技术外</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">vim</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2020/02/21/blog-index/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
+            <span class="post-date" title="2020-02-21 01:37:19">2020/02/21</span>
+        </a>
+        
+        <a  class="技术外 投资理财 "
+           href="/2020/03/05/fund-bank-screw/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="《指数基金投资指南》学习笔记">《指数基金投资指南》学习笔记</span>
+            <span class="post-date" title="2020-03-05 18:52:28">2020/03/05</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/29/oss-img-bed/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="使用阿里云oss做博客图床">使用阿里云oss做博客图床</span>
+            <span class="post-date" title="2020-02-29 12:22:43">2020/02/29</span>
+        </a>
+        
+        <a  class="技术外 "
+           href="/2020/02/28/thinking-cognition/"
+           data-tag="技术外"
+           data-author="" >
+            <span class="post-title" title="思考认知">思考认知</span>
+            <span class="post-date" title="2020-02-28 13:24:54">2020/02/28</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2020/02/27/normal-algorithms-summary/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="常用算法心得总结">常用算法心得总结</span>
+            <span class="post-date" title="2020-02-27 18:13:44">2020/02/27</span>
+        </a>
+        
+        <a  class="技术外 "
+           href="/2020/02/23/master-seek-job/"
+           data-tag="职业管理"
+           data-author="" >
+            <span class="post-title" title="研二找工作过程总结">研二找工作过程总结</span>
+            <span class="post-date" title="2020-02-23 12:54:10">2020/02/23</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/20/github-hosts/"
+           data-tag="hosts,github"
+           data-author="" >
+            <span class="post-title" title="加速github访问速度">加速github访问速度</span>
+            <span class="post-date" title="2020-02-20 23:24:11">2020/02/20</span>
+        </a>
+        
+        <a  class="技术外 投资理财 "
+           href="/2020/01/20/fund-investment/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="基金定投">基金定投</span>
+            <span class="post-date" title="2020-01-20 10:30:31">2020/01/20</span>
+        </a>
+        
+        <a  class="多线程 "
+           href="/2019/10/01/multithread-programming-demo/"
+           data-tag="多线程"
+           data-author="" >
+            <span class="post-title" title="多线程编程例子">多线程编程例子</span>
+            <span class="post-date" title="2019-10-01 19:00:08">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2019/10/01/postgraduate-interview-questions/"
+           data-tag="算法刷题,面经"
+           data-author="" >
+            <span class="post-title" title="研二面试题目">研二面试题目</span>
+            <span class="post-date" title="2019-10-01 12:03:55">2019/10/01</span>
+        </a>
+        
+        <a  class="技术外 投资理财 "
+           href="/2019/05/08/financial-tips/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="金融小知识">金融小知识</span>
+            <span class="post-date" title="2019-05-08 09:43:21">2019/05/08</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/01/16/java-concurrency/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java并发">java并发</span>
+            <span class="post-date" title="2019-01-16 22:08:05">2019/01/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-collection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java集合">java集合</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-constant-pool/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="方法区与常量池">方法区与常量池</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-copy/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java深浅拷贝">java深浅拷贝</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-enum/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java枚举">java枚举</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-final/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="final关键字">final关键字</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-jmm/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java内存模型JMM">java内存模型JMM</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-lamada/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="lamada表达式">lamada表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-io/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java IO">java IO</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-multi-thread/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java多线程">java多线程</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-parameter/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java参数...">java参数...</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-priority-queue/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java优先队列">java优先队列</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-reflection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java反射">java反射</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-regular/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java正则">java正则</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-throwable/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="Java异常和处理详解">Java异常和处理详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/12/16/regular-expression/"
+           data-tag="综合技术,正则表达式"
+           data-author="" >
+            <span class="post-title" title="正则表达式">正则表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/12/16/spring-filter/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring拦截器与过滤器的区别">spring拦截器与过滤器的区别</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/12/16/sql-btree/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="B树系列详解">B树系列详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-md5-string/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="md5加密字符串">md5加密字符串</span>
+            <span class="post-date" title="2018-12-16 13:45:57">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leftgod-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="左神刷题">左神刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/sword-offer-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-orders/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux命令">linux命令</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-virtual/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="ubuntu虚拟机共享文件夹">ubuntu虚拟机共享文件夹</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/19/python-mysql-connect/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="Python3连接MySQL">Python3连接MySQL</span>
+            <span class="post-date" title="2018-07-19 19:13:39">2018/07/19</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/email-protocols/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="邮件的STMP、POP、IMAP、MIME协议">邮件的STMP、POP、IMAP、MIME协议</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/http-request/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="http请求过程、方式">http请求过程、方式</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/tcp-shakehands/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="TCP三次握手">TCP三次握手</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/wireshark-learning/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="wireshark抓包学习">wireshark抓包学习</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/18/python-shell/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python中shell调用">python中shell调用</span>
+            <span class="post-date" title="2018-07-18 22:28:30">2018/07/18</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/04/08/dfs-template/"
+           data-tag="算法刷题,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS模板">DFS模板</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-key-index/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="数据库的主键外键索引">数据库的主键外键索引</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-transaction/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="MySQL事务">MySQL事务</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/sql-grammar/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="sql语法">sql语法</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/03/21/deep-learning/"
+           data-tag="综合技术,深度学习"
+           data-author="" >
+            <span class="post-title" title="深度学习概念入门">深度学习概念入门</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-error-summary/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架问题汇总">ssm框架问题汇总</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-maven-build/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架maven配置">ssm框架maven配置</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/03/21/mac-tricks/"
+           data-tag="综合技术,mac"
+           data-author="" >
+            <span class="post-title" title="mac开发配置技巧">mac开发配置技巧</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/03/21/vim/"
+           data-tag="综合技术,vim"
+           data-author="" >
+            <span class="post-title" title="vim总结">vim总结</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-learning/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架学习笔记">ssm框架学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/03/21/dynamic-programming/"
+           data-tag="算法刷题,动态规划"
+           data-author="" >
+            <span class="post-title" title="动态规划">动态规划</span>
+            <span class="post-date" title="2018-03-21 08:54:35">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/build-hexo/"
+           data-tag="博客,hexo,gitee"
+           data-author="" >
+            <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/git-orders/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git命令">git命令</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/12/08/java-learning-road/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="研二java基础知识点">研二java基础知识点</span>
+            <span class="post-date" title="2017-12-08 15:35:31">2017/12/08</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2017/06/03/linux-link-type/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux文件类型和软硬链接">linux文件类型和软硬链接</span>
+            <span class="post-date" title="2017-06-03 19:30:19">2017/06/03</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2017/06/03/linux-startx-login/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux下误操作startx命令后无法登录">linux下误操作startx命令后无法登录</span>
+            <span class="post-date" title="2017-06-03 19:30:19">2017/06/03</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2017/04/22/build-win10-ubuntu/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="Win10+Ubuntu17.04双系统安装">Win10+Ubuntu17.04双系统安装</span>
+            <span class="post-date" title="2017-04-22 21:01:33">2017/04/22</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-email-protocols" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">邮件的STMP、POP、IMAP、MIME协议</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="计网">计网</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color3">计网</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date">2018-07-18 23:52</time>
+        
+        
+        更新时间:<time class="updated">2020-03-12 20:26</time>
+        
+
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#邮件收发体系结构"><span class="toc-text">邮件收发体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-用户代理"><span class="toc-text">1.用户代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SMTP协议"><span class="toc-text">2. SMTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-POP协议"><span class="toc-text">3.POP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-IMAP协议"><span class="toc-text">4. IMAP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-MIME"><span class="toc-text">5. MIME</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-基于WWW的邮件"><span class="toc-text">6. 基于WWW的邮件</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="邮件收发体系结构"><a href="#邮件收发体系结构" class="headerlink" title="邮件收发体系结构"></a>邮件收发体系结构</h2><p>电子邮件<strong>发送</strong>协议是一种基于<strong>“推”</strong>的协议，主要包括 SMTP ； 邮件<strong>接收</strong>协议 则是一种基于<strong>“拉”</strong>的协议，主要包括 POP协议 和 IMAP协议 ，在正式介绍这些协议之前，我们先给出邮件收发的体系结构：</p>
+<p><img src="https://img.braincao.cn/blogimg/1584016274.png" alt="1584016274"></p>
+<p>从上图可以看出邮件收发的整个过程大致如下：</p>
+<ul>
+<li><p>1.发件人调用用户代理编辑要发送的邮件。</p>
+</li>
+<li><p>2.发件人点击屏幕上的”发送邮件“按钮，把发送邮件的 工作全部交给用户代理来完成。用户代理通过SMTP协议将邮件发送给发送方的邮件服务器（在这个过程中，用户代理充当SMTP客户，而发送方的邮件服务器则充当SMTP服务器 ）。</p>
+</li>
+<li><p>3.发送方的邮件服务器收到用户代理发来的邮件后，就把收到的邮件临时存放在邮件缓存队列中，等待时间成熟的时候再发送到接收方的邮件服务器（等待时间的长短取决于邮件服务器的处理能力和队列中待发送的信件的数量 ）。</p>
+</li>
+<li><p>4.若现在时机成熟了，发送方的邮件服务器则向接收方的邮件服务器发送邮件缓存中的邮件。在发送邮件之前，发送方的邮件服务器的SMTP客户与接收方的邮件服务器的SMTP服务器需要事先建立TCP连接，之后再将队列中 的邮件发送出去。值得注意的是，邮件不会在因特网中的某个中间邮件服务器落地 。</p>
+</li>
+<li><p>5.接收邮件服务器中的SMTP服务器进程在收到邮件后，把邮件放入收件人的用户邮箱中，等待收件人进行读取。</p>
+</li>
+<li><p>6.收件人在打算收信时，就运行PC机中的用户代理，使用POP3（或IMAP）协议读取发送给自己的邮件。 注意，在这个过程中，收件人是POP3客户，而接收邮件服务器则是POP3客户，箭头的方向是从邮件服务器指向接收用户，因为这是一个“拉 ”的操作。</p>
+</li>
+</ul>
+<p>我们根据上面的总体过程介绍下各个组件。</p>
+<h2 id="1-用户代理"><a href="#1-用户代理" class="headerlink" title="1.用户代理"></a>1.用户代理</h2><p>用户代理UA （ User Agent ）是一个软件包（程序），它的功能是：<strong>撰写、阅读、回复和转发报文，还能处理邮箱 （如创建收信箱和发信箱）</strong>。共有两种类型的用户代理：<strong>命令驱动</strong>和<strong>GUI</strong>。命令驱动 属于早期的电子邮件，通过命令发送和接收邮件，而GUI则是包含图形界面，允许用户使用键盘和鼠标与软件进行交互。</p>
+<h2 id="2-SMTP协议"><a href="#2-SMTP协议" class="headerlink" title="2. SMTP协议"></a>2. SMTP协议</h2><p>SMTP协议服务器的熟知<strong>端口号为25</strong>，与之前总结过的telnet协议和FTP协议类似的地方是，SMTP协议的客户端和服务器端都是<strong>通过命令和响应的形式进行交互</strong>，即SMTP客户通过命令向SMTP服务器发送操作请求，而服务器则通过3位的数字对响应的请求作出响应。SMTP规定了14条命令和21中应答信息，每条命令有4个字母组成，而每一种应答一般只有一行信息，有一个3位数字的代码开始，后面附上很简单的附加说明。</p>
+<p>邮件传送主要包括3个阶段： <strong>建立连接、邮件传送和终止连接</strong>。</p>
+<p><strong>建立连接阶段：</strong></p>
+<ul>
+<li><p>1.当SMTP客户端每隔一定时间对邮件缓存扫描一次，如发现有邮件，就使用SMTP的熟知端口号25与接收方的邮件服务器的SMTP服务器建立TCP连接。</p>
+</li>
+<li><p>2.接收方SMTP服务器发出“220 Service ready”告诉客户端它已经准备好接收邮件。若服务器未就绪，它就发送代码421（服务器不可用）。</p>
+</li>
+<li><p>3.客户发送HELO报文，并使用它的域名地址标志自己。目的是：用来把客户的域名通知服务器，值得注意的是， 在TCP的连接建立阶段，发送方和接收方都是通过它们的IP地址来告诉对方的 。（HELO报文是最初的，用户名和密码都不加密。现在改为EHLO，用户名和密码都进行base64编码发送）</p>
+</li>
+<li><p>4.服务器响应代码250（请求命令完成）或根据情况的其他一些代码。</p>
+</li>
+</ul>
+<p><strong>报文传送阶段：</strong></p>
+<p>在SMTP客户与服务器之间建立连接后，发件人就可以与一个或多个收件人交换单个的报文了。若收件人超过一个，则下面步骤3和步骤4将重复进行。</p>
+<ul>
+<li><p>1.客户发送MAIL FROM报文介绍报文的发送者。它包括发送人的邮件地址（邮箱名和域名，如house@qq）。这个步骤是必要的：因为可以给服务器在返回差错或报文时的返回邮件地址 。</p>
+</li>
+<li><p>2.服务器响应代码250（请求命令完成）或其他适当的代码。</p>
+</li>
+<li><p>3.客户发送RCPT（收件人）报文，包括收件人的邮件地址，<strong>RCPT命令的作用是</strong>：先弄清接收方系统是否已经准备好接收邮件的准备，然后才发送邮件，这样做视为了避免浪费通信资源，不至于发送了很长的邮件以后才知道是因地址错误 。</p>
+</li>
+<li><p>4.服务器响应代码250或其他适当的代码。</p>
+</li>
+<li><p>5.客户发送DATA报文对报文的传送进行初始化，DATA命令表示要开始传送邮件的内容了。</p>
+</li>
+<li><p>6.服务器响应代码”354 Start mail input: end with <code>&lt;CRLF&gt;.&lt;CRLF&gt;</code>“或其他适当的报文（如421 服务器不可用，500 命令无法识别）。</p>
+</li>
+<li><p>7.客户用连续的行发送报文的内容。每一行的行结束时输入 <CRLF>.<CRLF> ，即回车换行.回车换行，表示邮件内容结束。</p>
+</li>
+<li><p>8.服务器响应代码（250 请求命令完成）或其他适当的代码。</p>
+</li>
+</ul>
+<p>值得注意的是：虽然SMTP使用TCP连接试图使邮件的传送可靠，但它并不能保证不丢失邮件。也就是说，使用SMTP传送邮件只能说可以可靠地传送接收方的邮件服务器，在往后的情况就不知道了。接收方的邮件服务器也许会出故障，使收到的服务器全部丢失（在收件人读取信件之前）。</p>
+<p><strong>终止连接</strong></p>
+<p>在报文传送成功后，客户就终止连接。包括如下步骤：</p>
+<ul>
+<li><p>1.客户发送QUIT命令。</p>
+</li>
+<li><p>2.服务器响应221（服务关闭）或其他代码。</p>
+</li>
+</ul>
+<p>在连接终止阶段后，TCP连接必须关闭。</p>
+<h2 id="3-POP协议"><a href="#3-POP协议" class="headerlink" title="3.POP协议"></a>3.POP协议</h2><p>POP协议， Post office Protocal 。邮件交付的第一阶段和第二阶段使用SMTP，而第三阶段则使用邮件读取协议。SMTP是一个push协议,而第三阶段则使用pull协议，包括POP和IMAP协议，POP主要使用POP3，而IMAP协议则主要使用IMAP4。</p>
+<p>POP3采用C/S的工作方式。在接收邮件的用户PC机中的用户代理UA必须运行POP3的客户程序，而在收件人所连接的ISP的邮件服务器中则运行POP的服务器程序。POP服务器只有在用户输入鉴别信息（用户名+密码）后，才允许对方对邮箱进行读取 。</p>
+<p>POP3有 两种工作方式 ：删除方式和保存方式。删除方式 就在每一次读取邮件后就把邮箱中的这个邮件删除，保存方式 就是在读取邮件后仍然在邮箱中保存这个邮件，该方式是通过对之前的POP3工作方式（即删除）的缺点进行弥补，对功能进行扩充。</p>
+<h2 id="4-IMAP协议"><a href="#4-IMAP协议" class="headerlink" title="4. IMAP协议"></a>4. IMAP协议</h2><p>IMAP协议， Internet Mail Access Protocal （因特网邮件读取协议）。 IMAP协议比POP3协议复杂的多，也是按照C/S的工作方式，现在较新的版本是IMAP4。</p>
+<p>在使用IMAP时，用户的PC机上运行IMAP客户程序，然后与接收方的邮件服务器上的IMAP服务器程序建立TCP连接。 POP3不允许用户在邮件服务器上整理自己的邮件，用户在服务器上不能不同的文件夹，POP3也不允许用户在下载邮件之前读取邮件的部分内容，而IMAP则克服了这些POP3的缺点，说白了就是POP3协议不太愿意让用户直接操作服务器，而IMAP正好客户了这些缺点。</p>
+<p>IMAP4提供了以下功能（ 这些功能POP3则没有 ）：</p>
+<ul>
+<li><p>1.用户在下载邮件之前可以检查邮件的首部。</p>
+</li>
+<li><p>2.用户在下载邮件之前可以用特定的字符串搜索电子邮件的内容。</p>
+</li>
+<li><p>3.用户可以部分地下载电子邮件。</p>
+</li>
+<li><p>4.用户可以在邮件服务器上创建、删除邮箱，或对邮箱重命名。</p>
+</li>
+<li><p>5.为了存放电子邮件，用户可以在文件夹中创建分层次的邮箱。</p>
+</li>
+</ul>
+<p><strong>注意</strong>：不用把邮件的发送协议SMTP协议与邮件的读取协议POP或IMAP协议弄混淆了。发送人的UA向发送邮件服务器发送邮件，以及发送方的邮件服务器向接受方的邮件服务器发送邮件都是采用SMTP协议，而收件人的UA从邮件接收服务器中接收文件则采用的是POP协议或IMAP协议。</p>
+<h2 id="5-MIME"><a href="#5-MIME" class="headerlink" title="5. MIME"></a>5. MIME</h2><p>MIME协议( Multipurpose Internet Mail Extensions )，通用因特网邮件扩充协议，作为SMTP的一种辅助协议，其引入是为了克服SMTP的如下不足：</p>
+<ul>
+<li><p>1.SMTP只能发送使用NVT（ 虚拟网络终端 ） 7位ASCII码格式的报文，它不能使用NVT 7位ASCII码不支持的语言（如汉语，日语，德语等）。</p>
+</li>
+<li><p>2.SMTP不能传送可执行文件或其他二进制对象（如图像文件）。</p>
+</li>
+<li><p>3.SMTP不支持音频或视频文件。</p>
+</li>
+<li><p>4.SMTP发送的邮件的长度受到限制。</p>
+</li>
+</ul>
+<p>为了克服以上的不足，便引入了MIME协议，MIME协议是一种扩展协议性的辅助协议，“扩充”指的是只是对原来协议的扩展，而不是取代。它允许非ASCII码数据能够通过电子邮件传送。MIME在发送方把非ASCII码数据转换为NVT ASCII数据，之后的工作再交给SMTP完成，在接收方再将NVT ASCII数据还原成原来的数据。MIME的体系结构如下：</p>
+<p><img src="https://img.braincao.cn/blogimg/1584016720.png" alt="1584016720"></p>
+<p>MIME定义了5种首部，用来加在原始的电子邮件部分以定义参数的转换，<strong>这五种首部分别是</strong>： MIME-Version(MIME版本 )、Constent-Type ( 内容类型 )、 Content-Transfer-Encoding（ 内容-传送-编码 ）、 Content-Id ( 内容-标识 ）和Content-Description ( 内容描述 )。</p>
+<p>MIME版本 ：定义了MIME使用的版本。</p>
+<p>内容-类型 ：定义报文主体使用的数据类型和子类型，用&lt;数据类型/子类型&gt;表示。</p>
+<p>内容-传送-编码 ：定义了邮件的主体在传送时是如何编码的。</p>
+<p>内容-标识 ：在多报文的环境中唯一地标识报文。</p>
+<p>内容描述 ：定义了主体是否为图像、音频或视频。</p>
+<h2 id="6-基于WWW的邮件"><a href="#6-基于WWW的邮件" class="headerlink" title="6. 基于WWW的邮件"></a>6. 基于WWW的邮件</h2><p>基于WWW的邮件收发系统的体系结构与普通的电子邮件收发系统不同，基于WWW的邮件收发系统的整个过程描述如下：</p>
+<ul>
+<li><p>1.从发送者的浏览器传送到发送方邮件服务器是通过HTTP协议（而一般的则是通过SMTP协议）。</p>
+</li>
+<li><p>2.从发送方服务器到接收方邮件服务器是通过SMTP协议（与一般的相同）。</p>
+</li>
+<li><p>3.从接收方到接收者是通过HTTP协议（而一般的则是POP3协议或IMAP协议）。</p>
+</li>
+</ul>
+<p>具体如下图所示：</p>
+<p><img src="https://img.braincao.cn/blogimg/1584016773.png" alt="1584016773"></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>邮件的STMP、POP、IMAP、MIME协议</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3k</span></p>
+    <p><span class="copy-title">本文作者:</span>Brain Cao</p>
+    <p><span class="copy-title">发布时间:</span>2018-07-18, 23:52:28</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-12, 20:26:05</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2018/07/18/email-protocols/" title="邮件的STMP、POP、IMAP、MIME协议">https://braincao.cn/2018/07/18/email-protocols/</a>
+    <p>
+        <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2020 Braincao</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢请收藏,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#博客','#hexo','#gitee','#linux','#综合技术','#深度学习','#算法刷题','#DFS','#计网','#动态规划','#投资理财','#git','#hosts','#github','#java','#spring','#leetcode','#mac','#职业管理','#多线程','#数据库','#面经','#python','#正则表达式','#排序算法','#技术外','#vim',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #8AC4D2;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
