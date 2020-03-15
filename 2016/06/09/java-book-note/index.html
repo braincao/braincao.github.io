@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>《java核心技术》-学习笔记 | Braincao&#39;s blog</title>
+  <meta name="keywords" content=" java ">
+  <meta name="description" content="《java核心技术》-学习笔记 | Braincao&#39;s blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  整理并迁移博客md  同步csdn、github，github备份  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关于我">
+<meta property="og:url" content="https://braincao.cn/about/index.html">
+<meta property="og:site_name" content="Braincao&#39;s blog">
+<meta property="og:description" content="Brain Cao， 北邮8年，本科通信，研究生cs 已签阿里-蚂蚁金服，java技术栈 最近  搭建博客、个性化装修  自定义域名、博客备份  阿里云oss图床  整理并迁移博客md  同步csdn、github，github备份  联系方式 QQ : 491316377 邮箱 : 491316377@qq.com">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.braincao.cn/blogimg/blog-aboutimg.jpg">
+<meta property="article:published_time" content="2020-02-15T18:03:30.000Z">
+<meta property="article:modified_time" content="2020-03-11T15:40:29.862Z">
+<meta property="article:author" content="Brain Cao">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.braincao.cn/blogimg/blog-aboutimg.jpg">
+
+
+<link rel="icon" href="/img/avatar.gif">
+
+<link href="/css/style.css?v=1.0.1" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.0.1" ></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="true">
+  <input class="theme_blog_path" value="">
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.gif" />
+</a>
+<div class="author">
+    <span>Brain Cao</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/braincao" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/pop_rain" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:491316377@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=491316377&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(67)</small></div></li>
+    
+        
+            
+            <li><div data-rel="综合技术">综合技术<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="linux">linux<small>(5)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法刷题">算法刷题<small>(9)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="计网">计网<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="技术外"><i class="fold iconfont icon-right"></i>技术外<small>(5)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="投资理财">投资理财<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="java">java<small>(24)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="spring">spring<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="数据库">数据库<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="多线程">多线程<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="python">python<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  hasFriend  " target="_self"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="67">
+<input type="hidden" id="yelog_site_word_count" value="203.1k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.oschina.net/">开源中国</a></li>
+            
+            <li><a target="_blank" href="http://ifeve.com/">并发编程网</a></li>
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/">博客园</a></li>
+            
+            <li><a target="_blank" href="https://www.csdn.net/">csdn</a></li>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+            <li><a target="_blank" href="https://www.zhyong.cn/">ZhangYong</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode === 13){return false;}">
+        <input id="local-search-input" class="search" type="text" placeholder="以 in: 开头进行全文搜索" />
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a class="color3">博客</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">gitee</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">综合技术</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">深度学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">算法刷题</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">DFS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">动态规划</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">计网</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">投资理财</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">hosts</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">github</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">spring</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">leetcode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">mac</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">职业管理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">数据库</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">多线程</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">面经</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color5">排序算法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color1">正则表达式</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">技术外</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color4">vim</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a id="top" class=""
+           href="/2020/02/21/blog-index/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="Braincao&#39;s Blog">Braincao&#39;s Blog</span>
+            <span class="post-date" title="2020-02-21 01:37:19">2020/02/21</span>
+        </a>
+        
+        <a  class="技术外 投资理财 "
+           href="/2020/03/05/fund-bank-screw/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="《指数基金投资指南》学习笔记">《指数基金投资指南》学习笔记</span>
+            <span class="post-date" title="2020-03-05 18:52:28">2020/03/05</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/29/oss-img-bed/"
+           data-tag="博客"
+           data-author="" >
+            <span class="post-title" title="阿里云oss做博客图床">阿里云oss做博客图床</span>
+            <span class="post-date" title="2020-02-29 12:22:43">2020/02/29</span>
+        </a>
+        
+        <a  class="技术外 "
+           href="/2020/02/28/thinking-cognition/"
+           data-tag="技术外"
+           data-author="" >
+            <span class="post-title" title="思考认知">思考认知</span>
+            <span class="post-date" title="2020-02-28 13:24:54">2020/02/28</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2020/02/27/normal-algorithms-summary/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="常用算法心得总结">常用算法心得总结</span>
+            <span class="post-date" title="2020-02-27 18:13:44">2020/02/27</span>
+        </a>
+        
+        <a  class="技术外 "
+           href="/2020/02/23/master-seek-job/"
+           data-tag="职业管理"
+           data-author="" >
+            <span class="post-title" title="研二找工作过程总结">研二找工作过程总结</span>
+            <span class="post-date" title="2020-02-23 12:54:10">2020/02/23</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2020/02/20/github-hosts/"
+           data-tag="hosts,github"
+           data-author="" >
+            <span class="post-title" title="加速github访问速度">加速github访问速度</span>
+            <span class="post-date" title="2020-02-20 23:24:11">2020/02/20</span>
+        </a>
+        
+        <a  class="技术外 投资理财 "
+           href="/2020/01/20/fund-investment/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="基金定投">基金定投</span>
+            <span class="post-date" title="2020-01-20 10:30:31">2020/01/20</span>
+        </a>
+        
+        <a  class="多线程 "
+           href="/2019/10/01/multithread-programming-demo/"
+           data-tag="多线程"
+           data-author="" >
+            <span class="post-title" title="多线程编程例子">多线程编程例子</span>
+            <span class="post-date" title="2019-10-01 19:00:08">2019/10/01</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2019/10/01/postgraduate-interview-questions/"
+           data-tag="算法刷题,面经"
+           data-author="" >
+            <span class="post-title" title="研二面试题目">研二面试题目</span>
+            <span class="post-date" title="2019-10-01 12:03:55">2019/10/01</span>
+        </a>
+        
+        <a  class="技术外 投资理财 "
+           href="/2019/05/08/financial-tips/"
+           data-tag="投资理财"
+           data-author="" >
+            <span class="post-title" title="金融小知识">金融小知识</span>
+            <span class="post-date" title="2019-05-08 09:43:21">2019/05/08</span>
+        </a>
+        
+        <a  class="java "
+           href="/2019/01/16/java-concurrency/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java并发">java并发</span>
+            <span class="post-date" title="2019-01-16 22:08:05">2019/01/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-collection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java集合">java集合</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-constant-pool/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="方法区与常量池">方法区与常量池</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-copy/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java深浅拷贝">java深浅拷贝</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-enum/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java枚举">java枚举</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-final/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="final关键字">final关键字</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-io/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java IO">java IO</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-jmm/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java内存模型JMM">java内存模型JMM</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-lamada/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="lamada表达式">lamada表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-multi-thread/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java多线程">java多线程</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-priority-queue/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java优先队列">java优先队列</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-reflection/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java反射">java反射</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-throwable/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="Java异常和处理详解">Java异常和处理详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-regular/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java正则">java正则</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/12/16/sort-algorithm/"
+           data-tag="算法刷题,排序算法"
+           data-author="" >
+            <span class="post-title" title="十大经典排序算法总结">十大经典排序算法总结</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/12/16/regular-expression/"
+           data-tag="综合技术,正则表达式"
+           data-author="" >
+            <span class="post-title" title="正则表达式">正则表达式</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/12/16/spring-filter/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="spring拦截器与过滤器的区别">spring拦截器与过滤器的区别</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/12/16/sql-btree/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="B树系列详解">B树系列详解</span>
+            <span class="post-date" title="2018-12-16 15:54:20">2018/12/16</span>
+        </a>
+        
+        <a  class="java "
+           href="/2018/12/16/java-md5-string/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="md5加密字符串">md5加密字符串</span>
+            <span class="post-date" title="2018-12-16 13:45:57">2018/12/16</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leetcode-algorithm-part1/"
+           data-tag="算法刷题,leetcode"
+           data-author="" >
+            <span class="post-title" title="leetcode刷题-part1">leetcode刷题-part1</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/leftgod-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="左神刷题">左神刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/09/21/sword-offer-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="剑指offer刷题">剑指offer刷题</span>
+            <span class="post-date" title="2018-09-21 17:32:47">2018/09/21</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-orders/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux命令">linux命令</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2018/07/23/linux-virtual/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="ubuntu虚拟机共享文件夹">ubuntu虚拟机共享文件夹</span>
+            <span class="post-date" title="2018-07-23 23:31:32">2018/07/23</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/19/python-mysql-connect/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="Python3连接MySQL">Python3连接MySQL</span>
+            <span class="post-date" title="2018-07-19 19:13:39">2018/07/19</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/email-protocols/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="邮件的STMP、POP、IMAP、MIME协议">邮件的STMP、POP、IMAP、MIME协议</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/http-request/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="http请求过程、方式">http请求过程、方式</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/tcp-shakehands/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="TCP三次握手">TCP三次握手</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="计网 "
+           href="/2018/07/18/wireshark-learning/"
+           data-tag="计网"
+           data-author="" >
+            <span class="post-title" title="wireshark抓包学习">wireshark抓包学习</span>
+            <span class="post-date" title="2018-07-18 23:52:28">2018/07/18</span>
+        </a>
+        
+        <a  class="python "
+           href="/2018/07/18/python-shell/"
+           data-tag="python"
+           data-author="" >
+            <span class="post-title" title="python中shell调用">python中shell调用</span>
+            <span class="post-date" title="2018-07-18 22:28:30">2018/07/18</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/04/08/dfs-template/"
+           data-tag="算法刷题,DFS"
+           data-author="" >
+            <span class="post-title" title="DFS模板">DFS模板</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-key-index/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="数据库的主键外键索引">数据库的主键外键索引</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/mysql-transaction/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="MySQL事务">MySQL事务</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="数据库 "
+           href="/2018/04/08/sql-grammar/"
+           data-tag="数据库"
+           data-author="" >
+            <span class="post-title" title="sql语法">sql语法</span>
+            <span class="post-date" title="2018-04-08 16:03:01">2018/04/08</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/03/21/deep-learning/"
+           data-tag="综合技术,深度学习"
+           data-author="" >
+            <span class="post-title" title="深度学习概念入门">深度学习概念入门</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-error-summary/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架问题汇总">ssm框架问题汇总</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-maven-build/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架maven配置">ssm框架maven配置</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/03/21/mac-tricks/"
+           data-tag="综合技术,mac"
+           data-author="" >
+            <span class="post-title" title="mac开发配置技巧">mac开发配置技巧</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/03/21/vim/"
+           data-tag="综合技术,vim"
+           data-author="" >
+            <span class="post-title" title="vim总结">vim总结</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="spring "
+           href="/2018/03/21/java-ssm-learning/"
+           data-tag="spring"
+           data-author="" >
+            <span class="post-title" title="ssm框架学习笔记">ssm框架学习笔记</span>
+            <span class="post-date" title="2018-03-21 16:49:52">2018/03/21</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2018/03/21/dynamic-programming/"
+           data-tag="算法刷题,动态规划"
+           data-author="" >
+            <span class="post-title" title="动态规划">动态规划</span>
+            <span class="post-date" title="2018-03-21 08:54:35">2018/03/21</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/build-hexo/"
+           data-tag="博客,hexo,gitee"
+           data-author="" >
+            <span class="post-title" title="hexo博客系统搭建过程">hexo博客系统搭建过程</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="综合技术 "
+           href="/2018/02/22/git-orders/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git命令">git命令</span>
+            <span class="post-date" title="2018-02-22 19:29:01">2018/02/22</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/12/08/java-learning-summary/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java基础知识点">java基础知识点</span>
+            <span class="post-date" title="2017-12-08 15:35:31">2017/12/08</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/07/04/java-access-modifier/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="访问修饰符">访问修饰符</span>
+            <span class="post-date" title="2017-07-04 17:51:32">2017/07/04</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/07/04/java-inner-class/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="内部类">内部类</span>
+            <span class="post-date" title="2017-07-04 17:51:32">2017/07/04</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/06/30/java-abstractclass-interface/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="抽象类与接口">抽象类与接口</span>
+            <span class="post-date" title="2017-06-30 16:55:39">2017/06/30</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/06/29/java-object-class/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="Object类">Object类</span>
+            <span class="post-date" title="2017-06-29 11:35:57">2017/06/29</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/06/28/java-extend-polymorphism/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="继承与多态">继承与多态</span>
+            <span class="post-date" title="2017-06-28 16:05:46">2017/06/28</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/06/27/java-constructors-initialization/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="构造器与初始化">构造器与初始化</span>
+            <span class="post-date" title="2017-06-27 09:48:34">2017/06/27</span>
+        </a>
+        
+        <a  class="java "
+           href="/2017/06/26/java-parameter/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="java方法参数详析">java方法参数详析</span>
+            <span class="post-date" title="2017-06-26 10:53:26">2017/06/26</span>
+        </a>
+        
+        <a  class="算法刷题 "
+           href="/2017/06/21/occasionally-algorithm/"
+           data-tag="算法刷题"
+           data-author="" >
+            <span class="post-title" title="其他渠道的刷题">其他渠道的刷题</span>
+            <span class="post-date" title="2017-06-21 17:05:47">2017/06/21</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2017/06/03/linux-link-type/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux文件类型和软硬链接">linux文件类型和软硬链接</span>
+            <span class="post-date" title="2017-06-03 19:30:19">2017/06/03</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2017/06/03/linux-startx-login/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux下误操作startx命令后无法登录">linux下误操作startx命令后无法登录</span>
+            <span class="post-date" title="2017-06-03 19:30:19">2017/06/03</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2017/04/22/build-win10-ubuntu/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="Win10+Ubuntu17.04双系统安装">Win10+Ubuntu17.04双系统安装</span>
+            <span class="post-date" title="2017-04-22 21:01:33">2017/04/22</span>
+        </a>
+        
+        <a  class="java "
+           href="/2016/06/09/java-book-note/"
+           data-tag="java"
+           data-author="" >
+            <span class="post-title" title="《java核心技术》-学习笔记">《java核心技术》-学习笔记</span>
+            <span class="post-date" title="2016-06-09 15:30:46">2016/06/09</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-java-book-note" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">《java核心技术》-学习笔记</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="java">java</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color5">java</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date">2016-06-09 15:30</time>
+        
+        
+        更新时间:<time class="updated">2020-03-15 18:02</time>
+        
+
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:12.2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#练习代码"><span class="toc-text">练习代码</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是《java核心技术-卷1》的学习笔记</p>
+<a id="more"></a>
+
+<p>1.boolean类型只有true和false两个值，不能类型转换。</p>
+<p>2.char类型为2字节。</p>
+<p>3.常量在整个程序中只能被赋值一次。final int A = 10;</p>
+<p> 常量是全局的时候，必须要赋值，否则编译错误；是局部的时候可以不一次性赋值。</p>
+<p>4.成员变量与局部变量。</p>
+<p> 成员变量：在类体中所定义的变量，在整个类中都有 效。</p>
+<p>又可分为</p>
+<p>静态变量和实例变量。</p>
+<p>静态变量：其有效范围可以跨类，除了能在定义类中存取，还能直接以“类名.静态变量”的方式在其他类内使用。</p>
+<p>局部变量：类的方法体中定义的变量，只在当前代码块中有效。局部变量在使用时必须进行赋值操作或被初始化。形参也可以认为是局部变量<br>成员变量可与局部变量的名字相同，成员变量在方法中暂时失效。</p>
+<p>5.</p>
+<pre><code>a++与++a：a值都加1, a = 4
+b = ++a; b = 5
+b = a++; b = 4
+</code></pre><p>6.比较运算符(&gt; &lt; &gt;= &lt;= == !=)的结果是boolean型，true或false。</p>
+<p>7.逻辑运算符(&amp;(&amp;&amp;) || !)：操作元必须是boolean型<br>进行逻辑运算，结果也为boolean型。</p>
+<p>&amp;、&amp;&amp;区别：&amp;判断两个表达式，全部判断完（非短路）,也是按位与运算<br>&amp;&amp;针对boolean类型的类进行判断，当第一个表达式为false时不再判断第二个表达式直接输出结果。（短路）</p>
+<p>8.类型转换：隐式类型转换（按byte&lt;short&lt;char&lt;int&lt;long&lt;float&lt;double自动隐式转）、显示类型转换（强制类型转换）</p>
+<p>9.Java有8中基本数据类型（byte short int long float double char boolean）</p>
+<p>注：String 不是基本数据类型</p>
+<p>10.需要看光盘程序的地方：</p>
+<p>  1.书P274，代码：number15_swing全看（swing窗体的输入输出流的例子，swing看了后再看这个东西！）</p>
+<p>11.</p>
+<p>equals()相等的两个对象，hashcode()一定相等；</p>
+<p>equals（）不相等的两个对象，却并不能证明他们的hashcode()不相等。换句话说，equals()方法不相等的两个对象，hashcode()有可能相等。</p>
+<p>hashcode()不等，一定能推出equals()也不等</p>
+<p>hashcode()相等，equals()可能相等，也可能不等</p>
+<p>12.条件判断语句分为：</p>
+<p>if-else条件语句(if if-else if-elseif-..-else)：if语句只执行条件为真的一条命令语句，其他语句都不会执行。执行一次就退出if语句了，不管后面判断是否为真。</p>
+<pre><code class="java">switch-case多分支语句：
+  switch(整型(byte short int )、字符(char)型、字符串(String)型计算表达   
+    式，同下面的常量值类型，常量条件绝不能是小数){case 5:  
+    {...break;}case 6:{...}break;   
+    default:{...break;}}
+  default可以没有，如果都没有条件对应，则   
+     switch不作处理；否则，一直寻找，
+     直到遇到break跳出为止
+  注：同一个switch语句，case常量值必须互不  
+    相同
+</code></pre>
+<p>13.循环语句(while do…while for)</p>
+<pre><code class="java">for有两种：for、foreach
+  for中:技巧for(; ;){...}是无限循环，  
+     为了跳出这个，里面加判断if()  
+     {break；
+      跳出整个for循环}
+</code></pre>
+<p>  foreach中:foreach是for的特殊简化版本，不能完全取代for。但任何foreach语句都可以改写为for语句版本。foreach并不是一个关键字，习惯上将这种特殊的for语句格式称为foreach语句。foreach语句在遍历数组等方面提供很大方便。见实例Repetition。</p>
+<pre><code class="java">    格式：for(元素x: 遍历对象obj){}
+       x不必初始化
+</code></pre>
+<p>14.数组:int arr[] = {7, 8, 9};</p>
+<p>15.String 字符串不能分开在两行书写</p>
+<pre><code class="java">&quot;asdasdasdasd&quot;;  &quot;asdasd&quot;+
+          &quot;sadasd&quot;;  这两种是对的
+&quot;sadas
+asdasdd&quot;   这种是错的
+</code></pre>
+<p>16.数值型变量与字符串相连时会自动调用toString方法，将其转换为字符串形式，然后参与连接(“adsasd”+booktime(int型));</p>
+<p>17.字符串查找:indexOf();  lastIndexOf();没找着返回-1</p>
+<p>18.”asd” .length()返回结果试3，就是长度</p>
+<p>  查找lastIndexOf(“”)的值就是字符串长度   </p>
+<p>19.charAt()方法可将指定索引处的字符返回</p>
+<p>20.截取字符串(获取字符串):str.substring(3,6(不写也可))</p>
+<p>21.去除空格:trim()方法返回字符串的副本，忽略前导空格和尾部空格,中间的空格还在str.trim();</p>
+<p>22.字符串替换str.replace(old,new);</p>
+<p>23.startsWith()与endsWith()方法分别用于判断字符串是否已指定的内容开始或结束。这两个方法的返回值都为boolean类型.str.startsWith(“aa”);</p>
+<p>24.若有相同的字符和长度，用equals方法，返回true<br>  equalsIgnoreCase()忽略大小写</p>
+<p>25.compareTo()方法按字典顺序比较两个字符串,基于unicode值，返回正值（前string位于参数字符串之后）、负值（前string位于参数字符串之前）、0（相等）</p>
+<p>26.toLowerCase()、toUpperCase()方法转换大小写<br>27.字符串分割:str为”adasd,asdasd,sadasd”</p>
+<p>str.split(“,” , 2); 按”,”号分割，，并将分割后的结果存放在字符串数组中。2的意思是返回的数组的个数，而不是切几次的意思。若要多个字符分割，则中间用“|”分隔开，见例子Division.java</p>
+<p>28.格式化字符串：String类的静态format()方法用于创建格式化的字符串。<br>   重要功能：日期、时间字符的格式化（见书91页的例5.22及之后）</p>
+<pre><code class="java">Date date = new Date();
+String year = String.format(&quot;%tY&quot;, date);
+String month = String.format(&quot;%tB&quot;, date);
+String day = String.format(&quot;%td&quot;, date);
+System.out.println(&quot;今年是： &quot; + year + &quot;年&quot;);
+System.out.println(&quot;现在是： &quot; + month + &quot;月&quot;);
+System.out.println(&quot;今天是： &quot; + day + &quot;号&quot;); //可以显示时间，具体的表在书92页
+</code></pre>
+<p>29.当然format方法还有格式化常规类型。见94页</p>
+<p>String str = String.format(“%d”, 400/2);</p>
+<p>30.正则表达式：str.matches(str1)通常被用于判断语句中，用来检查某一字符串是否满足某一格式，具体表见95页</p>
+<pre><code class="java">  String regex = &quot;\\w+@\\w+(\\.\\w{2,3})*\\.\\w{2,3}&quot;;
+  if(str3.matches(regex))
+     {
+       System.out.println(str3 + &quot;合法&quot;);
+     }  //判断email地址是否合法
+</code></pre>
+<p>31.可变的字符串序列String-builder类(字符串生成器)：传统string类创建成功，长度固定，内容不能改变，+的使用会重新创建新的字符串，增加系统开销。可变字符串String-builder类大大提高效率。</p>
+<pre><code class="java">Stringbuilder aa = new Stringbuilder（&quot;adsasd&quot;）;
+   builder.append(j);//追加字符
+   builder类有很多方法：toString显示输出,append()追加，insert()插入，delete()删除
+</code></pre>
+<p>32.算程序运行时间。long starTime = System.currentTimeMillis();</p>
+<p>33.以下是数组:java中将数组看成一个对象，数组作为对象允许使用new关键字进行内存分配，在使用数组之前，必须首先定义数组变量所属的类型。</p>
+<pre><code class="java">     int a[];
+     String[] b;  //这两种都可以
+     a = new int[5];  //进行内存分配
+     b = new String[10];
+     System.out.println(a.toString() + b.toString()); //数组对象使用显示方法
+也可以这样int a[] = new int[12]; //直接内存分配
+</code></pre>
+<p>34.初始化数组:</p>
+<pre><code class="java">int arr[] = new int[]{5,5,53,21,1};
+     int arr1[] = {1,234,4};  //都可以
+</code></pre>
+<p>35.一维数组的各个元素仍然是数组，则为二维数组。二维数组常用于表，【】【】分别代表行、列</p>
+<p>36.二维数组：</p>
+<pre><code class="java">     int myarr[][] = new int[2][];
+     myarr[0] = new int[4];
+</code></pre>
+<p>也可以这样：int myarr[][] = new int[3][4]； //这个是3行4列，而用的时候最大只能到myarr【2】【3】</p>
+<p>37.遍历数组：遍历二维数组用双层for循环，通过数组的lengrh属性可获得数组的长度。</p>
+<pre><code class="java">     for(int k=0; k&lt;b.length; k++)  //注意：[3][4]的b.length是 3！！
+     {
+       for (int c=0; c&lt;b[k].length; c++)
+遍历二维数组用foreach简单：
+    for(int x[]: arr)
+     {
+       for(int j: x){}
+</code></pre>
+<p>38.java.util包的Arrays类包含了操作数组（排序和搜索等）的各种方法如下：（import java.util.Arrays包）</p>
+<p>fill()方法对数组中的元素进行替换，该方法通过各种重载形式可完成任意类型的数组元素的替换。  Arrays.fill(arr, 1,3,8)： 从1~3中间都存8</p>
+<p> Arrays.sort(arr)方法进行排序(升序):与String类型数组排序不同的是，String类型试根据字典顺序排，数字排在字母后面，大写字母排在小写字母前面。而这个方法是整型数组升序排序。</p>
+<p>Arrays.copyOf(arr, int newlength)复制数组从起始至指定长度返回新数组、Arrays.copyOfRange(arr,2,3)复制指定长度任意定制的数组返回新数组、</p>
+<p>数组查询：注：必须先排序Arrays.sort(arr)！！</p>
+<p> Arrays.binarySearch(arr[],3,8,”4”或”4”)二分搜索法来搜索指定数组(从指定位置搜索或直接值搜索)。返回的是目标所在的下标索引值（找到）或者(-1或插入点)（没找到）</p>
+<p>39.数组排序算法：冒泡排序、直接选择排序、反转排序。</p>
+<p>  冒泡排序：小的像气泡，放到最前面，大的沉下去，放在最后面。由双层循环实现，外层循环用于控制排序轮数，一般为要要排序的数组长度减1(len-1)(因为最后一次循环只剩下一个数组元素，不需要对比)。内层循环主要用用于对比数组中每个临近元素的大小，以确定是否交换位置，对比和交换次数随排序轮数而减少。(len-i-1次)</p>
+<p>每次排序一次，即可得出一个当前最大的数并沉底。例子见BubbleSort类.</p>
+<p>  直接选择排序:指定从最后一位排，每一轮找出最大的数放在最后(找出的是最大数的索引值，索引值与最后索引值对应的数值再进行互换)。两次循环</p>
+<p>  反转排序：一次循环，前后调换，执行到总长度的一半。</p>
+<p>40.数组矩阵转置运算: int[i][j]变成int[j][i]就好了</p>
+<p>41.以下是第七章（类和对象）:<br>  多态：继承是子类继承父类，其实将父类对象（方法）应用于子类的特征就是多态。好比图形类（父类）中绘制图形的方法是抽象的，用在具体的子类中就是多态。日后维护绘制图形的方法是也只需要修改父类中的抽象接口，在子类中重写具体实现方法即可。<br>    提到多态，就不得不提抽象类和接口。<br>   抽象类(abstract class)：不能实例化对象。在多态的机制里，父类通常会被定义为抽象类，在抽象类中给出一个方法的标准，而不给出实现的具体流程，事实上这个方法也是抽象的。<br>   接口(interface)：抽象类的一个变体，一个继承类可以<br>有多个接口。在多态的机制里，比抽象类更方便的方式是将抽象类定义为接口。由抽象方法组成的集合就是接口。然后通过具体的子类实现(implements)这个接口,方法重写！</p>
+<p>42.权限修饰符：</p>
+<p>  pubilc、protected、private(可见分别为3可见、2可见、1可见; 包括本类、同包其他类、不同包其他类)</p>
+<p>  这么看来 public和protected修饰的类可以由子类访问,如果子类不允许通过继承产生的子类访问它的成员变量，那么必须使用private声明父类的这个成员变量。</p>
+<p>  如果没有声明修饰符，默认的是同包的类可以调用访问。</p>
+<pre><code class="java">  class AnyClass {
+
+   public void doString(){
+    即使下面是public，可是class是默认的，只能同包的类访问，所以doString()也是同包类访问，不再是public!
+</code></pre>
+<p>43.构造函数(方法)：在类实例化对象时同时调用的函数，没有返回值。<br>  准确地说，使用new操作符调用构造方法创建对象。</p>
+<pre><code class="java">  public class A
+{
+   private int i = 0; // 这个是类成员变量
+
+   public void show()
+   {
+     System.out.println(&quot;这个是类成员方法&quot;);
+   }
+
+   public A()
+   {
+     System.out.println(&quot;这个是构造函数，没有返回值&quot;);
+   }
+
+}
+
+A aa = new A(); //实例化同时调用构造函数
+ 构造函数分无参和有参构造函数：
+  public A(){}   
+  public A(int i, int j){}
+  A aa = new A(1,2); //调用2有参构造函数;
+  A aa = new A();   //调用1无参构造函数;
+</code></pre>
+<p>   如果没有构造函数，实例化时默认的是调用无参构造函数！</p>
+<p>44.静态变量、常量和方法(static)</p>
+<p> 有时，会需要两个类在同一个内存区域共享一个数据。例如，PI可能多个类都要用到，只是将这个常量设置为静态的，PI常量在内存中被共享。</p>
+<p> 被声明为static的变量、常量和方法被称为静态成员。静态成员属于类所有，区别于个别对象，可以在本类或其它类使用类名和“.”运算符调用静态成员。</p>
+<p>静态变量、常量、成员还没有创建实例化对象时，就可以直接“类名.静态成员”。</p>
+<p> 注：静态成员不能使用this 关键字，必须用类名.静态成员。</p>
+<p>   静态成员同样遵循pubilc、protected、private修饰符的约束</p>
+<p>注：在静态方法中不可以使用this关键字；</p>
+<p>在静态方法中不可以直接调用非静态方法！！</p>
+<p>不能将方法体内中的局部变量声明为static！</p>
+<p>技巧：如果执行类时，希望先执行类的初始化动作，可以使用static定义一个静态区域，当这段代码被执行时，首先执行static块中的程序，并且只会执行一次。</p>
+<pre><code class="java">      public class eg
+   {
+     static
+     {
+       //some
+     } }
+</code></pre>
+<p>45.对象： TEST test = new TEST();</p>
+<p>test对象被创建出来时，就是一个对象的引用，这个引用在内存中为对象分配了存储空间</p>
+<p>每个对象都是相互独立的，在内存中占据独立的内存地址，并且每个对象都具有自己的生命周期，当一个对象的生命周期结束时，对象就变成垃圾，由java虚拟机自带的垃圾回收机制处理，不能在被使用</p>
+<p>46.”==”和equals区别：</p>
+<p>  “==”比较两个对象引用的地址是否相等，而equals（）方法是String类中的方法，比较两个对象引用所指的内容是否相等</p>
+<p>47.对象的销毁：</p>
+<ul>
+<li>1.何种对象会被java虚拟机视为垃圾：</li>
+</ul>
+<pre><code class="java">1.对象引用超过其作用范围，这个对象将被视为垃圾。{
+       Test aa = new Test();
+     }
+     //超过作用范围将消亡
+   2.将对象赋值为null。
+    Test aa = new Test();
+       aa = null; //对象被赋值null将消亡
+</code></pre>
+<ul>
+<li>2.垃圾回收很完善，但只能回收由new操作符创建的对象，如果不是由new创建在内存中获取一块内存区域的，可能不能被识别，所以java提供了finalize（）方法，属于object类的方法，被声明为protected，用户可以在自己的类中定义这个方法。如果用户在类中定义了finalize方法，在垃圾回收时会首先调用该方法，在下一次垃圾回收动作发生之前，才能真正回收被对象占用的内存</li>
+</ul>
+<p>垃圾回收或finalize方法不保证一定会发生，如java虚拟机内存耗尽时，不会执行垃圾回收。</p>
+<p>由于垃圾回收不受人为控制，具体时间也不确定，所以finalize也就无法执行，为此，java提供了System.gc()方法强制启动垃圾回收器。</p>
+<p>48.以下是包装类：</p>
+<p>  java.lang包Intrger、Character、Boolean等包装类，这些类都是Number类的子类，区别就是封装不同的数据类型，其包含的方法基本相同。</p>
+<p>  比如，Integer类在对象中包装了一个基本类型int的值，该类的对象包含一个int类型的字段，此外，该类提供了很多方法，能在int类型和String类型之间互相转换，同时还提供了其他一些处理int类型时非常有用的常量和方法。以下以Integer为例</p>
+<p> (1) 构造方法:</p>
+<pre><code class="java">     Integer int = new Integer(3);//int获取
+     Integer int = new Integer(&quot;232&quot;);//Sring获取
+</code></pre>
+<p> (2)常用方法：</p>
+<pre><code class="java">  byteValue()   //以byte类型返回该Integer值
+  equals()     //返回boolean
+  intValue()    //返回int
+ shortValue     //返回short
+compareTo(Integer anotherInteger)  //返回int，在数字上比较两个Integer对象，如果相等，返回0；如果调用的对象小于anotherInteger值，则返回负值；如果调用的对象大于anotherInteger值，则返回正值；
+toString()//返回一个表示该Integer值的String对象.
+valueOf(String str) //返回保存指定的String值的Integer对象 返回Integer
+parseInt(String str) //返回包含在由str指定的字符串中的数字的等价整数值  返回int
+  int myint = Integer.parseInt(str[i]);
+
+​       String str = Integer.toString(456);
+​     String str2 = Integer.toBinaryString(456);
+​     String str3 = Integer.toHexString(456);
+​     String str4 = Integer.toOctalString(456);
+​     System.out.println(&quot;456十进制： &quot; + str);
+​     System.out.println(&quot;456二进制： &quot; + str2);
+​     System.out.println(&quot;456十六进制： &quot; + str3);
+​     System.out.println(&quot;456八进制： &quot; + str4);
+Integer类提供了4个常量：
+​    MAX_VALUE  //int型可取最大值:231 -1
+​    MIN_VALUE  //-231
+​    SIZE //用来以二进制补码形式表示int的位数
+​    TYPE  //表示基本类型int的class实例
+​    </code></pre>
+<p>49.抽象类Number：</p>
+<p>抽象类Number是BigDecimal、BigInteger、Byte、Double、Float、Integer、Long、Short类的父类</p>
+<p>50.数字处理类：</p>
+<p>  DecimalFormat类：用于格式化数字</p>
+<p>  Math类：为各种数学计算提供了工具方法</p>
+<p>  Random类：为java处理随机数问题提供了各种方法</p>
+<p>  BigInteger类与BigDecimal类：为所有的大数字的处理提供了相应的数学运算操作方法。</p>
+<p>  DecimalFormat类：在实例化DecimalFormat对象时传递数字格式，也可以通过DecimalFormat类中的applyPattern()方法来实现数字格式化。</p>
+<pre><code class="java">1.DecimalFormat myFormat = new DecimalFormat(pattern); //string类的pattern
+     String output = myFormat.format(value);//value是值
+     System.out.println(value + &quot; &quot; + pattern + &quot; &quot; + output);
+
+2. DecimalFormat myFormat = new DecimalFormat(pattern);
+     myFormat.applyPattern(pattern);//第二种方法
+     System.out.println(value + &quot; &quot; + pattern + &quot; &quot; + myFormat.format(value));
+
+3.设置的模板规则：0或#（区别？）：
+    0进行模板格式化时，当数字位不存在时，将显示0；
+    \#进行模板格式化时，格式化后的数字位数与数字本身的位数一致。
+</code></pre>
+<p>51.Math类：所有方法（指数函数、平方根等方法）都被定义为static形式。</p>
+<pre><code class="java">   Math.sin(Math.PI/2); //....
+   Math.asin //反余弦
+   Math.sqrt(2)  //2的平方根
+   Math.cbrt(2)  //2的立方根
+   Math.toRedians(120.0) //取120度的弧度值
+   Math.toDegrees(Math.PI) //取π的角度
+   Math.pow(2,3)  //2的3次方 ，指数
+   Math.exp(3)  //e的3次方
+   Math.log(3)  //Ln3
+   Math.log10(3)  //log10(3)
+  取整操作：
+   Math.ceil()//返回大于等于参数的最小整数
+   Math.floor()//返回小于等于参数的最大整数
+   Math.rint()//返回最接近参数的整数，若同样接近，则取偶数
+   Math.round()//将参数加上0.5返回与参数最近的整数 其实就是4舍5入，负值是反的！！！
+Math.long round()//将参数加上0.5返回与参数最近的整数，然后强制返回为长整型
+ 取最大值、最小值、绝对值函数方法：
+  Math.max(a, b)  //取a、b的最大值
+  Math.min(a, b)  //取a、b的最小值
+  Math.abs(8)   //返回整型参数的绝对值
+</code></pre>
+<p>52.随机数：</p>
+<p> 两种方式产生随机数：</p>
+<p>  (1).Math.random()方法</p>
+<pre><code class="java">    Math.random()方法只产生0~1(大于等于0，小于1)的随机小数，稍加处理，就可以产生任何随机数
+    (int)(Math.random()*n) //产生0~n(大于等于9，小于n)的随机数
+  m+(int)(Math.random()*（m-n)) //产生m~n(大于等于m，小于n)的随机数
+</code></pre>
+<p>  (2).Random类提供的产生各种数据类型随机数的方法</p>
+<pre><code class="java">   java.util.Random类,可以通过实例化一个Random对象创建一个随机数生成器。
+   Random r = new Random();
+   r.很多方法: r. nextInt、nextDouble....
+
+​    Random r = new Random();
+​     System.out.println(r.nextInt());  //产生一个整数
+​     System.out.println(r.nextInt(10));  //产生一个0~10(大于等于0，小于10)的整数
+​     System.out.println(r.nextBoolean());
+​     System.out.println(r.nextDouble());
+System.out.println(r.nextGaussian()); //产生一个高斯分布的双精度值
+</code></pre>
+<p>53.大数字运算(BigInteger、BigDecimal):</p>
+<p> java.math.BigInteger类和java.math.BigDecimal类</p>
+<p> （1）.java.math.BigInteger类：<br>BigInteger b = new BigInteger(“2”);</p>
+<p>  具体的所有方法见代码例子number9中BigIntegerDemo类</p>
+<p>（2）.java.math.BigDecimal类：</p>
+<p>BigDecimal b = new BigDecimal(“2.5”or2.5也可);</p>
+<p>  具体的所有方法见代码例子number9中BigDecimalDemo类</p>
+<p>54.将计算结果保留到5位小数</p>
+<p> DecimalFormat myFormat = new DecimalFormat(pattern);</p>
+<p>55.第10章（接口、继承、多态）：</p>
+<p>  继承：extends: 子类调用父类（super）、重写父类方法（方法名相同的，可以修改返回类型、参数、方法体）</p>
+<p>注：1.子类没有权限调用父类中被修饰为private方法。</p>
+<p>2.子类与父类所有完全相同除了方法体不同时，重写变成了重构！</p>
+<p>3.重写方法时，也还可以修改修饰权限！！修改方法的修饰权限只能从小的范围到大的范围改变。例如，protected只能修改成为public，而不可以是private</p>
+<p>4.重写方法还可以修改方法的返回值类型。这种重写方式需要遵循 重写的返回值类型必须是父类中同一方法返回值类型的子类。</p>
+<p>5.在继承的机制中，创建一个子类对象，将包含一个父类子对象。这个对象与父类创建的对象是一样的。两者的区别在于后者来自外部，而前者来自子类对象的内部。当实例化子类对象时，父类对象也相应被实例化，换句话说，在实例化子类对象时，java编译器会在子类的构造方法中自动调用父类的无参构造方法，但是有参的不能被自动调用，必须用super了（并且调用顺序是首先调用父类，以此往下直到最底下进行实例化的子类对象，所以在子类构造方法访问父类构造方法之前，父类已经完成实例化操作）。为了验证这个理论，来看例子Subroutine类.</p>
+<p>6.如果使用finalize()方法对对象进行清理，需要确保子类的finalize方法的最后一个动作是调用父类的finalize方法，以保证当垃圾回收对象占用内存时，对象的所有部分都能被正常终止。</p>
+<p>56.Object类：java.lang.Object类 所有类的父类（包括自定义类）</p>
+<p>1.常用的方法：clone()、finalize()、equals()、toString()等。</p>
+<p>大部分方法都可以被重写，但getClass()、notify()、notifyAll()、wait()等方法不能被重写，因为被定义为final类型</p>
+<p>2.一些方法的使用：</p>
+<p>(1)getClass(): getClass.getname() //返回对象执行时的class实例，并用getname方法取得类的名称</p>
+<p>(2)toString()方法,将一个对象返回为字符串形式，返回一个String实例。当这个类转换为字符串或与字符串连接时，将自动调用重写的toString方法。</p>
+<p>(3)equals方法。</p>
+<p>(4)在自定义的类中两个对象使用equals方法进行比较时，将返回false，因为equals方法的默认实现是使用“==”运算符比较两个对象的引用地址，而不是比较两个对象的内容，所以要想真正做到比较两个对象的内容，需要在自定义类中重写equals方法。</p>
+<p>57.对象类型的转换：向上转型、向下转型</p>
+<p>  向上转型：调用父类方法,a是平行四边形，但也是四边形，向上转型，调用父类方法，子类参数向上转型。，总是安全的</p>
+<p>  向下转型：将抽象类转换为具体的类，这样的转型通常会出现问题。可以说子类总是父类的一个实例，但父类对象不一定是子类的实例。  </p>
+<p>   将父类对象赋予子类对象，写法错误；但是将父类对象赋予子类对象，并强制转换为子类型，写法可以的  </p>
+<p>58.使用instanceof()操作符判断对象类型:<br>  在执行向下转型之前需要养成一个良好的习惯，就是3.判断父类对象是否为子类对象的实例，这个判断通常使用instanceof操作符来完成，可以使用instranceof操作符判断1.是否一个类实现了某一个接口，2.也可以用它来判断一个实例对象（高）是否属于一个类（低）(父类对象是否属于一个子类！！)</p>
+<p>  q instanceof Parallelogram  //返回的是boolean</p>
+<p>  进行父类向下转型时。一定要首先进行判断父类对象是否属于（这里的属于意思就是有无继承关系，有就是属于，返回true）子类（instanceof方法），然后再强制转换进行向下转换。</p>
+<p>59.方法重载:名字一样，参数个数或类型不同，这其中返回值类型可以不同；但是仅仅是返回值类型不同不是重载，错误，不足以区分两个方法的重载。</p>
+<p>定义不定长参数方法：</p>
+<pre><code class="java">  public static int add(int...a)  //定义不定长参数方法: public static int add(int...a)  
+   {
+     int s = 0;
+     for(int i=0; i&lt;a.length; i++)
+     {
+       s += a[i];
+     }
+     return s;
+   }
+写法是int...a,然后把它当做数组对待
+</code></pre>
+<p>60.多态：一个父类定义了一个方法，多个子类不需再定义，可以用多态使用父类方法。</p>
+<p>   父类方法中参数为父类，当子类调用父类方法时，参数写为子类（自动向上转型视为父类参数即可），达到子类使用父类方法的目的。</p>
+<p>61.抽象类与接口：</p>
+<p>1.抽象类：</p>
+<pre><code class="java">  public abstract class lala     //抽象类
+{    abstract void testAbstract();  //定义抽象方法 abstract必须要有！
+}
+</code></pre>
+<p>  (1).抽象类不可以初始化，我们需要的只是子类对象初始化。一般将父类定义为抽象类，需要使用这个父类进行继承与多态处理。</p>
+<p>  (2).抽象类除了被继承之外没有任何意义。抽象方法没有方法体，抽象方法除非被重写，否则也没有任何意义。</p>
+<p>  (3).如果声明一个方法为抽象方法，必须将承载这个抽象方法的类定义为抽象类。换句话说，只要类中有一个抽象方法。此类就被标记为抽象类。</p>
+<p>  (4).抽象类被继承后需要实现其中!!所有!!的抽象方法，当然也可以是抽象方法。</p>
+<p>  (5).由继承引出了接口（原因，建议看看，理解为主）：</p>
+<p>继承抽象类的所有子类需要将抽象类中的抽象方法进行覆盖。这样在多态机制中，就可以将父类修改为抽象类，将draw()方法设置为抽象方法，然后每个子类都重写这个方法局限性很大，也许某个不需要draw方法的子类也不得不重写draw方法，如果将draw方法放在另外一个类中，这样让那些需要draw方法的子类继承该类，而不需要draw方法的类继承图形类。这样所有的类都需要图形类，同时某些类还需要draw方法类不就很好么！但是java规定，一个类不能同时继承多个父类，面临这种问题，接口的概念出现了！（一个类可以实现多个接口！）</p>
+<p>2.接口：interface: public interface draw{void draw();}<br>      类实现接口implements</p>
+<p>   (1).接口是抽象类的延伸，在接口中，所有方法都是抽象的.可以将它看作是纯粹的抽象类，接口中的所有方法都没有方法体。</p>
+<p>   (2).在接口中定义的方法必须被定义为public或abstract,其他修饰符不被java编译器认可，默认为public。</p>
+<p>   (3).在接口中定义的任何字段都自动是static,final的成员变量或方法.</p>
+<p>抽象类和接口的区别：</p>
+<p>  抽象类是用来捕捉子类的通用特性的 。它不能被实例化，只能被用作子类的超类。抽象类是被用来创建继承层级里子类的模板.</p>
+<p>  接口是抽象方法的集合。如果一个类实现了某个接口，那么它就继承了这个接口的抽象方法。这就像契约模式，如果实现了这个接口，那么就必须确保使用这些方法。接口只是一种形式，接口自身不能做任何事情。<br> 详细请看：<a href="http://www.importnew.com/12399.html很好的对比" target="_blank" rel="noopener">http://www.importnew.com/12399.html很好的对比</a></p>
+<p>注：</p>
+<p>1.普通类继承，并非一定要重写父类方法。</p>
+<p>2.抽象类继承，如果子类也是一个抽象类，并不要求一定重写父类方法。如果子类不是抽象类，则要求子类一定要实现父类中的抽象方法。</p>
+<p>3.接口类继承。如果是一个子接口，可以扩展父接口的方法；如果是一个子抽象类，可以部分或全部实现父接口的方法；如果子类不是抽象类，则要求子类一定要实现父接口中定义的所有方法。</p>
+<p>4.接口可以向上转型！</p>
+<p>drawTest[] d = {new ParallelogramUseInterface(),  //drawTest是接口</p>
+<p>new SquareUseInterface()};  //重要：接口也可以进行向上转型操作!!</p>
+<p>java中，将一个类向上转型为父类对象，向上转型为抽象父类对象，或是向上转型为该类实现接口，都是可以的！！</p>
+<p>5.实现多个接口语法  public class lala implements drawTest,jiekou1,jiekou2….</p>
+<p>6.接口可以继承(extends)多个接口(而类只能继承一个类)，而类可以实现多个接口.</p>
+<p>7.抽象类中的方法：1.为抽象方法，没有方法体，前面要加abstract并且后面是(); 2.也可以不是abstract方法，有方法体，后面是(){}</p>
+<p>63.第11章（类的高级特性）:</p>
+<p>1.在类中配合包与权限修饰符使用时，可以控制其他人对类成员访问。</p>
+<p>2.同时在java中一个更为有效的隐藏实现细节的技巧是使用内部类：通过使用内部类机制可以向上转型为被内部类实现的公共接口。</p>
+<p>一个类可以定义多个内部类，实现接口的方法也不止一个，只要将内部类中的方法设置为类最小范围的修饰权限即可将内部类的实现细节有效的隐藏。</p>
+<p>64.java类包：</p>
+<p>1.java中每个接口或类都来自类包（代码增多时，防止类名接口名相同，所以放在不同的包）。</p>
+<p>2.完整的类名是 包名与类名 的组合（java.lang.Math lang包下的Math类）</p>
+<p>3.同一包中的类相互访问时，可以不指定包名。</p>
+<p>4.同一包中的类不必放在同一个位置，可以一个放在c盘，一个放在d盘，只要将classpath分别指向这两个位置即可。</p>
+<p>5.java规则：包名为小写字母，类名首字母大写</p>
+<p>6.万一包名也会冲突呢？</p>
+<p>java中定义包名通常使用创建者的Internet域名的反序，由于Internet域名独一无二，包名自然不会冲突。</p>
+<p>7.定义包名：package number11;</p>
+<p>导入包或包中的类:import number12;</p>
+<p>import java.lang.Math(或*表示该包中的所有类);</p>
+<p>注：import 还可以导入静态成员(变量或方法)</p>
+<p>import static java.lang.Math.max; //静态成员方法</p>
+<p>import static java.lang.System.out; //静态成员变量<br>out.println(“1 4 max : “ + max(1,4));//主方法中直接用就可以了！！！</p>
+<p>8.在程序中添加import关键字时，就开始在classpath指定的目录中进行查找。  </p>
+<p>9.final变量:</p>
+<p>final用于变量声明，一旦声明，不可以再改变值，通常声明的变量为常量（PI等）</p>
+<p>final必须在声明时对其赋值，一个既是static又是final的字段只占据一段不能改变的存储空间。</p>
+<p>final与static：</p>
+<p>1.定义为final的数据无论是常量、对象引用还是数组，在主函数中都不可以被改变！！(final声明后不能改变！但是引用中的数值，常量每次创建新对象初始化会变！！)</p>
+<p>static可以改变，但是共享共用的，只有一个的<br>   //可以对指定为final的引用中的成员变量赋值；<br>​     //但是不能将定义为final的引用指向其他引用。(final常量，不能改变了！！！)</p>
+<p>2.一个被定义为final的对象引用只能指向唯一一个对象，不可以将它再指向其他对象，但是一个对象本身的值确实可以改变的，那么为了使一个常量真正做到不可更改，可将常量声明为static final!!</p>
+<p>技巧：java定义全局变量，通常使用public static final 修饰，这样的常量只能在定义时被赋值</p>
+<p>3.可以将方法中的参数定义为final类型，则无法在方法中更改参数引用所指向的对象</p>
+<p>4.final方法:</p>
+<p>1.子类不能访问也不能重写父类private权限方法!!</p>
+<p>2.final方法不能被重写！</p>
+<p>3.定义的final类不能被继承！(如果希望一个类不允许任何类继承，并且不允许其他人对这个类进行任何改动，可以将这个类设置为final形式)  </p>
+<p>4.final类中的所有方法都隐式设置为final形式！但是final类中的成员变量可以被定义为final或非final形式！</p>
+<p>65.内部类：</p>
+<p>（总结为啥需要内部类，两个原因：1.内部类可以随意访问外部类的所有成员，这是别的一般的类不能做到的，所以很好要用；2.内部类可以实现对一个接口中一个方法的多个不同的实现方式，定义多个内部类分别实现此接口，并且重写不同的方法就好了！！）</p>
+<p>1.在一个源文件.java文件中可以有很多类,但是只能有一个public类，在public类中找程序的入口main函数</p>
+<p>2.如果在类中再定义一个类，则称为内部类。内部类可分为成员内部类、局部内部类、匿名类！（以下一直到66.前都是成员内部类）</p>
+<p>3.在内部类中可以随意使用外部类的成员方法以及成员变量，尽管这些成员被修饰为private。</p>
+<p>而外部类不可以直接访问内部类成员成员变量!!  </p>
+<p>4.内部类的实例一定要绑在外部类的实例上，如果从外部类中初始化一个内部类对象，那么内部类对象就会绑定在外部类对象上，内部类初始化方法与其他类初始化方式相同，都是使用new关键字。</p>
+<p>5.内部类的对象实例化操作必须在外部类或外部类的 非静态方法中实现（个人总结：可以在外部类中就初始化内部类，直接成员变量里new一个.）<br>​    如果在外部类和非静态方法之外实例化内部类对象，需要使用外部类，内部类的形式指定该对象的类型。</p>
+<p>6.//必须是out.new innerClass()才可以new一个实例化内部类。<br>   在实例化内部类对象时，不能在new操作符之前使用外部类名称实例化内部类对象，而是应该使用外部类的对象来创建其内部类的对象。</p>
+<p>7.内部类向上转型为其父类对象或接口。（见例子InterfaceInner） ：</p>
+<p>一般的类中是不能多次实现接口中同一个方法的，如果想以不同的多次方式实现接口中的同一个方法？ — 内部类向上转型为接口：在外部类提供一个接口，在接口中声明一个方法，定义多个内部类，以不同的多次实现接口中的同一个方法。这种技巧经常被应用在Swing编程中，可以在一个类中做出多个不同的响应事件（）</p>
+<p>OutInterface outinter = out.doit(); //doit返回一个new innerClass,并将new innerClass内部类向上转型为接口.</p>
+<p>注：因为大多数内部类都是private的，不能访问啊什么的，所以当许多个内部类重写实现了接口中的方法时，主程序中调用此方法怎么调用此方法呢????答案就是内部类向上转型为！接口！！用接口.方法调用就可以了！！！！（outinter.f();）</p>
+<p>8.非内部类不能被声明为private或protected类型。   </p>
+<p>9.使用this关键字获取内部类与外部类的引用：<br>   如果在外部类中定义的成员变量和内部类的成员变量民称相同，可以使用this关键字。TheOutClassName.this.x;</p>
+<p>10.在类中所有对象均被放置在堆中，方法以及方法中的形参或局部变量放置在栈中！  </p>
+<p>66.局部内部类:(在类的方法或任意的作用域中均可以定义内部类)  </p>
+<p>1.内部类在方法里，就不是属于OutClass22一部分，所以在doit方法外不能访问该内部类，但是内部类可以访问当前代码块的常量以及此外部类的所有成员。  </p>
+<p>2.在方法中定义的内部类只能访问方法中final类型的局部变量，这是因为在方法中定义的局部变量的生命周期超出方法运行的而生命周期，容易被改变。因此将方法的局部变量（形参）被设置为final，这样就不能在内部类中改变该局部变量的值 。</p>
+<p>67.匿名内部类：</p>
+<p>A aa = new A();   //不是匿名类<br>​     new A();  //匿名类</p>
+<p>1.创建匿名类的三种方式(实现接口；继承父类；实现抽象类)<br>​<br>一般用于:return new interface3(){重写接口中的方法代码} ;    </p>
+<p>68.静态内部类：</p>
+<p>在内部类前添加static，这个内部类就变为静态内部类了。一个静态内部类中可以声明static成员，但是在非静态内部类中不可以声明静态成员（总结：只要类中有成员是static，类必须是static的）。<br>  !!!!静态内部类有两个最大的特点!!!!</p>
+<p>1.如果创建静态内部类的对象，不需要其外部类的对象;</p>
+<p>2.不可以访问非静态外部类的成员.</p>
+<p>69.内部类的继承：</p>
+<p>内部类和其他普通类一样可以被继承.</p>
+<pre><code class="java">  public class OutputInnerClass extends A.B{
+   public OutputInnerClass(A a){
+​     a.super();}
+​     
+​```
+​
+在某个类继承内部类时，1.必须硬性给予这个类一个带参数的构造方法，并且该构造方法的2.参数为需要继承内部类的外部类的引用，3.同时在构造方法体中使用a.super()语句，这样才为能继承提供了必要的对象引用。}
+
+70.第12章（异常处理)：
+
+  1.java中将异常封装到一个类中，出现错误时，就会抛出异常。
+
+  2.异常处理(捕获异常)：如果某个方法抛出异常，既可以在当前方法中进行捕捉，然后处理该异常，也可以将异常向上抛出，有方法调用者来处理。
+
+   异常捕获结构由try、catch、finally三部分构成：
+​  
+​    try：存放可能发生异常的java语句
+​  
+​    catch：该程序块在try语句之后，用来激发被捕获的异常
+​  
+​    finally：是异常处理结构的最后执行部分，无论try块中的代码如何退出，都将执行finally语句块。
+
+```java
+try{}
+catch(Exception e1){
+对e的异常进行处理
+}
+catch(Exception e2){
+对e2的异常进行处理
+}
+finally{}
+</code></pre>
+<p>3.如果没有try-catch，程序运行到异常的地方就立即终止，不再运行。</p>
+<p>而如果有try-catch，程序继续运行到完，不再终止：当try代码块中的语句发生异常时，程序就会调转到catch代码块中执行，执行完catch代码块中的程序代码后，将继续执行catch代码块后的其他代码，而不会执行try代码块中发生异常语句后面的代码。由此可知，java的异常处理是结构化的，不会因为一个异常影响到整个程序的执行。</p>
+<p>4.Exception是try代码块传递给catch代码块的变量类型，e是变量名。异常处理常用以下3个函数来获取异常的有关信息：<br>​<br>​```java<br>​    e.getMessage()函数：输出错误性质；<br>​    e.toString()函数：给出异常的类型与性质；<br>​    e.printStackTrace()函数：指出异常的类型、性质、栈层次及出现在程序中的位置。<br>​    </p>
+<pre><code>
+5.finally:完整异常处理语句一定要包含finally语句，无论程序中有无异常发生，并且无论之间try-catch是否顺利执行完毕，都会执行finally语句。
+
+在以下4种特殊情况下，finally语句不会执行：  
+
+1.在finally语句块中发生异常；
+
+2.在前面的代码中使用了System.exit()退出程序；  
+
+3.程序所在的线程死亡。
+
+4.关闭CPU
+
+6.java中常见的异常（P216）
+
+7.自定义异常： 只需继承Exception类即可自定义异常类。有以下步骤：
+
+1.创建自定义异常类(继承Exception类)；
+
+2.在方法中通过throw关键字抛出异常对象；
+
+throw new MyException(&quot;不可以使用该数！&quot;);
+
+3.如果在当前抛出异常的方法中处理异常，可以使用try-catch语句块捕获并处理，否则在方法的声明处通过throws关键字指明要抛出给方法调用者的异常，继续进行下一步操作。
+
+4.在出现异常方法的调用者中捕获并处理异常。
+
+8.throw、throws区别：
+
+1.throw关键字通常用于方法体中，并且抛出一个异常对象。程序执行到throw语句是立即终止，它后面的语句都不执行。throw通常用来抛出用户自定义异常。
+
+2.在方法中通过throw抛出异常后：
+
+如果想在上一级代码中来捕获并处理异常，则需要在方法的声明中使用throws关键字指明要抛出的异常，多个异常可用都逗号分隔；
+
+如果要捕捉throw抛出的异常，则必须使用try-catch语句块。
+
+4.使用throws关键字将异常抛给上一级。
+
+9.如果是error、RuntimeException或它们的子类，可以不使用throws关键字来声明要抛出的异常，编译仍能顺利通过，但在运行是会被系统抛出。
+
+```java
+   public class Captor
+{
+   static int quotient(int x, int y) throws MyException1
+   {
+​     if(y &lt;= 0)
+​     {
+​       throw new MyException1(&quot;除数不能是负数或者0&quot;);
+​     }
+​     return x/y;
+   }
+
+   public static void main(String[] args)
+   {
+​     try
+​     {
+​       System.out.println(quotient(5,3));
+​     }
+​     catch(MyException1 e)
+​     {
+​       e.printStackTrace();
+​       e.getMessage();
+​     }
+​     catch(Exception e)
+​     {
+​       System.out.println(&quot;程序发生了其他异常&quot;);}}}
+</code></pre><p>  10.Exception是所有异常类的父类，如果将catch(Exception e)代码块提前，放在所有(别的Exception e)前面，那么后面的代码块将永远不会执行，也就没什么意义了。所以catch语句的顺序不可调换！</p>
+<p>71.运行时异常：RuntimeException异常是程序运行过程中产生的异常。java类库的每个包中都定义了异常类，所有这些类都是Throwable类的子类，分别是Exception和Error类。Error类及其子类用来描述java运行系统中的内部错误以及资源耗尽的错误，这类错误比较严重；Exception类称为非致命性类，可以通过捕捉处理使程序继续执行。</p>
+<p>   Exception类又根据错误发生的原因分为RuntimeException异常(ClassCastException、ArraySizeException…)和除RuntimeException之外的异常。</p>
+<p>72.异常的使用原则</p>
+<p>  编写代码处理某个方法可能出现的异常时，遵循以下原则：</p>
+<p>   1.在当前方法声明中使用try-catch语句捕获异常；</p>
+<p>   2.一个方法被覆盖时，覆盖它的方法必须抛出相同的异常或异常的子类；</p>
+<p>   3.如果父类抛出多个异常，则覆盖方法必须抛出那些异常的一个子集，不能抛出新异常；</p>
+<p>   4.异常处理是通过try-catch实现的，也可以throws向上抛出。建议读者不要将异常抛出，应该编写异常处理语句。</p>
+<p>73.第13章（Swing程序设计，本章跳过，先不学了！）</p>
+<p>74.第14章（集合类)(List、Set、Map)</p>
+<p>集合可以看成一个容器。java中提供了不同的集合类，这些类具有不同的存储对象的方式，并提供了相应的方法以方便用户对集合进行遍历、添加、删除以及查找指定的对象。</p>
+<p>本章所有都没记，要看书的！每个集合都有重要例子，一定要看（自己已经调试看懂了，还要复习的看代码！）</p>
+<p>75.从14章起，每晚总结要点，（看书、看代码、在网上找总结）写到写字板里！</p>
+<p>76.第15章（I/O流输入输出）:</p>
+<p>java的I/O技术可以将数据保存到文本文件、二进制文件甚至是zip压缩文件中。    </p>
+<h2 id="练习代码"><a href="#练习代码" class="headerlink" title="练习代码"></a>练习代码</h2><p>二刷java核心技术_重温基础部分的练习代码保存，这段代码没啥用，就是一些小的语法知识点，看一遍能唤醒记忆</p>
+<pre><code class="java">import static java.lang.Math.*;
+import java.math.*;
+import java.io.*;
+import java.util.*;
+import java.nio.file.Path;
+import java.nio.file.*;
+//enum Size(big, small);
+
+public class HelloWorld
+{
+    public static final double D = 32.4321;
+
+    public static long jie(long start,long end)
+    {
+        if(start != end)
+            return start * jie(start+1, end);
+        return end; 
+    }
+
+    public static void main(String args[]) throws IOException
+    {
+//        Console cons = System.console();
+//        String name = cons.readLine(null, args);
+//        System.out.println(name);
+//        char pwd[] = cons.readPassword(&quot;password: &quot;);
+//        System.out.println(pwd);
+
+//        Scanner inData = new Scanner(System.in);
+//        Double age = inData.nextDouble();
+//        System.out.println(age);
+
+        System.out.println(1.0/3);
+//        System.out.printf(&quot;hello %s, you are %+,(.5f\n&quot;, &quot;cby&quot;, -22312324.1235123);
+//        System.out.printf(&quot;hello %s\n%s\n&quot;, &quot;wqe&quot;, -224.35123);
+
+//        String form = String.format(&quot;hello %s, you are %+,(.5f\n&quot;, &quot;cby&quot;, -22312324.1235123);
+//        System.out.println(form);
+//        System.out.printf(&quot;%tF\n&quot;, new Date());
+//        System.out.printf(&quot;%1$s %2$tY %2$tB %2$td\n&quot;, &quot;日期：&quot;, new Date());
+//        System.out.printf(&quot;%1$s %2$tY %&lt;tB %&lt;td\n&quot;, &quot;日期：&quot;, new Date());
+
+//        Scanner in = new Scanner(Paths.get(&quot;d:\\1.txt&quot;));
+//        String data = in.nextLine();
+//        System.out.println(data); //从文件中提取数据信息并打印输出
+
+//        PrintWriter out = new PrintWriter(&quot;d:\\1.txt&quot;);
+//        out.println(&quot;hahahaha&quot;);  //写入数据信息到指定文件
+//        out.flush(); //刷新文件
+
+        int a2[] = {5,4,3,2,1};
+
+        for(int ele: a2)
+            System.out.print(ele + &quot; &quot;);
+        System.out.println();
+
+        Arrays.sort(a2);
+
+        for(int ele: a2)
+            System.out.print(ele + &quot; &quot;);
+        System.out.println();
+
+        for(int i=1; i&lt;=10; i+=2)
+        {
+            if(i == 1)
+                System.out.print(i);
+            else
+                System.out.print(&quot; &quot; + i);
+        }
+        System.out.print(&#39;\n&#39;);
+
+        long x = 50;
+        long k = 6;
+        long res = jie(x-k+1, x)/jie(1,k);
+        System.out.println(res);
+
+        BigInteger a1 = BigInteger.valueOf(100);
+        System.out.println(a1.multiply(BigInteger.valueOf(900)));
+
+        int data1[] = {1,2,34,5};
+        int data2[] = data1;
+        int data3[] = Arrays.copyOf(data1, 4);
+        System.out.println(data3[2]);
+
+        int a43[][] = new int[4][];
+        for(int i=0; i&lt;a43.length; ++i)
+            a43[i] = new int[i+1];
+        for(int i=0; i&lt;a43.length; ++i)
+            for(int j=0; j&lt;a43[i].length; ++j)
+                a43[i][j] = j;
+        System.out.println(Arrays.deepToString(a43));
+
+        System.out.println();
+
+        int n1 = 2;
+        haha:
+        switch(n1)
+        {
+            case 1:
+                System.out.println(&quot;1 bingo!&quot;);
+                break;
+            case 2:
+                System.out.println(&quot;2 bingo!&quot;);
+                break haha;
+            case 5:
+                System.out.println(&quot;5 bingo!&quot;);
+                break;
+            default:
+                System.out.println(&quot;bonggogog!&quot;);
+                break;
+        }
+
+
+
+        boolean x9 = false;
+        if(!x9)
+        {
+            int n = 0b1000; //n==8
+            int result = (n &amp; (1&lt;&lt;3))&gt;&gt;3; 
+            //System.out.println(Math.pow(PI, 1));
+        }
+
+        //Size size = Size.small;
+        //System.out.println(size);
+
+        int sa = 1123214_32;
+        int sb = 2;
+        sb += sa+=1; //从右往左的优先级
+        //System.out.println(sa);
+
+        //System.out.println(&quot;java\u2122&quot;);
+        String ss = new String();  //String不是java数据类型，是一个预定义类
+        ss = &quot;HelloWorld&quot;;
+        String sh = &quot;myfriends&quot;;  //可以直接写
+        ss = ss.substring(0,5) + sh;
+        int num = 43;
+        String haha = &quot;haha&quot; + num;
+        //System.out.println(ss + &quot;\n&quot; + sh + num);
+        System.out.println(ss);
+
+
+        boolean t = true;
+        double result = D/0;
+
+        String as = &quot;hello\n&quot;;
+        int len = as.length();
+        int realSize = as.codePointCount(0, as.length());
+        System.out.println(len);
+        System.out.println(realSize);
+
+        String bs = &quot;hello &quot;;
+        bs = bs.replace(&quot;hell&quot;, &quot;  cby&quot;);
+        System.out.println(bs.toUpperCase().trim());
+
+        StringBuilder sb1 = new StringBuilder();
+        sb1.append(&quot;h&quot;);
+        String sb2 = sb1.toString();
+        System.out.println(sb2);
+        System.out.println(sb2.length());
+
+        if(as!=null &amp;&amp; as.length()!=0)
+        {
+            System.out.println(&quot;haha1&quot;);
+        }
+        else
+        {
+            System.out.println(&quot;ahaha1&quot;);
+        }
+//        if(as.compareTo(&quot;hel&quot;) == 0)
+//        {
+//            System.out.println(&quot;haha2&quot;);
+//        }
+//        else
+//        {
+//            System.out.println(&quot;ahaha2&quot;);
+//        }
+
+        System.out.println(&quot;haha &quot; + D*2 + &quot; by &quot; + D*(3+2));
+        if(Double.isNaN(result) == false)
+        {
+            System.out.println(&quot;result.isnotNaN&quot;);
+        }
+    }
+}
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎转载，欢迎错误指正与技术交流，欢迎交友谈心 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>《java核心技术》-学习笔记</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">12.2k</span></p>
+    <p><span class="copy-title">本文作者:</span>Brain Cao</p>
+    <p><span class="copy-title">发布时间:</span>2016-06-09, 15:30:46</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-15, 18:02:54</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2016/06/09/java-book-note/" title="《java核心技术》-学习笔记">https://braincao.cn/2016/06/09/java-book-note/</a>
+    <p>
+        <span class="copy-title">版权声明:</span>本文为博主原创文章，遵循 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank"><i class="fa fa-creative-commons"></i> BY-NC-SA 4.0 版权协议</a>，转载请保留原文链接与作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2020 Braincao</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢请收藏,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
+
+<script src="/js/script.js?v=1.0.1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#博客','#hexo','#gitee','#linux','#综合技术','#深度学习','#算法刷题','#DFS','#动态规划','#计网','#投资理财','#git','#hosts','#github','#java','#spring','#leetcode','#mac','#职业管理','#数据库','#多线程','#面经','#python','#排序算法','#正则表达式','#技术外','#vim',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+        .nav .hide-list.fullscreen {
+            left: 492px
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #8AC4D2;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
